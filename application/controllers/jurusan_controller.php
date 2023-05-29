@@ -6,6 +6,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class jurusan_controller extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Data_kopi');
+        $this->load->library('form_validation');
+        $this->load->library('session');
+        $this->load->library('table');
+
+
+        if ($this->session->userdata('role_name') != "jurusan") {
+            redirect("auth");
+        }
+    }
 
     public function dokumen()
     {
@@ -17,8 +30,7 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/dokumenkebutuhan/dokumen', $data);
-
-    } 
+    }
 
     public function laporanhasil1()
     {
