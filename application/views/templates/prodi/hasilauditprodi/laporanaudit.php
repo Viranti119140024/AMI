@@ -1,0 +1,63 @@
+<div class="container">
+
+
+<div class="card mt-2">
+  <div class="card-body">
+  <center class="text-dark mt-8"> <h5>LAPORAN AUDIT MUTU INTERNAL 2023/2024 <br>PROGRAM STUDI .....<br></h5> </center> 
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead class="text-center"
+            <tr>
+                <th rowspan="2" style="background-color: #3EB489; color:black;">Proses</th>
+                <th colspan="3" style="background-color: #3EB489; color:black;">Penanggung Jawab</th>
+            </tr>
+
+            <tr>
+                <th style="background-color: #3EB489; color:black;">Nama</th>
+                <th style="background-color: #3EB489; color:black;">Jabatan</th>
+                <th style="background-color: #3EB489; color:black;">Tanda Tangan</th>
+            </tr>
+        </thead>
+
+        <tbody style="background-color: white; color:black;">
+        <tr>
+            <td>Penyusunan</td>
+            <td></td>
+            <td>Ketua</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>Pemeriksaan</td>
+            <td></td>
+            <td>Kepala SPM</td>
+            <td></td>
+        </tr>
+
+        </tbody>
+
+    </table>
+  </div>
+  <button class="btn btn-success" type="submit">Edit</button>
+</div>
+
+
+    </div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end mt-2">
+                <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                    <a class="page-link" href="<?= base_url('prodi/katapengantarr') ?>">Next</a>
+                </li>
+            </ul>
+        </nav>
+     </div>
+
+
+</div>

@@ -1,0 +1,19 @@
+.background{
+    background-color:#DAA520;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.imglogo{
+    height: 40px;
+}
+
+.textlogo{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color:white;
+    font-weight: 600;
+}
