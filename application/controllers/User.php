@@ -16,9 +16,9 @@ class User extends CI_Controller
         $this->load->library('table');
 
 
-        if ($this->session->userdata('role_name') != "admin") {
-            redirect("auth");
-        }
+        // if ($this->session->userdata('role_name') != "admin") {
+        //     redirect("auth");
+        // }
     }
 
 
@@ -160,7 +160,7 @@ class User extends CI_Controller
     public function berandaadmin()
     {
 
-        $data['title'] = '';
+        $data['title'] = 'Beranda Admin';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 

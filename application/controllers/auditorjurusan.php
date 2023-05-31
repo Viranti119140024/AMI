@@ -8,7 +8,7 @@ class auditorjurusan extends CI_Controller
 {
     public function kebutuhanauditt()
     {
-        $data['title'] = '';
+        $data['title'] = 'Dokumen Kebutuhan Audit';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 

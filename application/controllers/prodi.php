@@ -14,9 +14,9 @@ class prodi extends CI_Controller
         $this->load->library('table');
 
 
-        if ($this->session->userdata('role_name') != "prodi") {
-            redirect("auth");
-        }
+        // if ($this->session->userdata('role_name') != "prodi") {
+        //     redirect("auth");
+        // }
     }
 
     public function dokumenkebutuhan()
