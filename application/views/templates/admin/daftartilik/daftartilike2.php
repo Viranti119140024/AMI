@@ -45,9 +45,8 @@
             <tbody style="background-color: white; color:black;">
                 <tr>
                     <td>1</td>
-                    <td>Apakah dosen memberikan transparasi nilai 
-                        kepada mahasiswa </td>
-                    <td>Dibuktikan berdasarkan platform yang digunakan</br></td>
+                    <td>Apakah program studi memiliki Dokumen petunjuk teknis Tugas Akhir</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -58,7 +57,7 @@
 
                 <tr>
                     <td>2</td>
-                    <td>Setiap maka kuliah memiliki portofolio</td>
+                    <td>Apakah program studi memiliki Dokumen petunjuk teknis stadium general</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -70,7 +69,7 @@
 
                 <tr>
                     <td>3</td>
-                    <td>Apakah setiap mahasisiswa dapat melampaui IPK minimal 2.75 sesuai standard ITERA</td>
+                    <td>Apakah program studi memiliki Dokumen Dokumen petunjuk teknis PL/PKL/Magang/KP</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -82,9 +81,8 @@
 
                 <tr>
                     <td>4</td>
-                    <td>Apakah evaluasi hasil belajar mahasiswa setiap matakuliah dilakukan 
-                        sekurang-kurangnya dua kali dalam satu semester?</td>
-                    <td>Panduan Akademik pasal 28 ayat (1)</td>
+                    <td>Apakah prodi melaksanakan kegiatan sistematik yang menciptakan suasana akademik dan budaya mutu? 
+                        Seperti seminar ilmiah bulanan, dll? singgung tentang publikasi mahasiswa yang disitasi (karena dibutuhkan untuk C9 LED)</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -102,13 +100,13 @@
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-end mt-2">
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik4') ?>">Previous</a>
+      <a class="page-link" href="<?= base_url('user/daftartilik8') ?>">Previous</a>
     </li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik8') ?>">Next</a>
+      <a class="page-link" href="<?= base_url('user/daftartilik10') ?>">Next</a>
     </li>
   </ul>
 </nav>

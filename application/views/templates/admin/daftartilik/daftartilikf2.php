@@ -45,9 +45,9 @@
             <tbody style="background-color: white; color:black;">
                 <tr>
                     <td>1</td>
-                    <td>Apakah dosen memberikan transparasi nilai 
-                        kepada mahasiswa </td>
-                    <td>Dibuktikan berdasarkan platform yang digunakan</br></td>
+                    <td>Apakah program studi memiliki Dokumen Roadmap Penelitian 
+                        Program studi sesuai KK masing masing</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -58,7 +58,8 @@
 
                 <tr>
                     <td>2</td>
-                    <td>Setiap maka kuliah memiliki portofolio</td>
+                    <td>Apakah program studi memiliki Dokumen monitoring Penelitian sesuai 
+                        roadmap dan visi misi PS oleh ketua KK petunjuk teknis stadium general</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -70,7 +71,8 @@
 
                 <tr>
                     <td>3</td>
-                    <td>Apakah setiap mahasisiswa dapat melampaui IPK minimal 2.75 sesuai standard ITERA</td>
+                    <td>Apakah program studi memiliki Dokumen Dokumen data hasil penelitian mencakup 
+                        (Judul, Penulis, Luaran, melibatkan mahasiswa, sumber dan besaran dana PT/Mandiri)</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -82,9 +84,7 @@
 
                 <tr>
                     <td>4</td>
-                    <td>Apakah evaluasi hasil belajar mahasiswa setiap matakuliah dilakukan 
-                        sekurang-kurangnya dua kali dalam satu semester?</td>
-                    <td>Panduan Akademik pasal 28 ayat (1)</td>
+                    <td>Apakah prodi Dokumen penelitian yang diintegrasikan dengan bahan ajar Mata Kuliah</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -102,13 +102,13 @@
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-end mt-2">
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik4') ?>">Previous</a>
+      <a class="page-link" href="<?= base_url('user/daftartilik10') ?>">Previous</a>
     </li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik8') ?>">Next</a>
+      <a class="page-link" href="<?= base_url('user/daftartilik12') ?>">Next</a>
     </li>
   </ul>
 </nav>
