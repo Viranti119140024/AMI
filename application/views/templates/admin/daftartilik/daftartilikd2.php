@@ -45,10 +45,9 @@
             <tbody style="background-color: white; color:black;">
                 <tr>
                     <td>1</td>
-                    <td>Apakah sebelumnya pernah dilakukan AMI 
-                        terkait kompetensi lulusan? 
-                        Bila Ya, apakah dilakukan tindak lanjut terhadap temuan sebelumnya?</td>
-                    <td></td>
+                    <td>Apakah dosen memberikan transparasi nilai 
+                        kepada mahasiswa </td>
+                    <td>Dibuktikan berdasarkan platform yang digunakan</br></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -59,9 +58,33 @@
 
                 <tr>
                     <td>2</td>
-                    <td>Apakah kompetensi lulusan prodi 
-                        telah sesuai dengan KKNI minimal Level 6?</td>
+                    <td>Setiap maka kuliah memiliki portofolio</td>
                     <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Apakah setiap mahasisiswa dapat melampaui IPK minimal 2.75 sesuai standard ITERA</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>Apakah evaluasi hasil belajar mahasiswa setiap matakuliah dilakukan 
+                        sekurang-kurangnya dua kali dalam satu semester?</td>
+                    <td>Panduan Akademik pasal 28 ayat (1)</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -79,13 +102,13 @@
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-end mt-2">
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik0') ?>">Previous</a>
+      <a class="page-link" href="<?= base_url('user/daftartilik4') ?>">Previous</a>
     </li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik2') ?>">Next</a>
+      <a class="page-link" href="<?= base_url('user/daftartilik6') ?>">Next</a>
     </li>
   </ul>
 </nav>

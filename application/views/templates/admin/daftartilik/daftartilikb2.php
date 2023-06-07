@@ -45,10 +45,9 @@
             <tbody style="background-color: white; color:black;">
                 <tr>
                     <td>1</td>
-                    <td>Apakah sebelumnya pernah dilakukan AMI 
-                        terkait kompetensi lulusan? 
-                        Bila Ya, apakah dilakukan tindak lanjut terhadap temuan sebelumnya?</td>
-                    <td></td>
+                    <td>Apakah setiap mata kuliah memiliki dokumen kontrak kuliah 
+                        dan ditandatangani oleh dosen pengampu dan mahasiswa</td>
+                    <td>Kontrak Kuliah</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -59,9 +58,22 @@
 
                 <tr>
                     <td>2</td>
-                    <td>Apakah kompetensi lulusan prodi 
-                        telah sesuai dengan KKNI minimal Level 6?</td>
+                    <td>Apakah bahan materi perkuliahan tersedia 
+                        sejumlah 14 pertemuan dan 2 pertemuan UTS/UAS</td>
+                    <td>Materi Perkuliahan</td>
                     <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Apakah tersedia berita acara perkuliahan 
+                        pada setiap mata kuliah yang disahkan oleh GKMP dan Kaprodi</td>
+                    <td>BAP</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -79,13 +91,13 @@
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-end mt-2">
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik0') ?>">Previous</a>
+      <a class="page-link" href="<?= base_url('user/daftartilik2') ?>">Previous</a>
     </li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik2') ?>">Next</a>
+      <a class="page-link" href="<?= base_url('user/daftartilik4') ?>">Next</a>
     </li>
   </ul>
 </nav>
