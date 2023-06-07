@@ -3,7 +3,7 @@
    <button class="btn btn-success" type="button"><a href="<?= base_url('user/tambahprodi') ?>" class="text-white">+ Tambah</button>
 
 
-<div class="card mt-2">
+<div class="card">
     <div class="card-body">
         <h4 class="d-flex justify-content-center align-items-center mt-3"><?= $title ?></h4>
         <div class="table-responsive mt-2">
@@ -47,7 +47,7 @@
                 <tr>
                     <td>Dokumen Acuan</td>
                     <td>:</td>
-                    <td>Standar Proses Pembelajaran</td>
+                    <td>Standar Isi Pembelajaran</td>
                 </tr>
             </table>
         </div>
@@ -80,7 +80,7 @@
                 <tbody style="background-color: white; color:black;">
                 <tr>
                  <td>1</td>
-                 <td>RPS</td>
+                 <td>Dokumen kontrak Kuliah</td>
                  <td></td>
                  <td></td>
                  <td></td>
@@ -94,24 +94,8 @@
              </tr>
 
              <tr>
-                 <td></td>
-                 <td>a.	Tersedia RPS yang memuat OBE (Outcome Base Education)/ Project Bae Learning, 
-                    sekurang kurangnya 25% dari total </td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-             </tr>
-
-             <tr>
-                 <td></td>
-                 <td>b.	Bentuk Pembelajaran</td>
+                 <td>2</td>
+                 <td>Materi Bahan Perkuliahan materi (14 pertemuan)</td>
                  <td></td>
                  <td></td>
                  <td></td>
@@ -125,8 +109,8 @@
              </tr>
 
              <tr>
-                 <td></td>
-                 <td>c.	Beban Belajar Mahasiswa dinyatakan dalam bentuk SKS</td>
+                 <td>3.</td>
+                 <td>Berita Acara Perkuliahan</td>
                  <td></td>
                  <td></td>
                  <td></td>
@@ -140,8 +124,23 @@
              </tr>
 
              <tr>
-                 <td>2.</td>
-                 <td>Data Dosen Pengampu MK sesuai bidang program studi</td>
+                 <td>4.</td>
+                 <td>Pedoman Akademik Program Studi</td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+             </tr>
+
+             <tr>
+                 <td>5.</td>
+                 <td>Dokumen Kode ETik Mahasiswa, Dosen, Tendik (ITERA)</td>
                  <td></td>
                  <td></td>
                  <td></td>
@@ -163,13 +162,13 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end mt-2">
                 <li class="page-item">
-                    <a class="page-link" href="<?= base_url('user/daftartilik3') ?>">Previous</a>
+                    <a class="page-link" href="<?= base_url('auditor/dta2') ?>">Previous</a>
                 </li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                    <a class="page-link" href="<?= base_url('user/daftartilik5') ?>">Next</a>
+                    <a class="page-link" href="<?= base_url('auditor/dtb2') ?>">Next</a>
                 </li>
             </ul>
         </nav>

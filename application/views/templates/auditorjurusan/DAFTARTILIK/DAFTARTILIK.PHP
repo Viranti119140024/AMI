@@ -92,7 +92,7 @@
 
                     <tr>
                         <td>2</td>
-                        <td>Dokumen Kurikulum</td>
+                        <td>Dokumen SOP pelaksanaan Ujian Semester</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -106,8 +106,8 @@
                     </tr>
 
                     <tr>
-                        <td>a.</td>
-                        <td>Visi Misi Program Studi sesuai Institusi</td>
+                        <td>3</td>
+                        <td>Dokumen SOP Penilaian perkuliahan paralel</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -121,8 +121,8 @@
                     </tr>
 
                     <tr>
-                        <td>b.</td>
-                        <td>Daftar Mata kuliah TPB dan Program Studi</td>
+                        <td>4</td>
+                        <td>Dokumen SOP Stadium Generale/Seminar Ilmiah</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -136,8 +136,8 @@
                     </tr>
 
                     <tr>
-                        <td>c.</td>
-                        <td>Dokumen kompetensi lulusan mengacu pada KKNI Level 6/CPL</td>
+                        <td>5</td>
+                        <td>Dokumen SOP Monitoring/Pedoman Tugas Akhir</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -151,8 +151,8 @@
                     </tr>
 
                     <tr>
-                        <td>d.</td>
-                        <td>Matriks mata kuliah dengan kompetensi lulusan</td>
+                        <td>6</td>
+                        <td>Dokumen SOP ujian/ sidang tugas akhir</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -166,8 +166,8 @@
                     </tr>
 
                     <tr>
-                        <td>e.</td>
-                        <td>Rencana Pembelajaran Semester</td>
+                        <td>7</td>
+                        <td>Dokumen rekap Lulusan mahasiswa tiap tahun dan tiap prodi mencakup (IPK, lama studi)</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -180,25 +180,23 @@
                         <td></td>
                     </tr>
                 </tbody>
-
             </table>
-        </div>
+</div>
 
-        <p style="color:black;"> * M= Memenuhi, MP= Melampaui, MB= Belum Memenuhi, MY= Menyimpang <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
-
+</div>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end mt-2">
-                <li class="page-item disabled">
-                    <a class="page-link">Previous</a>
+                <li class="page-item">
+                    <a class="page-link" href="<?= base_url('auditorjurusan/DaftarHadir') ?>">Previous</a>
                 </li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                    <a class="page-link" href="<?= base_url('auditor/dta2') ?>">Next</a>
+                    <a class="page-link" href="<?= base_url('auditorjurusan/dta2') ?>">Next</a>
                 </li>
             </ul>
         </nav>
     </div>
-</div>
+
 </div>

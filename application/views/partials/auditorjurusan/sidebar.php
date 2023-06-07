@@ -14,7 +14,7 @@
                 <span class="itemcolor">Dokumen Kebutuhan Audit</span></a>
     
         <li class="list-group">
-            <a class="list-group-item" href="<?= base_url('auditorjurusan/DaftarTilik') ?>">
+            <a class="list-group-item" href="<?= base_url('auditorjurusan/DaftarHadir') ?>">
                 <i class="fa fa-list-alt itemcolor"></i>
                 <span class="itemcolor">Daftar Tilik</span></a>
 

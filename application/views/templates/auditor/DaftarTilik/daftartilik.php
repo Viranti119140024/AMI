@@ -1,5 +1,8 @@
 <div class="container-fluid">
 
+   <button class="btn btn-success" type="button"><a href="<?= base_url('user/tambahprodi') ?>" class="text-white">+ Tambah</button>
+
+
 <div class="card">
     <div class="card-body">
         <h4 class="d-flex justify-content-center align-items-center mt-3"><?= $title ?></h4>
@@ -92,7 +95,7 @@
 
                     <tr>
                         <td>2</td>
-                        <td>Dokumen SOP pelaksanaan Ujian Semester</td>
+                        <td>Dokumen Kurikulum</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -106,8 +109,8 @@
                     </tr>
 
                     <tr>
-                        <td>3</td>
-                        <td>Dokumen SOP Penilaian perkuliahan paralel</td>
+                        <td>a.</td>
+                        <td>Visi Misi Program Studi sesuai Institusi</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -121,8 +124,8 @@
                     </tr>
 
                     <tr>
-                        <td>4</td>
-                        <td>Dokumen SOP Stadium Generale/Seminar Ilmiah</td>
+                        <td>b.</td>
+                        <td>Daftar Mata kuliah TPB dan Program Studi</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -136,8 +139,8 @@
                     </tr>
 
                     <tr>
-                        <td>5</td>
-                        <td>Dokumen SOP Monitoring/Pedoman Tugas Akhir</td>
+                        <td>c.</td>
+                        <td>Dokumen kompetensi lulusan mengacu pada KKNI Level 6/CPL</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -151,8 +154,8 @@
                     </tr>
 
                     <tr>
-                        <td>6</td>
-                        <td>Dokumen SOP ujian/ sidang tugas akhir</td>
+                        <td>d.</td>
+                        <td>Matriks mata kuliah dengan kompetensi lulusan</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -166,8 +169,8 @@
                     </tr>
 
                     <tr>
-                        <td>7</td>
-                        <td>Dokumen rekap Lulusan mahasiswa tiap tahun dan tiap prodi mencakup (IPK, lama studi)</td>
+                        <td>e.</td>
+                        <td>Rencana Pembelajaran Semester</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -183,6 +186,9 @@
 
             </table>
         </div>
+
+        <p style="color:black;"> * M= Memenuhi, MP= Melampaui, MB= Belum Memenuhi, MY= Menyimpang <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
+
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end mt-2">
                 <li class="page-item disabled">

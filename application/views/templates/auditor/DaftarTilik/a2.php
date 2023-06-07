@@ -1,3 +1,8 @@
+<div class="container-fluid">
+
+   <button class="btn btn-success" type="button"><a href="<?= base_url('user/tambahprodi') ?>" class="text-white">+ Tambah</button>
+
+
 <div class="card">
   <div class="card-body">
   <h4 class="d-flex justify-content-center align-items-center mt-3"><?= $title ?></h4>
@@ -117,13 +122,13 @@
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-end mt-2">
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('auditor/daftartilik') ?>">Previous</a>
+      <a class="page-link" href="<?= base_url('auditor/DAFTARTILIK') ?>">Previous</a>
     </li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="#">Next</a>
+      <a class="page-link" href="<?= base_url('auditor/dtb1') ?>">Next</a>
     </li>
   </ul>
 </nav>

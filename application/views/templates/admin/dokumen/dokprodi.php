@@ -1,30 +1,46 @@
 <div class="container">
 
-  <div class="text-dark mt-8"> <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Dokumen Kebutuhan Audit Program Studi</b></h5> </div> 
+  <div class="text-dark mt-8">
+    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Dokumen Kebutuhan Audit Program Studi</b></h5>
+  </div>
 
 
-<b><hr color="red" /></b>
+  <b>
+    <hr color="red" />
+  </b>
 
-<button class="btn btn-success" type="button"><a href="<?= base_url('user/tambahprodi') ?>" class="text-white">+ Tambah</button>
+  <a class="btn btn-success" type="button" class="text-white" href="<?= base_url('user/tambahprodi') ?>">+ Tambah</a>
 
-<div class="card mt-4">
-  <div class="card-body">
-  <table class="table table-striped mt-2">
-  <thead>
-    <tr>
-      <th scope style="color: black;"="col">No</th>
-      <th scope style="color: black;"="col">Program Studi</th>
-      <th scope style="color: black;"="col">Aksi</th>
+  <div class="card mt-4">
+    <div class="card-body">
+      <table class="table table-striped mt-2">
+        <thead>
+          <tr>
+            <th scope style="color: black;"="col">No</th>
+            <th scope style="color: black;"="col">Program Studi</th>
+            <th scope style="color: black;"="col">Aksi</th>
 
+          </tr>
+        </thead>
+        <tbody>
+
+          <?php
+          foreach ($prodi as $key => $value) :
+            $number = $key + 1;
+          ?>
+            <tr>
+              <th scope style="color: black;"="row"><?= $number; ?></th>
+              <td style="color: black;"><?= $value->nama_prodi; ?></td>
+              <td>
+                <a href="<?= base_url('user/dokumen1/') . $value->id_prodi ?> "><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button></a>
+                <a href="<?= base_url('user/downloaddokumen') ?>"><button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button></a>
+                <a href="<?= base_url('user/deleteprodi/') . $value->id_prodi  ?>"><button type="delete" class="sbtn btn-danger"><i class="fa fa-trash"></i></button></a>
+    </div>
+    </td>
     </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope style="color: black;"="row">1</th>
-      <td style="color: black;">Teknik Informatika</td>
-      <td> <a href="<?php echo base_url('user/dokumen1'); ?>"><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
-    </tr>
-    <tr>
+  <?php endforeach; ?>
+
+  <!-- <tr>
       <th scope style="color: black;"="row">2</th>
       <td style="color: black;">Teknik Industri</td>
       <td> <a href="<?php echo base_url('user/dokumen1'); ?>"><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
@@ -48,15 +64,13 @@
       <th scope style="color: black;"="row">6</th>
       <td style="color: black;">Teknik Mesin</td>
       <td> <a href="<?php echo base_url('user/dokumen1'); ?>"><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
-    </tr>
-    
+    </tr> -->
+
   </tbody>
-</table>
+  </table>
   </div>
 </div>
 
 
 
-  </div>
-
-
+</div>

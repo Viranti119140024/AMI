@@ -3,7 +3,7 @@
    <button class="btn btn-success" type="button"><a href="<?= base_url('user/tambahprodi') ?>" class="text-white">+ Tambah</button>
 
 
-<div class="card mt-2">
+<div class="card">
   <div class="card-body">
   <h4 class="d-flex justify-content-center align-items-center mt-3"><?= $title ?></h4>
     <div class="data table-responsive mt-2">
@@ -50,9 +50,9 @@
             <tbody style="background-color: white; color:black;">
                 <tr>
                     <td>1</td>
-                    <td>Apakah setiap mata kuliah memiliki dokumen kontrak kuliah 
-                        dan ditandatangani oleh dosen pengampu dan mahasiswa</td>
-                    <td>Kontrak Kuliah</td>
+                    <td>Apakah format RPS sudah sesuai dengan acuan?</td>
+                    <td>•  Format RPS dari SPM <br> 
+                        Permendikbud Nomor 3 tahun 2020 Pasal 12 ayat (3)</br></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -62,10 +62,10 @@
                 </tr>
 
                 <tr>
-                    <td>2</td>
-                    <td>Apakah bahan materi perkuliahan tersedia 
-                        sejumlah 14 pertemuan dan 2 pertemuan UTS/UAS</td>
-                    <td>Materi Perkuliahan</td>
+                    <td></td>
+                    <td>a.  Nama Program Studi, nama dan kode mata kuliah, semester, sks, 
+                        nama Dosen pengampu</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -75,10 +75,22 @@
                 </tr>
 
                 <tr>
-                    <td>3</td>
-                    <td>Apakah tersedia berita acara perkuliahan 
-                        pada setiap mata kuliah yang disahkan oleh GKMP dan Kaprodi</td>
-                    <td>BAP</td>
+                    <td></td>
+                    <td>b.  Capaian Pembelajaran lulusan yang dibebankan pada mata kuliah</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>c.  Kemampuan akhir yang direncanakan pada tiap tahap 
+                        Pembelajaran untuk memenuhi capaian Pembelajaran lulusan</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -96,13 +108,13 @@
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-end mt-2">
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik2') ?>">Previous</a>
+      <a class="page-link" href="<?= base_url('auditor/dtc1') ?>">Previous</a>
     </li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik4') ?>">Next</a>
+      <a class="page-link" href="<?= base_url('auditor/dtd1') ?>">Next</a>
     </li>
   </ul>
 </nav>

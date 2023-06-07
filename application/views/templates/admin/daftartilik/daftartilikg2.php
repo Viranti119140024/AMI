@@ -50,9 +50,9 @@
             <tbody style="background-color: white; color:black;">
                 <tr>
                     <td>1</td>
-                    <td>Apakah setiap mata kuliah memiliki dokumen kontrak kuliah 
-                        dan ditandatangani oleh dosen pengampu dan mahasiswa</td>
-                    <td>Kontrak Kuliah</td>
+                    <td>Apakah program studi memiliki Dokumen Roadmap Pengabdian kepada Masyarakat Program studi 
+                        sesuai KK masing masing</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -63,9 +63,9 @@
 
                 <tr>
                     <td>2</td>
-                    <td>Apakah bahan materi perkuliahan tersedia 
-                        sejumlah 14 pertemuan dan 2 pertemuan UTS/UAS</td>
-                    <td>Materi Perkuliahan</td>
+                    <td>Apakah program studi memiliki Dokumen monitoring Pengabdian kepada Masyarakat 
+                        sesuai roadmap dan visi misi PS oleh ketua KK petunjuk teknis stadium general</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -76,9 +76,20 @@
 
                 <tr>
                     <td>3</td>
-                    <td>Apakah tersedia berita acara perkuliahan 
-                        pada setiap mata kuliah yang disahkan oleh GKMP dan Kaprodi</td>
-                    <td>BAP</td>
+                    <td>Apakah program studi memiliki Dokumen Dokumen data hasil Pengabdian kepada Masyarakat mencakup
+                         (Judul, Penulis, Luaran, melibatkan mahasiswa, sumber dan besaran dana PT/Mandiri)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>Apakah prodi Dokumen Pengabdian kepada Masyarakat yang diintegrasikan dengan bahan ajar Mata Kuliah</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -96,13 +107,13 @@
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-end mt-2">
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik2') ?>">Previous</a>
+      <a class="page-link" href="<?= base_url('user/daftartilik12') ?>">Previous</a>
     </li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik4') ?>">Next</a>
+    <li class="page-item disabled">
+      <a class="page-link" href="#">Next</a>
     </li>
   </ul>
 </nav>

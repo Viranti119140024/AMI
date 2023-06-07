@@ -39,7 +39,7 @@
                         Notifikasi
                     </h6>
 
-                    <a class="dropdown-item d-flex align-items-center" href="">
+                    <!-- <a class="dropdown-item d-flex align-items-center" href="">
                         <div class="mr-3">
                             <div class="icon-circle bg-warning">
                                 <i class="fas fa-exclamation-triangle"></i>
@@ -78,7 +78,7 @@
                         <div>
                             <div class="small text-gray-500"><?= date('j F Y'); ?></div>
                         </div>
-                    </a>
+                    </a> -->
 
 
                     <!-- <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a> -->

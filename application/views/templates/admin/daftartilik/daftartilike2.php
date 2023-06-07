@@ -1,4 +1,9 @@
-<div class="card">
+<div class="container-fluid">
+
+   <button class="btn btn-success" type="button"><a href="<?= base_url('user/tambahprodi') ?>" class="text-white">+ Tambah</button>
+
+
+<div class="card mt-2">
   <div class="card-body">
   <h4 class="d-flex justify-content-center align-items-center mt-3"><?= $title ?></h4>
     <div class="data table-responsive mt-2">

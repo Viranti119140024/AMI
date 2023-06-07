@@ -10,7 +10,7 @@ class User extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Data_kopi');
+        $this->load->model('Data_ami');
         $this->load->library('form_validation');
         $this->load->library('session');
         $this->load->library('table');
@@ -189,6 +189,9 @@ class User extends CI_Controller
         $data['title'] = 'Dokumen Kebutuhan Audit';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+        $data['prodi'] = $this->Data_ami->get_prodi();
+        // var_dump($data['get_prodi']);
 
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
@@ -390,10 +393,37 @@ class User extends CI_Controller
         $this->load->view('templates/admin/daftartilik/daftartilikg1', $data);
     }
 
+    public function daftartilik13()
+    {
+
+        $data['title'] = 'Hasil Desk Evaluation';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/daftartilik/daftartilikg2', $data);
+    }
+
+    public function TambahData()
+    {
+
+        $data['title'] = 'Hasil Desk Evaluation';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/daftartilik/tambahdata', $data);
+    }
+
+
     public function TDP()
     {
 
-        $data['title'] = 'Tambah Jurusan';
+        $data['title'] = 'Tambah Prodi';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -419,13 +449,30 @@ class User extends CI_Controller
     public function tambahprodi()
     {
 
-        $data['title'] = 'Tambah Jurusan';
+        $data['title'] = 'Tambah Prodi';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('partials/admin/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/admin/sidebar', $data);
-        $this->load->view('templates/admin/dokumen/tambahprogramstudi', $data);
+        $this->form_validation->set_rules('nama_prodi', 'Nama Prodi', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/logo', $data);
+            $this->load->view('partials/admin/sidebar', $data);
+            $this->load->view('templates/admin/dokumen/tambahprogramstudi', $data);
+        } else {
+            $this->Data_ami->tambah_prodi();
+            $this->session->set_flashdata('flash', 'ditambahkan');
+            redirect('user/dokprodi');
+        }
+    }
+
+
+    //WILAYAH HAPUS HAPUS
+    public function deleteprodi($id_prodi)
+    {
+        $this->Data_ami->hapus_prodi($id_prodi);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('user/dokprodi');
     }
 }

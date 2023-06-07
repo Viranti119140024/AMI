@@ -3,7 +3,7 @@
    <button class="btn btn-success" type="button"><a href="<?= base_url('user/tambahprodi') ?>" class="text-white">+ Tambah</button>
 
 
-<div class="card mt-2">
+<div class="card">
   <div class="card-body">
   <h4 class="d-flex justify-content-center align-items-center mt-3"><?= $title ?></h4>
     <div class="data table-responsive mt-2">
@@ -96,13 +96,13 @@
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-end mt-2">
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik2') ?>">Previous</a>
+      <a class="page-link" href="<?= base_url('auditor/dtb1') ?>">Previous</a>
     </li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('user/daftartilik4') ?>">Next</a>
+      <a class="page-link" href="<?= base_url('auditor/dtc1') ?>">Next</a>
     </li>
   </ul>
 </nav>

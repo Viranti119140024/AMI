@@ -1,6 +1,9 @@
 <div class="container-fluid">
 
-<div class="card">
+   <button class="btn btn-success" type="button"><a href="<?= base_url('user/tambahprodi') ?>" class="text-white">+ Tambah</button>
+
+
+<div class="card mt-2">
     <div class="card-body">
         <h4 class="d-flex justify-content-center align-items-center mt-3"><?= $title ?></h4>
         <div class="table-responsive mt-2">
@@ -151,7 +154,7 @@
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                    <a class="page-link" href="<?= base_url('user/daftartilik9') ?>">Next</a>
+                    <a class="page-link" href="<?= base_url('user/daftartilik13') ?>">Next</a>
                 </li>
             </ul>
         </nav>
