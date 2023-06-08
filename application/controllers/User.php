@@ -52,25 +52,14 @@ class User extends CI_Controller
         $this->load->view('templates/admin/dokumen/dokumenjurusan', $data);
     }
 
-    public function auditor()
-    {
-        $data['title'] = 'Auditor';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-
-        $this->load->view('partials/admin/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/admin/sidebar', $data);
-        $this->load->view('templates/admin/auditor/tambahauditor', $data);
-    }
-
     public function auditor1()
     {
         $data['title'] = 'Auditor';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $data['auditor'] = $this->Data_ami->get_auditor();
+        // var_dump($data['get_auditor']);
 
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
@@ -446,6 +435,7 @@ class User extends CI_Controller
         $this->load->view('templates/admin/dokumen/tambahdokumenjurusan', $data);
     }
 
+    //WILAYAH TAMBAH TAMBAH
     public function tambahprodi()
     {
 
@@ -467,6 +457,28 @@ class User extends CI_Controller
         }
     }
 
+    public function auditor()
+    {
+        $data['title'] = 'Tambah Auditor';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('nama_lembaga', 'Nama Lembaga', 'required');
+        $this->form_validation->set_rules('nama_auditor', 'Nama Auditor', 'required');
+        $this->form_validation->set_rules('nip_nrk', 'NIP_NRK', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/logo', $data);
+            $this->load->view('partials/admin/sidebar', $data);
+            $this->load->view('templates/admin/auditor/tambahauditor', $data);
+        } else {
+            $this->Data_ami->tambah_auditor();
+            $this->session->set_flashdata('flash', 'ditambahkan');
+            redirect('user/auditor1');
+        }
+    }
+
 
     //WILAYAH HAPUS HAPUS
     public function deleteprodi($id_prodi)
@@ -474,5 +486,12 @@ class User extends CI_Controller
         $this->Data_ami->hapus_prodi($id_prodi);
         $this->session->set_flashdata('flash', 'dihapus');
         redirect('user/dokprodi');
+    }
+
+    public function deleteauditor($id_auditor)
+    {
+        $this->Data_ami->hapus_auditor($id_auditor);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('user/auditor1');
     }
 }

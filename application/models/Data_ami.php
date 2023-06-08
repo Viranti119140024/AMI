@@ -29,4 +29,30 @@ class Data_ami extends CI_Model
     {
         $this->db->delete('prodi', ['id_prodi' => $id_prodi]);
     }
+
+    public function tambah_auditor()
+    {
+
+        $data = [
+            'nama_lembaga' => $this->input->post('nama_lembaga', true),
+            'nama_auditor' => $this->input->post('nama_auditor', true),
+            'nip_nrk' => $this->input->post('nip_nrk', true),
+        ];
+        var_dump($data);
+
+        $this->db->insert('auditor', $data);
+    }
+
+    public function get_auditor()
+    {
+        $query = $this->db->query("SELECT * FROM auditor");
+
+        return $query->result();
+        // var_dump($query->result());
+    }
+
+    public function hapus_auditor($id_auditor)
+    {
+        $this->db->delete('auditor', ['id_auditor' => $id_auditor]);
+    }
 }

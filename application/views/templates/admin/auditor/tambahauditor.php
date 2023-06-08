@@ -2,34 +2,27 @@
 
 <div class="card">
   <div class="card-body">
-    <div class="form-group">
-    <label for="exampleFormControlSelect1" style="color: black;">Program Studi / Jurusan</label>
-    <select class ="form-control" id="exampleFormControlSelect1">
-      <option style="color: black;">Teknik Informatika</option>
-      <option>Fisika</option>
-      <option>Kimia</option>
-      <option>Matematika</option>
-      <option>Teknik Mesin</option>
-      <option>Teknik Geologi</option>
-      <option>Perencanaan Wilayah dan Kota</option>
-      <option>Teknologi Produksi dan Industri</option>
-    </select>
+  <form action="<?= base_url("User/auditor") ?>" method="post" class="form-horizontal form-label-left" novalidate>
+  <div class="form-group">
+    <label for="nama_lembaga" style="color: black;">Program Studi / Jurusan</label>
+    <input type="text" class="form-control" id="nama_lembaga" name="nama_lembaga" placeholder="Masukkan Program Studi / Jurusan">         
   </div>
 
-  <form>
   <div class="form-group">
-    <label for="exampleFormControlInput1" style="color: black;">Auditor</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama">
+    <label for="nama_auditor" style="color: black;">Auditor</label>
+    <input type="text" class="form-control" id="nama_auditor" name="nama_auditor" placeholder="Masukkan Nama Auditor">
   </div>
   <div class="form-group">
-    <label for="exampleFormControlInput1" style="color: black;">NIP / NRK</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama">
+    <label for="nip_nrk" style="color: black;">NIP / NRK</label>
+    <input type="text" class="form-control" id="nip_nrk" name="nip_nrk" placeholder="Masukkan NIP / NRK">
   </div>
 
   <div class="d-flex justify-content-end">
-  <button class="btn btn-success" type="button"><a href="<?= base_url('user/auditor1') ?>" class="text-white">Simpan</a></button> 
+  <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
   </div>
-  </div>
+
+  <form>
 </div>
 
+</div>
 </div>

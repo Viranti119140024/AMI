@@ -21,17 +21,17 @@
     <tr>
       <th scope style="color: black;"="row">1</th>
       <td style="color: black;">Jurusan Teknologi Produksi dan Industri</td>
-      <td> <a href="#"><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="comment" class="sbtn btn-success"><i class="fa fa-comment"></i></button> <button type="download" class="sbtn btn-secondary"><i class="fas fa-download"></i></button</div></td>
+      <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#696969;"></i></button> <button type="comment" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-comment" style="color: #DAA520"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
     </tr>
     <tr>
       <th scope style="color: black;"="row">2</th>
       <td style="color: black;">Jurusan Infrastruktur dan Kewilayahan</td>
-      <td> <a href="#"><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="comment" class="sbtn btn-success"><i class="fa fa-comment"></i></button> <button type="download" class="sbtn btn-secondary"><i class="fas fa-download"></i></button</div></td>
+      <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#696969;"></i></button> <button type="comment" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-comment" style="color: #DAA520"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
     </tr>
     <tr>
       <th scope style="color: black;"="row">3</th>
       <td style="color: black;">Jurusan Sains</td>
-      <td> <a href="#"><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="comment" class="sbtn btn-success"><i class="fa fa-comment"></i></button> <button type="download" class="sbtn btn-secondary"><i class="fas fa-download"></i></button</div></td>
+      <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#696969;"></i></button> <button type="comment" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-comment" style="color: #DAA520"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
     </tr>
 
   </tbody>
