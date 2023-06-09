@@ -5,7 +5,7 @@
 
 <b><hr color="red" /></b>
 
-<button class="btn btn-success" type="button"><a href="<?= base_url('auditorjurusan/TambahDaftarHadir') ?>" class="text-white">+ Tambah</button>
+<a class="btn btn-success" type="button" class="text-white" href="<?= base_url('auditorjurusan/TambahDaftarHadir') ?>">+ Tambah</a>
 
 <div class="card mt-4">
   <div class="card-body">
@@ -26,7 +26,7 @@
       <td style="color: black;">Eko Dwi Nugroho</td>
       <td style="color: black;">Auditor Prodi</td>
       <td style="color: black;"></td>
-      <td><button type="edit" class="sbtn btn-primary"><i class="fa fa-edit"></i></button> <button type="delete" class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i class="fas fa-trash"></i></button</div></td>
+      <td><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button> <button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
     </tr>
   </tbody>
 </table>

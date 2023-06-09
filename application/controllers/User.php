@@ -166,6 +166,9 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $data['jurusan'] = $this->Data_ami->get_jurusan();
+        // var_dump($data['get_jurusan']);
+
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
@@ -457,6 +460,27 @@ class User extends CI_Controller
         }
     }
 
+    public function tambahjurusan()
+    {
+
+        $data['title'] = 'Tambah Jurusan';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->form_validation->set_rules('nama_jurusan', 'Nama Jurusan', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/logo', $data);
+            $this->load->view('partials/admin/sidebar', $data);
+            $this->load->view('templates/admin/dokumen/tambahjurusan', $data);
+        } else {
+            $this->Data_ami->tambah_jurusan();
+            $this->session->set_flashdata('flash', 'ditambahkan');
+            redirect('user/dok');
+        }
+    }
+
     public function auditor()
     {
         $data['title'] = 'Tambah Auditor';
@@ -486,6 +510,13 @@ class User extends CI_Controller
         $this->Data_ami->hapus_prodi($id_prodi);
         $this->session->set_flashdata('flash', 'dihapus');
         redirect('user/dokprodi');
+    }
+
+    public function deletejurusan($id_jurusan)
+    {
+        $this->Data_ami->hapus_jurusan($id_jurusan);
+        $this->session->set_flashdata('flash', 'dihapus');
+        redirect('user/dok');
     }
 
     public function deleteauditor($id_auditor)

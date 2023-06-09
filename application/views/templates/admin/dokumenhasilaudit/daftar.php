@@ -9,7 +9,7 @@
 
 <div class="card mt-4">
   <div class="card-body">
-  <table class="table table-striped mt-2">
+  <table id="myTable" class="table table-striped mt-2">
   <thead>
     <tr>
       <th scope style="color: black;"="col">No</th>
@@ -43,5 +43,11 @@
 
 
   </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src ="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+
+<script> let table = new DataTable('#myTable'); </script>
 
 

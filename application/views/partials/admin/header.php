@@ -29,6 +29,9 @@
     <link href="<?= base_url('assets/'); ?>css/logo.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>css/sidebar.css" rel="stylesheet">
 
+    <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
+
 </head>
 
 <body id="page-top">

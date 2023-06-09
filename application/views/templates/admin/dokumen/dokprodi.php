@@ -4,16 +4,21 @@
     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Dokumen Kebutuhan Audit Program Studi</b></h5>
   </div>
 
-
   <b>
     <hr color="red" />
   </b>
 
   <a class="btn btn-success" type="button" class="text-white" href="<?= base_url('user/tambahprodi') ?>">+ Tambah</a>
 
+  <!-- <div class="d-flex justify-content-end">
+    <form class="d-flex" action="#" method="GET">
+      <input class="form-control me-2" type="search" placeholder="Cari" name="search" />
+    </form>
+  </div> -->
+
   <div class="card mt-4">
     <div class="card-body">
-      <table class="table table-striped mt-2">
+      <table id="myTable" class="table table-striped mt-2">
         <thead>
           <tr>
             <th scope style="color: black;"="col">No</th>
@@ -40,37 +45,23 @@
     </tr>
   <?php endforeach; ?>
 
-  <!-- <tr>
-      <th scope style="color: black;"="row">2</th>
-      <td style="color: black;">Teknik Industri</td>
-      <td> <a href="<?php echo base_url('user/dokumen1'); ?>"><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
-    </tr>
-    <tr>
-      <th scope style="color: black;"="row">3</th>
-      <td style="color: black;">Fisika</td>
-      <td> <a href="<?php echo base_url('user/dokumen1'); ?>"><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
-    </tr>
-    <tr>
-      <th scope style="color: black;"="row">4</th>
-      <td style="color: black;">Matematika</td>
-      <td> <a href="<?php echo base_url('user/dokumen1'); ?>"><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
-    </tr>
-    <tr>
-      <th scope style="color: black;"="row">5</th>
-      <td style="color: black;">Perencanaan Wilayah dan Kota</td>
-      <td> <a href="<?php echo base_url('user/dokumen1'); ?>"><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
-    </tr>
-    <tr>
-      <th scope style="color: black;"="row">6</th>
-      <td style="color: black;">Teknik Mesin</td>
-      <td> <a href="<?php echo base_url('user/dokumen1'); ?>"><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
-    </tr> -->
-
   </tbody>
   </table>
   </div>
 </div>
 
-
+<!-- <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script>
+      let table = new DataTable('#myTable');
+    </script> -->
 
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src ="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+
+<script> let table = new DataTable('#myTable'); </script>
+
+  

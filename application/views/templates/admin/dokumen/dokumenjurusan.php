@@ -5,11 +5,12 @@
 
 <b><hr color="red" /></b>
 
-<button class="btn btn-success" type="button"><a href="<?= base_url('user/TDJ') ?>" class="text-white">+ Tambah</button>
+<a class="btn btn-success" type="button" class="text-white" href="<?= base_url('user/TDJ') ?>">+ Tambah</a>
+
 
 <div class="card mt-4">
   <div class="card-body">
-  <table class="table table-striped mt-2">
+  <table id="myTable" class="table table-striped mt-2">
   <thead>
     <tr>
       <th scope style="color: black;"="col">No</th>
@@ -22,27 +23,17 @@
     <tr>
       <th scope style="color: black;"="row">1</th>
       <td style="color: black;">Laporan Tindak Lanjut AMI</td>
-      <td><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
+      <td> <a href="<?php echo base_url('user/index'); ?>"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color: 	#2F4F4F;"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
     </tr>
     <tr>
       <th scope style="color: black;"="row">2</th>
       <td style="color: black;">Dokumen SOP Pelaksanaan Ujian Semester</td>
-      <td><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
+      <td> <a href="<?php echo base_url('user/index'); ?>"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color: 	#2F4F4F;"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
     </tr>
     <tr>
       <th scope style="color: black;"="row">3</th>
       <td style="color: black;">Dokumen SOP Penilaian Perkuliahan Paralel</td>
-      <td><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
-    </tr>
-    <tr>
-      <th scope style="color: black;"="row">4</th>
-      <td style="color: black;">Dokumen SOP Stadium Generale / Seminar Ilmiah</td>
-      <td><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
-    </tr>
-    <tr>
-      <th scope style="color: black;"="row">5</th>
-      <td style="color: black;">Dokumen SOP Monitoring / Pedoman Tugas Akhir</td>
-      <td><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button> <button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button</div></td>
+      <td> <a href="<?php echo base_url('user/index'); ?>"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color: 	#2F4F4F;"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
     </tr>
   </tbody>
 </table>
@@ -53,3 +44,8 @@
 
   </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src ="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+
+<script> let table = new DataTable('#myTable'); </script>
