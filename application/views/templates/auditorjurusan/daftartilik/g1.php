@@ -30,7 +30,7 @@
                 <tr>
                     <td>Ruang Lingkup DE</td>
                     <td>:</td>
-                    <td>Kompetensi Lulusan</td>
+                    <td>Suasana Akademik</td>
                 </tr>
 
                 <tr>
@@ -48,14 +48,14 @@
                 <tr>
                     <td>Dokumen Acuan</td>
                     <td>:</td>
-                    <td>Standar Penilaian Pembelajaran</td>
+                    <td>Matriks Penilaian LKPS dan LED</td>
                 </tr>
             </table>
         </div>
 
         <div class="table-responsive">
             <table class="table table-bordered">
-                <thead class="text-center" style="background-color: #DAA520; color:black;">
+                <thead class="text-center">
                     <tr>
                         <th rowspan="2" style="background-color: #808080; color:black;">No</th>
                         <th rowspan="2" style="background-color: #808080; color:black;">Dokumen Terkait</th>
@@ -79,86 +79,56 @@
                 </thead>
 
                 <tbody style="background-color: white; color:black;">
-                <tr>
-                 <td>1</td>
-                 <td>Dokumen Roadmap Pengabdian kepada Masyarakat Program studi sesuai KK masing masing</td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-             </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Dokumen Rekap seminar/Pelatihan yang diselenggarakan 
+                            oleh jurusan dan prodi-prodi dibawah Jurusan 
+                            (kegiatan Himpunan mahasiswa, kuliah umum/studium generale, seminar ilmiah, bedah buku.)</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
 
-             <tr>
-                 <td>2</td>
-                 <td>Dokumen monitoring Pengabdian kepada Masyarakat sesuai roadmap dan visi misi PS oleh ketua KK</td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-             </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Dokumen rekap pelaksanaan kegiatan mimbar akademik tingkat Jurusan</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
 
-             <tr>
-                 <td>3.</td>
-                 <td>Dokumen data hasil Pengabdian kepada Masyarakat mencakup 
-                    (Judul, Penulis, Luaran, melibatkan mahasiswa, sumber dan besaran dana PT/Mandiri)</td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-             </tr>
-
-             <tr>
-                 <td>4.</td>
-                 <td>Dokumen Pengabdian kepada Masyarakat yang diintegrasikan dengan bahan ajar Mata Kuliah</td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
-             </tr>
                 </tbody>
-
             </table>
+</div>
 
-     <p style="color:black;"> * M= Memenuhi, MP= Melampaui, MB= Belum Memenuhi, MY= Menyimpang <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
-
-        </div>
+</div>
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end mt-2">
                 <li class="page-item">
-                    <a class="page-link" href="<?= base_url('auditor/dtf2') ?>">Previous</a>
+                    <a class="page-link" href="<?= base_url('auditorjurusan/DaftarHadir') ?>">Previous</a>
                 </li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                    <a class="page-link" href="<?= base_url('auditor/dtg2') ?>">Next</a>
+                    <a class="page-link" href="<?= base_url('auditorjurusan/dth2') ?>">Next</a>
                 </li>
             </ul>
         </nav>
     </div>
-</div>
+
 </div>

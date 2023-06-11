@@ -50,7 +50,7 @@ class auditorjurusan extends CI_Controller
 
     public function DaftarTilik()
     {
-        $data['title'] = '';
+        $data['title'] = 'Hasil Desk Evaluation';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -61,4 +61,20 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/daftartilik/DAFTARTILIK', $data);
     }
+
+    public function dth2()
+    {
+        $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+
+        $this->load->view('partials/auditorjurusan/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/auditorjurusan/sidebar', $data);
+        $this->load->view('partials/auditorjurusan/topbar', $data);
+        $this->load->view('templates/auditorjurusan/daftartilik/h2', $data);
+    }
+
+
 }

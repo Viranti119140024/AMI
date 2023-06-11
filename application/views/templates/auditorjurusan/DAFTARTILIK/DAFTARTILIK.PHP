@@ -1,7 +1,11 @@
 <div class="container-fluid">
 
-<div class="card">
+<a class="btn btn-success" type="button" href="<?= base_url('user/tambahprodi') ?>" class="text-white">+ Tambah</a>
+
+<div class="card mt-2">
+
     <div class="card-body">
+
         <h4 class="d-flex justify-content-center align-items-center mt-3"><?= $title ?></h4>
         <div class="table-responsive mt-2">
             <table class="table table-borderless" style="color:black;">
@@ -44,7 +48,7 @@
                 <tr>
                     <td>Dokumen Acuan</td>
                     <td>:</td>
-                    <td>Standar Kompetensi Lulusan</td>
+                    <td>Standar Pengelolaan Pembelajaran</td>
                 </tr>
             </table>
         </div>
@@ -184,6 +188,9 @@
 </div>
 
 </div>
+
+<p style="color:black;"> * M= Memenuhi, MP= Melampaui, MB= Belum Memenuhi, MY= Menyimpang <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
+
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end mt-2">
                 <li class="page-item">
@@ -193,7 +200,7 @@
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                    <a class="page-link" href="<?= base_url('auditorjurusan/dta2') ?>">Next</a>
+                    <a class="page-link" href="<?= base_url('auditorjurusan/dth2') ?>">Next</a>
                 </li>
             </ul>
         </nav>

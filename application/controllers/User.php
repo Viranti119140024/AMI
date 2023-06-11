@@ -388,7 +388,7 @@ class User extends CI_Controller
     public function daftartilik13()
     {
 
-        $data['title'] = 'Hasil Desk Evaluation';
+        $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 

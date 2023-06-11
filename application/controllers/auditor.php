@@ -65,7 +65,7 @@ class auditor extends CI_Controller
 
     public function dtc1()
     {
-        $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
+        $data['title'] = 'Hasil Desk Evaluation';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -93,7 +93,7 @@ class auditor extends CI_Controller
 
     public function dtd1()
     {
-        $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
+        $data['title'] = 'Hasil Desk Evaluation';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -121,7 +121,7 @@ class auditor extends CI_Controller
 
     public function dte1()
     {
-        $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
+        $data['title'] = 'Hasil Desk Evaluation';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -149,7 +149,7 @@ class auditor extends CI_Controller
 
     public function dtf1()
     {
-        $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
+        $data['title'] = 'Hasil Desk Evaluation';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -177,7 +177,7 @@ class auditor extends CI_Controller
 
     public function dtg1()
     {
-        $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
+        $data['title'] = 'Hasil Desk Evaluation';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
