@@ -51,9 +51,8 @@
             <tbody style="background-color: white; color:black;">
                 <tr>
                     <td>1</td>
-                    <td>Apakah sebelumnya pernah dilakukan AMI? Bila Ya, 
-                        apakah dilakukan tindak lanjut terhadap temuan sebelumnya?</td>
-                    <td>Laporan Hasil Tindak Lanjut AMI yang terakhir dilakukan, sudah di sahkan oleh SPM</td>
+                    <td>Bagaimana pembagian tupoksi setiap tendik? Apakah sudah berdasarkan keahlian yang dimiliki? </td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -64,7 +63,7 @@
 
                 <tr>
                     <td>2</td>
-                    <td>Apa saja layanan di jurusan?</td>
+                    <td>Bagaimana Renstra 5 tahun Jurusan yang diturunkan dari Renstra ITERA</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -76,31 +75,7 @@
 
                 <tr>
                     <td>3</td>
-                    <td>Bagaimana SOP pelaksanaan Ujian Semester?</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td>4</td>
-                    <td>Bagaimana SOP Penilaian perkuliahan parallel?
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td>5</td>
-                    <td>Bagaimana SOP Stadium Generale/Seminar Ilmiah</td>
+                    <td>Bagaimana hasil Laporan Sasaran Kinerja Pegawai?</td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -119,13 +94,13 @@
     <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-end mt-2">
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('auditorjurusan/DaftarTilik') ?>">Previous</a>
+      <a class="page-link" href="<?= base_url('auditorjurusan/dt_h1') ?>">Previous</a>
     </li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
     <li class="page-item"><a class="page-link" href="#">2</a></li>
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item">
-      <a class="page-link" href="<?= base_url('auditorjurusan/dtg1') ?>">Next</a>
+      <a class="page-link" href="<?= base_url('auditorjurusan/dt_h1') ?>">Next</a>
     </li>
   </ul>
 </nav>

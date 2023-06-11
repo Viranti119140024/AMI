@@ -30,7 +30,7 @@
                 <tr>
                     <td>Ruang Lingkup DE</td>
                     <td>:</td>
-                    <td>Suasana Akademik</td>
+                    <td>Kompetensi Lulusan</td>
                 </tr>
 
                 <tr>
@@ -48,7 +48,7 @@
                 <tr>
                     <td>Dokumen Acuan</td>
                     <td>:</td>
-                    <td>Matriks Penilaian LKPS dan LED</td>
+                    <td>Standar Pengelolaan Pembelajaran</td>
                 </tr>
             </table>
         </div>
@@ -81,9 +81,7 @@
                 <tbody style="background-color: white; color:black;">
                     <tr>
                         <td>1</td>
-                        <td>Dokumen Rekap seminar/Pelatihan yang diselenggarakan 
-                            oleh jurusan dan prodi-prodi dibawah Jurusan 
-                            (kegiatan Himpunan mahasiswa, kuliah umum/studium generale, seminar ilmiah, bedah buku.)</td>
+                        <td>Dokumen tupoksi setiap tenaga kependidikan (tendik)</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -98,7 +96,7 @@
 
                     <tr>
                         <td>2</td>
-                        <td>Dokumen rekap pelaksanaan kegiatan mimbar akademik tingkat Jurusan</td>
+                        <td>Dokumen Renstra yang diturunkan dari Renstra ITERA</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -110,21 +108,68 @@
                         <td></td>
                         <td></td>
                     </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Dokumen Laporan Sasaran Kinerja Pegawai?</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>Dokumen data dosen dan tendik (PNS, non PNS)</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>Dokumen standar waktu kerja ITERA</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                 </tbody>
             </table>
 </div>
 
 </div>
+
+<p style="color:black;"> * M= Memenuhi, MP= Melampaui, MB= Belum Memenuhi, MY= Menyimpang <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
+
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end mt-2">
                 <li class="page-item">
-                    <a class="page-link" href="<?= base_url('auditorjurusan/dth2') ?>">Previous</a>
+                    <a class="page-link" href="<?= base_url('auditorjurusan/dtg2') ?>">Previous</a>
                 </li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item">
-                    <a class="page-link" href="<?= base_url('auditorjurusan/dtg2') ?>">Next</a>
+                    <a class="page-link" href="<?= base_url('auditorjurusan/dt_h2') ?>">Next</a>
                 </li>
             </ul>
         </nav>

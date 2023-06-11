@@ -48,7 +48,7 @@
 
   <div class="card mt-3">
     <center class="text-dark mt-4" style="font-family: Arial, Helvetica, sans-serif; color:black;">
-      <h5><b>Status Proses AMI</b></h5>
+      <h5><b style="font-family: Arial, Helvetica, sans-serif;">STATUS PROSES AUDIT MUTU INTERNAL</b></h5>
     </center>
     <div class="card-body">
       <table class="table" style="color: black;">

@@ -4,7 +4,7 @@
 
 
         <li class="list-group">
-            <a class="list-group-item" href="<?= base_url('auditor/index') ?>">
+            <a class="list-group-item" href="<?= base_url('auditor/BERANDA') ?>">
                 <i class="fas fa-fw fa-home itemcolor"></i>
                 <span class="itemcolor">Beranda</span></a>
     

@@ -7,6 +7,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class auditor extends CI_Controller
 {
 
+    public function BERANDA()
+    {
+        $data['title'] = 'Hasil Desk Evaluation';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+
+        $this->load->view('partials/auditor/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/auditor/sidebar', $data);
+        $this->load->view('partials/auditor/topbar', $data);
+        $this->load->view('templates/auditor/berandaauditor', $data);
+    }
+
     public function DAFTARTILIK()
     {
         $data['title'] = 'Hasil Desk Evaluation';
