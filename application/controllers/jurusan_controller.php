@@ -20,6 +20,18 @@ class jurusan_controller extends CI_Controller
         // }
     }
 
+    public function berandajurusan()
+    {
+        $data['title'] = 'Beranda Jurusan';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('partials/jurusan/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/jurusan/sidebar', $data);
+        $this->load->view('templates/jurusan/beranda', $data);
+    }
+    
     public function dokumen()
     {
         $data['title'] = 'Dokumen Kebutuhan Audit';

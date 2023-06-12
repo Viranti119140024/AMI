@@ -38,20 +38,12 @@
     </div>
   </div>
 
-
-  <div class="d-flex justify-content-end">
-    <form class="d-flex" action="#" method="GET">
-      <input class="form-control me-2" type="search" placeholder="Cari" name="search" />
-    </form>
-  </div>
-
-
   <div class="card mt-3">
     <center class="text-dark mt-4" style="font-family: Arial, Helvetica, sans-serif; color:black;">
       <h5><b style="font-family: Arial, Helvetica, sans-serif;">STATUS PROSES AUDIT MUTU INTERNAL</b></h5>
     </center>
     <div class="card-body">
-      <table class="table" style="color: black;">
+      <table id="myTable" class="table" style="color: black;">
         <thead>
           <tr>
             <th scope="col">No</th>
@@ -103,3 +95,9 @@
   </div>
 
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src ="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+
+<script> let table = new DataTable('#myTable'); </script>

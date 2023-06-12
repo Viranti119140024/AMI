@@ -20,18 +20,12 @@
  
 </div>
 
-<div class="d-flex justify-content-end mt-4">
-    <form class="d-flex" action="#" method="GET">
-      <input class="form-control me-2" type="search" placeholder="Cari" name="search" />
-    </form>
-  </div>
-
 
   <div class="card mt-4">
     <center class="text-dark mt-4" style="font-family: Arial, Helvetica, sans-serif; color:black;">
       <h5><b>PROSES AUDIT MUTU INTERNAL</b></h5></center>
     <div class="card-body">
-      <table class="table" style="color: black;">
+      <table id="myTable" class="table" style="color: black;">
         <thead>
           <tr>
             <th scope="col">No</th>
@@ -40,22 +34,29 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+        <tr>
             <th scope="row">1</th>
-            <td>Upload Dokumen Kebutuhan Audit</td>
+            <td>Mengecek Dokumen Kebutuhan Audit</td>
             <th class="text-success">Selesai</th>
           </tr>
           <tr>
             <th scope="row">2</th>
-            <td>Laporan Hasil Audit</td>
+            <td>Mengisi Daftar Tilik</td>
             <th class="text-danger">Belum Selesai</th>
           </tr>
           <tr>
             <th scope="row">3</th>
-            <td>Laporan Hasil Tindak Lanjut</td>
+            <td> Mengecek Laporan Hasil Tindak Lanjut</td>
             <th class="text-danger">Belum Selesai</th>
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src ="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
+
+<script> let table = new DataTable('#myTable'); </script>

@@ -17,36 +17,51 @@
     <tr>
       <th scope="row">1</th>
       <td>Laporan Tindak Lanjut AMI</td>
-      <td><button type="edit" class="sbtn btn-primary"><i class="fa fa-upload"></i></button>
-            <button type="edit" class="sbtn btn-success"><i class="fa fa-check"></i></button> <button type="delete" class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i class="fas fa-trash"></i></button</div></td>
+      <td> 
+        <a href="#"><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a> 
+        <a href="#"><button type="ceklist" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-check" style="color: #32CD32"></i></button></a>
+        <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
+      </td>
     </tr>
 
     <tr>
       <th scope="row">2</th>
       <td>Berita Acara FGD Kurikulum</td>
-      <td><button type="edit" class="sbtn btn-primary"><i class="fa fa-upload"></i></button>
-            <button type="edit" class="sbtn btn-success"><i class="fa fa-check"></i></button> <button type="delete" class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i class="fas fa-trash"></i></button</div></td>
+      <td> 
+        <a href="#"><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a> 
+        <a href="#"><button type="ceklist" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-check" style="color: #32CD32"></i></button></a>
+        <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
+      </td>
     </tr>
 
     <tr>
       <th scope="row">3</th>
       <td>Dokumen Kurikulum </td>
-      <td><button type="edit" class="sbtn btn-primary"><i class="fa fa-upload"></i></button>
-            <button type="edit" class="sbtn btn-success"><i class="fa fa-check"></i></button> <button type="delete" class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i class="fas fa-trash"></i></button</div></td>
+      <td> 
+        <a href="#"><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a> 
+        <a href="#"><button type="ceklist" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-check" style="color: #32CD32"></i></button></a>
+        <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
+      </td>
     </tr>
 
     <tr>
       <th scope="row">4</th>
       <td>Visi Keilmuan Prodi</td>
-      <td><button type="edit" class="sbtn btn-primary"><i class="fa fa-upload"></i></button>
-            <button type="edit" class="sbtn btn-success"><i class="fa fa-check"></i></button> <button type="delete" class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i class="fas fa-trash"></i></button</div></td>
+      <td> 
+        <a href="#"><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a> 
+        <a href="#"><button type="ceklist" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-check" style="color: #32CD32"></i></button></a>
+        <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
+      </td>
     </tr>
 
     <tr>
       <th scope="row">5</th>
       <td>Daftar Matakuliah TPB & Prodi</td>
-      <td><button type="edit" class="sbtn btn-primary"><i class="fa fa-upload"></i></button>
-            <button type="edit" class="sbtn btn-success"><i class="fa fa-check"></i></button> <button type="delete" class="sbtn btn-danger" onclick="return confirm('Yakin?')"><i class="fas fa-trash"></i></button</div></td>
+      <td> 
+        <a href="#"><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a> 
+        <a href="#"><button type="ceklist" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-check" style="color: #32CD32"></i></button></a>
+        <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
+      </td>
     </tr>
     </div>
 

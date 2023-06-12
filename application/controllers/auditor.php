@@ -9,7 +9,7 @@ class auditor extends CI_Controller
 
     public function BERANDA()
     {
-        $data['title'] = 'Hasil Desk Evaluation';
+        $data['title'] = 'Beranda Auditor Prodi';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 

@@ -9,7 +9,7 @@ class auditorjurusan extends CI_Controller
 
     public function berandaauditorjurusan()
     {
-        $data['title'] = '';
+        $data['title'] = 'Beranda Auditor Jurusan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 

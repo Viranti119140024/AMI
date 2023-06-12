@@ -19,6 +19,19 @@ class prodi extends CI_Controller
         // }
     }
 
+    public function berandaprodi()
+    {
+        $data['title'] = 'Beranda Prodi';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('partials/prodi/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/prodi/sidebar', $data);
+        $this->load->view('templates/prodi/beranda', $data);
+    }
+
+
     public function dokumenkebutuhan()
     {
         $data['title'] = 'Dokumen Kebutuhan Audit Prodi';
