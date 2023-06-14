@@ -30,18 +30,18 @@
                 <form class="form-container" method="post" action="<?= base_url('auth/registrasi') ?>">
                     <h4 class="text-center font-weight-bold"> Audit Mutu Internal <br> Institut Teknologi Sumatera</h4>
                     <div class="form-group">
-                        <label for="name">Nama</label>
+                        <label for="name" style="color: white; font-weight:bold;">Nama</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama">
                     </div>
                     <div class="form-group">
-                        <label for="name">Email</label>
+                        <label for="name" style="color: white; font-weight:bold;">Email</label>
                         <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email">
                     </div>
                     <div class="form-group">
-                        <label for="InputPassword">Password</label>
+                        <label for="InputPassword" style="color: white; font-weight:bold;">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                     </div>
-                    <label for="sebagai">Sebagai</label>
+                    <label for="sebagai" style="color: white; font-weight:bold;">Sebagai</label>
                     <select name="role_name" id="role_name" class="form-control mb-2">
                         <option value="admin">Admin</option>
                         <option value="jurusan">Auditee Jurusan</option>

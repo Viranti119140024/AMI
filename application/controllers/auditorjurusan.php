@@ -42,7 +42,7 @@ class auditorjurusan extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
 
-        $this->load->view('partials/auditorjurusan/header', $data); 
+        $this->load->view('partials/auditorjurusan/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
@@ -56,7 +56,7 @@ class auditorjurusan extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
 
-        $this->load->view('partials/auditorjurusan/header', $data); 
+        $this->load->view('partials/auditorjurusan/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
@@ -150,9 +150,11 @@ class auditorjurusan extends CI_Controller
     public function profile()
     {
         $data['title'] = '';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        var_dump(
+            $data['user']
+        );
 
         $this->load->view('partials/auditorjurusan/header', $data);
         $this->load->view('templates/logo', $data);
@@ -160,6 +162,4 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/profile', $data);
     }
-
-
 }

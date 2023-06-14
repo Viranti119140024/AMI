@@ -20,7 +20,7 @@
       <td> 
         <a href="#"><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a> 
         <a href="#"><button type="ceklist" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-check" style="color: #32CD32"></i></button></a>
-        <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
+        <!-- <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a> -->
       </td>
     </tr>
 
@@ -30,7 +30,7 @@
       <td> 
         <a href="#"><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a> 
         <a href="#"><button type="ceklist" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-check" style="color: #32CD32"></i></button></a>
-        <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
+        <!-- <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a> -->
       </td>
     </tr>
 
@@ -40,7 +40,7 @@
       <td> 
         <a href="#"><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a> 
         <a href="#"><button type="ceklist" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-check" style="color: #32CD32"></i></button></a>
-        <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
+        <!-- <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a> -->
       </td>
     </tr>
 
@@ -50,7 +50,7 @@
       <td> 
         <a href="#"><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a> 
         <a href="#"><button type="ceklist" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-check" style="color: #32CD32"></i></button></a>
-        <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
+        <!-- <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a> -->
       </td>
     </tr>
 
@@ -60,7 +60,7 @@
       <td> 
         <a href="#"><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a> 
         <a href="#"><button type="ceklist" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-check" style="color: #32CD32"></i></button></a>
-        <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
+        <!-- <a href="#"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a> -->
       </td>
     </tr>
     </div>

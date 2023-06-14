@@ -438,7 +438,22 @@ class User extends CI_Controller
         $this->load->view('templates/admin/dokumen/tambahdokumenjurusan', $data);
     }
 
+    public function formdaftartilik()
+    {
+
+        $data['title'] = 'Form Daftar Tilik';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/daftartilik/tambah', $data);
+    }
+
     //WILAYAH TAMBAH TAMBAH
+
+    //tambah prodi
     public function tambahprodi()
     {
 
@@ -460,6 +475,7 @@ class User extends CI_Controller
         }
     }
 
+    //tambah jurusan
     public function tambahjurusan()
     {
 
@@ -481,6 +497,7 @@ class User extends CI_Controller
         }
     }
 
+    //tambah auditor
     public function auditor()
     {
         $data['title'] = 'Tambah Auditor';
@@ -505,24 +522,51 @@ class User extends CI_Controller
 
 
     //WILAYAH HAPUS HAPUS
-    public function deleteprodi($id_prodi)
+    // public function deleteprodi($id_prodi)
+    // {
+    //     $this->Data_ami->hapus_prodi($id_prodi);
+    //     $this->session->set_flashdata('flash', 'dihapus');
+    //     redirect('user/dokprodi');
+    // }
+
+    // public function deletejurusan($id_jurusan)
+    // {
+    //     $this->Data_ami->hapus_jurusan($id_jurusan);
+    //     $this->session->set_flashdata('flash', 'dihapus');
+    //     redirect('user/dok');
+    // }
+
+    // public function deleteauditor($id_auditor)
+    // {
+    //     $this->Data_ami->hapus_auditor($id_auditor);
+    //     $this->session->set_flashdata('flash', 'dihapus');
+    //     redirect('user/auditor1');
+    // }
+
+    //WILAYAH EDIT EDIT
+    // edit auditor
+    public function edit_auditor($id_kat)
     {
-        $this->Data_ami->hapus_prodi($id_prodi);
-        $this->session->set_flashdata('flash', 'dihapus');
-        redirect('user/dokprodi');
+        $data['title'] = 'Edit Auditor';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['auditor'] = $this->Data_ami->get_auditor($id_kat);
+
+
+        $this->form_validation->set_rules('nama_lembaga', 'Nama Lembaga', 'required');
+        $this->form_validation->set_rules('nama_auditor', 'Nama Auditor', 'required');
+        $this->form_validation->set_rules('nip_nrk', 'NIP_NRK', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/logo', $data);
+            $this->load->view('partials/admin/sidebar', $data);
+            $this->load->view('templates/admin/auditor/tambahauditor', $data);
+        } else {
+            $this->Data_ami->edit_kategori();
+            $this->session->set_flashdata('flash', 'diubah');
+            redirect('user/auditor1');
+        }
     }
 
-    public function deletejurusan($id_jurusan)
-    {
-        $this->Data_ami->hapus_jurusan($id_jurusan);
-        $this->session->set_flashdata('flash', 'dihapus');
-        redirect('user/dok');
-    }
-
-    public function deleteauditor($id_auditor)
-    {
-        $this->Data_ami->hapus_auditor($id_auditor);
-        $this->session->set_flashdata('flash', 'dihapus');
-        redirect('user/auditor1');
-    }
 }
+

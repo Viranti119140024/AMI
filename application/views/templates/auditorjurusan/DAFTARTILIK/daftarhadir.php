@@ -26,7 +26,7 @@
       <td style="color: black;">Eko Dwi Nugroho</td>
       <td style="color: black;">Auditor Prodi</td>
       <td style="color: black;"></td>
-      <td><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button> <button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a>
+      <td><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a>
     </tr>
   </tbody>
 </table>

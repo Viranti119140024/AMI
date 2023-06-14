@@ -4,7 +4,7 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Dokumen Hasil Audit</h5>
+        <h5 class="card-title">Laporan Hasil Audit</h5>
         <p class="card-text">Jurusan</p>
         <a href="<?= base_url('user/daftarjurusan') ?>" class="btn" type="button" style="background-color: #DAA520; color:white ">Lihat Detail</a>
       </div>
@@ -13,7 +13,7 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Dokumen Hasil Audit</h5>
+        <h5 class="card-title">Laporan Hasil Audit</h5>
         <p class="card-text">Program Studi</p>
         <a href="<?= base_url('user/DHA') ?>" class="btn" type="button" style="background-color: #DAA520; color:white">Lihat Detail</a>
       </div>

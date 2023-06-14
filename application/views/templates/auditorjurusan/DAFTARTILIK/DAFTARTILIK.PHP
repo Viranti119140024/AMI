@@ -82,14 +82,14 @@
                     <tr>
                         <td>1</td>
                         <td>Tindak Lanjut AMI</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -97,14 +97,14 @@
                     <tr>
                         <td>2</td>
                         <td>Dokumen SOP pelaksanaan Ujian Semester</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -112,14 +112,14 @@
                     <tr>
                         <td>3</td>
                         <td>Dokumen SOP Penilaian perkuliahan paralel</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -127,14 +127,14 @@
                     <tr>
                         <td>4</td>
                         <td>Dokumen SOP Stadium Generale/Seminar Ilmiah</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -142,14 +142,14 @@
                     <tr>
                         <td>5</td>
                         <td>Dokumen SOP Monitoring/Pedoman Tugas Akhir</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -157,29 +157,29 @@
                     <tr>
                         <td>6</td>
                         <td>Dokumen SOP ujian/ sidang tugas akhir</td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td ></td>
                     </tr>
 
                     <tr>
                         <td>7</td>
                         <td>Dokumen rekap Lulusan mahasiswa tiap tahun dan tiap prodi mencakup (IPK, lama studi)</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
+                        <td class="text-center"><input type="checkbox" value="1"></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -187,9 +187,14 @@
             </table>
 </div>
 
+<div class="d-flex justify-content-end">
+  <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
+  </div>
+
 </div>
 
 <p style="color:black;"> * M= Memenuhi, MP= Melampaui, MB= Belum Memenuhi, MY= Menyimpang <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
+
 
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-end mt-2">

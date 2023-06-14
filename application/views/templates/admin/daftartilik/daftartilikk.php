@@ -57,6 +57,7 @@
             </div>
 
             <div class="table-responsive">
+                <form action="">
                 <table class="table table-bordered">
                     <thead class="text-center" style="background-color: #DAA520; color:black;">
                         <tr>
@@ -94,7 +95,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <!-- <td><textarea name="" id="" cols="30" rows="5"></textarea></td>
+                            <td><textarea name="" id="" cols="30" rows="5"></textarea></</td> -->
                             <td></td>
                             <!-- <td> <a href="<?php echo base_url('user/dokumen1'); ?>"><button type="edit" class="sbtn btn-success"><i class="fa fa-pencil"></i></button></td> -->
                             <!-- <td> <a href="<?php echo base_url('user/dokumen1'); ?>"><button type="delete" class="sbtn btn-danger"><i class="fas fa-delete"></i></button></td> -->
@@ -112,7 +114,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <!-- <td><textarea name="" id="" cols="30" rows="5"></textarea></td>
+                            <td><textarea name="" id="" cols="30" rows="5"></textarea></</td> -->
                             <td></td>
                         </tr>
 
@@ -127,7 +130,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <!-- <td><textarea name="" id="" cols="30" rows="5"></textarea></td>
+                            <td><textarea name="" id="" cols="30" rows="5"></textarea></</td> -->
                             <td></td>
                         </tr>
 
@@ -142,7 +146,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <!-- <td><textarea name="" id="" cols="30" rows="5"></textarea></td>
+                            <td><textarea name="" id="" cols="30" rows="5"></textarea></</td> -->
                             <td></td>
                         </tr>
 
@@ -157,7 +162,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <!-- <td><textarea name="" id="" cols="30" rows="5"></textarea></td>
+                            <td><textarea name="" id="" cols="30" rows="5"></textarea></</td> -->
                             <td></td>
                         </tr>
 
@@ -172,7 +178,8 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <!-- <td><textarea name="" id="" cols="30" rows="5"></textarea></td>
+                            <td><textarea name="" id="" cols="30" rows="5"></textarea></</td> -->
                             <td></td>
                         </tr>
 
@@ -188,11 +195,13 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
+                            <!-- <td><textarea name="" id="" cols="30" rows="5"></textarea></td>
+                            <td><textarea name="" id="" cols="30" rows="5"></textarea></</td> -->
                         </tr>
                     </tbody>
 
                 </table>
+                </form>
 
                 <p style="color:black;"> * M= Memenuhi, MP= Melampaui, MB= Belum Memenuhi, MY= Menyimpang <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
 

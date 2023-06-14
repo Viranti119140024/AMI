@@ -26,10 +26,10 @@ class Data_ami extends CI_Model
         // var_dump($query->result());
     }
 
-    public function hapus_prodi($id_prodi)
-    {
-        $this->db->delete('prodi', ['id_prodi' => $id_prodi]);
-    }
+    // public function hapus_prodi($id_prodi)
+    // {
+    //     $this->db->delete('prodi', ['id_prodi' => $id_prodi]);
+    // }
 
     // tambah auditor di menu auditor
     public function tambah_auditor()
@@ -40,7 +40,7 @@ class Data_ami extends CI_Model
             'nama_auditor' => $this->input->post('nama_auditor', true),
             'nip_nrk' => $this->input->post('nip_nrk', true),
         ];
-        var_dump($data);
+        // var_dump($data);
 
         $this->db->insert('auditor', $data);
     }
@@ -53,9 +53,22 @@ class Data_ami extends CI_Model
         // var_dump($query->result());
     }
 
-    public function hapus_auditor($id_auditor)
+    // public function hapus_auditor($id_auditor)
+    // {
+    //     $this->db->delete('auditor', ['id_auditor' => $id_auditor]);
+    // }
+
+    public function edit_auditor()
     {
-        $this->db->delete('auditor', ['id_auditor' => $id_auditor]);
+
+        $data = [
+            'nama_lembaga' => $this->input->post('nama_lembaga', true),
+            'nama_auditor' => $this->input->post('nama_auditor', true),
+            'nip_nrk' => $this->input->post('nip_nrk', true),
+        ];
+
+        $this->db->where('id_auditor', $this->input->post('id_auditor'));
+        $this->db->update('auditor', $data);
     }
 
     // tambah jurusan di dokumen kebutuhan audit
@@ -78,8 +91,9 @@ class Data_ami extends CI_Model
         // var_dump($query->result());
     }
 
-    public function hapus_jurusan($id_jurusan)
-    {
-        $this->db->delete('jurusan', ['id_jurusan' => $id_jurusan]);
-    }
+    // public function hapus_jurusan($id_jurusan)
+    // {
+    //     $this->db->delete('jurusan', ['id_jurusan' => $id_jurusan]);
+    // }
+
 }

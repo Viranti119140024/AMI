@@ -1,37 +1,47 @@
 <div class="container">
 
   <div class="row">
+
     <div class="col mb-4">
-      <div class="card text-white bg-warning">
-        <div class="card-body">
-          <h5 class="card-title">Jurusan</h5>
-          <p class="card-text">3</p>
+      <a href="<?php echo base_url('user/dokumen0'); ?>" style="text-decoration: none;">
+        <div class="card text-white bg-warning">
+          <div class="card-body">
+            <h4 class="card-title">Dokumen Kebutuhan Audit</h4>
+            <h6 class="card-text">Jurusan dan Program Studi</h6>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
+
+
     <div class="col mb-4">
-      <div class="card text-white bg-danger">
-        <div class="card-body">
-          <h5 class="card-title">Program Studi</h5>
-          <p class="card-text">40</p>
+      <a href="<?php echo base_url('user/auditor1'); ?>" style="text-decoration: none;">
+        <div class="card text-white bg-danger">
+          <div class="card-body">
+            <h4 class="card-title">Auditor</h4>
+            <h6 class="card-text">Data Auditor</h6>
+          </div>
         </div>
-      </div>
+      </a>
     </div>
+
   </div>
 
   <div class="row">
     <div class="col mb-4">
+    <a href="<?php echo base_url('user/pilihan'); ?>" style="text-decoration: none;">
       <div class="card text-white bg-success">
         <div class="card-body">
-          <h5 class="card-title">Dokumen Kebutuhan Audit</h5>
+          <h5 class="card-title">Laporan Hasil Audit</h5>
           <p class="card-text">Jurusan dan Program Studi</p>
         </div>
       </div>
     </div>
     <div class="col mb-4">
+    <a href="<?php echo base_url('user/pilihJdanP'); ?>" style="text-decoration: none;">
       <div class="card text-white bg-info">
         <div class="card-body">
-          <h5 class="card-title">Dokumen Hasil Audit</h5>
+          <h5 class="card-title">Laporan Hasil Tindak Lanjut</h5>
           <p class="card-text">Jurusan dan Program Studi</p>
         </div>
       </div>
@@ -97,7 +107,9 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src ="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
 
-<script> let table = new DataTable('#myTable'); </script>
+<script>
+  let table = new DataTable('#myTable');
+</script>
