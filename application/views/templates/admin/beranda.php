@@ -29,7 +29,7 @@
 
   <div class="row">
     <div class="col mb-4">
-    <a href="<?php echo base_url('user/pilihan'); ?>" style="text-decoration: none;">
+    <!-- <a href="<?php echo base_url('user/pilihan'); ?>" style="text-decoration: none;"> -->
       <div class="card text-white bg-success">
         <div class="card-body">
           <h5 class="card-title">Laporan Hasil Audit</h5>
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="col mb-4">
-    <a href="<?php echo base_url('user/pilihJdanP'); ?>" style="text-decoration: none;">
+    <!-- <a href="<?php echo base_url('user/pilihJdanP'); ?>" style="text-decoration: none;"> -->
       <div class="card text-white bg-info">
         <div class="card-body">
           <h5 class="card-title">Laporan Hasil Tindak Lanjut</h5>

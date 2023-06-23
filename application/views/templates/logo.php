@@ -32,6 +32,12 @@
                     <i class="fas fa-bell fa-fw" style="color:white;"></i>
                     <!-- Counter - Alerts -->
 
+                    <!-- <?php if ($days_remaining <= 7 && $days_remaining > 3) : ?>
+                        <span class="badge-alert">Peringatan: Sisa <?php echo $days_remaining; ?> hari lagi sebelum tgl_selesai</span>
+                    <?php elseif ($days_remaining <= 3) : ?>
+                        <span class="badge-alert">Peringatan: Sisa <?php echo $days_remaining; ?> hari lagi sebelum tgl_selesai</span>
+                    <?php endif; ?> -->
+
                 </a>
                 <!-- Dropdown - Alerts -->
                 <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">

@@ -1,48 +1,53 @@
 <div class="container">
 
-  <div class="text-dark mt-8"> <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Dokumen Kebutuhan Audit Program Studi</b></h5> </div> 
+  <div class="text-dark mt-8">
+    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Dokumen Kebutuhan Audit Program Studi</b></h5>
+  </div>
 
 
-<b><hr color="red" /></b>
+  <b>
+    <hr color="red" />
+  </b>
 
-<button class="btn btn-success" type="button"><a href="<?= base_url('user/TDP') ?>" class="text-white">+ Tambah</button>
+  <button class="btn btn-success" type="button"><a href="<?= base_url('user/TDP/') . $params ?>" class="text-white">+ Tambah</button>
 
-<div class="card mt-4">
-  <div class="card-body">
-  <table class="table table-striped mt-2">
-  <thead>
-    <tr>
-      <th scope style="color: black;"="col">No</th>
-      <th scope style="color: black;"="col">Dokumen</th>
-      <th scope style="color: black;"="col">Aksi</th>
+  <div class="card mt-4">
+    <div class="card-body">
+      <table class="table table-striped mt-2">
+        <thead>
+          <tr>
+            <th scope style="color: black;"="col">No</th>
+            <th scope style="color: black;"="col">Dokumen</th>
+            <th scope style="color: black;"="col">Aksi</th>
 
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          foreach ($dokumen as $key => $value) :
+            $number = $key + 1;
+          ?>
+            <tr>
+              <th scope style="color: black;"="row"><?= $number; ?></th>
+              <td style="color: black;"><?= $value->nama_dokumen; ?></td>
+              <td>
+                <a href="<?= base_url('user/dokumen1/') . $value->id_user ?> "><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button></a>
+                <a href="<?= base_url('user/downloaddokumen/'). $value->id_user  ?>"><button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button></a>
+                <!-- <a href="<?= base_url('user/deleteauditor/') . $value->id_auditor  ?>"><button type="delete" class="sbtn btn" style="background-color:	#DCDCDC ;"><i class="fa fa-trash"></i></button></a> -->
+                <!-- <a href="<?= base_url('user/edit_auditor/') . $value->id_auditor  ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a> -->
+    </div>
+    </td>
     </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope style="color: black;"="row">1</th>
-      <td style="color: black;">Laporan Tindak Lanjut AMI</td>
-      <td> <a href="<?php echo base_url('user/index'); ?>"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color: 	#2F4F4F;"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
-    </tr>
-    <tr>
-      <th scope style="color: black;"="row">2</th>
-      <td style="color: black;">Berita Acara FGD Kurikulum</td>
-      <td> <a href="<?php echo base_url('user/index'); ?>"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color: 	#2F4F4F;"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
-    </tr>
-    <tr>
-      <th scope style="color: black;"="row">3</th>
-      <td style="color: black;">Dokumen Kurikulum</td>
-      <td> <a href="<?php echo base_url('user/index'); ?>"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color: 	#2F4F4F;"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
-    </tr>
-    
+  <?php endforeach; ?>
+
   </tbody>
-</table>
+  </table>
   </div>
 </div>
 
 
 
-  </div>
+</div>
 
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src ="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
@@ -50,6 +55,3 @@
 
 <script> let table = new DataTable('#myTable'); </script>
  -->
-
-  
-

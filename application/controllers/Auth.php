@@ -13,7 +13,7 @@ class Auth extends CI_Controller
     public function index()
     {
         // kunci akses auth ketika sdh login
-        if ($this->session->userdata('role_name') == "admin") {
+        if ($this->session->userdata('role_name') == "Admin") {
             redirect('user/berandaadmin');
         }
 
@@ -46,20 +46,20 @@ class Auth extends CI_Controller
             // jika email user active
             // if ($user['is_active'] == 1) {
             // cek password
-            if (password_verify($password, $user['password']) && $user['role_name'] == 'admin') {
+            if (password_verify($password, $user['password']) && $user['role_name'] == 'Admin') {
                 $data = [
                     'email' => $user['email'],
                     'role_name' => $user['role_name']
                 ];
                 $this->session->set_userdata($data);
                 redirect('user/berandaadmin');
-            } else if (password_verify($password, $user['password']) && $user['role_name'] == 'prodi') {
+            } else if (password_verify($password, $user['password']) && $user['role_name'] == 'Program Studi') {
                 $data = [
                     'email' => $user['email'],
                     'role_name' => $user['role_name']
                 ];
                 $this->session->set_userdata($data);
-                redirect('prodi/dokumenkebutuhan');
+                redirect('prodi/berandaprodi');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
                 redirect('auth');
@@ -89,7 +89,7 @@ class Auth extends CI_Controller
         // skema buat akun gagal
         if ($this->form_validation->run() == false) {
             $data['title'] = 'Buat Akun';
-            $this->load->view('auth/registrasi');
+            $this->load->view('User/tambahuser');
         }
         // skema buat akun berhasil
         else {
@@ -103,7 +103,7 @@ class Auth extends CI_Controller
             // var_dump($data);
             $this->db->insert('user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat, Akun anda telah terdaftar!</div>');
-            redirect('auth');
+            redirect('user/user');
         }
     }
 
@@ -116,5 +116,4 @@ class Auth extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Anda Telah Keluar Akun!</div>');
         redirect('auth');
     }
-
 }

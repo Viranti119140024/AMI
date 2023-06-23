@@ -9,14 +9,15 @@ class prodi extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Data_ami');
         $this->load->library('form_validation');
         $this->load->library('session');
         $this->load->library('table');
 
 
-        // if ($this->session->userdata('role_name') != "prodi") {
-        //     redirect("auth");
-        // }
+        if ($this->session->userdata('role_name') != "Program Studi") {
+            redirect("auth");
+        }
     }
 
     public function berandaprodi()
@@ -37,6 +38,10 @@ class prodi extends CI_Controller
         $data['title'] = 'Dokumen Kebutuhan Audit Prodi';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+        // var_dump($data['user']['id']);
+
+        $data['dokumen'] = $this->Data_ami->get_dokprodi($data['user']['id']);
 
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/logo', $data);

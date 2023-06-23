@@ -16,9 +16,9 @@ class User extends CI_Controller
         $this->load->library('table');
 
 
-        // if ($this->session->userdata('role_name') != "admin") {
-        //     redirect("auth");
-        // }
+        if ($this->session->userdata('role_name') != "Admin") {
+            redirect("auth");
+        }
     }
 
 
@@ -86,6 +86,20 @@ class User extends CI_Controller
         $data['title'] = 'Dokumen Kebutuhan Audit';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+        // $data['url'] = $this->uri->segment(3);
+
+        $url = $_SERVER['REQUEST_URI'];
+        $segments = explode('/', $url);
+
+        // Find the index of the parameter name
+        $param1Index = array_search('param1', $segments);
+        // Retrieve the parameter values
+        $data['params'] = $segments[$param1Index + 4];
+        // var_dump($data['params']);
+
+
+        $data['dokumen'] = $this->Data_ami->get_dokprodi($data['params']);
 
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
@@ -215,6 +229,32 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumenhasilaudit/daftarjurusan', $data);
+    }
+
+    public function pilihdaftartilik()
+    {
+
+        $data['title'] = 'Hasil Desk Evaluation';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/daftartilik/pilihan', $data);
+    }
+
+    public function menudaftartilik()
+    {
+
+        $data['title'] = 'Hasil Desk Evaluation';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/daftartilik/menuutama', $data);
     }
 
     public function daftartilik0()
@@ -419,10 +459,34 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->load->view('partials/admin/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/admin/sidebar', $data);
-        $this->load->view('templates/admin/dokumen/tambahdokumenprodi', $data);
+        $url = $_SERVER['REQUEST_URI'];
+        $segments = explode('/', $url);
+
+        // Find the index of the parameter name
+        $param1Index = array_search('param1', $segments);
+        // Retrieve the parameter values
+        $data['params'] = $segments[$param1Index + 4];
+        // var_dump($data['params']);
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/logo', $data);
+            $this->load->view('partials/admin/sidebar', $data);
+            $this->load->view('templates/admin/dokumen/tambahdokumenprodi', $data);
+        } else {
+            // var_dump($data['params']);
+            $this->Data_ami->tambah_dokumen();
+            // $this->session->set_flashdata('flash', 'ditambahkan');
+            // redirect('user/dokumen1/' . $data->params);
+        }
+    }
+
+    public function TDP_post($id)
+    {
+        // var_dump($id);
+        $this->Data_ami->tambah_dokumen($id);
+        $this->session->set_flashdata('flash', 'ditambahkan');
+        redirect('user/dokumen1/' . $id);
     }
 
     public function TDJ()
@@ -449,6 +513,34 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/tambah', $data);
+    }
+
+    public function user()
+    {
+
+        $data['title'] = 'Daftar User';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $data['user'] = $this->Data_ami->get_user();
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/user/daftaruser', $data);
+    }
+
+    public function HaMi()
+    {
+
+        $data['title'] = 'Daftar User';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/hasil/hasilami', $data);
     }
 
     //WILAYAH TAMBAH TAMBAH
@@ -520,6 +612,42 @@ class User extends CI_Controller
         }
     }
 
+    public function TambahUser()
+    {
+        $data['title'] = 'Tambah Daftar Pengguna';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        // $this->form_validation->set_rules('nama_lembaga', 'Nama Lembaga', 'required');
+        // $this->form_validation->set_rules('nama_auditor', 'Nama Auditor', 'required');
+        // $this->form_validation->set_rules('nip_nrk', 'NIP_NRK', 'required');
+
+        // if ($this->form_validation->run() == FALSE) {
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/user/tambahuser', $data);
+        // } else {
+        //     $this->Data_ami->tambah_auditor();
+        //     $this->session->set_flashdata('flash', 'ditambahkan');
+        //     redirect('user/auditor1');
+        // }
+    }
+
+    // ONTROLLER NOTIFIKASI
+    public function notifikasi()
+    {
+        // Menghitung selisih hari antara $tgl_selesai dan tanggal saat ini
+        $tgl_selesai = "2023-06-30"; // Tanggal selesai yang digunakan sebagai contoh
+        $days_remaining = (strtotime($tgl_selesai) - time()) / (60 * 60 * 24);
+
+        // Kirim data selisih hari ke view
+        $data['days_remaining'] = ceil($days_remaining);
+
+        // Load view notification_badge.php dengan data yang telah dikirim
+        $this->load->view('user/notifikasi', $data);
+    }
+
 
     //WILAYAH HAPUS HAPUS
     // public function deleteprodi($id_prodi)
@@ -545,11 +673,12 @@ class User extends CI_Controller
 
     //WILAYAH EDIT EDIT
     // edit auditor
-    public function edit_auditor($id_kat)
+    public function edit_auditor($id_auditor)
     {
         $data['title'] = 'Edit Auditor';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['auditor'] = $this->Data_ami->get_auditor($id_kat);
+        $data['auditor'] = $this->Data_ami->get_auditor_by_id($id_auditor);
+        // var_dump($data);
 
 
         $this->form_validation->set_rules('nama_lembaga', 'Nama Lembaga', 'required');
@@ -560,13 +689,12 @@ class User extends CI_Controller
             $this->load->view('partials/admin/header', $data);
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/admin/sidebar', $data);
-            $this->load->view('templates/admin/auditor/tambahauditor', $data);
+            $this->load->view('templates/admin/auditor/editauditor', $data);
         } else {
-            $this->Data_ami->edit_kategori();
+            // var_dump($id_auditor);
+            $this->Data_ami->update_auditor();
             $this->session->set_flashdata('flash', 'diubah');
             redirect('user/auditor1');
         }
     }
-
 }
-

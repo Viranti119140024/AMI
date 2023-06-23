@@ -15,9 +15,9 @@ class jurusan_controller extends CI_Controller
         $this->load->library('table');
 
 
-        // if ($this->session->userdata('role_name') != "jurusan") {
-        //     redirect("auth");
-        // }
+        if ($this->session->userdata('role_name') != "jurusan") {
+            redirect("auth");
+        }
     }
 
     public function berandajurusan()

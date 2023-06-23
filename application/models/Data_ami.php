@@ -20,7 +20,13 @@ class Data_ami extends CI_Model
 
     public function get_prodi()
     {
-        $query = $this->db->query("SELECT * FROM prodi");
+        // $query = $this->db->query("SELECT * FROM prodi");
+
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('role_name', 'Program Studi');
+        $query = $this->db->get();
+
 
         return $query->result();
         // var_dump($query->result());
@@ -53,12 +59,22 @@ class Data_ami extends CI_Model
         // var_dump($query->result());
     }
 
+    public function get_auditor_by_id($id)
+    {
+        $this->db->select('*');
+        $this->db->from('auditor');
+        $this->db->where('id_auditor', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
     // public function hapus_auditor($id_auditor)
     // {
     //     $this->db->delete('auditor', ['id_auditor' => $id_auditor]);
     // }
 
-    public function edit_auditor()
+    public function update_auditor()
     {
 
         $data = [
@@ -69,6 +85,9 @@ class Data_ami extends CI_Model
 
         $this->db->where('id_auditor', $this->input->post('id_auditor'));
         $this->db->update('auditor', $data);
+
+        // $this->db->where('id_auditor', $id);
+        // $this->db->update('auditor', $data);
     }
 
     // tambah jurusan di dokumen kebutuhan audit
@@ -96,4 +115,36 @@ class Data_ami extends CI_Model
     //     $this->db->delete('jurusan', ['id_jurusan' => $id_jurusan]);
     // }
 
+    public function get_user()
+    {
+        $query = $this->db->query("SELECT * FROM user");
+
+        return $query->result();
+        // var_dump($query->result());
+    }
+
+    public function get_dokprodi($id)
+    {
+
+        $this->db->select('*');
+        $this->db->from('dokumen');
+        $this->db->where('id_user', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+
+        // $query = $this->db->query("SELECT * FROM dokumen");
+        // var_dump($query->result());
+    }
+
+    public function tambah_dokumen($id)
+    {
+        $data = [
+            'id_user' => $id,
+            'nama_dokumen' => $this->input->post('nama_dokumen', true),
+        ];
+        // var_dump($data);
+
+        $this->db->insert('dokumen', $data);
+    }
 }

@@ -41,11 +41,11 @@
                         <label for="InputPassword" style="color: white; font-weight:bold;">Password</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Password">
                     </div>
-                    <label for="sebagai" style="color: white; font-weight:bold;">Sebagai</label>
+                    <label for="sebagai" style="color: white; font-weight:bold;">Role</label>
                     <select name="role_name" id="role_name" class="form-control mb-2">
                         <option value="admin">Admin</option>
-                        <option value="jurusan">Auditee Jurusan</option>
-                        <option value="prodi">Auditee Program Studi</option>
+                        <option value="jurusan">Jurusan</option>
+                        <option value="prodi">Program Studi</option>
                         <option value="auditor prodi">Auditor Program Studi</option>
                         <option value="auditor jurusan">Auditor Jurusan</option>
                     </select>
