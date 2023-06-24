@@ -17,7 +17,7 @@
                 <thead>
                     <tr>
                         <th scope style="color: black;"="col">No</th>
-                        <th scope style="color: black;"="col">Nama User</th>
+                        <th scope style="color: black;"="col">Nama Pengguna</th>
                         <th scope style="color: black;"="col">Email</th>
                         <th scope style="color: black;"="col">Role</th>
                         <th scope style="color: black;"="col">Aksi</th>
@@ -34,7 +34,6 @@
                             <td style="color: black;"><?= $value->name; ?></td>
                             <td style="color: black;"><?= $value->email; ?></td>
                             <td style="color: black;"><?= $value->role_name; ?></td>
-                            <td>
                             <td> <a href="<?= base_url('user/deleteprodi/') . $value->id  ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a>
                             </td>
                         </tr>

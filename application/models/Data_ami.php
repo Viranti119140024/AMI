@@ -104,7 +104,13 @@ class Data_ami extends CI_Model
 
     public function get_jurusan()
     {
-        $query = $this->db->query("SELECT * FROM jurusan");
+        // $query = $this->db->query("SELECT * FROM prodi");
+
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('role_name', 'Jurusan');
+        $query = $this->db->get();
+
 
         return $query->result();
         // var_dump($query->result());
@@ -124,6 +130,20 @@ class Data_ami extends CI_Model
     }
 
     public function get_dokprodi($id)
+    {
+
+        $this->db->select('*');
+        $this->db->from('dokumen');
+        $this->db->where('id_user', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+
+        // $query = $this->db->query("SELECT * FROM dokumen");
+        // var_dump($query->result());
+    }
+
+    public function get_dokjurusan($id)
     {
 
         $this->db->select('*');

@@ -4,7 +4,7 @@
         <div class="card-body">
             <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auth/registrasi') ?>">
                 <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">Nama Jurusan / Program Studi</label>
+                    <label for="exampleFormControlInput1" style="color: black;">Nama Pengguna</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama">
                 </div>
 

@@ -31,11 +31,10 @@
               <th scope style="color: black;"="row"><?= $number; ?></th>
               <td style="color: black;"><?= $value->nama_dokumen; ?></td>
               <td>
-                <a href="<?= base_url('user/dokumen1/') . $value->id_user ?> "><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button></a>
-                <a href="<?= base_url('user/downloaddokumen/'). $value->id_user  ?>"><button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button></a>
-                <!-- <a href="<?= base_url('user/deleteauditor/') . $value->id_auditor  ?>"><button type="delete" class="sbtn btn" style="background-color:	#DCDCDC ;"><i class="fa fa-trash"></i></button></a> -->
-                <!-- <a href="<?= base_url('user/edit_auditor/') . $value->id_auditor  ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a> -->
-    </div>
+                <a href="<?= base_url('user/dokumen1/') . $value->id_user ?> "><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
+                <a href="<?= base_url('user/downloaddokumen')  . $value->id_user ?>"><button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button></a>
+
+  </div>
     </td>
     </tr>
   <?php endforeach; ?>

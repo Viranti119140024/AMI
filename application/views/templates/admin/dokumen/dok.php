@@ -34,11 +34,11 @@
           ?>
             <tr>
               <th scope style="color: black;"="row"><?= $number; ?></th>
-              <td style="color: black;"><?= $value->nama_jurusan; ?></td>
+              <td style="color: black;"><?= $value->name; ?></td>
               <td>
-                <a href="<?= base_url('user/index/') . $value->id_jurusan ?> "><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
-                <a href="<?= base_url('user/downloaddokumen') ?>"><button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #32CD32;"></i></button></a>
-                <!-- <a href="<?= base_url('user/deletejurusan/') . $value->id_jurusan  ?>"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a> -->
+                <a href="<?= base_url('user/index/') . $value->id ?> "><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
+                <a href="<?= base_url('user/downloaddokumen') . $value->id ?>"><button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #32CD32;"></i></button></a>
+                <!-- <a href="<?= base_url('user/deletejurusan/') . $value->id_  ?>"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a> -->
     </div>
     </td>
     </tr>

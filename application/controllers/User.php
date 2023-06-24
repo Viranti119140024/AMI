@@ -46,6 +46,20 @@ class User extends CI_Controller
         //     $this->load->view('templates/admin/footer');
         // }
 
+        // $data['url'] = $this->uri->segment(3);
+
+        $url = $_SERVER['REQUEST_URI'];
+        $segments = explode('/', $url);
+
+        // Find the index of the parameter name
+        $param1Index = array_search('param1', $segments);
+        // Retrieve the parameter values
+        $data['params'] = $segments[$param1Index + 4];
+        // var_dump($data['params']);
+
+
+        $data['dokumen'] = $this->Data_ami->get_dokjurusan($data['params']);
+
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
@@ -455,7 +469,7 @@ class User extends CI_Controller
     public function TDP()
     {
 
-        $data['title'] = 'Tambah Prodi';
+        $data['title'] = 'Tambah Dokumen Prodi';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -492,14 +506,38 @@ class User extends CI_Controller
     public function TDJ()
     {
 
-        $data['title'] = 'Tambah Jurusan';
+        $data['title'] = 'Tambah Dokumen Jurusan';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $url = $_SERVER['REQUEST_URI'];
+        $segments = explode('/', $url);
+
+        // Find the index of the parameter name
+        $param1Index = array_search('param1', $segments);
+        // Retrieve the parameter values
+        $data['params'] = $segments[$param1Index + 4];
+        // var_dump($data['params']);
+
+        if ($this->form_validation->run() == FALSE) {
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumen/tambahdokumenjurusan', $data);
+    } else {
+        // var_dump($data['params']);
+        $this->Data_ami->tambah_dokumen();
+        // $this->session->set_flashdata('flash', 'ditambahkan');
+        // redirect('user/dokumen1/' . $data->params);
+    }
+    }
+
+    public function TDJ_post($id)
+    {
+        // var_dump($id);
+        $this->Data_ami->tambah_dokumen($id);
+        $this->session->set_flashdata('flash', 'ditambahkan');
+        redirect('user/index/' . $id);
     }
 
     public function formdaftartilik()
