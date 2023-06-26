@@ -518,18 +518,19 @@ class User extends CI_Controller
         // Retrieve the parameter values
         $data['params'] = $segments[$param1Index + 4];
         // var_dump($data['params']);
+        // var_dump($segments);
 
         if ($this->form_validation->run() == FALSE) {
-        $this->load->view('partials/admin/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/admin/sidebar', $data);
-        $this->load->view('templates/admin/dokumen/tambahdokumenjurusan', $data);
-    } else {
-        // var_dump($data['params']);
-        $this->Data_ami->tambah_dokumen();
-        // $this->session->set_flashdata('flash', 'ditambahkan');
-        // redirect('user/dokumen1/' . $data->params);
-    }
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/logo', $data);
+            $this->load->view('partials/admin/sidebar', $data);
+            $this->load->view('templates/admin/dokumen/tambahdokumenjurusan', $data);
+        } else {
+            // var_dump($data['params']);
+            $this->Data_ami->tambah_dokumen();
+            // $this->session->set_flashdata('flash', 'ditambahkan');
+            // redirect('user/dokumen1/' . $data->params);
+        }
     }
 
     public function TDJ_post($id)

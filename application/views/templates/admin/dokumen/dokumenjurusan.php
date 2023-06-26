@@ -9,7 +9,7 @@
     <hr color="red" />
   </b>
 
-  <a class="btn btn-success" type="button" class="text-white" href="<?= base_url('user/TDJ') ?>">+ Tambah</a>
+  <a class="btn btn-success" type="button" class="text-white" href="<?= base_url('user/TDJ/') . $params ?>">+ Tambah</a>
 
 
   <div class="card mt-4">

@@ -165,4 +165,35 @@ class prodi extends CI_Controller
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/laporanhasilprodi/babtigaa', $data);
     }
+
+
+    //upload dokumen
+
+    public function update($id)
+    {
+        $data = array(
+            'nama_file' => $this->input->post('nama_file'),
+            'type' => $this->input->post('type'),
+            'ukuran' => $this->input->post('ukuran'),
+        );
+
+        if ($_FILES['image']['name']) {
+            $config['upload_path'] = './uploads/';
+            $config['allowed_types'] = 'pdf';
+            $config['max_size'] = 2048; // 2MB
+
+            $this->upload->initialize($config);
+
+            if (!$this->upload->do_upload('image')) {
+                $error = array('error' => $this->upload->display_errors());
+                $this->load->view('dokumen', $error);
+            } else {
+                $upload_data = $this->upload->data();
+                $data['image'] = $upload_data['nama_file'];
+            }
+        }
+
+        $this->Data_ami->update_dokumen($id, $data);
+        redirect('prodi/show/' . $id);
+    }
 }

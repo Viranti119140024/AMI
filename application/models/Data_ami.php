@@ -167,4 +167,11 @@ class Data_ami extends CI_Model
 
         $this->db->insert('dokumen', $data);
     }
+
+    public function update_dokumen($id) 
+    {
+        
+        $this->db->where('id_user', $id);
+        $this->db->update('dokumen', $data);
+    }
 }
