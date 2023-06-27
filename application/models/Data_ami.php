@@ -168,10 +168,26 @@ class Data_ami extends CI_Model
         $this->db->insert('dokumen', $data);
     }
 
-    public function update_dokumen($id) 
+    public function update_dokumen($id, $nama, $tipe, $ukuran)
     {
-        
-        $this->db->where('id_user', $id);
+        $data['nama_file'] = $nama;
+        $data['type'] = $tipe;
+        $data['ukuran'] = $ukuran;
+
+        $this->db->where('id_dokumen', $id);
         $this->db->update('dokumen', $data);
+    }
+
+    public function get_dokumen_link($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+
+        $this->db->select('*');
+        $this->db->from('dokumen');
+        $this->db->where('id_dokumen', $id);
+        $query = $this->db->get();
+
+        // var_dump($query);
+        return $query->result();
     }
 }

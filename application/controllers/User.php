@@ -736,4 +736,24 @@ class User extends CI_Controller
             redirect('user/auditor1');
         }
     }
+
+    //lihat dokumen
+    public function lihatdokumen($id)
+    {
+        $data['title'] = 'Dokumen Preview';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        // $data['pdfFilePath'] = 'dokumen/';
+
+        $data['dokumen'] = $this->Data_ami->get_dokumen_link($id);
+        // var_dump($data['dokumen'][0]->nama_file);
+        $data['pdfFilePath'] = $data['dokumen'][0]->nama_file;
+
+        // $this->load->view('lihatdokumen', ['pdfFilePath' => $pdfFilePath]);
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/dokumen/lihatdokumen', $data);
+    }
 }
