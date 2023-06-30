@@ -60,6 +60,27 @@ class Auth extends CI_Controller
                 ];
                 $this->session->set_userdata($data);
                 redirect('prodi/berandaprodi');
+            } else if (password_verify($password, $user['password']) && $user['role_name'] == 'Jurusan') {
+                $data = [
+                    'email' => $user['email'],
+                    'role_name' => $user['role_name']
+                ];
+                $this->session->set_userdata($data);
+                redirect('jurusan_controller/berandajurusan');
+            } else if (password_verify($password, $user['password']) && $user['role_name'] == 'Auditor Program Studi') {
+                $data = [
+                    'email' => $user['email'],
+                    'role_name' => $user['role_name']
+                ];
+                $this->session->set_userdata($data);
+                redirect('auditor/BERANDA');
+            } else if (password_verify($password, $user['password']) && $user['role_name'] == 'Auditor Jurusan') {
+                $data = [
+                    'email' => $user['email'],
+                    'role_name' => $user['role_name']
+                ];
+                $this->session->set_userdata($data);
+                redirect('auditorjurusan/berandaauditorjurusan');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
                 redirect('auth');

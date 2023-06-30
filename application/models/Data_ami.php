@@ -145,12 +145,12 @@ class Data_ami extends CI_Model
 
     public function get_dokjurusan($id)
     {
-
         $this->db->select('*');
         $this->db->from('dokumen');
         $this->db->where('id_user', $id);
         $query = $this->db->get();
 
+        // var_dump($query->result());
         return $query->result();
 
         // $query = $this->db->query("SELECT * FROM dokumen");

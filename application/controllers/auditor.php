@@ -7,6 +7,20 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class auditor extends CI_Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Data_ami');
+        $this->load->library('form_validation');
+        $this->load->library('session');
+        $this->load->library('table');
+
+
+        if ($this->session->userdata('role_name') != "Auditor Program Studi") {
+            redirect("auth");
+        }
+    }
+
     public function BERANDA()
     {
         $data['title'] = 'Beranda Auditor Prodi';

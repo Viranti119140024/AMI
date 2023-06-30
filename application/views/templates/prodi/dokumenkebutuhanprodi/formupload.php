@@ -1,18 +1,27 @@
 <div class="container">
 
-
-    <form enctype="multipart/form-data" method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('prodi/upload_dokumen/') . $id ?>">
-        <div class="form-group">
-            <label for="exampleFormControlFile1">Upload Dokumen</label>
-            <input type="file" name="file_dokumen" id="file_dokumen" class="form-control-file" id="exampleFormControlFile1">
-        </div>
-        <div class=" row justify-content-center pt-5 pb-5">
-            <div class="col-3">
-                <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
+    <div class="card">
+        <div class="card-body">
+            <div class="text-dark mt-8">
+                <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Upload Dokumen Kebutuhan Audit Program Studi</b></h5>
             </div>
-        </div>
-    </form>
+            <b>
+                <hr color="red" />
+            </b>
+            <form enctype="multipart/form-data" method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('prodi/upload_dokumen/') . $id ?>">
+                <div class="form-group">
+                    <label for="exampleFormControlFile1"></label>
+                    <input type="file" name="file_dokumen" id="file_dokumen" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <div class=" row justify-content-center pt-5 pb-5">
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
+                    </div>
+                </div>
+            </form>
 
+        </div>
+    </div>
     <!-- <div class="card">
         <div class="card-body">
             <div class="text-dark mt-8">
