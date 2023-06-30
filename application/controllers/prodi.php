@@ -85,8 +85,8 @@ class prodi extends CI_Controller
                 } else {
                     // var_dump("bisa diupload");
                     $upload_data = $this->upload->data();
-                    var_dump($upload_data);
-                    $data['nama_file'] = $upload_data['full_path'];
+                    // var_dump($upload_data);
+                    $data['nama_file'] = $upload_data['file_name'];
                     $data['type'] = $upload_data['file_type'];
                     $data['ukuran'] = $upload_data['file_size'];
                     $this->Data_ami->update_dokumen($id, $data['nama_file'], $data['type'], $data['ukuran']);
