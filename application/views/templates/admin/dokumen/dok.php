@@ -8,7 +8,7 @@
     <hr color="red" />
   </b>
 
-  <a class="btn btn-success" type="button" class="text-white" href="<?= base_url('user/tambahjurusan') ?>">+ Tambah</a>
+  <!-- <a class="btn btn-success" type="button" class="text-white" href="<?= base_url('user/tambahjurusan') ?>">+ Tambah</a> -->
 
   <!-- <div class="d-flex justify-content-end">
     <form class="d-flex" action="#" method="GET">

@@ -568,20 +568,6 @@ class User extends CI_Controller
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/user/daftaruser', $data);
     }
-
-    public function HaMi()
-    {
-
-        $data['title'] = 'Daftar User';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-
-        $this->load->view('partials/admin/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/admin/sidebar', $data);
-        $this->load->view('templates/admin/hasil/hasilami', $data);
-    }
-
     //WILAYAH TAMBAH TAMBAH
 
     //tambah prodi
@@ -746,7 +732,8 @@ class User extends CI_Controller
         // $data['pdfFilePath'] = 'dokumen/';
 
         $data['dokumen'] = $this->Data_ami->get_dokumen_link($id);
-        // var_dump($data['dokumen'][0]->nama_file);
+        // var_dump($data['dokumen']);
+        // var_dump(base_url('assets/dokumen/KP2-Form-Presensi-dan-Log-Sheet-KP-IF-REV.pdf'));
         $data['pdfFilePath'] = $data['dokumen'][0]->nama_file;
 
         // $this->load->view('lihatdokumen', ['pdfFilePath' => $pdfFilePath]);
@@ -756,4 +743,21 @@ class User extends CI_Controller
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumen/lihatdokumen', $data);
     }
+
+    public function download($id)
+    {
+        $data['title'] = '';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        // $data['pdfFilePath'] = 'dokumen/';
+
+        $data['dokumen'] = $this->Data_ami->get_dokumen_link($id);
+        // var_dump($data['dokumen']);
+        // var_dump(base_url('assets/dokumen/KP2-Form-Presensi-dan-Log-Sheet-KP-IF-REV.pdf'));
+        $data['pdfFilePath'] = $data['dokumen'][0]->nama_file;
+        var_dump( $data['pdfFilePath']);
+
+        // $this->load->view('lihatdokumen', ['pdfFilePath' => $pdfFilePath]);
+    }
+    
 }
