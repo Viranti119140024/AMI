@@ -744,6 +744,7 @@ class User extends CI_Controller
         $this->load->view('templates/admin/dokumen/lihatdokumen', $data);
     }
 
+
     public function download($id)
     {
         $data['title'] = '';

@@ -181,13 +181,15 @@ class Data_ami extends CI_Model
     public function get_dokumen_link($id)
     {
         // $query = $this->db->query("SELECT * FROM prodi");
-
+        // $id = (int)$id;
         $this->db->select('*');
         $this->db->from('dokumen');
-        $this->db->where('id_dokumen', $id);
+        $this->db->where('id_dokumen',$id);
         $query = $this->db->get();
 
-        // var_dump($query);
+        // var_dump($query->result());
+        // var_dump($id);
         return $query->result();
     }
+
 }
