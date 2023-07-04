@@ -184,7 +184,7 @@ class Data_ami extends CI_Model
         // $id = (int)$id;
         $this->db->select('*');
         $this->db->from('dokumen');
-        $this->db->where('id_dokumen',$id);
+        $this->db->where('id_dokumen', $id);
         $query = $this->db->get();
 
         // var_dump($query->result());
@@ -192,4 +192,259 @@ class Data_ami extends CI_Model
         return $query->result();
     }
 
+    public function get_tindaklanjut($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('tindaklanjut');
+        $this->db->where('id_user', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_tindaklanjut2($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('bab2');
+        $this->db->where('id_tindaklanjut', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function tambah_tindaklanjut($id)
+    {
+        $data = [
+            'id_user' => $id,
+            'nama_penyusunan' => $this->input->post('nama_penyusunan', true),
+            'pemeriksa1' => $this->input->post('pemeriksa1', true),
+            'pemeriksa2' => $this->input->post('pemeriksa2', true),
+            'penetapan1' => $this->input->post('penetapan1', true),
+            'penetapan2' => $this->input->post('penetapan2', true),
+            'periode' => $this->input->post('periode', true),
+            'tahun' => $this->input->post('tahun', true),
+            'lembaga' => $this->input->post('lembaga', true),
+            'tanggal' => $this->input->post('tanggal', true),
+            'nrk' => $this->input->post('nrk', true),
+            'hari_tgl' => $this->input->post('hari_tgl', true),
+            'waktu' => $this->input->post('waktu', true),
+            'tempat' => $this->input->post('tempat', true),
+            'auditor' => $this->input->post('auditor', true),
+            'auditee' => $this->input->post('auditee', true),
+            'temuan' => $this->input->post('temuan', true),
+            'prodi' => $this->input->post('prodi', true),
+            'ruanglingkup' => $this->input->post('ruanglingkup', true),
+            'tanggalDE' => $this->input->post('tanggalDE', true),
+            'dokumenacuan' => $this->input->post('dokumenacuan', true),
+            'a2' => $this->input->post('a2', true),
+            'kesimpulan' => $this->input->post('kesimpulan', true),
+            // 'dokumentasi' => $this->input->post('dokumentasi', true),
+        ];
+
+        $this->db->insert('tindaklanjut', $data,);
+    }
+
+    public function tambah_tindaklanjut2($id)
+    {
+        $data = [
+            'id_tindaklanjut' => $id,
+            // 'prodi' => $this->input->post('prodi', true),
+            // 'ruanglingkup' => $this->input->post('ruanglingkup', true),
+            // 'tanggal' => $this->input->post('tanggal', true),
+            // 'dokumen_acuan' => $this->input->post('dokumen_acuan', true),
+            'jenis_temuan' => $this->input->post('jenis_temuan', true),
+            'OB' => $this->input->post('OB', true),
+            'KTS' => $this->input->post('KTS', true),
+            'kode' => $this->input->post('kode', true),
+            'jangka_waktu' => $this->input->post('jangka_waktu', true),
+            'pj' => $this->input->post('pj', true),
+            // 'temuan' => $this->input->post('temuan', true),
+            // 'a2' => $this->input->post('a2', true),
+            // 'kesimpulan' => $this->input->post('kesimpulan', true),
+        ];
+
+        // $data['nama_file'] = $nama;
+        // $data['type'] = $tipe;
+        // $data['ukuran'] = $ukuran; 
+
+        var_dump($data);
+
+        $this->db->insert('bab2', $data,);
+    }
+
+    public function get_data($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('tindaklanjut');
+        $this->db->where('id_tindaklanjut', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_data_by_id($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('tindaklanjut');
+        $this->db->where('id_user', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_data2($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('bab2');
+        $this->db->where('id_tindaklanjut', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_data2_by_id($id)
+    {
+        $this->db->select('*');
+        $this->db->from('bab2');
+        $this->db->where('id_tindaklanjut', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    public function update_data($id)
+    {
+
+        $data = [
+            'id_user' => $id,
+            'nama_penyusunan' => $this->input->post('nama_penyusunan', true),
+            'pemeriksa1' => $this->input->post('pemeriksa1', true),
+            'pemeriksa2' => $this->input->post('pemeriksa2', true),
+            'penetapan1' => $this->input->post('penetapan1', true),
+            'penetapan2' => $this->input->post('penetapan2', true),
+            'periode' => $this->input->post('periode', true),
+            'tahun' => $this->input->post('tahun', true),
+            'lembaga' => $this->input->post('lembaga', true),
+            'tanggal' => $this->input->post('tanggal', true),
+            'nrk' => $this->input->post('nrk', true),
+            'hari_tgl' => $this->input->post('hari_tgl', true),
+            'waktu' => $this->input->post('waktu', true),
+            'tempat' => $this->input->post('tempat', true),
+            'auditor' => $this->input->post('auditor', true),
+            'auditee' => $this->input->post('auditee', true),
+            'temuan' => $this->input->post('temuan', true),
+            'prodi' => $this->input->post('prodi', true),
+            'ruanglingkup' => $this->input->post('ruanglingkup', true),
+            'tanggalDE' => $this->input->post('tanggalDE', true),
+            'dokumenacuan' => $this->input->post('dokumenacuan', true),
+            'a2' => $this->input->post('a2', true),
+            'kesimpulan' => $this->input->post('kesimpulan', true),
+            // 'dokumentasi' => $this->input->post('dokumentasi', true),
+        ];
+        $this->db->where('id_tindaklanjut', $this->input->post('id_user'));
+        $this->db->update('tindaklanjut', $data);
+
+        // $this->db->where('id_auditor', $id);
+        // $this->db->update('auditor', $data);
+    }
+
+    public function update_data2()
+    {
+
+        $data = [
+            'id_tindaklanjut' => $this->input->post('id_tindaklanjut', true),
+            // 'prodi' => $this->input->post('prodi', true),
+            // 'ruanglingkup' => $this->input->post('ruanglingkup', true),
+            // 'tanggal' => $this->input->post('tanggal', true),
+            // 'dokumen_acuan' => $this->input->post('dokumen_acuan', true),
+            'jenis_temuan' => $this->input->post('jenis_temuan', true),
+            'OB' => $this->input->post('OB', true),
+            'KTS' => $this->input->post('KTS', true),
+            'kode' => $this->input->post('kode', true),
+            'jangka_waktu' => $this->input->post('jangka_waktu', true),
+            'pj' => $this->input->post('pj', true),
+            'temuan' => $this->input->post('temuan', true),
+            'a2' => $this->input->post('a2', true),
+            'kesimpulan' => $this->input->post('kesimpulan', true),
+        ];
+
+        $this->db->where('id_tindaklanjut', $this->input->post('id_tindaklanjut'));
+        $this->db->update('bab2', $data);
+
+        // $this->db->where('id_auditor', $id);
+        // $this->db->update('auditor', $data);
+    }
+
+    public function get_acuan()
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('admin_dokumen_acuan');
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_hasil_desk($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('admin_hasil_desk');
+        $this->db->where('id_dokumen_acuan', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_daftar_tilik($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('admin_daftar_tilik');
+        $this->db->where('id_dokumen_acuan', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function tambah_hasil_desk()
+    {
+
+        $data = [
+            'id_dokumen_acuan' => $this->input->post('id_dokumen_acuan', true),
+            'nama_dokumen_terkait' => $this->input->post('nama_dokumen_terkait', true),
+        ];
+        // var_dump($data);
+
+        $this->db->insert('admin_hasil_desk', $data);
+    }
 }

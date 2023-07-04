@@ -26,12 +26,15 @@ class jurusan_controller extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+
+        var_dump($data['user']);
+
         $this->load->view('partials/jurusan/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/beranda', $data);
     }
-    
+
     public function dokumen()
     {
         $data['title'] = 'Dokumen Kebutuhan Audit';
@@ -40,8 +43,8 @@ class jurusan_controller extends CI_Controller
 
         // var_dump((int)$data['user']['id']);
 
-        $data['dokumen'] = $this->Data_ami->get_dokjurusan($data['user']['id']); 
-        
+        $data['dokumen'] = $this->Data_ami->get_dokjurusan($data['user']['id']);
+
         // var_dump($this->Data_ami->get_dokjurusan( (int)$data['user']['id']));
 
         $this->load->view('partials/jurusan/header', $data);
@@ -95,7 +98,6 @@ class jurusan_controller extends CI_Controller
                 }
             }
             $this->session->set_flashdata('flash', 'ditambahkan');
-            
         }
     }
 

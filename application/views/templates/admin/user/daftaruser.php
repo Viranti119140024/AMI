@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($user as $key => $value) :
+                    foreach ($users as $key => $value) :
                         $number = $key + 1;
                     ?>
                         <tr>

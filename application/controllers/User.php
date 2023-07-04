@@ -15,6 +15,20 @@ class User extends CI_Controller
         $this->load->library('session');
         $this->load->library('table');
 
+        // $data['user'] = $this->db->get_where('user', ['email' =>
+        // $this->session->userdata('email')])->row_array();
+
+        // // cek sisa waktu deadline
+        // $tgl_akhir = "2023-07-07"; // Tanggal selesai yang digunakan sebagai contoh
+        // $tanggal_akhir = new DateTime($tgl_akhir);
+
+        // $now = new DateTime();
+        // $now->setTime(0, 0, 0); // Set waktu saat ini ke pukul 00:00:00
+
+        // $selisih_hari = $now->diff($tanggal_akhir)->days;
+        // $data['deadline'] = $selisih_hari;
+
+        // $this->load->view('templates/logo', $data);
 
         if ($this->session->userdata('role_name') != "Admin") {
             redirect("auth");
@@ -178,13 +192,14 @@ class User extends CI_Controller
     {
 
         $data['title'] = 'Beranda Admin';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        // var_dump($data['user']);
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/beranda', $data);
+        $this->load->view('partials/auditorjurusan/footer');
     }
 
     public function dok()
@@ -265,10 +280,29 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $data['admin_dokumen_acuan'] = $this->Data_ami->get_acuan();
+
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/menuutama', $data);
+    }
+
+    public function isidokumenacuan($id)
+    {
+
+        $data['title'] = 'Hasil Desk Evaluation';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $data['admin_hasil_desk'] = $this->Data_ami->get_hasil_desk($id);
+        $data['admin_daftar_tilik'] = $this->Data_ami->get_daftar_tilik($id);
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/daftartilik/isidokumen', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
     public function daftartilik0()
@@ -558,15 +592,16 @@ class User extends CI_Controller
     {
 
         $data['title'] = 'Daftar User';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $data['user'] = $this->Data_ami->get_user();
+        $data['users'] = $this->Data_ami->get_user();
 
+        var_dump($data['user']);
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/user/daftaruser', $data);
+        $this->load->view('partials/auditorjurusan/footer');
     }
     //WILAYAH TAMBAH TAMBAH
 
@@ -659,18 +694,38 @@ class User extends CI_Controller
         // }
     }
 
+
     // ONTROLLER NOTIFIKASI
     public function notifikasi()
     {
         // Menghitung selisih hari antara $tgl_selesai dan tanggal saat ini
-        $tgl_selesai = "2023-06-30"; // Tanggal selesai yang digunakan sebagai contoh
-        $days_remaining = (strtotime($tgl_selesai) - time()) / (60 * 60 * 24);
+
+        // var_dump($today);
+
+        // $tgl_akhir = "2023-07-07"; // Tanggal selesai yang digunakan sebagai contoh
+        // $tanggal_akhir = new DateTime($tgl_akhir);
+
+        // $now = new DateTime();
+        // $now->setTime(0, 0, 0); // Set waktu saat ini ke pukul 00:00:00
+
+        // $selisih_hari = $now->diff($tanggal_akhir)->days;
+        // // var_dump($selisih_hari);
+
+
+        // if ($selisih_hari <= 7 && $selisih_hari > 3) {
+        //     $ket = "7hari";
+        // } elseif ($selisih_hari <= 3) {
+        //     $ket = "3hari";
+        // }
+        // var_dump($ket);
+
+
 
         // Kirim data selisih hari ke view
-        $data['days_remaining'] = ceil($days_remaining);
+        // $data['days_remaining'] = ceil($days_remaining);
 
         // Load view notification_badge.php dengan data yang telah dikirim
-        $this->load->view('user/notifikasi', $data);
+        // $this->load->view('user/notifikasi', $data);
     }
 
 
@@ -756,9 +811,18 @@ class User extends CI_Controller
         // var_dump($data['dokumen']);
         // var_dump(base_url('assets/dokumen/KP2-Form-Presensi-dan-Log-Sheet-KP-IF-REV.pdf'));
         $data['pdfFilePath'] = $data['dokumen'][0]->nama_file;
-        var_dump( $data['pdfFilePath']);
+        var_dump($data['pdfFilePath']);
 
         // $this->load->view('lihatdokumen', ['pdfFilePath' => $pdfFilePath]);
     }
-    
+
+    public function tambah_hasil_desk()
+    {
+
+        $id = $this->input->post('id_dokumen_terkait');
+
+        $this->Data_ami->tambah_hasil_desk();
+        $this->session->set_flashdata('flash', 'ditambahkan');
+        redirect('user/isidokumenterkait/' . $id);
+    }
 }

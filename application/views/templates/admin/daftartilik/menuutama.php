@@ -12,110 +12,35 @@
     <!-- <a class="btn btn-success" type="button" class="text-white" href="<?= base_url('user/TDP') ?>">+ Tambah</a> -->
 
     <div class="card mt-4">
-        <div class="card-body">
+        <div class=" d-flex justify-content-center card-body">
             <!-- <table id="myTable" class="table table-striped mt-2"> -->
-            <table class="table table-striped" style="width: 600px;">
+            <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope style="color: black;"="col">No</th>
-                        <th scope style="color: black;"="col"> Kode Daftar Tilik</th>
-                        <th scope style="color: black;"="col">Aksi</th>
+                        <th class="text-center " style="color: black;"="col">No</th>
+                        <th scope style="color: black;"="col">Dokumen Acuan</th>
+                        <th class="text-center " scope style="color: black;"="col">Aksi</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope style="color: black;"="row">1</th>
-                        <td style="color: black;">A1</td>
-                        <td> <a href="<?= base_url('user/daftartilik0') ?>"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button>
-        </div>
-        </td>
-        </tr>
-        <tr>
-            <th scope style="color: black;"="row">2</th>
-            <td style="color: black;">A2</td>
-            <td> <a href="<?= base_url('user/daftartilik1') ?>"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:	#6495ED;"></i></button>
-    </div>
-    </td>
-    </tr>
-    <tr>
-        <th scope style="color: black;"="row">3</th>
-        <td style="color: black;">B1</td>
-        <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color: #6495ED;"></i></button>
-</div>
-</td>
-</tr>
-<tr>
-    <th scope style="color: black;"="row">4</th>
-    <td style="color: black;">B2</td>
-    <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button></div>
-    </td>
-</tr>
-<tr>
-    <th scope style="color: black;"="row">5</th>
-    <td style="color: black;">C1</td>
-    <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button></div>
-    </td>
-</tr>
-<tr>
-    <th scope style="color: black;"="row">6</th>
-    <td style="color: black;">C2</td>
-    <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button></div>
-    </td>
-</tr>
-<tr>
-    <th scope style="color: black;"="row">7</th>
-    <td style="color: black;">D1</td>
-    <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button></div>
-    </td>
-</tr>
-<tr>
-    <th scope style="color: black;"="row">8</th>
-    <td style="color: black;">D2</td>
-    <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button></div>
-    </td>
-</tr>
-<tr>
-    <th scope style="color: black;"="row">9</th>
-    <td style="color: black;">E1</td>
-    <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button></div>
-    </td>
-</tr>
-<tr>
-    <th scope style="color: black;"="row">10</th>
-    <td style="color: black;">E2</td>
-    <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button></div>
-    </td>
-</tr>
-<tr>
-    <th scope style="color: black;"="row">11</th>
-    <td style="color: black;">F1</td>
-    <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button></div>
-    </td>
-</tr>
-<tr>
-    <th scope style="color: black;"="row">12</th>
-    <td style="color: black;">F2</td>
-    <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button></div>
-    </td>
-</tr>
-<tr>
-    <th scope style="color: black;"="row">13</th>
-    <td style="color: black;">G1</td>
-    <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button></div>
-    </td>
-</tr>
-<tr>
-    <th scope style="color: black;"="row">14</th>
-    <td style="color: black;">G2</td>
-    <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#6495ED;"></i></button></div>
-    </td>
-</tr>
 
-</tbody>
-</table>
-</div>
-</div>
+                    <?php
+                    foreach ($admin_dokumen_acuan as $key => $value) :
+                        $number = $key + 1;
+                    ?>
+                        <tr>
+                            <th class="text-center " scope style="color: black;"="row"><?= $number; ?></th>
+                            <td style="color: black;"><?= $value->nama_dokumen; ?></td>
+                            <td class="text-center ">
+                                <a href="<?= base_url('user/isidokumenacuan/') . $value->id_dokumen_acuan  ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
 

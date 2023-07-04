@@ -27,18 +27,20 @@
             <td>Auditee</td>
             <td></td>
         </tr>
-
+        
         <tr>
-            <td>Pemeriksaan</td>
+            <th rowspan="2">Pemeriksaan</th>
             <td></td>
             <td>Auditor</td>
+            <td></td>
             <td></td>
         </tr>
 
         <tr>
-            <td>Penetapan</td>
+            <th rowspan="2">Penetapan</th>
             <td></td>
             <td>Kepala SPM</td>
+            <td></td>
             <td></td>
         </tr>
         </tbody>
