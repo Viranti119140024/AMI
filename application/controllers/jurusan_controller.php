@@ -33,6 +33,7 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/beranda', $data);
+        $this->load->view('partials/jurusan/footer', $data);
     }
 
     public function dokumen()
@@ -51,6 +52,7 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/dokumenkebutuhan/dokumen', $data);
+        $this->load->view('partials/jurusan/footer', $data);
     }
 
     //upload dokumen
@@ -73,6 +75,7 @@ class jurusan_controller extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/jurusan/sidebar', $data);
             $this->load->view('templates/jurusan/dokumenkebutuhan/upload', $data);
+            $this->load->view('partials/jurusan/footer', $data);
         } else {
             // var_dump($id);
             // var_dump($_FILES['file_dokumen']);
@@ -112,6 +115,7 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/laporanhasiltindaklanjut/hal2', $data);
+        $this->load->view('partials/jurusan/footer', $data);
     }
 
     public function kp()
@@ -125,6 +129,7 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/laporanhasiltindaklanjut/katapengantar', $data);
+        $this->load->view('partials/jurusan/footer', $data);
     }
 
     public function pendahuluan()
@@ -138,6 +143,7 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/laporanhasiltindaklanjut/bab1', $data);
+        $this->load->view('partials/jurusan/footer', $data);
     }
 
     public function tindaklanjut()
@@ -151,6 +157,7 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/laporanhasiltindaklanjut/bab2', $data);
+        $this->load->view('partials/jurusan/footer', $data);
     }
 
     public function kesimpulan()
@@ -164,6 +171,7 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/laporanhasiltindaklanjut/bab3', $data);
+        $this->load->view('partials/jurusan/footer', $data);
     }
 
     public function awalaudit()
@@ -177,6 +185,7 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/hasilaudit/laporanjurusan', $data);
+        $this->load->view('partials/jurusan/footer', $data);
     }
 
     public function kp1()
@@ -190,6 +199,7 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/hasilaudit/kata_p', $data);
+        $this->load->view('partials/jurusan/footer', $data);
     }
 
     public function babpendahuluan()
@@ -203,6 +213,7 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/hasilaudit/bab_1', $data);
+        $this->load->view('partials/jurusan/footer', $data);
     }
 
     public function daftartemuan()
@@ -216,5 +227,6 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/hasilaudit/bab_2', $data);
+        $this->load->view('partials/jurusan/footer', $data);
     }
 }

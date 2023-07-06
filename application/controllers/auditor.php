@@ -27,12 +27,20 @@ class auditor extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        // var_dump($data['user']);
+
 
         $this->load->view('partials/auditor/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/berandaauditor', $data);
+        $this->load->view('partials/auditor/footer', $data);
+    }
+
+    public function input_status()
+    {
+        
     }
 
     public function DAFTARTILIK()
@@ -47,6 +55,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/daftartilik', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dta2()
@@ -61,6 +70,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/a2', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dtb1()
@@ -75,6 +85,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/b1', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dtb2()
@@ -89,6 +100,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/b2', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dtc1()
@@ -103,6 +115,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/c1', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dtc2()
@@ -117,6 +130,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/c2', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dtd1()
@@ -131,6 +145,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/d1', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dtd2()
@@ -145,6 +160,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/d2', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dte1()
@@ -159,6 +175,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/e1', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dte2()
@@ -173,6 +190,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/e2', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dtf1()
@@ -187,6 +205,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/f1', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dtf2()
@@ -201,6 +220,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/f2', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dtg1()
@@ -215,6 +235,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/g1', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
     public function dtg2()
@@ -229,6 +250,7 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/DaftarTilik/g2', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
 
@@ -245,5 +267,6 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/sidebar', $data);
         $this->load->view('partials/auditor/topbar', $data);
         $this->load->view('templates/auditor/dokumenKA', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 }

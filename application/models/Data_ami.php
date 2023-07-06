@@ -447,4 +447,18 @@ class Data_ami extends CI_Model
 
         $this->db->insert('admin_hasil_desk', $data);
     }
+
+    public function tambah_daftar_tilik()
+    {
+
+        $data = [
+            'id_dokumen_acuan' => $this->input->post('id_dokumen_acuan', true),
+            'pertanyaan' => $this->input->post('pertanyaan', true),
+        ];
+        // var_dump($data);
+
+        $this->db->insert('admin_daftar_tilik', $data);
+    }
+
+    
 }

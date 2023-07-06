@@ -30,6 +30,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/beranda', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
 
@@ -47,6 +48,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/dokumenkebutuhanprodi/dokumenAudit', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
 
@@ -69,6 +71,7 @@ class prodi extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/prodi/sidebar', $data);
             $this->load->view('templates/prodi/dokumenkebutuhanprodi/formupload', $data);
+            $this->load->view('partials/prodi/footer', $data);
         } else {
             // var_dump($id);
             // var_dump($_FILES['file_dokumen']);
@@ -108,6 +111,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/hasilauditprodi/laporanaudit', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
     public function katapengantarr()
@@ -121,6 +125,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/hasilauditprodi/katapengantar1', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
     public function BAB1()
@@ -134,6 +139,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/hasilauditprodi/babsatu', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
     public function BAB2()
@@ -147,6 +153,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/hasilauditprodi/babdua', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
     public function laporanhasilprodi()
@@ -160,6 +167,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/laporanhasilprodi/halamansatu', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
     public function kataP()
@@ -173,6 +181,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/laporanhasilprodi/katapengantar2', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
     public function BabSatu()
@@ -186,6 +195,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/laporanhasilprodi/babsatuu', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
     public function BabDua()
@@ -199,6 +209,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/laporanhasilprodi/babduaa', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
     public function BabTiga()
@@ -212,6 +223,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/laporanhasilprodi/babtigaa', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
     public function laporanakhir()
@@ -239,6 +251,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/laporanhasilprodi/laporan', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
 
@@ -279,6 +292,7 @@ class prodi extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/prodi/sidebar', $data);
             $this->load->view('templates/prodi/laporanhasilprodi/form', $data);
+            $this->load->view('partials/prodi/footer', $data);
         } else {
 
             $this->Data_ami->tambah_tindaklanjut($data['user']['id']);
@@ -359,6 +373,7 @@ class prodi extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/prodi/sidebar', $data);
             $this->load->view('templates/prodi/laporanhasilprodi/form2', $data);
+            $this->load->view('partials/prodi/footer', $data);
 
 
         }
@@ -389,6 +404,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/laporanhasilprodi/tabel', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
     public function datatindaklanjut2()
@@ -405,6 +421,7 @@ class prodi extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
         $this->load->view('templates/prodi/laporanhasilprodi/tabel', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
 
@@ -446,6 +463,7 @@ class prodi extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/prodi/sidebar', $data);
             $this->load->view('templates/prodi/laporanhasilprodi/editbab1', $data);
+            $this->load->view('partials/prodi/footer', $data);
 
         } else {
             // var_dump($id_auditor);
@@ -489,6 +507,7 @@ class prodi extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/prodi/sidebar', $data);
             $this->load->view('templates/prodi/laporanhasilprodi/editbab2', $data);
+            $this->load->view('partials/prodi/footer', $data);
 
         } else {
             // var_dump($id_auditor);

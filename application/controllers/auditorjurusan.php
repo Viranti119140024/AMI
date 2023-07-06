@@ -47,6 +47,7 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/kebutuhanaudit', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
     public function DaftarHadir()
@@ -61,6 +62,7 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/daftartilik/daftarhadir', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
     public function TambahDaftarHadir()
@@ -75,6 +77,7 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/daftartilik/tambahdaftarhadir', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
     public function DaftarTilik()
@@ -89,6 +92,7 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/daftartilik/DAFTARTILIK', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
     public function dth2()
@@ -103,6 +107,7 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/daftartilik/h2', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
     public function dtg1()
@@ -117,6 +122,7 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/daftartilik/g1', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
     public function dtg2()
@@ -131,6 +137,7 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/daftartilik/g2', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
     public function dt_h1()
@@ -145,6 +152,7 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/daftartilik/h_1', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
     public function dt_h2()
@@ -159,6 +167,7 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/daftartilik/h_2', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
     public function profile()
@@ -166,14 +175,15 @@ class auditorjurusan extends CI_Controller
         $data['title'] = '';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        var_dump(
-            $data['user']
-        );
+        // var_dump(
+        //     $data['user']
+        // );
 
         $this->load->view('partials/auditorjurusan/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/profile', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 }

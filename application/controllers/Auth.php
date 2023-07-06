@@ -13,9 +13,6 @@ class Auth extends CI_Controller
     public function index()
     {
         // kunci akses auth ketika sdh login
-        if ($this->session->userdata('role_name') == "Admin") {
-            redirect('user/berandaadmin');
-        }
 
         // verifikasi login
         $this->form_validation->set_rules('email', 'Email', 'required');
@@ -39,65 +36,49 @@ class Auth extends CI_Controller
         $password = $this->input->post('password');
 
         $user = $this->db->get_where('user', ['email' => $email])->row_array();
-        // verifikasi user 
 
-        // redirect('auth');
         if ($user) {
-            // jika email user active
-            // if ($user['is_active'] == 1) {
-            // cek password
-            if (password_verify($password, $user['password']) && $user['role_name'] == 'Admin') {
+            // Verifikasi password
+            if (password_verify($password, $user['password'])) {
+                // Jika password benar, set session
                 $data = [
                     'email' => $user['email'],
                     'role_name' => $user['role_name']
                 ];
                 $this->session->set_userdata($data);
-                redirect('user/berandaadmin');
-            } else if (password_verify($password, $user['password']) && $user['role_name'] == 'Program Studi') {
-                $data = [
-                    'email' => $user['email'],
-                    'role_name' => $user['role_name']
-                ];
-                $this->session->set_userdata($data);
-                redirect('prodi/berandaprodi');
-            } else if (password_verify($password, $user['password']) && $user['role_name'] == 'Jurusan') {
-                $data = [
-                    'email' => $user['email'],
-                    'role_name' => $user['role_name']
-                ];
-                $this->session->set_userdata($data);
-                redirect('jurusan_controller/berandajurusan');
-            } else if (password_verify($password, $user['password']) && $user['role_name'] == 'Auditor Program Studi') {
-                $data = [
-                    'email' => $user['email'],
-                    'role_name' => $user['role_name']
-                ];
-                $this->session->set_userdata($data);
-                redirect('auditor/BERANDA');
-            } else if (password_verify($password, $user['password']) && $user['role_name'] == 'Auditor Jurusan') {
-                $data = [
-                    'email' => $user['email'],
-                    'role_name' => $user['role_name']
-                ];
-                $this->session->set_userdata($data);
-                redirect('auditorjurusan/berandaauditorjurusan');
+
+                // Redirect sesuai role_name
+                switch ($user['role_name']) {
+                    case 'Admin':
+                        redirect('user/berandaadmin');
+                        break;
+                    case 'Program Studi':
+                        redirect('prodi/berandaprodi');
+                        break;
+                    case 'Jurusan':
+                        redirect('jurusan_controller/berandajurusan');
+                        break;
+                    case 'Auditor Program Studi':
+                        redirect('auditor/BERANDA');
+                        break;
+                    case 'Auditor Jurusan':
+                        redirect('auditorjurusan/berandaauditorjurusan');
+                        break;
+                    default:
+                        redirect('auth');
+                        break;
+                }
             } else {
+                // Jika password salah
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
                 redirect('auth');
             }
-
-            // } 
-            // else {
-            //     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email sudah tidak aktif!</div>');
-            //     redirect('auth');
-            // }
-
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email anda belum terdaftar!</div>');
+            // Jika email tidak ditemukan
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email Anda belum terdaftar!</div>');
             redirect('auth');
         }
     }
-
 
     // buat akun baru
     public function registrasi()

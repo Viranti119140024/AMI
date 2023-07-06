@@ -78,6 +78,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumen/dokumenjurusan', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function auditor1()
@@ -93,6 +94,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/auditor/dataauditor', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function dokumen0()
@@ -106,6 +108,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumen/pilihawaldokumen', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function dokumen1()
@@ -133,6 +136,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumen/dokumenprodi', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
 
@@ -147,6 +151,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumenhasilaudit/daftar', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function pilihJdanP()
@@ -160,6 +165,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/laporanhasiltindaklanjut/pilihjurusandanprodi', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function laporanhasil()
@@ -173,6 +179,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/laporanhasiltindaklanjut/daftarlaporan', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function laporantlprodi()
@@ -186,6 +193,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/laporanhasiltindaklanjut/daftarprodi', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function berandaadmin()
@@ -199,7 +207,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/beranda', $data);
-        $this->load->view('partials/auditorjurusan/footer');
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function dok()
@@ -216,6 +224,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumen/dok', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function dokprodi()
@@ -232,6 +241,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumen/dokprodi', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function pilihan()
@@ -245,6 +255,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumenhasilaudit/pilihan', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftarjurusan()
@@ -258,6 +269,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumenhasilaudit/daftarjurusan', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function pilihdaftartilik()
@@ -271,6 +283,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/pilihan', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function menudaftartilik()
@@ -286,6 +299,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/menuutama', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function isidokumenacuan($id)
@@ -302,7 +316,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/isidokumen', $data);
-        $this->load->view('partials/auditorjurusan/footer', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik0()
@@ -316,6 +330,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilikk', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik1()
@@ -329,6 +344,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilika2', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik2()
@@ -342,6 +358,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilikb1', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik3()
@@ -355,6 +372,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilikb2', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik4()
@@ -368,6 +386,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilikc1', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
     public function daftartilik5()
     {
@@ -380,6 +399,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilikc2', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik6()
@@ -393,6 +413,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilikd1', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik7()
@@ -406,6 +427,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilikd2', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik8()
@@ -419,6 +441,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilike1', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik9()
@@ -432,6 +455,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilike2', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik10()
@@ -445,6 +469,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilikf1', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik11()
@@ -458,6 +483,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilikf2', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik12()
@@ -471,6 +497,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilikg1', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function daftartilik13()
@@ -484,6 +511,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/daftartilikg2', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function TambahData()
@@ -497,6 +525,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/tambahdata', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
 
@@ -521,6 +550,7 @@ class User extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/admin/sidebar', $data);
             $this->load->view('templates/admin/dokumen/tambahdokumenprodi', $data);
+            $this->load->view('partials/admin/footer', $data);
         } else {
             // var_dump($data['params']);
             $this->Data_ami->tambah_dokumen();
@@ -559,6 +589,7 @@ class User extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/admin/sidebar', $data);
             $this->load->view('templates/admin/dokumen/tambahdokumenjurusan', $data);
+            $this->load->view('partials/admin/footer', $data);
         } else {
             // var_dump($data['params']);
             $this->Data_ami->tambah_dokumen();
@@ -586,6 +617,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/tambah', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
     public function user()
@@ -596,12 +628,11 @@ class User extends CI_Controller
 
         $data['users'] = $this->Data_ami->get_user();
 
-        var_dump($data['user']);
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/user/daftaruser', $data);
-        $this->load->view('partials/auditorjurusan/footer');
+        $this->load->view('partials/admin/footer', $data);
     }
     //WILAYAH TAMBAH TAMBAH
 
@@ -620,6 +651,7 @@ class User extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/admin/sidebar', $data);
             $this->load->view('templates/admin/dokumen/tambahprogramstudi', $data);
+            $this->load->view('partials/admin/footer', $data);
         } else {
             $this->Data_ami->tambah_prodi();
             $this->session->set_flashdata('flash', 'ditambahkan');
@@ -642,6 +674,7 @@ class User extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/admin/sidebar', $data);
             $this->load->view('templates/admin/dokumen/tambahjurusan', $data);
+            $this->load->view('partials/admin/footer', $data);
         } else {
             $this->Data_ami->tambah_jurusan();
             $this->session->set_flashdata('flash', 'ditambahkan');
@@ -665,6 +698,7 @@ class User extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/admin/sidebar', $data);
             $this->load->view('templates/admin/auditor/tambahauditor', $data);
+            $this->load->view('partials/admin/footer', $data);
         } else {
             $this->Data_ami->tambah_auditor();
             $this->session->set_flashdata('flash', 'ditambahkan');
@@ -687,6 +721,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/user/tambahuser', $data);
+        $this->load->view('partials/admin/footer', $data);
         // } else {
         //     $this->Data_ami->tambah_auditor();
         //     $this->session->set_flashdata('flash', 'ditambahkan');
@@ -770,6 +805,7 @@ class User extends CI_Controller
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/admin/sidebar', $data);
             $this->load->view('templates/admin/auditor/editauditor', $data);
+            $this->load->view('partials/admin/footer', $data);
         } else {
             // var_dump($id_auditor);
             $this->Data_ami->update_auditor();
@@ -797,6 +833,7 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumen/lihatdokumen', $data);
+        $this->load->view('partials/admin/footer', $data);
     }
 
 
@@ -822,6 +859,16 @@ class User extends CI_Controller
         $id = $this->input->post('id_dokumen_terkait');
 
         $this->Data_ami->tambah_hasil_desk();
+        $this->session->set_flashdata('flash', 'ditambahkan');
+        redirect('user/isidokumenterkait/' . $id);
+    }
+
+    public function tambah_daftar_tilk()
+    {
+
+        $id = $this->input->post('id_dokumen_terkait');
+
+        $this->Data_ami->tambah_daftar_tilik();
         $this->session->set_flashdata('flash', 'ditambahkan');
         redirect('user/isidokumenterkait/' . $id);
     }

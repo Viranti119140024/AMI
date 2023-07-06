@@ -67,9 +67,9 @@
                 </select>
               </td>
             </tr>
-            <div class="d-flex justify-content-end">
+            <!-- <div class="d-flex justify-content-end">
               <input type="submit" class="btn btn-success" name="submit" id="submit" value="submit"/>
-            </div>
+            </div> -->
           </form>
         </tbody>
       </table>

@@ -40,7 +40,7 @@
           </tr>
           <tr>
             <th scope="row">2</th>
-            <td>Membuat Laporan Hasil Audit</td>
+            <td>Mengecek Laporan Hasil Audit</td>
             <th class="text-danger">Selesai</th>
           </tr>
           <tr>
