@@ -234,8 +234,33 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        // $data['prodi'] = $this->Data_ami->get_prodi();
+        // <!-- array kosong -->
+        // $data['prodi'] = array();
+        // <!-- ambil data user -->
+        // $data['user'] = $this->Data_ami->get_user();
+        // 
+
+        // foreach ($data['user'] as $data) {
+        //     if ($data->role_name == "Program Studi") {
+        //         $data['prodi'][$data->name] = $data->id;
+        //     }
+        // }
+
+        // <!-- ganti id prodi dengan link drive -->
+        // foreach ($data['prodi'] as $namaProdi => $id_prodi) {
+        //     $ambilLinkDrive = $this->db->query("SELECT link_drive FROM link_drive WHERE id_user=" . $id_prodi)->result();
+        //     var_dump($ambilLinkDrive[0]->link_drive, "\n");
+        // if (count($ambilLinkDrive) != 0) {
+        //     $data['prodi'][$namaProdi] = $ambilLinkDrive[0]->link_drive;
+        // } else {
+        //     $data['prodi'][$namaProdi] = "";
+        // }
+        // }
+
         $data['prodi'] = $this->Data_ami->get_prodi();
-        // var_dump($data['get_prodi']);
+
+
 
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
@@ -711,11 +736,12 @@ class User extends CI_Controller
         $data['title'] = 'Tambah Daftar Pengguna';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        $data['unit'] = $this->Data_ami->get_unit();
 
         // $this->form_validation->set_rules('nama_lembaga', 'Nama Lembaga', 'required');
         // $this->form_validation->set_rules('nama_auditor', 'Nama Auditor', 'required');
         // $this->form_validation->set_rules('nip_nrk', 'NIP_NRK', 'required');
-
+        // var_dump($data['unit']);
         // if ($this->form_validation->run() == FALSE) {
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
@@ -856,20 +882,20 @@ class User extends CI_Controller
     public function tambah_hasil_desk()
     {
 
-        $id = $this->input->post('id_dokumen_terkait');
+        $id = $this->input->post('id_dokumen_acuan');
 
         $this->Data_ami->tambah_hasil_desk();
         $this->session->set_flashdata('flash', 'ditambahkan');
-        redirect('user/isidokumenterkait/' . $id);
+        redirect('user/isidokumenacuan/' . $id);
     }
 
-    public function tambah_daftar_tilk()
+    public function tambah_daftar_tilik()
     {
 
-        $id = $this->input->post('id_dokumen_terkait');
+        $id = $this->input->post('id_dokumen_acuan');
 
         $this->Data_ami->tambah_daftar_tilik();
         $this->session->set_flashdata('flash', 'ditambahkan');
-        redirect('user/isidokumenterkait/' . $id);
+        redirect('user/isidokumenacuan/' . $id);
     }
 }

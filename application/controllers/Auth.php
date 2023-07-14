@@ -7,6 +7,8 @@ class Auth extends CI_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->model('Data_ami');
+        $this->load->library('table');
     }
 
     // method login 
@@ -101,7 +103,26 @@ class Auth extends CI_Controller
                 'image' => 'default.png',
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'role_name' => htmlspecialchars($this->input->post('role_name', true)),
+                'id_audit' => htmlspecialchars($this->input->post('id_audit', true)),
             ];
+
+            $users = $this->Data_ami->get_user();
+
+            foreach ($users as $value) {
+                // var_dump($value->name);
+                // var_dump($data['id_audit']);
+
+                if ($data['id_audit'] == $value->id) {
+                    $data['unit'] = $value->name;
+                    // var_dump($data['unit']);
+                }
+            }
+
+            if ($data['role_name'] == "Admin") {
+                $data['id_audit'] = 1;
+            }
+
+
             // var_dump($data);
             $this->db->insert('user', $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat, Akun anda telah terdaftar!</div>');

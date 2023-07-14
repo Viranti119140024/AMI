@@ -317,21 +317,19 @@ class prodi extends CI_Controller
             //         $data['ukuran'] = $upload_data['file_size'];
             //         $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file'], $data['type'], $data['ukuran']);
             //         redirect('prodi/datatindaklanjut');
-                }
-        
         }
+    }
 
-        public function isidata_post ($id)
+    public function isidata_post($id)
     {
 
         $this->Data_ami->tambah_tindaklanjut($id);
         $this->session->set_flashdata('flash', 'ditambahkan');
         redirect('prodi/laporanakhir/' . $id);
-
     }
-    
 
-        public function isidata2()
+
+    public function isidata2()
     {
 
         $data['title'] = ' Isi Data Laporan Hasil Tindak Lanjut';
@@ -366,7 +364,7 @@ class prodi extends CI_Controller
         // $this->form_validation->set_rules('kesimpulan', 'Kesimpulan', 'required');
         // $this->form_validation->set_rules('dokumentasi', 'Dokumentasi', 'required');
 
-        
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('partials/prodi/header', $data);
@@ -374,22 +372,17 @@ class prodi extends CI_Controller
             $this->load->view('partials/prodi/sidebar', $data);
             $this->load->view('templates/prodi/laporanhasilprodi/form2', $data);
             $this->load->view('partials/prodi/footer', $data);
-
-
         }
-                
-        
-        }
+    }
 
-    public function isidata2_post ($id)
+    public function isidata2_post($id)
     {
 
         $this->Data_ami->tambah_tindaklanjut2($id);
         $this->session->set_flashdata('flash', 'ditambahkan');
         redirect('prodi/laporanakhir/' . $id);
-
     }
-    
+
     public function datatindaklanjut()
     {
 
@@ -464,7 +457,6 @@ class prodi extends CI_Controller
             $this->load->view('partials/prodi/sidebar', $data);
             $this->load->view('templates/prodi/laporanhasilprodi/editbab1', $data);
             $this->load->view('partials/prodi/footer', $data);
-
         } else {
             // var_dump($id_auditor);
             $this->Data_ami->update_data();
@@ -508,7 +500,6 @@ class prodi extends CI_Controller
             $this->load->view('partials/prodi/sidebar', $data);
             $this->load->view('templates/prodi/laporanhasilprodi/editbab2', $data);
             $this->load->view('partials/prodi/footer', $data);
-
         } else {
             // var_dump($id_auditor);
             $this->Data_ami->update_data2();
@@ -519,6 +510,70 @@ class prodi extends CI_Controller
             redirect('prodi/laporanakhir/' . $data['bab2'][0]->id_tindaklanjut);
         }
     }
+
+
+    public function form_link_drive()
+    {
+
+        $data['title'] = 'Form Upload Link Drive';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        // // $data['users'] = $this->Data_ami->get_user();
+
+        $data['link_drive'] = $this->db->get_where('link_drive', ['id_user' => $data['user']['id']])->row_array();
+
+        // var_dump($data['link_drive']);
+        // $this->session->set_flashdata('Sukses', 'Link berhasil diupload');
+        // // var_dump($this->session->flashdata('success'));
+        // var_dump($this->session->flashdata('Sukses'));
+
+        $this->load->view('partials/prodi/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/prodi/sidebar', $data);
+        $this->load->view('templates/prodi/dokumenkebutuhanprodi/form', $data);
+        $this->load->view('partials/prodi/footer', $data);
+    }
+
+    // public function set_flash_message($type, $message)
+    // {
+    //     $CI = &get_instance();
+    //     $CI->load->library('session');
+    //     $CI->session->set_flashdata('flash_message', ['type' => $type, 'message' => $message]);
+    // }
+
+
+    public function terima_link_drive()
+    {
+
+        // $data['title'] = 'Form Upload Link Drive';
+        // $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        // // // $data['users'] = $this->Data_ami->get_user();
+
+        $atribut_data = [
+            "id" => $this->input->post('id_user'),
+            "link_drive" => $this->input->post('link_drive'),
+        ];
+
+        $this->session->set_flashdata('Sukses', 'Link berhasil diupload');
+        // var_dump($this->session->flashdata('success'));
+        // var_dump($this->session->flashdata('Sukses'));
+
+        // var_dump($this->input->post('link_drive'), $this->input->post('id_user'));
+
+        $this->Data_ami->tambah_link_drive($atribut_data);
+
+        redirect('prodi/form_link_drive');
+
+        // $this->load->view('partials/prodi/header', $data);
+        // $this->load->view('templates/logo', $data);
+        // $this->load->view('partials/prodi/sidebar', $data);
+        // $this->load->view('templates/prodi/dokumenkebutuhanprodi/form', $data);
+        // $this->load->view('partials/prodi/footer', $data);
+    }
+
+
+
 
 
 

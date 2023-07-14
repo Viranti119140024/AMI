@@ -13,14 +13,13 @@
 
   <div class="card mt-4">
     <div class="card-body">
-      
+
       <table id="myTable" class="table table-striped mt-2">
         <thead>
           <tr>
             <th scope style="color: black;"="col">No</th>
             <th scope style="color: black;"="col">Program Studi / Jurusan</th>
             <th scope style="color: black;"="col">Auditor</th>
-            <th scope style="color: black;"="col">NIP / NRK</th>
             <th scope style="color: black;"="col">Aksi</th>
 
           </tr>
@@ -33,14 +32,13 @@
           ?>
             <tr>
               <th scope style="color: black;"="row"><?= $number; ?></th>
-              <td style="color: black;"><?= $value->nama_lembaga; ?></td>
-              <td style="color: black;"><?= $value->nama_auditor; ?></td>
-              <td style="color: black;"><?= $value->nip_nrk; ?></td>
+              <td style="color: black;"><?= $value->unit; ?></td>
+              <td style="color: black;"><?= $value->name; ?></td>
               <td>
-                <!-- <a href="<?= base_url('user/dokumen1/') . $value->id_auditor ?> "><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button></a>
+                <!-- <a href="<?= base_url('user/dokumen1/') . $value->id_audit ?> "><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button></a>
                 <a href="<?= base_url('user/downloaddokumen') ?>"><button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button></a> -->
-                <!-- <a href="<?= base_url('user/deleteauditor/') . $value->id_auditor  ?>"><button type="delete" class="sbtn btn" style="background-color:	#DCDCDC ;"><i class="fa fa-trash"></i></button></a> -->
-                <a href="<?= base_url('user/edit_auditor/') . $value->id_auditor  ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a>
+                <!-- <a href="<?= base_url('user/deleteauditor/') . $value->id_audit  ?>"><button type="delete" class="sbtn btn" style="background-color:	#DCDCDC ;"><i class="fa fa-trash"></i></button></a> -->
+                <a href="<?= base_url('user/edit_auditor/') . $value->id_audit  ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a>
     </div>
     </td>
     </tr>

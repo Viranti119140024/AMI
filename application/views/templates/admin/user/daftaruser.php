@@ -17,7 +17,7 @@
                 <thead>
                     <tr>
                         <th scope style="color: black;"="col">No</th>
-                        <th scope style="color: black;"="col">Nama Pengguna</th>
+                        <th scope style="color: black;"="col">Username</th>
                         <th scope style="color: black;"="col">Email</th>
                         <th scope style="color: black;"="col">Role</th>
                         <th scope style="color: black;"="col">Aksi</th>

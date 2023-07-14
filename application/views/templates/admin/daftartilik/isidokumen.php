@@ -1,7 +1,7 @@
 <div class="container">
 
     <div class="text-dark mt-8">
-        <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Penambahan Pertanyaan</b></h5>
+        <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Penambahan Dokumen Terkait dan Pertanyaan</b></h5>
     </div>
 
 
@@ -9,12 +9,12 @@
         <hr color="red" />
     </b>
 
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#hasilDeskeModal">
         +Tambah
     </button>
 
 
-    <div class ="card mt-3">
+    <div class="card mt-3">
         <center class="text-dark mt-4" style="font-family: Arial, Helvetica, sans-serif; color:black;">
             <h5><b style="font-family: Arial, Helvetica, sans-serif;">Hasil Desk Evaluation</b></h5>
         </center>
@@ -49,7 +49,7 @@
 
 
 
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#daftarTilik">
         +Tambah
     </button>
 
@@ -87,7 +87,7 @@
 </div>
 
 <!-- Tambah -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="hasilDeskeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -118,7 +118,7 @@
 
 
 <!-- pertanyaan untuk daftar Tilik -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="daftarTilik" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -154,5 +154,5 @@
 <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
 
 <script>
-  let table = new DataTable('#myTable');
+    let table = new DataTable('#myTable');
 </script>

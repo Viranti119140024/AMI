@@ -32,6 +32,32 @@ class Data_ami extends CI_Model
         // var_dump($query->result());
     }
 
+    public function get_unit()
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('id_audit', 0);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        return $query->result();
+        // var_dump($query->result());
+    }
+
+    public function get_unit_by_id($id)
+    {
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        return $query->result();
+        // var_dump($query->result());
+    }
+
     // public function hapus_prodi($id_prodi)
     // {
     //     $this->db->delete('prodi', ['id_prodi' => $id_prodi]);
@@ -53,7 +79,19 @@ class Data_ami extends CI_Model
 
     public function get_auditor()
     {
-        $query = $this->db->query("SELECT * FROM auditor");
+
+
+        $this->db->select('*');
+        $this->db->from('user');
+
+        $this->db->where('id_audit !=', 0);
+        $query = $this->db->get();
+
+        // foreach ($query as $key => $value) {
+        //     if ($value['id_audit'] != 1) {
+        //         unset($query[$key]);
+        //     }
+        // }
 
         return $query->result();
         // var_dump($query->result());
@@ -123,7 +161,11 @@ class Data_ami extends CI_Model
 
     public function get_user()
     {
-        $query = $this->db->query("SELECT * FROM user");
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('id_audit', 0);
+        $this->db->or_where('id_audit ', 1);
+        $query = $this->db->get();
 
         return $query->result();
         // var_dump($query->result());
@@ -460,5 +502,109 @@ class Data_ami extends CI_Model
         $this->db->insert('admin_daftar_tilik', $data);
     }
 
-    
+    public function tambah_link_drive($data)
+    {
+        $this->db->where('id', $data['id']);
+        $this->db->update('user', $data);
+
+        // var_dump("terimadata", $data);
+        // $data = [
+        //     'id_user' => $id,
+        //     'link_drive' => $this->input->post('link_drive', true),
+        // ];
+        // // var_dump($data);
+
+        // $this->db->insert('link_drive', $data);
+    }
+
+    // DAFTAR TILIK AUDITOR
+
+    // tampil daftar tilik
+    function tampil_dok_acuan()
+    {
+        $this->db->select('*');
+        $this->db->from('admin_dokumen_acuan');
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    function tampil_hasil_desk_auditor($id)
+    {
+        $this->db->select('*');
+        $this->db->from('admin_hasil_desk');
+        $this->db->where('id_dokumen_acuan', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    function tampil_daftar_tilik_auditor($id)
+    {
+        $this->db->select('*');
+        $this->db->from('admin_daftar_tilik');
+        $this->db->where('id_dokumen_acuan', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    // PERTANYAAN TAMBAHAN
+    function add_hasil_desk_auditor()
+    {
+        $data = [
+            'id_dokumen_acuan' => $this->input->post('id_dokumen_acuan', true),
+            'id_prodi' => $this->input->post('id_prodi', true),
+            'tambahan_hasil_desk' => $this->input->post('tambahan_hasil_desk', true),
+        ];
+        // var_dump($data);
+
+        $this->db->insert('auditor_hasil_desk', $data);
+    }
+
+    function tampil_tambahan_hasil_desk_auditor($id)
+    {
+        $this->db->select('*');
+        $this->db->from('auditor_hasil_desk');
+        $this->db->where('id_dokumen_acuan', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    function add_nilai_hasil_desk_utama()
+    {
+        $id_dokumen_acuan = $this->input->post('id_dokumen_acuan', true);
+        $id_hasil_desk =  $this->input->post('id_hasil_desk', true);
+        $m = $this->input->post('m', true);
+        $mp = $this->input->post('mp', true);
+        $mb = $this->input->post('mb', true);
+        $my = $this->input->post('my', true);
+        $ob = $this->input->post('ob', true);
+        $kts = $this->input->post('kts', true);
+        $open = $this->input->post('open', true);
+        $close = $this->input->post('close', true);
+        $catatan = $this->input->post('catatan', true);
+        $penanggungjawab = $this->input->post('penanggungjawab', true);
+
+        foreach ($id_hasil_desk as $index => $id) {
+            $data = array(
+                'id_dokumen_acuan' => $id_dokumen_acuan,
+                'id_hasil_desk' => $id,
+                'm' => $m,
+                'mp' => $mp,
+                'mb' => $mb,
+                'my' => $my,
+                'ob' => $ob,
+                'kts' => $kts,
+                'open' => $open,
+                'close' => $close,
+                'catatan' => $catatan[$index],
+                'penanggungjawab' => $penanggungjawab[$index]
+            );
+
+            var_dump($data);
+            $this->db->insert('nilai_ami', $data);
+        }
+    }
 }
