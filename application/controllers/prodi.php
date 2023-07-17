@@ -254,6 +254,29 @@ class prodi extends CI_Controller
         $this->load->view('partials/prodi/footer', $data);
     }
 
+    public function generate_pdf($params)
+    {
+        $data['title'] = 'Laporan Hasil Tindak Lanjut';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        // $url = $_SERVER['REQUEST_URI'];
+        // $segments = explode('/', $url);
+
+        // Find the index of the parameter name
+        // $param1Index = array_search('param1', $segments);
+        // Retrieve the parameter values
+        // $data['params'] = $segments[$param1Index + 4];
+        // var_dump($data['params']);
+
+
+        $data['tindaklanjut'] = $this->Data_ami->get_data($params);
+        $data['bab2'] = $this->Data_ami->get_data2($params);
+        $this->load->view('partials/prodi/header', $data);
+        $this->load->view('templates/prodi/laporanhasilprodi/generatepdf', $data);
+        $this->load->view('partials/prodi/footer', $data);
+    }
+
 
 
     //form untuk semua 
@@ -265,9 +288,12 @@ class prodi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
-        $this->form_validation->set_rules('pemeriksa1', 'Nama', 'required');
-        $this->form_validation->set_rules('penetapan1', 'Nama', 'required');
+        // $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
+        // $this->form_validation->set_rules('pemeriksa1', 'Nama', 'required');
+        // $this->form_validation->set_rules('penetapan1', 'Nama', 'required');
+
+        $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
+        $this->form_validation->set_rules('dokumentasi', 'File Dokumentasi', 'in_list');
         $this->form_validation->set_rules('periode', 'Periode', 'required');
         $this->form_validation->set_rules('tahun', 'Tahun', 'required');
         $this->form_validation->set_rules('lembaga', 'Lembaga', 'required');
@@ -285,7 +311,6 @@ class prodi extends CI_Controller
         $this->form_validation->set_rules('dokumenacuan', 'Dokumen Acuan', 'required');
         $this->form_validation->set_rules('a2', 'A2', 'required');
         $this->form_validation->set_rules('kesimpulan', 'Kesimpulan', 'required');
-        // $this->form_validation->set_rules('dokumentasi', 'Dokumentasi', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('partials/prodi/header', $data);
@@ -295,28 +320,42 @@ class prodi extends CI_Controller
             $this->load->view('partials/prodi/footer', $data);
         } else {
 
-            $this->Data_ami->tambah_tindaklanjut($data['user']['id']);
             $this->session->set_flashdata('flash', 'ditambahkan');
-            redirect('prodi/datatindaklanjut');
-            // var_dump($_FILES['file_dokumen']);
-            // if ($_FILES['file_dokumen']['name']) {
-            //     $config['upload_path'] = './assets/dokumen';
-            //     $config['allowed_types'] = 'pdf';
-            //     $config['max_size'] = 2048; // 2MB
+            $data['nama_file_pengesahan'] = 'template1.png';
+            // var_dump($_FILES['foto_pengesahan']['name']);
 
-            //     $this->load->library('upload', $config);
-            //     if (!$this->upload->do_upload('file_dokumen')) {
-            //         $error = array('error' => $this->upload->display_errors());
-            //         // var_dump($error);
-            //     } else {
-            //         // var_dump("bisa diupload");
-            //         $upload_data = $this->upload->data();
-            //         // var_dump($upload_data);
-            //         $data['nama_file'] = $upload_data['file_name'];
-            //         $data['type'] = $upload_data['file_type'];
-            //         $data['ukuran'] = $upload_data['file_size'];
-            //         $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file'], $data['type'], $data['ukuran']);
-            //         redirect('prodi/datatindaklanjut');
+            if ($_FILES['foto_pengesahan']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 2048; // 2MB
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('foto_pengesahan')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $upload_data = $this->upload->data();
+                    $data['nama_file_pengesahan'] = $upload_data['file_name'];
+                }
+            }
+
+            // var_dump($_FILES['dokumentasi']['name']);
+            $data['nama_file_dokumentasi'] = 'template2.png';
+
+            if ($_FILES['dokumentasi']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 2048; // 2MB
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('dokumentasi')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $upload_data = $this->upload->data();
+                    $data['nama_file_dokumentasi'] = $upload_data['file_name'];
+                }
+            }
+
+            // var_dump($data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
+            $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
+            redirect('prodi/datatindaklanjut');
         }
     }
 
@@ -429,9 +468,9 @@ class prodi extends CI_Controller
         // var_dump($data);
 
 
-        $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
-        $this->form_validation->set_rules('pemeriksa1', 'Nama', 'required');
-        $this->form_validation->set_rules('penetapan1', 'Nama', 'required');
+        // $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
+        // $this->form_validation->set_rules('pemeriksa1', 'Nama', 'required');
+        // $this->form_validation->set_rules('penetapan1', 'Nama', 'required');
         $this->form_validation->set_rules('periode', 'Periode', 'required');
         $this->form_validation->set_rules('tahun', 'Tahun', 'required');
         $this->form_validation->set_rules('lembaga', 'Lembaga', 'required');
@@ -520,7 +559,7 @@ class prodi extends CI_Controller
 
         // // $data['users'] = $this->Data_ami->get_user();
 
-        $data['link_drive'] = $this->db->get_where('link_drive', ['id_user' => $data['user']['id']])->row_array();
+        // $data['link_drive'] = $this->db->get_where('link_drive', ['id_user' => $data['user']['id']])->row_array();
 
         // var_dump($data['link_drive']);
         // $this->session->set_flashdata('Sukses', 'Link berhasil diupload');

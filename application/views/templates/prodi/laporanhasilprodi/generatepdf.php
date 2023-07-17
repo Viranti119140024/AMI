@@ -66,7 +66,7 @@
 
                 </table> -->
 
-                <div class="card">
+                <!-- <div class="card"> -->
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                         <center class="text-dark mt-8" style="color:black;">
                             <h4><b>KATA PENGANTAR</b></h4>
@@ -104,7 +104,7 @@
                         Pelaksanaan, Evaluasi, Pengendalian dan Pengembangan standar yang telah ditetapkan. Pada tahapan Evaluasi dapt dilakukan melalui Audit Mutu Intenal.</br> <br> Audit Mutu Internal (AMI) merupakan suatu pemeriksaan yang sistematis dan
                         independen untuk menentukan apakah kegiatan dalam menjaga mutu serta hasilnya telah dilaksanakan secara efektif sesuai dengan standar pendidikan tinggi ITERA.Standar mutu
                         ditetapkan untuk mencapai tujuan ITERA yang telah dituangkan dalam SK Rektor Institut Teknologi Sumatera Nomor 722/IT9.A/KP.06.06/2022 tentang Sistem Penjaminan Mutu
-                        Internal Institut Teknologi Sumatera. <br><br> Pelaksanaan audit mutu periode tahun <?= $tindaklanjut[0]->periode ?> merupakan kegiatan audit pertama kali yang
+                        Internal Institut Teknologi Sumatera. <br><br> Pelaksanaan audit mutu periode tahun 20xx merupakan kegiatan audit pertama kali yang
                         dilakukan oleh sistem penjamin mutu ITERA. Pada periode pertama,audit dilakukan untuk memeriksa kesesuaian mutu akademik di tingkat Program Studi. Mutu penelitian dan
                         pengabdian kepada masyarakat akan dilakukan pada periode kedua audit. Proses audit dilaksanakan dalam 2 tahap, yaitu desk evaluation dan audit lapangan. Aspek yang
                         dievaluasi untuk kinerja unit adalah proses atau kegiatan yang berdasarkan kesesuaian dengan 5 standar mutu pendidikan, yaitu (1) standar kompetensi lulusan, (2) standar isi
@@ -200,7 +200,7 @@
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Kode Temuan</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Jangka Waktu Perbaikan</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Penanggung Jawab</th>
-                                        <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th>
+                                        <!-- <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th> -->
                                     </tr>
 
                                     <tr>
@@ -232,7 +232,6 @@
                                             <th scope style="color: black;"="row"><?= $value->kode; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->jangka_waktu; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->pj; ?></th>
-                                            <th> <a href="<?= base_url('prodi/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th>
 
                                         </tr>
                                     <?php endforeach; ?>
@@ -262,14 +261,21 @@
                                 </div>
 
                             </div>
-                            <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('prodi/generate_pdf/' . $params) ?>">
-                                <div class="d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
-                                </div>
-                            </form>
+
                         </div>
 
                     </div>
 
 
                 </div>
+
+                <script>
+                    // Automatically trigger print when the page loads
+                    window.onload = function() {
+                        window.print(
+                            options = [{
+                                'background-graphics': false,
+                            }]
+                        );
+                    };
+                </script>

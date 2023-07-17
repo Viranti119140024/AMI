@@ -32,15 +32,15 @@
                 <div class="form-group">
                     <!-- <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Waktu dan Pelaksanaan Audit</b></h5> -->
                     <label for="exampleFormControlInput1" style="color: black;">OB</label>
-                    <input type="radio" id="OB" name="OB" value= true>Ya
-                    <input type="radio" id="OB" name="OB" value= false checked="checked">Tidak
-                    
+                    <input type="radio" id="OB" name="OB" value='1'>Ya
+                    <input type="radio" id="OB" name="OB" value='0'>Tidak
+
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">KTS</label>
-                    <input type="radio" id="KTS" name="KTS" value= true>Ya
-                    <input type="radio" id="KTS" name="KTS" value= false checked="checked">Tidak
+                    <input type="radio" id="KTS" name="KTS" value='1'>Ya
+                    <input type="radio" id="KTS" name="KTS" value='0'>Tidak
                 </div>
 
                 <div class="form-group">

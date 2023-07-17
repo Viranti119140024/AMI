@@ -14,8 +14,8 @@
 
                 <form method="POST" action="<?php echo base_url('prodi/terima_link_drive') ?>">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Masukkan Link Drive</label>
-                        <input type="text" name="link_drive" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="drive">Masukkan Link Drive</label>
+                        <input type="text" name="link_drive" class="form-control" id="drive" value="<?= $user['link_drive'] ?>">
                     </div>
 
                     <input type="hidden" name="id_user" value="<?php echo $user['id'] ?>" <div class=" row justify-content-center pt-5 pb-5">
@@ -25,9 +25,9 @@
 
                     <?php
                     if ($this->session->flashdata('Sukses')) {
-                    $successSaveLink = $this->session->flashdata('Sukses');
+                        $successSaveLink = $this->session->flashdata('Sukses');
 
-                    echo "<script>
+                        echo "<script>
                         alert('$successSaveLink ');
                     </script>";
                     } ?>

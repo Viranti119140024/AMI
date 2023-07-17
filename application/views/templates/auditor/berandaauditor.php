@@ -26,7 +26,7 @@
       <h5><b>PROSES AUDIT MUTU INTERNAL</b></h5>
     </center>
     <div class="card-body">
-      <table id="myTable" class="table" style="color: black;">
+      <table class="table" style="color: black;">
         <thead>
           <tr>
             <th scope="col">No</th>
@@ -73,6 +73,11 @@
           </form>
         </tbody>
       </table>
+
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
+      </div>
+
       <!-- <div class="d-flex justify-content-end">
         <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
       </div> -->
@@ -83,10 +88,10 @@
 <!-- <?php var_dump($user['id']); ?> -->
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
 
 <script>
   let table = new DataTable('#myTable');
-</script>
+</script> -->

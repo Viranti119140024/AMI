@@ -9,40 +9,69 @@
         <hr color="red" />
     </b>
 
-
-    <div class="card mt-4">
+    <!-- <div class="card mt-4">
         <div class=" d-flex justify-content-center card-body">
-            <table class="table table-striped">
+            <table class="table table-striped" style="color:black;">
                 <thead>
                     <tr>
-                        <th class="text-center " style="color: black;"="col">No</th>
-                        <th scope style="color: black;"="col">Dokumen Acuan</th>
-                        <th class="text-center " scope style="color: black;"="col">Aksi</th>
-
+                        <th scope="col">No</th>
+                        <th scope="col">Nama Dokumen</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php
-                    foreach ($tampil_dokumen_acuan as $key => $value) :
+                    foreach ($dokumen as $key => $value) :
                         $number = $key + 1;
                     ?>
                         <tr>
-                            <th class="text-center " scope style="color: black;"="row"><?= $number; ?></th>
+                            <th scope style="color: black;"="row"><?= $number; ?></th>
                             <td style="color: black;"><?= $value->nama_dokumen; ?></td>
-                            <td class="text-center">
-                                <a href="<?= base_url('auditor/pertanyaan_dok_acuan/' . $value->id_dokumen_acuan) ?>">
-                                    <button type="lihat" class="btn btn-success">
-                                        Nilai
-                                    </button>
-                                </a>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
+                            <td>
+                                <a href="<?= base_url('auditor/upload_dokumen/') . $value->id_dokumen ?> "><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a>
+                               
+        </td>
+        </tr>
+    <!-- <?php endforeach; ?> -->
+
+    <!-- </div>
+</div> --> 
+
+
+
+<div class="card mt-4">
+    <div class=" d-flex justify-content-center card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center " style="color: black;"="col">No</th>
+                    <th scope style="color: black;"="col">Dokumen Acuan</th>
+                    <th class="text-center " scope style="color: black;"="col">Aksi</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
+                foreach ($tampil_dokumen_acuan as $key => $value) :
+                    $number = $key + 1;
+                ?>
+                    <tr>
+                        <th class="text-center " scope style="color: black;"="row"><?= $number; ?></th>
+                        <td style="color: black;"><?= $value->nama_dokumen; ?></td>
+                        <td class="text-center">
+                            <a href="<?= base_url('auditor/pertanyaan_dok_acuan/' . $value->id_dokumen_acuan) ?>">
+                                <button type="lihat" class="btn btn-success">
+                                    Nilai
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
+</div>
 
 
 
