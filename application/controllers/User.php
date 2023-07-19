@@ -189,6 +189,8 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        // $data['dokumen'] = $this->Data_ami->get_dokprodi($data['params']);
+
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
@@ -327,6 +329,22 @@ class User extends CI_Controller
         $this->load->view('partials/admin/footer', $data);
     }
 
+    public function menudaftartilikjurusan()
+    {
+
+        $data['title'] = 'Hasil Desk Evaluation';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $data['admin_dokumen_acuan'] = $this->Data_ami->get_acuan_jurusan();
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/daftartilik/menuutama', $data);
+        $this->load->view('partials/admin/footer', $data);
+    }
+
     public function isidokumenacuan($id)
     {
 
@@ -341,6 +359,23 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/daftartilik/isidokumen', $data);
+        $this->load->view('partials/admin/footer', $data);
+    }
+
+    public function isidokumenacuanjurusan($id)
+    {
+
+        $data['title'] = 'Hasil Desk Evaluation';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $data['admin_hasil_desk_jurusan'] = $this->Data_ami->get_hasil_desk_jurusan($id);
+        $data['admin_daftar_tilik_jurusan'] = $this->Data_ami->get_daftar_tilik_jurusan($id);
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/daftartilik/isidokumenjurusan', $data);
         $this->load->view('partials/admin/footer', $data);
     }
 
@@ -822,9 +857,9 @@ class User extends CI_Controller
         // var_dump($data);
 
 
-        $this->form_validation->set_rules('nama_lembaga', 'Nama Lembaga', 'required');
-        $this->form_validation->set_rules('nama_auditor', 'Nama Auditor', 'required');
-        $this->form_validation->set_rules('nip_nrk', 'NIP_NRK', 'required');
+        $this->form_validation->set_rules('unit', 'Unit', 'required');
+        $this->form_validation->set_rules('name', 'name', 'required');
+        // $this->form_validation->set_rules('nip_nrk', 'NIP_NRK', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('partials/admin/header', $data);
@@ -898,4 +933,27 @@ class User extends CI_Controller
         $this->session->set_flashdata('flash', 'ditambahkan');
         redirect('user/isidokumenacuan/' . $id);
     }
+
+
+
+    public function profile()
+    {
+        $data['title'] = '';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        // var_dump(
+        //     $data['user']
+        // );
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('partials/admin/topbar', $data);
+        $this->load->view('templates/admin/profile', $data);
+        $this->load->view('partials/admin/footer', $data);
+
+    }
 }
+
+
+

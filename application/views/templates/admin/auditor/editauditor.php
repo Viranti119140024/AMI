@@ -2,20 +2,16 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="<?= base_url("User/edit_auditor/".$auditor[0]->id_auditor) ?>" method="post" class="form-horizontal form-label-left" novalidate>
-                <input type="hidden" name="id_auditor" value="<?= $auditor[0]->id_auditor; ?>">
+            <form action="<?= base_url("User/edit_auditor/".$user[0]->id) ?>" method="post" class="form-horizontal form-label-left" novalidate>
+                <input type="hidden" name="id_audit" value="<?= $user[0]->id; ?>">
                 <div class="form-group">
-                    <label for="nama_lembaga" style="color: black;">Program Studi / Jurusan</label>
-                    <input value="<?= $auditor[0]->nama_lembaga; ?>" type="text" class="form-control" id="nama_lembaga" name="nama_lembaga" placeholder="Masukkan Program Studi / Jurusan">
+                    <label for="unit" style="color: black;">Program Studi / Jurusan</label>
+                    <input value="<?= $user[0]->unit; ?>" type="text" class="form-control" id="unit" name="unit" placeholder="Masukkan Program Studi / Jurusan">
                 </div>
 
                 <div class="form-group">
                     <label for="nama_auditor" style="color: black;">Auditor</label>
-                    <input value="<?= $auditor[0]->nama_auditor; ?>" type="text" class="form-control" id="nama_auditor" name="nama_auditor" placeholder="Masukkan Nama Auditor">
-                </div>
-                <div class="form-group">
-                    <label for="nip_nrk" style="color: black;">NIP / NRK</label>
-                    <input value="<?= $auditor[0]->nip_nrk; ?>" type="text" class="form-control" id="nip_nrk" name="nip_nrk" placeholder="Masukkan NIP / NRK">
+                    <input value="<?= $user[0]->name; ?>" type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama Auditor">
                 </div>
 
                 <div class="d-flex justify-content-end">

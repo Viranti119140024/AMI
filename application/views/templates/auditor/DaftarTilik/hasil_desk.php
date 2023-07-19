@@ -2,8 +2,7 @@
     <div class="row-lg-12">
         <div class="card mt-2">
             <div class="card-body">
-
-                <h4 class="d-flex justify-content-center align-items-center mt-3"><?= $title1 ?></h4>
+                <h4 class="d-flex justify-content-center align-items-center mt-3 font-weight-bold text-dark"><?= $title1 ?></h4>
 
                 <div class="table-responsive mt-2">
                     <table class="table table-borderless" style="color:black;">
@@ -56,6 +55,7 @@
                         Tambah Pertanyaan
                     </button>
                 </div>
+
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead class="text-center">
@@ -80,73 +80,79 @@
                                 <th style="background-color: #B0C4DE; color:black;">CLOSE</th>
                             </tr>
                         </thead>
-                        <form action="<?= base_url("auditor/refresh_nilai_hasil_desk_utama") ?>" method="POST">
-                            <input type="hidden" name="id_audit" value="<?= $user['id_audit'] ?>">
-                            <button type="submit" class="btn btn-warning">Refresh Data</button>
-                        </form>
-                        <form action="<?= base_url("auditor/update_nilai_hasil_desk_utama") ?>" method="POST">
+
+                        <form action="<?= base_url("auditor/add_nilai_hasil_desk_utama") ?>" method="POST">
                             <tr>
                                 <td colspan="12" class="text-left font-weight-bold">
                                     A. Pertanyaan Utama
-                                    <button type="submit" class="btn btn-primary">Simpan Data</button>
-
-                                    <input type="hidden" name="id_dokumen_acuan[]" value="<?= $this->uri->segment(3) ?>">
+                                    <button type="submit" class="btn btn-outline-primary">Simpan Nilai Utama</button>
+                                    <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>">
                                 </td>
                             </tr>
-                            <tbody style="background-color: white; color:black;">
+                            <tbody style="background-color: white; color: black;">
                                 <?php
                                 $no = 1;
-                                foreach ($tampil_hasil_desk as $hasil_desk) :
+                                foreach ($tampil_hasil_desk_utama as $hasil_desk) :
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no++; ?></td>
                                         <td>
                                             <?= $hasil_desk->nama_dokumen_terkait ?>
-                                            <input type="hidden" name="id_hasil_desk[]" value=" <?= $hasil_desk->id_hasil_desk ?>">
+                                            <input type="hidden" name="id_hasil_desk[]" value="<?= $hasil_desk->id_hasil_desk ?>">
                                         </td>
-                                        <td class="text-center"><input type="checkbox" value="1" name="my[]" id="my"></td>
-                                        <td class="text-center"><input type="checkbox" value="1" name="mb[]" id="mb"></td>
-                                        <td class="text-center"><input type="checkbox" value="1" name="m[]" id="m"></td>
-                                        <td class="text-center"><input type="checkbox" value="1" name="mp[]" id="mp"></td>
-                                        <td class="text-center"><input type="checkbox" value="1" name="ob[]" id="ob"></td>
-                                        <td class="text-center"><input type="checkbox" value="1" name="kts[]" id="kts"></td>
-                                        <td class="text-center"><input type="checkbox" value="1" name="open[]" id="open"></td>
-                                        <td class="text-center"><input type="checkbox" value="1" name="close[]" id="colse"></td>
-                                        <td class="text-center"><input type="text" name="catatan[]" id="catatan"></td>
-                                        <td class="text-center"><input type="text" name="penanggungjawab[]" id="penanggungjawab"></td>
+                                        <td class="text-center"><input type="checkbox" name="my[<?= $hasil_desk->id_hasil_desk ?>]" id="my<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->my == 1) ? 'checked' : '' ?>></td>
+                                        <td class="text-center"><input type="checkbox" name="mb[<?= $hasil_desk->id_hasil_desk ?>]" id="mb<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->mb == 1) ? 'checked' : '' ?>></td>
+                                        <td class="text-center"><input type="checkbox" name="m[<?= $hasil_desk->id_hasil_desk ?>]" id="m<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->m == 1) ? 'checked' : '' ?>></td>
+                                        <td class="text-center"><input type="checkbox" name="mp[<?= $hasil_desk->id_hasil_desk ?>]" id="mp<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->mp == 1) ? 'checked' : '' ?>></td>
+                                        <td class="text-center"><input type="checkbox" name="ob[<?= $hasil_desk->id_hasil_desk ?>]" id="ob<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->ob == 1) ? 'checked' : '' ?>></td>
+                                        <td class="text-center"><input type="checkbox" name="kts[<?= $hasil_desk->id_hasil_desk ?>]" id="kts<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->kts == 1) ? 'checked' : '' ?>></td>
+                                        <td class="text-center"><input type="checkbox" name="open[<?= $hasil_desk->id_hasil_desk ?>]" id="open<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->open == 1) ? 'checked' : '' ?>></td>
+                                        <td class="text-center"><input type="checkbox" name="close[<?= $hasil_desk->id_hasil_desk ?>]" id="close<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->close == 1) ? 'checked' : '' ?>></td>
+                                        <td class="text-center"><input type="text" name="catatan[<?= $hasil_desk->id_hasil_desk ?>]" id="catatan<?= $hasil_desk->id_hasil_desk ?>" value="<?= $hasil_desk->catatan ?>"></td>
+                                        <td class="text-center"><input type="text" name="penanggungjawab[<?= $hasil_desk->id_hasil_desk ?>]" id="penanggungjawab<?= $hasil_desk->id_hasil_desk ?>" value="<?= $hasil_desk->penanggungjawab ?>"></td>
+
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
-                        </form>
-                        <thead>
-                            <tr>
-                                <td colspan="12" class="text-left font-weight-bold">B. Pertanyaan Tambahan</td>
-                            </tr>
-                        </thead>
 
-                        <!-- tampil_tambahan_hasil_desk_auditor -->
-                        <?php if ($tampil_tambahan_hasil_desk_auditor !== null) : ?>
-                            <tbody>
-                                <?php
-                                $no = 1;
-                                // foreach ($tampil_tambahan_hasil_desk_auditor as $hasil_desk) :
-                                ?>
-                                <tr>
-                                    <td class="text-center"><?= $no++; ?></td>
-                                    <td><?= $tampil_tambahan_hasil_desk_auditor['tambahan_hasil_desk'] ?></td>
-                                    <td class="text-center"><input type="checkbox" name="m" id="m"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        <?php endif ?>
+                        </form>
+
+                        <form action="<?= base_url("auditor/add_nilai_hasil_desk_tambahan") ?>" method="POST">
+                            <tr>
+                                <td colspan="12" class="text-left font-weight-bold">B. Pertanyaan Tambahan
+                                    <button type="submit" class="btn btn-outline-primary">Simpan Nilai Tambahan</button>
+                                    <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>">
+                                </td>
+                            </tr>
+
+                            <!-- tampil_tambahan_hasil_desk_auditor -->
+                            <?php if ($tampil_hasil_desk_tambahan !== null) : ?>
+                                <tbody style="background-color: white; color: black;">
+                                    <?php
+                                    $no = 1;
+                                    foreach ($tampil_hasil_desk_tambahan as $hasil_desk) :
+                                    ?>
+                                        <tr>
+                                            <td class="text-center"><?= $no++; ?></td>
+                                            <td>
+                                                <?= $hasil_desk->tambahan_hasil_desk ?>
+                                                <input type="hidden" name="id_auditor_hasil_desk[]" value="<?= $hasil_desk->id_auditor_hasil_desk ?>">
+                                            </td>
+                                            <td class="text-center"><input type="checkbox" name="my[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="my<?= $hasil_desk->id_auditor_hasil_desk ?>" <?= ($hasil_desk->my == 1) ? 'checked' : '' ?>></td>
+                                            <td class="text-center"><input type="checkbox" name="mb[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="mb<?= $hasil_desk->id_auditor_hasil_desk ?>" <?= ($hasil_desk->mb == 1) ? 'checked' : '' ?>></td>
+                                            <td class="text-center"><input type="checkbox" name="m[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="m<?= $hasil_desk->id_auditor_hasil_desk ?>" <?= ($hasil_desk->m == 1) ? 'checked' : '' ?>></td>
+                                            <td class="text-center"><input type="checkbox" name="mp[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="mp<?= $hasil_desk->id_auditor_hasil_desk ?>" <?= ($hasil_desk->mp == 1) ? 'checked' : '' ?>></td>
+                                            <td class="text-center"><input type="checkbox" name="ob[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="ob<?= $hasil_desk->id_auditor_hasil_desk ?>" <?= ($hasil_desk->ob == 1) ? 'checked' : '' ?>></td>
+                                            <td class="text-center"><input type="checkbox" name="kts[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="kts<?= $hasil_desk->id_auditor_hasil_desk ?>" <?= ($hasil_desk->kts == 1) ? 'checked' : '' ?>></td>
+                                            <td class="text-center"><input type="checkbox" name="open[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="open<?= $hasil_desk->id_auditor_hasil_desk ?>" <?= ($hasil_desk->open == 1) ? 'checked' : '' ?>></td>
+                                            <td class="text-center"><input type="checkbox" name="close[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="close<?= $hasil_desk->id_auditor_hasil_desk ?>" <?= ($hasil_desk->close == 1) ? 'checked' : '' ?>></td>
+                                            <td class="text-center"><input type="text" name="catatan[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="catatan<?= $hasil_desk->id_auditor_hasil_desk ?>" value="<?= $hasil_desk->catatan ?>"></td>
+                                            <td class="text-center"><input type="text" name="penanggungjawab[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="penanggungjawab<?= $hasil_desk->id_auditor_hasil_desk ?>" value="<?= $hasil_desk->penanggungjawab ?>"></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            <?php endif ?>
+                        </form>
                         <tfoot>
                             <tr class="text-center" style="background-color: #C0C0C0; color:black;">
                                 <th colspan="2">Jumlah Nilai</th>
@@ -162,122 +168,123 @@
 
     <div class="row-lg-12 mt-2">
         <div class="card mt-2">
-            <div class="data table-responsive mt-2">
-                <table class="table table-borderless">
-                    <thead>
+            <div class="card-body">
+                <h4 class="d-flex justify-content-center align-items-center mt-3 font-weight-bold text-dark"><?= $title2 ?></h4>
+                <div class="data table-responsive mt-2">
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <td style="color:black;" scope="col">Hari / Tanggal </td>
+                                <td style="color:black;" scope="col">Auditee
+                            </tr>
+                        </thead>
+                </div>
+
+                <tbody>
+                    <tr>
+                        <td style="color:black;" scope="row">Jam </td>
+                        <td style="color:black;">Auditor</td>
+                    </tr>
+
+                    <tr>
+                        <td style="color:black;" scope="row">Ruang Lingkup</td>
+                        <td style="color:black;">Ketua</td>
+                    </tr>
+
+                    <tr>
+                        <td style="color:black;" scope="row">Dokumen Acuan</td>
+                        <td style="color:black;">Anggota</td>
+                    </tr>
+            </div>
+
+
+            <div class="table-data">
+                <table class="table table-bordered">
+                    <thead class="text-center" style="background-color: #C0C0C0; color:black;">
                         <tr>
-                            <td style="color:black;" scope="col">Hari / Tanggal </td>
-                            <td style="color:black;" scope="col">Auditee
+                            <th rowspan="1">No</th>
+                            <th rowspan="1">Pertanyaan</th>
+                            <th colspan="1">Dokumen Terkait</th>
+                            <th colspan="1">Hasil Observasi/Audit/Visitasi</th>
+                            <th colspan="1">MY*</th>
+                            <th rowspan="1">MB*</th>
+                            <th rowspan="1">M*</th>
+                            <th rowspan="1">MP*</th>
+                            <th rowspan="1">Rekomendasi</th>
                         </tr>
                     </thead>
-            </div>
 
-            <div class=" d-flex justify-content-start my-3">
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#daftar_tilik">
-                    Tambah Pertanyaan
-                </button>
-            </div>
-
-            <tbody>
-                <tr>
-                    <td style="color:black;" scope="row">Jam </td>
-                    <td style="color:black;">Auditor</td>
-                </tr>
-
-                <tr>
-                    <td style="color:black;" scope="row">Ruang Lingkup</td>
-                    <td style="color:black;">Ketua</td>
-                </tr>
-
-                <tr>
-                    <td style="color:black;" scope="row">Dokumen Acuan</td>
-                    <td style="color:black;">Anggota</td>
-                </tr>
-        </div>
-
-        <div class="table-data">
-            <table class="table table-bordered">
-                <thead class="text-center" style="background-color: #C0C0C0; color:black;">
-                    <tr>
-                        <th rowspan="1">No</th>
-                        <th rowspan="1">Pertanyaan</th>
-                        <th colspan="1">Dokumen Terkait</th>
-                        <th colspan="1">Hasil Observasi/Audit/Visitasi</th>
-                        <th colspan="1">MY*</th>
-                        <th rowspan="1">MB*</th>
-                        <th rowspan="1">M*</th>
-                        <th rowspan="1">MP*</th>
-                        <th rowspan="1">Rekomendasi</th>
-                    </tr>
-                </thead>
-                <form action="<?= base_url("auditor/refresh_daftar_tilik_utama") ?>" method="POST">
-                    <input type="hidden" name="id_audit" value="<?= $user['id_audit'] ?>">
-                    <button type="submit" class="btn btn-warning">Refresh Data</button>
-                </form>
-                <form action="<?= base_url("auditor/update_nilai_daftar_tilik_utama") ?>" method="POST">
-                    <tr>
-                        <td colspan="12" class="text-left font-weight-bold">
-                            A. Pertanyaan Utama
-                            <button type="submit" class="btn btn-primary">Simpan Data</button>
-
-                            <input type="hidden" name="id_dokumen_acuan[]" value="<?= $this->uri->segment(3) ?>">
-                        </td>
-                    </tr>
+                    <div class=" d-flex justify-content-start my-3">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#daftar_tilik">
+                            Tambah Pertanyaan
+                        </button>
+                    </div>
+                    <form action="<?= base_url("auditor/add_nilai_daftar_tilik_utama") ?>" method="POST">
+                        <tr>
+                            <td colspan="12" class="text-left font-weight-bold">
+                                A. Pertanyaan Utama
+                                <button type="submit" class="btn btn-outline-primary">Simpan Nilai Utama</button>
+                                <input type="hidden" name="id_dokumen_acuan[]" value="<?= $this->uri->segment(3) ?>">
+                            </td>
+                        </tr>
+                        <tbody style="background-color: white; color:black;">
+                            <?php
+                            $no = 1;
+                            foreach ($tampil_daftar_tilik_utama as $daftar_tilik) :
+                            ?>
+                                <tr>
+                                    <td class="text-center"><?= $no++; ?></td>
+                                    <td>
+                                        <?= $daftar_tilik->pertanyaan ?>
+                                        <input type="hidden" name="id_daftar_tilik[]" value=" <?= $daftar_tilik->id_daftar_tilik ?>">
+                                    </td>
+                                    <td class="text-center"><input type="text" name="dokumenterkait[]" id="dokumenterkait" value="<?= $daftar_tilik->dokumen_terkait ?>"></td>
+                                    <td class="text-center"><input type="text" name="hasilobservasi[]" id="hasilobservasi" value="<?= $daftar_tilik->hasil_observasi ?>"></td>
+                                    <td class="text-center"><input type="checkbox" name="my[<?= $daftar_tilik->id_daftar_tilik ?>]" id="my<?= $daftar_tilik->id_daftar_tilik ?>" <?= ($daftar_tilik->my == 1) ? 'checked' : '' ?>></td>
+                                    <td class="text-center"><input type="checkbox" name="mb[<?= $daftar_tilik->id_daftar_tilik ?>]" id="mb<?= $daftar_tilik->id_daftar_tilik ?>" <?= ($daftar_tilik->mb == 1) ? 'checked' : '' ?>></td>
+                                    <td class="text-center"><input type="checkbox" name="m[<?= $daftar_tilik->id_daftar_tilik ?>]" id="m<?= $daftar_tilik->id_daftar_tilik ?>" <?= ($daftar_tilik->m == 1) ? 'checked' : '' ?>></td>
+                                    <td class="text-center"><input type="checkbox" name="mp[<?= $daftar_tilik->id_daftar_tilik ?>]" id="mp<?= $daftar_tilik->id_daftar_tilik ?>" <?= ($daftar_tilik->mp == 1) ? 'checked' : '' ?>></td>
+                                    <td class="text-center"><input type="text" name="rekomendasi[]" id="rekomendasi" value="<?= $daftar_tilik->rekomendasi ?>"></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </form>
+                    <thead>
+                        <tr>
+                            <td colspan="12" class="text-left font-weight-bold">B. Pertanyaan Tambahan
+                                <button type="submit" class="btn btn-outline-primary">Simpan Nilai Tambahan</button>
+                                <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>">
+                            </td>
+                        </tr>
+                    </thead>
                     <tbody style="background-color: white; color:black;">
                         <?php
                         $no = 1;
-                        foreach ($tampil_daftar_tilik as $daftar_tilik) :
+                        foreach ($tampil_daftar_tilik_tambahan as $daftar_tilik) :
                         ?>
                             <tr>
                                 <td class="text-center"><?= $no++; ?></td>
                                 <td>
-                                    <?= $daftar_tilik->pertanyaan ?>
-                                    <input type="hidden" name="id_daftar_tilik[]" value=" <?= $daftar_tilik->id_daftar_tilik ?>">
+                                    <?= $daftar_tilik->tambahan_daftar_tilik ?>
+                                    <input type="hidden" name="id_daftar_tilik[]" value=" <?= $daftar_tilik->id_auditor_daftar_tilik ?>">
                                 </td>
-                                <td class="text-center"><input type="text" name="dokumenterkait[]" id="dokumenterkait"></td>
-                                <td class="text-center"><input type="text" name="hasilobservasi[]" id="hasilobservasi"></td>
-                                <td class="text-center"><input type="checkbox" value="1" name="my[]" id="my"></td>
-                                <td class="text-center"><input type="checkbox" value="1" name="mb[]" id="mb"></td>
-                                <td class="text-center"><input type="checkbox" value="1" name="m[]" id="m"></td>
-                                <td class="text-center"><input type="checkbox" value="1" name="mp[]" id="mp"></td>
-                                <td class="text-center"><input type="text" name="rekomendasi[]" id="rekomendasi"></td>
+                                <td class="text-center"><input type="text" name="dokumenterkait[]" id="dokumenterkait" value="<?= $daftar_tilik->dokumen_terkait ?>"></td>
+                                <td class="text-center"><input type="text" name="hasilobservasi[]" id="hasilobservasi" value="<?= $daftar_tilik->hasil_observasi ?>"></td>
+                                <td class="text-center"><input type="checkbox" name="my[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="my<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->my == 1) ? 'checked' : '' ?>></td>
+                                <td class="text-center"><input type="checkbox" name="mb[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="mb<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->mb == 1) ? 'checked' : '' ?>></td>
+                                <td class="text-center"><input type="checkbox" name="m[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="m<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->m == 1) ? 'checked' : '' ?>></td>
+                                <td class="text-center"><input type="checkbox" name="mp[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="mp<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->mp == 1) ? 'checked' : '' ?>></td>
+                                <td class="text-center"><input type="text" name="rekomendasi[]" id="rekomendasi" value="<?= $daftar_tilik->rekomendasi ?>"></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
-                </form>
-                <thead>
-                    <tr>
-                        <td colspan="12" class="text-left font-weight-bold">B. Pertanyaan Tambahan</td>
-                    </tr>
-                </thead>
-                <?php if ($tampil_tambahan_daftar_tilik !== null) : ?>
-                    <tbody>
-                        <?php
-                        $no = 1;
-                        // foreach ($tampil_tambahan_daftar_tilik_auditor as $hasil_desk) :
-                        ?>
-                        <tr>
-                            <td class="text-center"><?= $no++; ?></td>
-                            <td><?= $tampil_tambahan_daftar_tilik['tambahan_daftar_tilik'] ?></td>
-                            <td class="text-center"><input type="text" name="dokumenterkait" id="dokumenterkait"></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                    <tfoot>
+                        <tr class="text-center" style="background-color: #C0C0C0; color:black;">
+                            <th colspan="2">Jumlah Nilai</th>
                         </tr>
-                    </tbody>
-                <?php endif ?>
-                <tfoot>
-                    <tr class="text-center" style="background-color: #C0C0C0; color:black;">
-                        <th colspan="2">Jumlah Nilai</th>
-                    </tr>
-                </tfoot>
-            </table>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -293,7 +300,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url("auditor/tambahan_hasil_desk_auditor") ?>" method="POST">
+            <form action="<?= base_url("auditor/add_hasil_desk_tambahan") ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="tambahan_hasil_desk">Pertanyaan Tambahan</label>
@@ -324,7 +331,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url("auditor/tambahan_daftar_tilik_auditor") ?>" method="POST">
+            <form action="<?= base_url("auditor/add_daftar_tilik_tambahan") ?>" method="POST">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="tambahan_daftar_tilik">Pertanyaan Tambahan</label>

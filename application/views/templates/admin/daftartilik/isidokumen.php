@@ -130,8 +130,8 @@
             <form action="<?= base_url("User/tambah_daftar_tilik") ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Masukkan Pertanyaan</label>
-                        <input type="text" name="pertanyaan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <label for="pertanyaan">Masukkan Pertanyaan</label>
+                        <input type="text" name="pertanyaan" class="form-control" id="pertanyaan">
 
                         <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>">
 

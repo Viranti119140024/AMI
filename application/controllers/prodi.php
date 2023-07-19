@@ -611,6 +611,23 @@ class prodi extends CI_Controller
         // $this->load->view('partials/prodi/footer', $data);
     }
 
+    public function profile()
+    {
+        $data['title'] = '';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        // var_dump(
+        //     $data['user']
+        // );
+
+        $this->load->view('partials/prodi/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/prodi/sidebar', $data);
+        $this->load->view('partials/prodi/topbar', $data);
+        $this->load->view('templates/prodi/profile', $data);
+        $this->load->view('partials/prodi/footer', $data);
+
+    }
 
 
 

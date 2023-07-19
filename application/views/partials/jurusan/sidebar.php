@@ -9,7 +9,7 @@
                 <span class="itemcolor">Beranda</span></a>
     
         <li class="list-group">
-            <a class="list-group-item" href="<?= base_url('jurusan_controller/dokumen') ?>">
+            <a class="list-group-item" href="<?= base_url('jurusan_controller/form_link_drive') ?>">
                 <i class="fa fa-file itemcolor"></i>
                 <span class="itemcolor">Dokumen Kebutuhan Audit</span></a>
     

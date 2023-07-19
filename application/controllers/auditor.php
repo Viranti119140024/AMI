@@ -300,15 +300,15 @@ class auditor extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
 
-        $data['tampil_hasil_desk'] = $this->Data_ami->tampil_hasil_desk_auditor($id);
-        $data['tampil_daftar_tilik'] = $this->Data_ami->tampil_daftar_tilik_auditor($id);
-
-        $data['tampil_tambahan_hasil_desk_auditor'] = $this->Data_ami->tampil_tambahan_hasil_desk_auditor($id);
-        $data['tampil_tambahan_daftar_tilik'] = $this->Data_ami->tampil_tambahan_daftar_tilik_auditor($id);
-        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+        // hasil desk
+        $data['tampil_hasil_desk_utama'] = $this->Data_ami->tampil_hasil_desk_utama($id);
+        $data['tampil_hasil_desk_tambahan'] = $this->Data_ami->tampil_hasil_desk_tambahan($id);
         
-
-        // var_dump($data['tampil_tambahan_hasil_desk_auditor']);
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama'] = $this->Data_ami->tampil_daftar_tilik_utama($id);
+        $data['tampil_daftar_tilik_tambahan'] = $this->Data_ami->tampil_daftar_tilik_tambahan($id);
+        
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
 
         $this->load->view('partials/auditor/header', $data);
         $this->load->view('templates/logo', $data);
@@ -318,101 +318,131 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/footer', $data);
     }
 
-    public function tambahan_hasil_desk_auditor()
-    {
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+    // SIMPAN NILAI HASIL DESK KEDALAM DB
+    // nilai hasil_desk utama
+    function add_nilai_hasil_desk_utama(){
         $id = $this->input->post('id_dokumen_acuan');
+        $this->Data_ami->add_nilai_hasil_desk_utama();
 
-        $this->Data_ami->add_hasil_desk_auditor();
-        $this->session->set_flashdata('flash', 'ditambahkan');
         redirect('auditor/pertanyaan_dok_acuan/' . $id);
     }
 
-    public function refresh_nilai_hasil_desk_utama()
-    {
+    function add_hasil_desk_tambahan(){
         $id = $this->input->post('id_dokumen_acuan');
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+        $this->Data_ami->add_hasil_desk_tambahan();
 
-        $data['list_nilai'] = $this->Data_ami->get_nilai_hasil_desk_utama($data['user']['id_audit']);
-
-        // $this->Data_ami->delete_nilai_hasil_desk_utama();
-
-        // $this->Data_ami->add_nilai_hasil_desk_utama();
-        // var_dump("DATA REFRESH");
-
-        // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
-
-        $this->session->set_flashdata('flash', 'ditambahkan');
-        // redirect('auditor/pertanyaan_dok_acuan/' . $id);
-    }
-
-    public function update_nilai_hasil_desk_utama()
-    {
-        $id = $this->input->post('id_dokumen_acuan');
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-
-        // $this->Data_ami->add_nilai_hasil_desk_utama();
-        // var_dump("DATA UPDATE");
-
-        // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
-
-        $this->session->set_flashdata('flash', 'ditambahkan');
-        // redirect('auditor/pertanyaan_dok_acuan/' . $id);
-    }
-
-    public function tambahan_daftar_tilik_auditor()
-    {
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-        $id = $this->input->post('id_dokumen_acuan');
-
-        $this->Data_ami->add_daftar_tilik_auditor();
-        $this->session->set_flashdata('flash', 'ditambahkan');
         redirect('auditor/pertanyaan_dok_acuan/' . $id);
     }
 
-    public function refresh_nilai_daftar_tilik_utama()
-    {
+    function add_nilai_hasil_desk_tambahan(){
         $id = $this->input->post('id_dokumen_acuan');
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+        $this->Data_ami->add_nilai_hasil_desk_tambahan();
 
-        $data['list_nilai'] = $this->Data_ami->get_nilai_daftar_tilik_utama($data['user']['id_audit']);
-
-        // $this->Data_ami->delete_nilai_hasil_desk_utama();
-
-        // $this->Data_ami->add_nilai_hasil_desk_utama();
-        // var_dump("DATA REFRESH");
-
-        // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
-
-        $this->session->set_flashdata('flash', 'ditambahkan');
-        // redirect('auditor/pertanyaan_dok_acuan/' . $id);
+        redirect('auditor/pertanyaan_dok_acuan/' . $id);
     }
 
-    public function update_nilai_daftar_tilik_utama()
-    {
+    function add_daftar_tilik_tambahan(){
         $id = $this->input->post('id_dokumen_acuan');
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+        $this->Data_ami->add_daftar_tilik_tambahan();
 
-        // $this->Data_ami->add_nilai_hasil_desk_utama();
-        // var_dump("DATA UPDATE");
-
-        // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
-
-        $this->session->set_flashdata('flash', 'ditambahkan');
-        // redirect('auditor/pertanyaan_dok_acuan/' . $id);
+        redirect('auditor/pertanyaan_dok_acuan/' . $id);
     }
+
+    // public function tambahan_hasil_desk_auditor()
+    // {
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+    //     $id = $this->input->post('id_dokumen_acuan');
+
+    //     $this->Data_ami->add_hasil_desk_auditor();
+    //     $this->session->set_flashdata('flash', 'ditambahkan');
+    //     redirect('auditor/pertanyaan_dok_acuan/' . $id);
+    // }
+
+    // public function refresh_nilai_hasil_desk_utama()
+    // {
+    //     $id = $this->input->post('id_dokumen_acuan');
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+    //     $data['list_nilai'] = $this->Data_ami->get_nilai_hasil_desk_utama($data['user']['id_audit']);
+
+    //     // $this->Data_ami->delete_nilai_hasil_desk_utama();
+
+    //     // $this->Data_ami->add_nilai_hasil_desk_utama();
+    //     // var_dump("DATA REFRESH");
+
+    //     // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
+
+    //     $this->session->set_flashdata('flash', 'ditambahkan');
+    //     // redirect('auditor/pertanyaan_dok_acuan/' . $id);
+    // }
+
+    // public function update_nilai_hasil_desk_utama()
+    // {
+    //     $id = $this->input->post('id_dokumen_acuan');
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+    //     // $this->Data_ami->add_nilai_hasil_desk_utama();
+    //     // var_dump("DATA UPDATE");
+
+    //     // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
+
+    //     $this->session->set_flashdata('flash', 'ditambahkan');
+    //     // redirect('auditor/pertanyaan_dok_acuan/' . $id);
+    // }
+
+    // public function tambahan_daftar_tilik_auditor()
+    // {
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+    //     $id = $this->input->post('id_dokumen_acuan');
+
+    //     $this->Data_ami->add_daftar_tilik_auditor();
+    //     $this->session->set_flashdata('flash', 'ditambahkan');
+    //     redirect('auditor/pertanyaan_dok_acuan/' . $id);
+    // }
+
+    // public function refresh_nilai_daftar_tilik_utama()
+    // {
+    //     $id = $this->input->post('id_dokumen_acuan');
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+    //     $data['list_nilai'] = $this->Data_ami->get_nilai_daftar_tilik_utama($data['user']['id_audit']);
+
+    //     // $this->Data_ami->delete_nilai_hasil_desk_utama();
+
+    //     // $this->Data_ami->add_nilai_hasil_desk_utama();
+    //     // var_dump("DATA REFRESH");
+
+    //     // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
+
+    //     $this->session->set_flashdata('flash', 'ditambahkan');
+    //     // redirect('auditor/pertanyaan_dok_acuan/' . $id);
+    // }
+
+    // public function update_nilai_daftar_tilik_utama()
+    // {
+    //     $id = $this->input->post('id_dokumen_acuan');
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+    //     // $this->Data_ami->add_nilai_hasil_desk_utama();
+    //     // var_dump("DATA UPDATE");
+
+    //     // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
+
+    //     $this->session->set_flashdata('flash', 'ditambahkan');
+    //     // redirect('auditor/pertanyaan_dok_acuan/' . $id);
+    // }
 
     public function upload_dokumen($id)
     {

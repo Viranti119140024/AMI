@@ -5,7 +5,7 @@
 
 <b><hr color="red" /></b>
 
-<a class="btn btn-success" type="button" class="text-white" href="<?= base_url('user/TDP') ?>">+ Tambah</a>
+<!-- <a class="btn btn-success" type="button" class="text-white" href="<?= base_url('user/TDP') ?>">+ Tambah</a> -->
 
 <div class="card mt-4">
   <div class="card-body">
@@ -20,19 +20,14 @@
   </thead>
   <tbody>
     <tr>
-      <th scope style="color: black;"="row">1</th>
-      <td style="color: black;">Teknik Informatika</td>
-      <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#696969;"></i></button> <button type="comment" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-comment" style="color: #DAA520"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
+    <th scope style="color: black;"="row">1</th>
+      <td style="color: black;">Teknik Mesin</td>
+      <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#696969;"></i></button></td>
     </tr>
     <tr>
       <th scope style="color: black;"="row">2</th>
-      <td style="color: black;">Teknik Industri</td>
-      <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#696969;"></i></button> <button type="comment" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-comment" style="color: #DAA520"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
-    </tr>
-    <tr>
-      <th scope style="color: black;"="row">3</th>
-      <td style="color: black;">Fisika</td>
-      <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#696969;"></i></button> <button type="comment" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-comment" style="color: #DAA520"></i></button> <button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button</div></td>
+      <td style="color: black;">Teknik Informatika</td>
+      <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#696969;"></i></td>
     </tr>
 
   </tbody>
