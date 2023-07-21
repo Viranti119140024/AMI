@@ -6,7 +6,7 @@
       <div class="card-body">
         <h5 class="card-title">Daftar Tilik</h5>
         <p class="card-text">Jurusan</p>
-        <a href="<?= base_url('user/dok') ?>" class="btn" type="button" style="background-color: #DAA520; color:white ">Lihat Detail</a>
+        <a href="<?= base_url('user/menudaftartilikjurusan') ?>" class="btn" type="button" style="background-color: #DAA520; color:white ">Lihat Detail</a>
       </div>
     </div>
   </div>

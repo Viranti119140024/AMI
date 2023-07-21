@@ -249,40 +249,41 @@
                             <?php endforeach; ?>
                         </tbody>
                     </form>
-                    <thead>
+
+                    <form action="<?= base_url("auditor/add_nilai_daftar_tilik_tambahan") ?>" method="POST">
                         <tr>
                             <td colspan="12" class="text-left font-weight-bold">B. Pertanyaan Tambahan
                                 <button type="submit" class="btn btn-outline-primary">Simpan Nilai Tambahan</button>
                                 <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>">
                             </td>
                         </tr>
-                    </thead>
-                    <tbody style="background-color: white; color:black;">
-                        <?php
-                        $no = 1;
-                        foreach ($tampil_daftar_tilik_tambahan as $daftar_tilik) :
-                        ?>
-                            <tr>
-                                <td class="text-center"><?= $no++; ?></td>
-                                <td>
-                                    <?= $daftar_tilik->tambahan_daftar_tilik ?>
-                                    <input type="hidden" name="id_daftar_tilik[]" value=" <?= $daftar_tilik->id_auditor_daftar_tilik ?>">
-                                </td>
-                                <td class="text-center"><input type="text" name="dokumenterkait[]" id="dokumenterkait" value="<?= $daftar_tilik->dokumen_terkait ?>"></td>
-                                <td class="text-center"><input type="text" name="hasilobservasi[]" id="hasilobservasi" value="<?= $daftar_tilik->hasil_observasi ?>"></td>
-                                <td class="text-center"><input type="checkbox" name="my[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="my<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->my == 1) ? 'checked' : '' ?>></td>
-                                <td class="text-center"><input type="checkbox" name="mb[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="mb<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->mb == 1) ? 'checked' : '' ?>></td>
-                                <td class="text-center"><input type="checkbox" name="m[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="m<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->m == 1) ? 'checked' : '' ?>></td>
-                                <td class="text-center"><input type="checkbox" name="mp[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="mp<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->mp == 1) ? 'checked' : '' ?>></td>
-                                <td class="text-center"><input type="text" name="rekomendasi[]" id="rekomendasi" value="<?= $daftar_tilik->rekomendasi ?>"></td>
+                        </thead>
+                        <tbody style="background-color: white; color:black;">
+                            <?php
+                            $no = 1;
+                            foreach ($tampil_daftar_tilik_tambahan as $daftar_tilik) :
+                            ?>
+                                <tr>
+                                    <td class="text-center"><?= $no++; ?></td>
+                                    <td>
+                                        <?= $daftar_tilik->tambahan_daftar_tilik ?>
+                                        <input type="hidden" name="id_daftar_tilik[]" value=" <?= $daftar_tilik->id_auditor_daftar_tilik ?>">
+                                    </td>
+                                    <td class="text-center"><input type="text" name="dokumenterkait[]" id="dokumenterkait" value="<?= $daftar_tilik->dokumen_terkait ?>"></td>
+                                    <td class="text-center"><input type="text" name="hasilobservasi[]" id="hasilobservasi" value="<?= $daftar_tilik->hasil_observasi ?>"></td>
+                                    <td class="text-center"><input type="checkbox" name="my[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="my<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->my == 1) ? 'checked' : '' ?>></td>
+                                    <td class="text-center"><input type="checkbox" name="mb[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="mb<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->mb == 1) ? 'checked' : '' ?>></td>
+                                    <td class="text-center"><input type="checkbox" name="m[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="m<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->m == 1) ? 'checked' : '' ?>></td>
+                                    <td class="text-center"><input type="checkbox" name="mp[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" id="mp<?= $daftar_tilik->id_auditor_daftar_tilik ?>" <?= ($daftar_tilik->mp == 1) ? 'checked' : '' ?>></td>
+                                    <td class="text-center"><input type="text" name="rekomendasi[]" id="rekomendasi" value="<?= $daftar_tilik->rekomendasi ?>"></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                        <tfoot>
+                            <tr class="text-center" style="background-color: #C0C0C0; color:black;">
+                                <th colspan="2">Jumlah Nilai</th>
                             </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                    <tfoot>
-                        <tr class="text-center" style="background-color: #C0C0C0; color:black;">
-                            <th colspan="2">Jumlah Nilai</th>
-                        </tr>
-                    </tfoot>
+                        </tfoot>
                 </table>
             </div>
         </div>
@@ -344,8 +345,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
         </div>

@@ -387,10 +387,7 @@ class prodi extends CI_Controller
         $data['params'] = $segments[$param1Index + 4];
         // var_dump($data['params']);
 
-        // $this->form_validation->set_rules('prodi', 'Prodi', 'required');
-        // // $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
-        // $this->form_validation->set_rules('ruanglingkup', 'Ruang Lingkup', 'required');
-        // $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+
         // $this->form_validation->set_rules('dokumen_acuan', 'Dokumen Acuan', 'required');
         $this->form_validation->set_rules('jenis_temuan', 'Jenis Temuan', 'required');
         // $this->form_validation->set_rules('OB', 'Lembaga', 'required');
@@ -398,12 +395,6 @@ class prodi extends CI_Controller
         $this->form_validation->set_rules('kode', 'Kode', 'required');
         $this->form_validation->set_rules('jangka_waktu', 'Jangka Waktu', 'required');
         $this->form_validation->set_rules('pj', 'Penanggung Jawab', 'required');
-        // $this->form_validation->set_rules('temuan', 'Temuan', 'required');
-        // $this->form_validation->set_rules('a2', 'A2', 'required');
-        // $this->form_validation->set_rules('kesimpulan', 'Kesimpulan', 'required');
-        // $this->form_validation->set_rules('dokumentasi', 'Dokumentasi', 'required');
-
-
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('partials/prodi/header', $data);

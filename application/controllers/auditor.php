@@ -41,234 +41,6 @@ class auditor extends CI_Controller
     {
     }
 
-    // public function DAFTARTILIK()
-    // {
-    //     $data['title'] = 'Hasil Desk Evaluation';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/daftartilik', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dta2()
-    // {
-    //     $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/a2', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dtb1()
-    // {
-    //     $data['title'] = 'Hasil Desk Evaluation';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/b1', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dtb2()
-    // {
-    //     $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/b2', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dtc1()
-    // {
-    //     $data['title'] = 'Hasil Desk Evaluation';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/c1', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dtc2()
-    // {
-    //     $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/c2', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dtd1()
-    // {
-    //     $data['title'] = 'Hasil Desk Evaluation';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/d1', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dtd2()
-    // {
-    //     $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/d2', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dte1()
-    // {
-    //     $data['title'] = 'Hasil Desk Evaluation';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/e1', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dte2()
-    // {
-    //     $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/e2', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dtf1()
-    // {
-    //     $data['title'] = 'Hasil Desk Evaluation';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/f1', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dtf2()
-    // {
-    //     $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/f2', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dtg1()
-    // {
-    //     $data['title'] = 'Hasil Desk Evaluation';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/g1', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-    // public function dtg2()
-    // {
-    //     $data['title'] = 'DAFTAR TILIK (CHECKLIST)';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/DaftarTilik/g2', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-
-
-    // public function dokumenaudit()
-    // {
-    //     $data['title'] = 'Dokumen Kebutuhan Audit';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/logo', $data);
-    //     $this->load->view('partials/auditor/sidebar', $data);
-    //     $this->load->view('partials/auditor/topbar', $data);
-    //     $this->load->view('templates/auditor/dokumenKA', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
 
     public function pilihan()
     {
@@ -341,6 +113,21 @@ class auditor extends CI_Controller
         redirect('auditor/pertanyaan_dok_acuan/' . $id);
     }
 
+     // nilai daftar_tilik utama
+    function add_nilai_daftar_tilik_utama(){
+        $id = $this->input->post('id_dokumen_acuan');
+        $this->Data_ami->add_nilai_daftar_tilik_utama();
+
+        redirect('auditor/pertanyaan_dok_acuan/' . $id);
+    }
+
+    function add_nilai_daftar_tilik_tambahan(){
+        $id = $this->input->post('id_dokumen_acuan');
+        $this->Data_ami->add_nilai_daftar_tilik_tambahan();
+
+        redirect('auditor/pertanyaan_dok_acuan/' . $id);
+    }
+
     function add_daftar_tilik_tambahan(){
         $id = $this->input->post('id_dokumen_acuan');
         $this->Data_ami->add_daftar_tilik_tambahan();
@@ -348,149 +135,53 @@ class auditor extends CI_Controller
         redirect('auditor/pertanyaan_dok_acuan/' . $id);
     }
 
-    // public function tambahan_hasil_desk_auditor()
+    // public function upload_dokumen($id)
     // {
+    //     $data['title'] = 'Form Upload Dokumen';
     //     $data['user'] = $this->db->get_where('user', ['email' =>
     //     $this->session->userdata('email')])->row_array();
-    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-    //     $id = $this->input->post('id_dokumen_acuan');
+    //     $data['id'] = $id;
+    //     // var_dump($id);
 
-    //     $this->Data_ami->add_hasil_desk_auditor();
-    //     $this->session->set_flashdata('flash', 'ditambahkan');
-    //     redirect('auditor/pertanyaan_dok_acuan/' . $id);
+    //     // $data['dokumen'] = $this->Data_ami->update_dokumen($data['user']['id']);
+
+    //     // $this->form_validation->set_rules('nama', 'Nama Dokumen', 'required');
+    //     $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
+
+    //     if ($this->form_validation->run() == FALSE) {
+    //         $this->load->view('partials/auditor/header', $data);
+    //         $this->load->view('templates/logo', $data);
+    //         $this->load->view('partials/auditor/sidebar', $data);
+    //         $this->load->view('partials/auditor/topbar', $data);
+    //         $this->load->view('templates/auditor/DaftarTilik/menuutama', $data);
+    //         $this->load->view('partials/auditor/footer', $data);
+    //     } else {
+    //         // var_dump($id);
+    //         // var_dump($_FILES['file_dokumen']);
+
+    //         if ($_FILES['file_dokumen']['name']) {
+    //             $config['upload_path'] = './assets/dokumen';
+    //             $config['allowed_types'] = 'pdf';
+    //             $config['max_size'] = 2048; // 2MB
+
+    //             $this->load->library('upload', $config);
+    //             if (!$this->upload->do_upload('file_dokumen')) {
+    //                 $error = array('error' => $this->upload->display_errors());
+    //                 // var_dump($error);
+    //             } else {
+    //                 // var_dump("bisa diupload");
+    //                 $upload_data = $this->upload->data();
+    //                 // var_dump($upload_data);
+    //                 $data['nama_file'] = $upload_data['file_name'];
+    //                 $data['type'] = $upload_data['file_type'];
+    //                 $data['ukuran'] = $upload_data['file_size'];
+    //                 $this->Data_ami->update_dokumen($id, $data['nama_file'], $data['type'], $data['ukuran']);
+    //                 redirect('auditor/pilihan');
+    //             }
+    //         }
+    //         $this->session->set_flashdata('flash', 'ditambahkan');
+    //     }
     // }
-
-    // public function refresh_nilai_hasil_desk_utama()
-    // {
-    //     $id = $this->input->post('id_dokumen_acuan');
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-
-    //     $data['list_nilai'] = $this->Data_ami->get_nilai_hasil_desk_utama($data['user']['id_audit']);
-
-    //     // $this->Data_ami->delete_nilai_hasil_desk_utama();
-
-    //     // $this->Data_ami->add_nilai_hasil_desk_utama();
-    //     // var_dump("DATA REFRESH");
-
-    //     // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
-
-    //     $this->session->set_flashdata('flash', 'ditambahkan');
-    //     // redirect('auditor/pertanyaan_dok_acuan/' . $id);
-    // }
-
-    // public function update_nilai_hasil_desk_utama()
-    // {
-    //     $id = $this->input->post('id_dokumen_acuan');
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-
-    //     // $this->Data_ami->add_nilai_hasil_desk_utama();
-    //     // var_dump("DATA UPDATE");
-
-    //     // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
-
-    //     $this->session->set_flashdata('flash', 'ditambahkan');
-    //     // redirect('auditor/pertanyaan_dok_acuan/' . $id);
-    // }
-
-    // public function tambahan_daftar_tilik_auditor()
-    // {
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-    //     $id = $this->input->post('id_dokumen_acuan');
-
-    //     $this->Data_ami->add_daftar_tilik_auditor();
-    //     $this->session->set_flashdata('flash', 'ditambahkan');
-    //     redirect('auditor/pertanyaan_dok_acuan/' . $id);
-    // }
-
-    // public function refresh_nilai_daftar_tilik_utama()
-    // {
-    //     $id = $this->input->post('id_dokumen_acuan');
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-
-    //     $data['list_nilai'] = $this->Data_ami->get_nilai_daftar_tilik_utama($data['user']['id_audit']);
-
-    //     // $this->Data_ami->delete_nilai_hasil_desk_utama();
-
-    //     // $this->Data_ami->add_nilai_hasil_desk_utama();
-    //     // var_dump("DATA REFRESH");
-
-    //     // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
-
-    //     $this->session->set_flashdata('flash', 'ditambahkan');
-    //     // redirect('auditor/pertanyaan_dok_acuan/' . $id);
-    // }
-
-    // public function update_nilai_daftar_tilik_utama()
-    // {
-    //     $id = $this->input->post('id_dokumen_acuan');
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-    //     $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-
-    //     // $this->Data_ami->add_nilai_hasil_desk_utama();
-    //     // var_dump("DATA UPDATE");
-
-    //     // var_dump($this->Data_ami->add_nilai_hasil_desk_utama());
-
-    //     $this->session->set_flashdata('flash', 'ditambahkan');
-    //     // redirect('auditor/pertanyaan_dok_acuan/' . $id);
-    // }
-
-    public function upload_dokumen($id)
-    {
-        $data['title'] = 'Form Upload Dokumen';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['id'] = $id;
-        // var_dump($id);
-
-        // $data['dokumen'] = $this->Data_ami->update_dokumen($data['user']['id']);
-
-        // $this->form_validation->set_rules('nama', 'Nama Dokumen', 'required');
-        $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
-
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('partials/auditor/header', $data);
-            $this->load->view('templates/logo', $data);
-            $this->load->view('partials/auditor/sidebar', $data);
-            $this->load->view('partials/auditor/topbar', $data);
-            $this->load->view('templates/auditor/DaftarTilik/menuutama', $data);
-            $this->load->view('partials/auditor/footer', $data);
-        } else {
-            // var_dump($id);
-            // var_dump($_FILES['file_dokumen']);
-
-            if ($_FILES['file_dokumen']['name']) {
-                $config['upload_path'] = './assets/dokumen';
-                $config['allowed_types'] = 'pdf';
-                $config['max_size'] = 2048; // 2MB
-
-                $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('file_dokumen')) {
-                    $error = array('error' => $this->upload->display_errors());
-                    // var_dump($error);
-                } else {
-                    // var_dump("bisa diupload");
-                    $upload_data = $this->upload->data();
-                    // var_dump($upload_data);
-                    $data['nama_file'] = $upload_data['file_name'];
-                    $data['type'] = $upload_data['file_type'];
-                    $data['ukuran'] = $upload_data['file_size'];
-                    $this->Data_ami->update_dokumen($id, $data['nama_file'], $data['type'], $data['ukuran']);
-                    redirect('auditor/pilihan');
-                }
-            }
-            $this->session->set_flashdata('flash', 'ditambahkan');
-        }
-    }
 
     public function generate_pdf($params)
     {
@@ -514,4 +205,227 @@ class auditor extends CI_Controller
         $this->load->view('templates/prodi/laporanhasilprodi/generatepdf', $data);
         $this->load->view('partials/prodi/footer', $data);
     }
+
+
+
+    // laporan hasil audit
+
+    public function datahasilaudit()
+    {
+
+        $data['title'] = 'Laporan Hasil Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $data['hasilaudit'] = $this->Data_ami->get_hasilaudit($data['user']['id']);
+
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+
+        // var_dump($data['tindaklanjut']);
+
+        $this->load->view('partials/auditor/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/auditor/sidebar', $data);
+        $this->load->view('templates/auditor/laporanhasil/tabel', $data);
+        $this->load->view('partials/auditor/footer', $data);
+    }
+
+    public function datahasilaudit2()
+    {
+
+        $data['title'] = 'Laporan Hasil Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $data['bab2'] = $this->Data_ami->get_hasilaudit2($data['user']['id']);
+
+        // var_dump($data['tindaklanjut']);
+
+        $this->load->view('partials/auditor/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/auditor/sidebar', $data);
+        $this->load->view('templates/auditor/laporanhasil/tabel', $data);
+        $this->load->view('partials/auditor/footer', $data);
+    }
+
+
+     //form untuk semua 
+
+     public function isidata()
+     {
+ 
+         $data['title'] = ' Isi Data Laporan Hasil Audit';
+         $data['user'] = $this->db->get_where('user', ['email' =>
+         $this->session->userdata('email')])->row_array();
+ 
+         // $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
+         // $this->form_validation->set_rules('pemeriksa1', 'Nama', 'required');
+         // $this->form_validation->set_rules('penetapan1', 'Nama', 'required');
+ 
+         $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
+         $this->form_validation->set_rules('dokumentasi', 'File Dokumentasi', 'in_list');
+         $this->form_validation->set_rules('tahun', 'Tahun', 'required');
+         $this->form_validation->set_rules('lembaga', 'Lembaga', 'required');
+         $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+         $this->form_validation->set_rules('NIP', 'NIP', 'required');
+         $this->form_validation->set_rules('periode', 'Periode', 'required');
+         $this->form_validation->set_rules('hari_tgl', 'Hari dan Tanggal', 'required');
+         $this->form_validation->set_rules('waktu', 'waktu', 'required');
+         $this->form_validation->set_rules('tempat', 'Tempat', 'required');
+         $this->form_validation->set_rules('auditor', 'Auditor', 'required');
+         $this->form_validation->set_rules('auditee', 'Auditee', 'required');
+         $this->form_validation->set_rules('tanggalDE', 'Tanggal DE', 'required');
+         $this->form_validation->set_rules('jangka_waktu', 'Jangka Waktu Perbaikan', 'required');
+
+ 
+         if ($this->form_validation->run() == FALSE) {
+             $this->load->view('partials/auditor/header', $data);
+             $this->load->view('templates/logo', $data);
+             $this->load->view('partials/auditor/sidebar', $data);
+             $this->load->view('templates/auditor/laporanhasil/form', $data);
+             $this->load->view('partials/auditor/footer', $data);
+         } else {
+ 
+             $this->session->set_flashdata('flash', 'ditambahkan');
+             $data['nama_file_pengesahan'] = 'template1.png';
+             // var_dump($_FILES['foto_pengesahan']['name']);
+ 
+             if ($_FILES['foto_pengesahan']['name']) {
+                 $config['upload_path'] = './assets/dokumen';
+                 $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                 $config['max_size'] = 2048; // 2MB
+                 $this->load->library('upload', $config);
+                 if (!$this->upload->do_upload('foto_pengesahan')) {
+                     $error = array('error' => $this->upload->display_errors());
+                 } else {
+                     $upload_data = $this->upload->data();
+                     $data['nama_file_pengesahan'] = $upload_data['file_name'];
+                 }
+             }
+ 
+             // var_dump($_FILES['dokumentasi']['name']);
+             $data['nama_file_dokumentasi'] = 'template2.png';
+ 
+             if ($_FILES['dokumentasi']['name']) {
+                 $config['upload_path'] = './assets/dokumen';
+                 $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                 $config['max_size'] = 2048; // 2MB
+                 $this->load->library('upload', $config);
+                 if (!$this->upload->do_upload('dokumentasi')) {
+                     $error = array('error' => $this->upload->display_errors());
+                 } else {
+                     $upload_data = $this->upload->data();
+                     $data['nama_file_dokumentasi'] = $upload_data['file_name'];
+                 }
+             }
+ 
+             // var_dump($data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
+             $this->Data_ami->tambah_hasilaudit($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
+             redirect('auditor/datahasilaudit');
+         }
+     }
+ 
+     public function isidata_post($id)
+     {
+ 
+         $this->Data_ami->tambah_hasilaudit($id);
+         $this->session->set_flashdata('flash', 'ditambahkan');
+         redirect('auditor/laporanakhir/' . $id);
+     }
+ 
+ 
+     public function isidata2()
+     {
+ 
+         $data['title'] = ' Isi Data Laporan Hasil Audit';
+         $data['user'] = $this->db->get_where('user', ['email' =>
+         $this->session->userdata('email')])->row_array();
+ 
+         // $data['id'] = $id;
+         // var_dump($data['id']);
+ 
+         $url = $_SERVER['REQUEST_URI'];
+         $segments = explode('/', $url);
+ 
+         // Find the index of the parameter name
+         $param1Index = array_search('param1', $segments);
+         // Retrieve the parameter values
+         $data['params'] = $segments[$param1Index + 4];
+         // var_dump($data['params']);
+ 
+ 
+         // $this->form_validation->set_rules('dokumen_acuan', 'Dokumen Acuan', 'required');
+         $this->form_validation->set_rules('dokumen_acuan', 'Dokumen Acuan', 'required');
+         $this->form_validation->set_rules('deskripsi_temuan', 'Deskripsi Temuan', 'required');
+         $this->form_validation->set_rules('Permintaan_tindakan', 'Permintaan Tindakan Koreksi', 'required');
+     
+         if ($this->form_validation->run() == FALSE) {
+             $this->load->view('partials/auditor/header', $data);
+             $this->load->view('templates/logo', $data);
+             $this->load->view('partials/auditor/sidebar', $data);
+             $this->load->view('templates/auditor/laporanhasilprodi/form2', $data);
+             $this->load->view('partials/auditor/footer', $data);
+         }
+     }
+ 
+     public function isidata2_post($id)
+     {
+ 
+         $this->Data_ami->tambah_hasilaudit2($id);
+         $this->session->set_flashdata('flash', 'ditambahkan');
+         redirect('auditor/laporanakhir/' . $id);
+     }
+
+
+     public function laporanakhir()
+     {
+ 
+         $data['title'] = 'Laporan Hasil Audit';
+         $data['user'] = $this->db->get_where('user', ['email' =>
+         $this->session->userdata('email')])->row_array();
+ 
+         $url = $_SERVER['REQUEST_URI'];
+         $segments = explode('/', $url);
+ 
+         // Find the index of the parameter name
+         $param1Index = array_search('param1', $segments);
+         // Retrieve the parameter values
+         $data['params'] = $segments[$param1Index + 4];
+         // var_dump($data['params']);
+ 
+ 
+         $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($data['params']);
+         $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
+         // var_dump($data['tindaklanjut']);
+ 
+         $this->load->view('partials/auditor/header', $data);
+         $this->load->view('templates/logo', $data);
+         $this->load->view('partials/auditor/sidebar', $data);
+         $this->load->view('templates/auditor/laporanhasilprodi/laporanhasil', $data);
+         $this->load->view('partials/auditor/footer', $data);
+     }
+
+     public function generate_pdf_hasil_audit($params)
+    {
+        $data['title'] = 'Laporan Hasil Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        // $url = $_SERVER['REQUEST_URI'];
+        // $segments = explode('/', $url);
+
+        // Find the index of the parameter name
+        // $param1Index = array_search('param1', $segments);
+        // Retrieve the parameter values
+        // $data['params'] = $segments[$param1Index + 4];
+        // var_dump($data['params']);
+
+
+        $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($params);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_Haisl_audit($params);
+        $this->load->view('partials/auditor/header', $data);
+        $this->load->view('templates/auditor/laporanhasil/generate', $data);
+        $this->load->view('partials/auditor/footer', $data);
+    }
+     
 }

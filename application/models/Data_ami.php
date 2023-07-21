@@ -163,8 +163,8 @@ class Data_ami extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('user');
-        $this->db->where('id_audit', 0);
-        $this->db->or_where('id_audit ', 1);
+        // $this->db->where('id_audit', 0);
+        // $this->db->or_where('id_audit ', 1);
         $query = $this->db->get();
 
         return $query->result();
@@ -319,7 +319,7 @@ class Data_ami extends CI_Model
         // $data['type'] = $tipe;
         // $data['ukuran'] = $ukuran; 
 
-        var_dump($data);
+        // var_dump($data);
 
         $this->db->insert('bab2', $data,);
     }
@@ -781,6 +781,60 @@ class Data_ami extends CI_Model
         }
     }
 
+    //INPUT NILAI DAFTAR TILIK AUDITOR
+
+    function add_nilai_daftar_tilik_tambahan()
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $id_dokumen_acuan = $this->input->post('id_dokumen_acuan');
+        $id_auditor_daftar_tilik =  $this->input->post('id_auditor_daftar_tilik');
+        $dokumen_terkait = $this->input->post('dokumen_terkait');
+        $hasil_observasi = $this->input->post('hasil_observasi');
+        $m = $this->input->post('m');
+        $mp = $this->input->post('mp');
+        $mb = $this->input->post('mb');
+        $my = $this->input->post('my');
+        $rekomendasi = $this->input->post('rekomendasi');
+
+        foreach ($id_auditor_daftar_tilik as $id) {
+            $data = array(
+                'id_audit' => $id_audit,
+                'id_dokumen_acuan' => $id_dokumen_acuan,
+                'id_daftar_tilik' => $id,
+                'dokumen_terkait' => $dokumen_terkait[$id],
+                'hasil_observasi' => $hasil_observasi[$id],
+                'm' => isset($m[$id]) ? 1 : 0,
+                'mp' => isset($mp[$id]) ? 1 : 0,
+                'mb' => isset($mb[$id]) ? 1 : 0,
+                'my' => isset($my[$id]) ? 1 : 0,
+                'rekomendasi' => $rekomendasi[$id],
+            );
+
+            $cekSoal = $this->db->get_where('nilai_ami2', array('id_daftar_tilik' => $id))->row();
+
+            if ($cekSoal) {
+                // Jika data sudah ada, lakukan operasi update
+                $this->db->where('id_daftar_tilik', $id);
+                $this->db->update('nilai_ami2', $data);
+            } else {
+                // Jika data belum ada, lakukan operasi insert
+                $this->db->insert('nilai_ami2', $data);
+            }
+        }
+    }
+
+
+
+
+
     // PERTANYAAN TAMBAHAN DAFTAR TILIK
     function add_daftar_tilik_auditor()
     {
@@ -845,38 +899,54 @@ class Data_ami extends CI_Model
     }
 
 
-
     function add_nilai_daftar_tilik_utama()
     {
-        // $id_user = $this->input->post('id_user', true);
-        $id_dokumen_acuan = $this->input->post('id_dokumen_acuan', true);
-        $id_daftar_tilik =  $this->input->post('id_daftar_tilik', true);
-        $dokumen_terkait = $this->input->post('dokumen_terkait', true);
-        $hasil_observasi = $this->input->post('hasil_observasi', true);
-        $m = $this->input->post('m', true);
-        $mp = $this->input->post('mp', true);
-        $mb = $this->input->post('mb', true);
-        $my = $this->input->post('my', true);
-        $rekomendasi = $this->input->post('rekomendasi', true);
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        foreach ($id_daftar_tilik as $index => $id) {
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $id_dokumen_acuan = $this->input->post('id_dokumen_acuan');
+        $id_auditor_daftar_tilik =  $this->input->post('id_auditor_daftar_tilik');
+        $dokumen_terkait = $this->input->post('dokumen_terkait');
+        $hasil_observasi = $this->input->post('hasil_observasi');
+        $m = $this->input->post('m');
+        $mp = $this->input->post('mp');
+        $mb = $this->input->post('mb');
+        $my = $this->input->post('my');
+        $rekomendasi = $this->input->post('rekomendasi');
+
+        foreach ($id_auditor_daftar_tilik as $id) {
             $data = array(
-                'id_user' => $id,
+                'id_audit' => $id_audit,
                 'id_dokumen_acuan' => $id_dokumen_acuan,
                 'id_daftar_tilik' => $id,
-                'dokumen_terkait' => $dokumen_terkait[$index],
-                'hasil_observasi' => $hasil_observasi[$index],
-                'm' => $m,
-                'mp' => $mp,
-                'mb' => $mb,
-                'my' => $my,
-                'rekomendasi' => $rekomendasi[$index],
+                'dokumen_terkait' => $dokumen_terkait[$id],
+                'hasil_observasi' => $hasil_observasi[$id],
+                'm' => isset($m[$id]) ? 1 : 0,
+                'mp' => isset($mp[$id]) ? 1 : 0,
+                'mb' => isset($mb[$id]) ? 1 : 0,
+                'my' => isset($my[$id]) ? 1 : 0,
+                'rekomendasi' => $rekomendasi[$id],
             );
-            // var_dump($data);
-            // var_dump("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaS");
-            // $this->db->insert('nilai_ami', $data);
+
+            $cekSoal = $this->db->get_where('nilai_ami2', array('id_daftar_tilik' => $id))->row();
+
+            if ($cekSoal) {
+                // Jika data sudah ada, lakukan operasi update
+                $this->db->where('id_daftar_tilik', $id);
+                $this->db->update('nilai_ami2', $data);
+            } else {
+                // Jika data belum ada, lakukan operasi insert
+                $this->db->insert('nilai_ami2', $data);
+            }
         }
     }
+
 
     function get_id_hasil_tindak_lanjut()
     {
@@ -894,5 +964,177 @@ class Data_ami extends CI_Model
         }
 
         return null; // Return null explicitly if no valid result is found
+    }
+
+
+
+
+    //hasil audit untuk auditor
+
+    public function get_hasilaudit($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('hasilaudit');
+        $this->db->where('id_user', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_hasilaudit2($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('bab2_hasil_audit');
+        $this->db->where('id_hasilaudit', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function tambah_hasilaudit($id, $foto1, $foto2)
+    {
+        $data = [
+            'id_user' => $id,
+            'foto_pengesahan' => $foto1,
+            'dokumentasi' => $foto2,
+            'tahun' => $this->input->post('tahun', true),
+            'lembaga' => $this->input->post('lembaga', true),
+            'tanggal' => $this->input->post('tanggal', true),
+            'NIP' => $this->input->post('NIP', true),
+            'periode' => $this->input->post('periode', true),
+            'hari_tgl' => $this->input->post('hari_tgl', true),
+            'waktu' => $this->input->post('waktu', true),
+            'tempat' => $this->input->post('tempat', true),
+            'auditor' => $this->input->post('auditor', true),
+            'auditee' => $this->input->post('auditee', true),
+            'tanggalDE' => $this->input->post('tanggalDE', true),
+            'jangka_waktu' => $this->input->post('jangka_waktu', true),
+
+        ];
+        // var_dump($data);
+        $this->db->insert('hasilaudit', $data);
+    }
+
+    public function tambah_hasilaudit2($id)
+    {
+        $data = [
+            'id_hasilaudit' => $id,
+            'dokumen_acuan' => $this->input->post('dokumen_acuan', true),
+            'deskripsi_temuan' => $this->input->post('deskripsi_temuan', true),
+            'permintaan_tindakan' => $this->input->post('permintaan_tindakan', true),
+        ];
+
+        // $data['nama_file'] = $nama;
+        // $data['type'] = $tipe;
+        // $data['ukuran'] = $ukuran; 
+
+        // var_dump($data);
+
+        $this->db->insert('bab2_hasil_audit', $data,);
+    }
+
+    public function get_data_hasil_audit($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('hasilaudit');
+        $this->db->where('id_hasilaudit', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_data_by_id_hasil_audit($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('hasilaudit');
+        $this->db->where('id_user', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_data2_hasil_audit($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('bab2_hasil_audit');
+        $this->db->where('', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_data2_by_id_hasil_audit($id)
+    {
+        $this->db->select('*');
+        $this->db->from('bab2_hasil_audit');
+        $this->db->where('id_hasilaudit', $id);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    public function update_data_hasil_audit($id)
+    {
+
+        $data = [
+            'id_user' => $id,
+            'foto_pengesahan' => $foto1,
+            'dokumentasi' => $foto2,
+            'tahun' => $this->input->post('tahun', true),
+            'lembaga' => $this->input->post('lembaga', true),
+            'tanggal' => $this->input->post('tanggal', true),
+            'NIP' => $this->input->post('NIP', true),
+            'periode' => $this->input->post('periode', true),
+            'hari_tgl' => $this->input->post('hari_tgl', true),
+            'waktu' => $this->input->post('waktu', true),
+            'tempat' => $this->input->post('tempat', true),
+            'auditor' => $this->input->post('auditor', true),
+            'auditee' => $this->input->post('auditee', true),
+            'tanggalDE' => $this->input->post('tanggalDE', true),
+            'jangka_waktu' => $this->input->post('jangka_waktu', true),
+
+        ];
+        $this->db->where('id_hasilaudit', $this->input->post('id_user'));
+        $this->db->update('hasilaudit', $data);
+
+        // $this->db->where('id_auditor', $id);
+        // $this->db->update('auditor', $data);
+    }
+
+    public function update_data2_hasil_audit()
+    {
+
+        $data = [
+            'id_hasilaudit' => $id,
+            'dokumen_acuan' => $this->input->post('dokumen_acuan', true),
+            'deskripsi_temuan' => $this->input->post('deskripsi_temuan', true),
+            'permintaan_tindakan' => $this->input->post('permintaan_tindakan', true),
+        ];
+
+        $this->db->where('id_hasilaudit', $this->input->post('id_hasilaudit'));
+        $this->db->update('bab2_hasil_audit', $data);
+
+        // $this->db->where('id_auditor', $id);
+        // $this->db->update('auditor', $data);
     }
 }
