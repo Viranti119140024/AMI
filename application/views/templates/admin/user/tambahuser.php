@@ -3,13 +3,13 @@
     <div class="card">
         <div class="card-body">
             <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auth/registrasi') ?>">
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Username</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama">
-                </div>
+                </div> -->
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">Email</label>
+                    <label for="exampleFormControlInput1" style="color: black;">Username</label>
                     <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email">
                 </div>
                 <div class="form-group">

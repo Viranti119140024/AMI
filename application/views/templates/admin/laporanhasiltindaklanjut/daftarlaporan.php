@@ -28,7 +28,7 @@
           ?>
             <tr>
               <th scope style="color: black;"="row"><?= $number; ?></th>
-              <td style="color: black;"><?= $value->name; ?></td>
+              <td style="color: black;"><?= $value->email; ?></td>
               <td>
                 <a target="_blank" href="<?= $value->link_drive ?> "><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
                 <!-- <a href="<?= base_url('user/downloaddokumen') . $value->id ?>"><button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #32CD32;"></i></button></a>

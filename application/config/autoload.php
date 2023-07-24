@@ -133,7 +133,7 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Data_kopi');
+$autoload['model'] = array('Data_ami');
 // $autoload['model'] = array('m_apotek');<?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -269,7 +269,7 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Data_kopi');
+$autoload['model'] = array('Data_ami');
 // $autoload['model'] = array('m_apotek');<?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -405,5 +405,5 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Data_kopi');
+$autoload['model'] = array('Data_ami');
 // $autoload['model'] = array('m_apotek');

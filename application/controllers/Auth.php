@@ -85,8 +85,8 @@ class Auth extends CI_Controller
     // buat akun baru
     public function registrasi()
     {
-        $this->form_validation->set_rules('name', 'Name', 'required');
-        // $this->form_validation->set_rules('email', 'Email', 'required');
+        // $this->form_validation->set_rules('name', 'Name', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('role_name', 'Role Name', 'required');
 
@@ -98,7 +98,7 @@ class Auth extends CI_Controller
         // skema buat akun berhasil
         else {
             $data = [
-                'name' => htmlspecialchars($this->input->post('name', true)),
+                // 'name' => htmlspecialchars($this->input->post('name', true)),
                 'email' => htmlspecialchars($this->input->post('email', true)),
                 'image' => 'default.png',
                 'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
