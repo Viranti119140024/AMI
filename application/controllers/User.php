@@ -147,6 +147,10 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        
+        $data['prodi'] = $this->Data_ami->get_prodi();
+
+
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
@@ -292,6 +296,10 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        
+        $data['jurusan'] = $this->Data_ami->get_jurusan();
+
+
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
@@ -336,12 +344,12 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['admin_dokumen_acuan'] = $this->Data_ami->get_acuan_jurusan();
+        $data['admin_dokumen_acuan_jurusan'] = $this->Data_ami->get_acuan_jurusan();
 
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
-        $this->load->view('templates/admin/daftartilik/menuutama', $data);
+        $this->load->view('templates/admin/daftartilik/menuutama_2', $data);
         $this->load->view('partials/admin/footer', $data);
     }
 
@@ -932,6 +940,26 @@ class User extends CI_Controller
         $this->Data_ami->tambah_daftar_tilik();
         $this->session->set_flashdata('flash', 'ditambahkan');
         redirect('user/isidokumenacuan/' . $id);
+    }
+
+    public function tambah_hasil_desk_jurusan()
+    {
+
+        $id = $this->input->post('id_dokumen_acuan');
+
+        $this->Data_ami->tambah_hasil_desk_jurusan();
+        $this->session->set_flashdata('flash', 'ditambahkan');
+        redirect('user/isidokumenacuanjurusan/' . $id);
+    }
+
+    public function tambah_daftar_tilik_jurusan()
+    {
+
+        $id = $this->input->post('id_dokumen_acuan');
+
+        $this->Data_ami->tambah_daftar_tilik_jurusan();
+        $this->session->set_flashdata('flash', 'ditambahkan');
+        redirect('user/isidokumenacuanjurusan/' . $id);
     }
 
 

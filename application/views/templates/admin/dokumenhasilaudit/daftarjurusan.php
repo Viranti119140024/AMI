@@ -18,15 +18,22 @@
     </tr>
   </thead>
   <tbody>
-  <th scope style="color: black;"="row">1</th>
-      <td style="color: black;">JTPI</td>
-      <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#696969;"></i></button></td>
+  <?php
+          foreach ($jurusan as $key => $value) :
+            $number = $key + 1;
+          ?>
+            <tr>
+              <th scope style="color: black;"="row"><?= $number; ?></th>
+              <td style="color: black;"><?= $value->name; ?></td>
+              <td>
+                <a href="#"><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
+                <!-- <a href="<?= base_url('user/downloaddokumen') . $value->id ?>"><button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #32CD32;"></i></button></a>
+                <a href="<?= base_url('user/deletejurusan/') . $value->id_  ?>"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a> -->
+    </div>
+    </td>
     </tr>
-    <tr>
-      <th scope style="color: black;"="row">2</th>
-      <td style="color: black;">jtik</td>
-      <td> <a href="#"><button type="lihat" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-eye" style="color:#696969;"></i></td>
-    </tr>
+  <?php endforeach; ?>
+
   </tbody>
 </table>
   </div>

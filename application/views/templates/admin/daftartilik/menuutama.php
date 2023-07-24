@@ -24,7 +24,6 @@
                     </tr>
                 </thead>
                 <tbody>
-
                     <?php
                     foreach ($admin_dokumen_acuan as $key => $value) :
                         $number = $key + 1;

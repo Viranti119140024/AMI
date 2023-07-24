@@ -452,6 +452,19 @@ class Data_ami extends CI_Model
         return $query->result();
     }
 
+    public function get_acuan_jurusan()
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('admin_dokumen_acuan_jurusan');
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
     public function get_hasil_desk($id)
     {
         // $query = $this->db->query("SELECT * FROM prodi");
@@ -472,6 +485,34 @@ class Data_ami extends CI_Model
         // $id = (int)$id;
         $this->db->select('*');
         $this->db->from('admin_daftar_tilik');
+        $this->db->where('id_dokumen_acuan', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_hasil_desk_jurusan($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('admin_hasil_desk_jurusan');
+        $this->db->where('id_dokumen_acuan', $id);
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        // var_dump($id);
+        return $query->result();
+    }
+
+    public function get_daftar_tilik_jurusan($id)
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+        // $id = (int)$id;
+        $this->db->select('*');
+        $this->db->from('admin_daftar_tilik_jurusan');
         $this->db->where('id_dokumen_acuan', $id);
         $query = $this->db->get();
 
@@ -504,6 +545,32 @@ class Data_ami extends CI_Model
         // var_dump($data);
         $data['id_daftar_tilik'] = generate_custom_id('C', 'id_daftar_tilik', 'admin_daftar_tilik');
         $this->db->insert('admin_daftar_tilik', $data);
+    }
+
+    public function tambah_hasil_desk_jurusan()
+    {
+
+        $data = [
+            'id_dokumen_acuan' => $this->input->post('id_dokumen_acuan', true),
+            'nama_dokumen_terkait' => $this->input->post('nama_dokumen_terkait', true),
+        ];
+
+        $data['id_hasil_desk'] = generate_custom_id('A', 'id_hasil_desk', 'admin_hasil_desk_jurusan');
+        // var_dump($data);
+
+        $this->db->insert('admin_hasil_desk_jurusan', $data);
+    }
+
+    public function tambah_daftar_tilik_jurusank()
+    {
+
+        $data = [
+            'id_dokumen_acuan' => $this->input->post('id_dokumen_acuan', true),
+            'pertanyaan' => $this->input->post('pertanyaan', true),
+        ];
+        // var_dump($data);
+        $data['id_daftar_tilik'] = generate_custom_id('C', 'id_daftar_tilik', 'admin_daftar_tilik_jurusan');
+        $this->db->insert('admin_daftar_tilik_jurusan', $data);
     }
 
     public function tambah_link_drive($data)
