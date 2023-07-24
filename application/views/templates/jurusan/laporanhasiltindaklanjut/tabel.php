@@ -1,14 +1,14 @@
 <div class="container">
 
     <div class="text-dark mt-8">
-        <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Data Laporan Hasil Audit</b></h5>
+        <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Data Laporan Hasil Tindak Lanjut</b></h5>
     </div>
 
     <b>
         <hr color="red" />
     </b>
 
-    <a class="btn btn-success" type="button" href="<?= base_url('auditor/isidata') ?>" class="text-white" href="#">+ Tambah</a>
+    <a class="btn btn-success" type="button" href="<?= base_url('jurusan_controller/isidata') ?>" class="text-white" href="#">+ Tambah</a>
 
     <div class="card mt-4">
         <div class="card-body">
@@ -24,15 +24,15 @@
                 <tbody>
 
                     <?php
-                    foreach ($hasilaudit as $key => $value) :
+                    foreach ($tindaklanjut as $key => $value) :
                         $number = $key + 1;
                     ?>
                         <tr>
                             <th scope style="color: black;"="row"><?= $number; ?></th>
                             <td style="color: black;"><?= $value->periode; ?></td>
                             <td>
-                                <a href="<?= base_url('auditor/laporanakhir/') . $value->id_hasilaudit ?> "><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
-                                <a href="<?= base_url('auditor/edit_data/') . $value->id_hasilaudit;?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a>
+                                <a href="<?= base_url('jurusan_controller/laporanakhir/') . $value->id_tindaklanjut ?> "><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
+                                <a href="<?= base_url('jurusan_controller/edit_data/') . $value->id_tindaklanjut;?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a>
      </div>
         </td>
         </tr>

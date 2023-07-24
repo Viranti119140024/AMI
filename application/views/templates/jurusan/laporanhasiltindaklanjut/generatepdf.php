@@ -130,8 +130,8 @@
 
                 <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                        <!-- <a class="btn btn-success" type="button" href="<?= base_url('prodi/isidata2/') . $tindaklanjut[0]->id_tindaklanjut ?>" class="text-white" href="#">+ Tambah</a> -->
-                        <!-- <a class="btn btn-danger" type="button" href="<?= base_url('prodi/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
+                        <!-- <a class="btn btn-success" type="button" href="<?= base_url('jurusan_controller/isidata2/') . $tindaklanjut[0]->id_tindaklanjut ?>" class="text-white" href="#">+ Tambah</a> -->
+                        <!-- <a class="btn btn-danger" type="button" href="<?= base_url('jurusan_controller/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
                         <center class="text-dark mt-8" style="color:black;">
                             <br></br>
@@ -232,7 +232,7 @@
                                             <th scope style="color: black;"="row"><?= $value->kode; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->jangka_waktu; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->pj; ?></th>
-                                            <!-- <th> <a href="<?= base_url('prodi/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
+                                            <!-- <th> <a href="<?= base_url('jurusan_controller/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
 
                                         </tr>
                                     <?php endforeach; ?>
@@ -265,7 +265,7 @@
                                 </div>
 
                             </div>
-                            <!-- <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('prodi/generate_pdf/' . $params) ?>">
+                            <!-- <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('jurusan_controller/generate_pdf/' . $params) ?>">
                                 <div class="d-flex justify-content-end">
                                     <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
                                 </div>

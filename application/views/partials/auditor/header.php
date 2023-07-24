@@ -29,7 +29,16 @@
     <link href="<?= base_url('assets/'); ?>css/logo.css" rel="stylesheet">
     <link href="<?= base_url('assets/'); ?>css/sidebar.css" rel="stylesheet">
 
+    <!-- style  -->
+    <style>
+        @media print {
+            .page-break {
+                page-break-after: always;
+            }
+        }
+    </style>
 </head>
+
 
 <body id="page-top">
 

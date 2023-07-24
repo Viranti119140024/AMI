@@ -156,7 +156,17 @@
                         <tfoot>
                             <tr class="text-center" style="background-color: #C0C0C0; color:black;">
                                 <th colspan="2">Jumlah Nilai</th>
+                                <th style="background-color: #ffa07a; color:black;">1</th>
+                                <th style="background-color: #3EB489; color:black;">2</th>
+                                <th style="background-color: #B0C4DE; color:black;">3</th>
+                                <th style="background-color: #B0C4DE; color:black;">4</th>
+                                <th style="background-color: #B0C4DE; color:black;">5</th>
+                                <th style="background-color: #B0C4DE; color:black;">6</th>
+                                <th style="background-color: #B0C4DE; color:black;">7</th>
+                                <th style="background-color: #B0C4DE; color:black;">8</th>
+
                             </tr>
+                            </thead>
                         </tfoot>
 
                     </table>

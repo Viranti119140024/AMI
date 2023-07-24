@@ -179,6 +179,8 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $data['jurusan'] = $this->Data_ami->get_jurusan();
+
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
@@ -192,6 +194,8 @@ class User extends CI_Controller
         $data['title'] = 'Laporan Hasil Tindak Lanjut';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+        $data['prodi'] = $this->Data_ami->get_prodi();
 
         // $data['dokumen'] = $this->Data_ami->get_dokprodi($data['params']);
 

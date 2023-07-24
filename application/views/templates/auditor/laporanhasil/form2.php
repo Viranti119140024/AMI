@@ -25,7 +25,7 @@
                 </div> -->
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">Dokumen Aucna</label>
+                    <label for="exampleFormControlInput1" style="color: black;">Dokumen Acuan</label>
                     <input type="text" class="form-control" id="dokumen_acuan" name="dokumen_acuan" placeholder="Masukkan Dokumen Acuan">
                 </div>
 
@@ -37,7 +37,7 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Permintaan Tindakan Koreksi</label>
-                    <input type="text" class="form-control" id="permintaan_tindakan" name="permintaan_tindakan" placeholder="Masukkan Permintaan Tindakan Koreksi>
+                    <input type="text" class="form-control" id="permintaan_tindakan" name="permintaan_tindakan" placeholder="Masukkan Permintaan Tindakan Koreksi">
                 </div>
 
                 <div class="d-flex justify-content-end">

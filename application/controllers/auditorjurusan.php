@@ -27,6 +27,10 @@ class auditorjurusan extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
 
         $this->load->view('partials/auditorjurusan/header', $data);
         $this->load->view('templates/logo', $data);
@@ -55,6 +59,10 @@ class auditorjurusan extends CI_Controller
         $data['title'] = '';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
 
 
         $this->load->view('partials/auditorjurusan/header', $data);
@@ -175,6 +183,8 @@ class auditorjurusan extends CI_Controller
         $data['title'] = '';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
         // var_dump(
         //     $data['user']
         // );
@@ -184,6 +194,26 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/profile', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
+    }
+
+    public function generate_pdf($params)
+    {
+        $data['title'] = 'Laporan Hasil Tindak Lanjut';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+
+        $data['tindaklanjut'] = $this->Data_ami->get_data($params);
+        $data['bab2'] = $this->Data_ami->get_data2($params);
+        $this->load->view('partials/auditorjurusan/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/auditorjurusan/sidebar', $data);
+        $this->load->view('templates/jurusan/laporanhasiltindaklanjut/generatepdf', $data);
         $this->load->view('partials/auditorjurusan/footer', $data);
     }
 }

@@ -4,12 +4,12 @@
     <div class="card mt-2">
         <div class="card-body">
             <center class="text-dark mt-8">
-                <h5><b>LAPORAN AUDIT MUTU INTERNAL <?= $hasilaudit[0]->tahun ?> <br>PROGRAM STUDI <?= $hasilaudit[0]->lembaga ?> <br></b></h5>
+                <h5><b>LAPORAN AUDIT MUTU INTERNAL <?= $hasilaudit[0]->tahun ?> <br>Program Studi <?= $hasilaudit[0]->lembaga ?> <br></b></h5>
             </center>
 
             <center class="text-dark mt-8">
-                <h5><b>Foto Pengesahan <?= $hasilaudit[0]->foto_pengesahan ?></h5>
-                <img src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->foto_pengesahan) ?>" alt="Gambar">
+                <!-- <h5><b> <?= $hasilaudit[0]->foto_pengesahan ?></h5> -->
+                <img style="width: 400px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->foto_pengesahan) ?>" alt="Gambar">
             </center>
 
             <div class="card">
@@ -35,7 +35,9 @@
                 <div class="text-right" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <p>Lampung Selatan, <?= $hasilaudit[0]->tanggal ?> </p>
                     <p>Ketua Audit Mutu Internal </p>
-                    <p>NIP / NRK <?= $hasilaudit[0]->NIP ?></p>
+                    <br></br>
+                    <br></br>
+                    <p>NIP / NRK. <?= $hasilaudit[0]->NIP ?></p>
 
                 </div>
 
@@ -76,8 +78,46 @@
                     <br>3. Untuk menyiapkan laporan permintaan tindakan koreksi auditee sebagai dasar perbaikan mutu selanjutnya <br>4. Untuk memberi kesempatan teraudit memperbaiki sistem penjaminan mutu
                     <br>5. Untuk membantu institutsi/program studi dalam mempersiapakan diri dalam rangka audit eksternal atau akreditasi.
                     <br> <br> <b> 1.3 Waktu dan Pelaksanaan Audit</b><br>
-                    <br> Kegiatan Audit Mutu Internal periode <?= $hasilaudit[0]->periode ?> tahun <?= $hasilaudit[0]->tahun ?> oleh tim Auditor LP3M ITERA dilakukan pada: <br> 1.Hari / Tanggal : <?= $hasilaudit[0]->hari_tgl ?> <br>
-                    2.Waktu Pelaksanaan : <?= $hasilaudit[0]->waktu ?> <br>3.Tempat Kegiatan : <?= $hasilaudit[0]->tempat ?> <br>4.Auditor : <?= $hasilaudit[0]->auditor ?> <br>5.Auditee : <?= $hasilaudit[0]->auditee ?> <br>5.Dokumentasi : <br><img src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->dokumentasi) ?>" alt="Gambar">
+                    <br> Kegiatan Audit Mutu Internal periode <?= $hasilaudit[0]->periode ?> tahun <?= $hasilaudit[0]->tahun ?> oleh tim Auditor LP3M ITERA dilakukan pada: 
+                    <div class="table-responsive mt-2">
+                        <table class="table table-borderless" style="color:black;">
+                            <tr>
+                                <td width="300px">Hari / Tanggal</td>
+                                <td width="10px">:</td>
+                                <td><?= $hasilaudit[0]->hari_tgl ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>Waktu Pelaksanaan</td>
+                                <td>:</td>
+                                <td><?= $hasilaudit[0]->waktu ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>Tempat Kegiatan</td>
+                                <td>:</td>
+                                <td><?= $hasilaudit[0]->tempat ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>Auditor</td>
+                                <td>:</td>
+                                <td><?= $hasilaudit[0]->auditor ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>Auditee</td>
+                                <td>:</td>
+                                <td><?= $hasilaudit[0]->auditee ?></td>
+                            </tr>
+
+                            <tr>
+                                <td>Dokumentasi</td>
+                                <td>:</td>
+                                <td><img style="width: 600px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->dokumentasi) ?>" alt="Gambar"</td>
+                            </tr>
+                        </table>
+                    </div>
                     <br> <br> <b> 1.4 Dasar Hukum </b><br>
                     <br>Dasar hukum atau aturan yang digunakan untuk pelaksanaan AMI periode pertama tahun
                     20xx adalah sebagai berikut :
@@ -139,8 +179,10 @@
                                 <tr>
                                     <th rowspan="2" style="background-color: #FFD700; color:black;">No</th>
                                     <th rowspan="2" style="background-color: #FFD700; color:black;">Dokumen Acuan</th>
-                                    <th colspan="2" style="background-color: #FFD700; color:black;">Deskripsi Temuan</th>
-                                    <th rowspan="2" style="background-color: #FFD700; color:black;">Permintaan Tindakan Koreksi</th>
+                                    <th rowspan="2" style="background-color: #FFD700; color:black;">Deskripsi Temuan</th>
+                                    <th rowspan="2" style="background-color: #FF0000; color:black;">Permintaan Tindakan Koreksi</th>
+                                    <!-- <th rowspan="2" style="background-color: #FF0000; color:black;">Aksi</th> -->
+
                             </thead>
 
                             <tbody style="background-color: white; color:black;">
@@ -153,7 +195,7 @@
                                         <th scope style="color: black;"="row"><?= $value->dokumen_acuan; ?></th>
                                         <th scope style="color: black;"="row"><?= $value->deskripsi_temuan; ?></th>
                                         <th scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></th>
-                                        <th> <a href="<?= base_url('auditor/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th>
+                                        <!-- <th> <a href="<?= base_url('auditor/edit_data2/') . $value->id_hasilaudit; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
 
                                     </tr>
                                 <?php endforeach; ?>
@@ -161,7 +203,7 @@
                         </table>
                     </div>
                 </div>
-                <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditor/generate_pdf/' . $params) ?>">
+                <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditor/generate_pdf_hasil_audit/' . $params) ?>">
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
                     </div>

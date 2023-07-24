@@ -86,7 +86,7 @@ class Auth extends CI_Controller
     public function registrasi()
     {
         $this->form_validation->set_rules('name', 'Name', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required');
+        // $this->form_validation->set_rules('email', 'Email', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('role_name', 'Role Name', 'required');
 

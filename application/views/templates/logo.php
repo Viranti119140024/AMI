@@ -58,7 +58,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-white small"><?= $user['name']; ?></span>
+                    <span class="mr-2 d-none d-lg-inline text-white small"><?= $user['email']; ?></span>
                     <!-- <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile/') . $user['image'] ?>"> -->
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                 </a>
@@ -66,6 +66,21 @@
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown" data-target="#userDropdown">
                     <?php if ($user['role_name'] == 'Auditor Jurusan') : ?>
                         <a class="dropdown-item" href="<?= base_url('auditorjurusan/profile') ?>">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+                    <?php elseif ($user['role_name'] == 'Auditor') : ?>
+                        <a class="dropdown-item" href="<?= base_url('auditor/profile') ?>">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+                    <?php elseif ($user['role_name'] == 'Program Studi') : ?>
+                        <a class="dropdown-item" href="<?= base_url('prodi/profile') ?>">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+                    <?php elseif ($user['role_name'] == 'Jurusan') : ?>
+                        <a class="dropdown-item" href="<?= base_url('jurusan_controller/profile') ?>">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                             Profile
                         </a>

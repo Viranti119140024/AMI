@@ -3,7 +3,7 @@
 
     <div class="card mt-2">
         <div class="card-body">
-            <center style="font: bold;" class="text-dark mt-8">
+            <center class="text-dark mt-8">
                 <h5><b>LAPORAN TINDAK LANJUT AUDIT MUTU INTERNAL <?= $tindaklanjut[0]->periode ?> <br>Program Studi <?= $tindaklanjut[0]->lembaga ?> <br></b></h5>
             </center>
 
@@ -17,11 +17,9 @@
             <div class="table-responsive">
 
                 <div class="card">
-                    <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large; color:black;">
-                        <center class="text-dark mt-8">
-                            <br></br>
-                            <br></br>
-                            <br></br>
+                    <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
+                        <center class="text-dark mt-8" style="color:black;">
+                        <div class="page-break"></div>
                             <h4><b>KATA PENGANTAR</b></h4>
                         </center>
                         Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat dan bimbinganNya laporan tindak lanjut temuan Audit Mutu Internal siklus periode <?= $tindaklanjut[0]->periode ?> tahun
@@ -50,9 +48,9 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large; color:black;">
-                        <center class="text-dark mt-8">
-                            <div class="page-break"></div>
+                    <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
+                        <center class="text-dark mt-8" style="color:black;">
+                        <div class="page-break"></div>
                             <h4><b>BAB I <br> PENDAHULUAN </br></b></h4>
                         </center>
                         <b> 1.1 Latar Belakang</b> <br><br>Penjaminan mutu Pendidikan Tinggi merupakan kegiatan sistematik untuk meningkatkan mutu Pendidikan Tinggi secara berencana dan berkelanjutan. Berdasarkan Undang – Undang
@@ -130,13 +128,11 @@
 
                 <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                        <!-- <a class="btn btn-success" type="button" href="<?= base_url('prodi/isidata2/') . $tindaklanjut[0]->id_tindaklanjut ?>" class="text-white" href="#">+ Tambah</a> -->
-                        <!-- <a class="btn btn-danger" type="button" href="<?= base_url('prodi/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
+                        <a class="btn btn-success" type="button" href="<?= base_url('jurusan_controller/isidata2/') . $tindaklanjut[0]->id_tindaklanjut ?>" class="text-white" href="#">+ Tambah</a>
+                        <!-- <a class="btn btn-danger" type="button" href="<?= base_url('jurusan_controller/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
                         <center class="text-dark mt-8" style="color:black;">
-                            <br></br>
-                            <br></br>
-                            <div class="page-break"></div>
+                        <div class="page-break"></div>
                             <h4><b>BAB II <br> TINDAK LANJUT </br></b></h4>
                         </center>
                         <b> A.1 TEMUAN <?= $tindaklanjut[0]->temuan ?></b>
@@ -200,7 +196,7 @@
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Kode Temuan</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Jangka Waktu Perbaikan</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Penanggung Jawab</th>
-                                        <!-- <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th> -->
+                                        <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th>
                                     </tr>
 
                                     <tr>
@@ -217,22 +213,22 @@
                                         <tr>
                                             <th scope style="color: black;"="row"><?= $number; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->jenis_temuan; ?></th>
-                                            <?php if ($value->OB) : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                            <?php if ($value->OB == 1) : ?>
+                                                <th scope style="color: black;"=>✓</th>
                                             <?php else : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                                <th scope style="color: black;"=></th>
                                             <?php endif; ?>
-                                            <?php if ($value->KTS) : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                            <?php if ($value->KTS == 1) : ?>
+                                                <th scope style="color: black;"=>✓</th>
                                             <?php else : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                                <th scope style="color: black;"=></th>
                                             <?php endif; ?>
                                             <!-- <th scope style="color: black;"="row"><?= $value->OB; ?></th> -->
                                             <!-- <th scope style="color: black;"="row"><?= $value->KTS; ?></th> -->
                                             <th scope style="color: black;"="row"><?= $value->kode; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->jangka_waktu; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->pj; ?></th>
-                                            <!-- <th> <a href="<?= base_url('prodi/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
+                                            <th> <a href="<?= base_url('jurusan_controller/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th>
 
                                         </tr>
                                     <?php endforeach; ?>
@@ -253,9 +249,7 @@
                         <div class="card">
                             <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                                 <center class="text-dark mt-8" style="color:black;">
-                                    <br></br>
-                                    <br></br>
-                                    <div class="page-break"></div>
+                                <div class="page-break"></div>
                                     <h4><b>BAB III <br> KESIMPULAN </br></b></h4>
                                 </center>
 
@@ -265,29 +259,14 @@
                                 </div>
 
                             </div>
-                            <!-- <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('prodi/generate_pdf/' . $params) ?>">
+                            <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('jurusan_controller/generate_pdf/' . $params) ?>">
                                 <div class="d-flex justify-content-end">
                                     <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
                                 </div>
-                            </form> -->
+                            </form>
                         </div>
 
                     </div>
 
 
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    // Automatically trigger print when the page loads
-    window.onload = function() {
-        window.print(
-            options = [{
-                'background-graphics': false,
-            }]
-        );
-    };
-</script>

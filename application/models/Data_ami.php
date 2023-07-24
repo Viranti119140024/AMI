@@ -376,6 +376,7 @@ class Data_ami extends CI_Model
         return $query->result();
     }
 
+
     public function update_data($id)
     {
 
@@ -428,8 +429,8 @@ class Data_ami extends CI_Model
             'jangka_waktu' => $this->input->post('jangka_waktu', true),
             'pj' => $this->input->post('pj', true),
             'temuan' => $this->input->post('temuan', true),
-            'a2' => $this->input->post('a2', true),
-            'kesimpulan' => $this->input->post('kesimpulan', true),
+            // 'a2' => $this->input->post('a2', true),
+            // 'kesimpulan' => $this->input->post('kesimpulan', true),
         ];
 
         $this->db->where('id_tindaklanjut', $this->input->post('id_tindaklanjut'));
@@ -611,6 +612,16 @@ class Data_ami extends CI_Model
             ->get()
             ->result();
 
+        $total = $this->db->where('my', 1)
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id_dokumen_acuan)
+            ->from('nilai_ami')
+            ->get()
+            ->result();
+
+
+        // var_dump($total);
+
         return $nilai;
     }
 
@@ -751,9 +762,19 @@ class Data_ami extends CI_Model
                 'penanggungjawab' => $penanggungjawab[$id],
             );
 
-            $cekSoal = $this->db->get_where('nilai_ami', array('id_hasil_desk' => $id))->row();
+            // $cekHasilDesk = $this->db->get_where('nilai_ami', array('id_hasil_desk' => $id))
+            $cekHasilDesk = $this->db->where('id_hasil_desk', $id)
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->from('nilai_ami')
+                ->get();
+            // $cekIdAudit = $this->db->get_where('nilai_ami', array('id_audit' => $id_audit))->row();
+            // $cekIdDokumenAcuan = $this->db->get_where('nilai_ami', array('id_dokumen_acuan' => $id_dokumen_acuan))->row();
 
-            if ($cekSoal) {
+
+            // var_dump($cekHasilDesk);
+
+            if ($cekHasilDesk) {
                 // Jika data sudah ada, lakukan operasi update
                 $this->db->where('id_hasil_desk', $id);
                 $this->db->update('nilai_ami', $data);
@@ -1034,6 +1055,25 @@ class Data_ami extends CI_Model
     }
 
 
+    function get_id_hasil_audit()
+    {
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $result = $this->db->select('hasilaudit.id_hasilaudit')
+            ->from('hasilaudit')
+            ->join('user', 'user.id_audit = hasilaudit.id_user')
+            ->where('user.id', $data['user']['id'])
+            ->get()
+            ->row();
+
+        if ($result !== null && isset($result->id_hasilaudit)) {
+            return $result->id_hasilaudit;
+        }
+
+        return null; // Return null explicitly if no valid result is found
+    }
+
+
 
 
     //hasil audit untuk auditor
@@ -1128,7 +1168,7 @@ class Data_ami extends CI_Model
         // $id = (int)$id;
         $this->db->select('*');
         $this->db->from('hasilaudit');
-        $this->db->where('id_user', $id);
+        $this->db->where('id_hasilaudit', $id);
         $query = $this->db->get();
 
         // var_dump($query->result());
@@ -1142,7 +1182,7 @@ class Data_ami extends CI_Model
         // $id = (int)$id;
         $this->db->select('*');
         $this->db->from('bab2_hasil_audit');
-        $this->db->where('', $id);
+        $this->db->where('id_hasilaudit', $id);
         $query = $this->db->get();
 
         // var_dump($query->result());
@@ -1164,9 +1204,9 @@ class Data_ami extends CI_Model
     {
 
         $data = [
-            'id_user' => $id,
-            'foto_pengesahan' => $foto1,
-            'dokumentasi' => $foto2,
+            // 'id_user' => $id,
+            // 'foto_pengesahan' => $foto1,
+            // 'dokumentasi' => $foto2,
             'tahun' => $this->input->post('tahun', true),
             'lembaga' => $this->input->post('lembaga', true),
             'tanggal' => $this->input->post('tanggal', true),
@@ -1181,8 +1221,9 @@ class Data_ami extends CI_Model
             'jangka_waktu' => $this->input->post('jangka_waktu', true),
 
         ];
-        $this->db->where('id_hasilaudit', $this->input->post('id_user'));
+        $this->db->where('id_hasilaudit', $id);
         $this->db->update('hasilaudit', $data);
+        // var_dump($data);
 
         // $this->db->where('id_auditor', $id);
         // $this->db->update('auditor', $data);

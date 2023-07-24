@@ -31,7 +31,7 @@
                 <form class="form-container" method="post" action="<?= base_url('auth/index'); ?>">
                     <h4 class="text-center font-weight-bold"> Audit Mutu Internal <br> Institut Teknologi Sumatera</h4>
                     <div class="form-group">
-                        <label for="name" style="color: white; font-weight:bold;">Email</label>
+                        <label for="name" style="color: white; font-weight:bold;">Username</label>
                         <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email">
                     </div>
                     <div class="form-group">
@@ -40,7 +40,7 @@
                     </div>
                     <button type="submit" class="btn btn-masuk btn-block">Masuk</button>
                     <div class="form-footer mt-2">
-                        <p style="color: white;"> Belum punya account? <a href="<?= base_url('auth/registrasi') ?>">Daftar</a></p>
+                        <!-- <p style="color: white;"> Belum punya account? <a href="<?= base_url('auth/registrasi') ?>">Daftar</a></p> -->
 
                     </div>
                 </form>

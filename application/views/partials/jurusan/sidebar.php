@@ -19,7 +19,7 @@
                 <span class="itemcolor">Laporan Hasil Audit</span></a>
 
         <li class="list-group">
-            <a class="list-group-item" href="<?= base_url('jurusan_controller/laporanhasil1') ?>">
+            <a class="list-group-item" href="<?= base_url('jurusan_controller/datatindaklanjut') ?>">
                 <i class="fa fa-book itemcolor"></i>
                 <span class="itemcolor">Laporan Hasil Tindak Lanjut</span></a>
 

@@ -10,32 +10,34 @@
     </b>
 
     <!-- <div class="card mt-4">
-        <div class=" d-flex justify-content-center card-body">
-            <table class="table table-striped" style="color:black;">
-                <thead>
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama Dokumen</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    foreach ($dokumen as $key => $value) :
-                        $number = $key + 1;
-                    ?>
-                        <tr>
-                            <th scope style="color: black;"="row"><?= $number; ?></th>
-                            <td style="color: black;"><?= $value->nama_dokumen; ?></td>
-                            <td>
-                                <a href="<?= base_url('auditor/upload_dokumen/') . $value->id_dokumen ?> "><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a>
-                               
-        </td>
-        </tr>
-    <!-- <?php endforeach; ?> -->
+    <div class=" d-flex justify-content-center card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center " style="color: black;"="col">No</th>
+                    <th scope style="color: black;"="col">Dokumen</th>
+                    <th class="text-center " scope style="color: black;"="col">Aksi</th>
 
-    <!-- </div>
-</div> --> 
+                </tr>
+            </thead>
+            <tbody>
+
+                <?php
+                foreach ($dokumen as $key => $value) :
+                    $number = $key + 1;
+                ?>
+                    <tr>
+                        <th class="text-center " scope style="color: black;"="row"><?= $number; ?></th>
+                        <td style="color: black;"><?= $value->nama_dokumen; ?></td>
+                        <td class="text-center">
+                        <a href="<?= base_url('prodi/upload_dokumen/') . $value->id_dokumen ?> "><button type="upload" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-upload" style="color:#696969;"></i></button></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div> -->
 
 
 

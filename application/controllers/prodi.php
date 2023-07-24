@@ -25,6 +25,7 @@ class prodi extends CI_Controller
         $data['title'] = 'Beranda Prodi';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        // $data['hasil_audit'] = $this->Data_ami->get_id_hasil_audit();
 
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/logo', $data);
@@ -43,6 +44,7 @@ class prodi extends CI_Controller
         // var_dump($data['user']['id']);
 
         $data['dokumen'] = $this->Data_ami->get_dokprodi($data['user']['id']);
+        // $data['hasil_audit'] = $this->Data_ami->get_id_hasil_audit();
 
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/logo', $data);
@@ -59,6 +61,8 @@ class prodi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['id'] = $id;
+
+        // $data['hasil_audit'] = $this->Data_ami->get_id_hasil_audit();
         // var_dump($id);
 
         // $data['dokumen'] = $this->Data_ami->update_dokumen($data['user']['id']);
@@ -254,28 +258,41 @@ class prodi extends CI_Controller
         $this->load->view('partials/prodi/footer', $data);
     }
 
-    public function generate_pdf($params)
+    public function generate_pdf()
     {
         $data['title'] = 'Laporan Hasil Tindak Lanjut';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        // $url = $_SERVER['REQUEST_URI'];
-        // $segments = explode('/', $url);
+        $url = $_SERVER['REQUEST_URI'];
+        $segments = explode('/', $url);
 
         // Find the index of the parameter name
-        // $param1Index = array_search('param1', $segments);
+        $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        // $data['params'] = $segments[$param1Index + 4];
+        $data['params'] = $segments[$param1Index + 4];
         // var_dump($data['params']);
 
 
-        $data['tindaklanjut'] = $this->Data_ami->get_data($params);
-        $data['bab2'] = $this->Data_ami->get_data2($params);
+        $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
+        $data['bab2'] = $this->Data_ami->get_data2($data['params']);
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/prodi/laporanhasilprodi/generatepdf', $data);
         $this->load->view('partials/prodi/footer', $data);
     }
+
+    // public function generate_pdf_hasil_audit($params)
+    // {
+    //     $data['title'] = 'Laporan Hasil Audit';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+
+    //     $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($params);
+    //     $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($params);
+    //     $this->load->view('partials/auditor/header', $data);
+    //     $this->load->view('templates/auditor/laporanhasil/generate', $data);
+    //     $this->load->view('partials/auditor/footer', $data);
+    // }
 
 
 
@@ -455,7 +472,7 @@ class prodi extends CI_Controller
     {
         $data['title'] = 'Edit Data';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['bab2'] = $this->Data_ami->get_data_by_id($id);
+        $data['tindaklanjut'] = $this->Data_ami->get_data_by_id($id);
         // var_dump($data);
 
 
@@ -607,9 +624,7 @@ class prodi extends CI_Controller
         $data['title'] = '';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        // var_dump(
-        //     $data['user']
-        // );
+
 
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/logo', $data);

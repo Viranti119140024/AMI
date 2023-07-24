@@ -4,75 +4,26 @@
     <div class="card mt-2">
         <div class="card-body">
             <center class="text-dark mt-8">
-                <h5><b>LAPORAN TINDAK LANJUT AUDIT MUTU INTERNAL <?= $tindaklanjut[0]->periode ?> <br>PROGRAM STUDI / JURUSAN / UNIT <?= $tindaklanjut[0]->lembaga ?> <br></b></h5>
+                <h5><b>LAPORAN TINDAK LANJUT AUDIT MUTU INTERNAL <?= $tindaklanjut[0]->periode ?> <br>Program Studi <?= $tindaklanjut[0]->lembaga ?> <br></b></h5>
             </center>
 
             <center class="text-dark mt-8">
-                <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->foto_pengesahan ?></h5>
-                <img src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->foto_pengesahan) ?>" alt="Gambar">
+                <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->foto_pengesahan ?></h5> -->
+                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->foto_pengesahan) ?>" alt="Gambar">
             </center>
 
 
 
             <div class="table-responsive">
-                <!-- <table class="table table-bordered">
-                    <thead class="text-center" style="background-color: #DAA520; color:black;">
-                        <tr>
-                            <th rowspan="2" style="background-color: #3EB489; color:black;">Proses</th>
-                            <th colspan="2" style="background-color: #3EB489; color:black;">Penanggung Jawab</th>
-                        </tr>
-
-                        <tr>
-                            <th style="background-color: #3EB489; color:black;">Nama</th>
-                            <th style="background-color: #3EB489; color:black;">Jabatan</th>
-                        </tr>
-                    </thead>
-
-                    <tbody style="background-color: white; color:black;">
-                        <tr>
-                            <td>Penyusunan</td>
-                            <td></td>
-                            <td>Auditee</td>
-                        </tr>
-
-                        <tr>
-                            <td>Pemeriksaan 1</td>
-                            <td></td>
-                            <td>Auditor</td>
-
-                        </tr>
-
-                        <tr>
-                            <td>Pemeriksaan 2</td>
-                            <td></td>
-                            <td>Auditor</td>
-
-                        </tr>
-
-                        <tr>
-                            <td>Penetapan 1</td>
-                            <td></td>
-                            <td>Kepala SPM</td>
-
-                        </tr>
-
-                        <tr>
-                            <td>Penetapan 2</td>
-                            <td></td>
-                            <td>Ketua AMI</td>
-
-                        </tr>
-                    </tbody>
-
-                </table> -->
 
                 <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                         <center class="text-dark mt-8" style="color:black;">
+                        <div class="page-break"></div>
                             <h4><b>KATA PENGANTAR</b></h4>
                         </center>
                         Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat dan bimbinganNya laporan tindak lanjut temuan Audit Mutu Internal siklus periode <?= $tindaklanjut[0]->periode ?> tahun
-                        <?= $tindaklanjut[0]->tahun ?> Program Studi/Jurusan/Unit Kerja <?= $tindaklanjut[0]->lembaga ?> berhasil diselesaikan. Laporan ini merupakan salah satu bentuk komitmen Studi/Jurusan/Unit Kerja untuk meningkatkan mutu penyelenggaraan
+                        <?= $tindaklanjut[0]->tahun ?> Program Studi <?= $tindaklanjut[0]->lembaga ?> berhasil diselesaikan. Laporan ini merupakan salah satu bentuk komitmen Studi/Jurusan/Unit Kerja untuk meningkatkan mutu penyelenggaraan
                         pendidikan. <br> <br> Laporan ini memuat beberapa tindakan koreksi dari temuan berdasarkan laporan audit
                         mutu internal yang telah diberikan LP3M ITERA. Beberapa temuan telah ditindaklanjuti dan
                         dikoreksi berdasarkan masukan dari audit serta waktu yang telah ditetapkan sebelumnya.
@@ -84,8 +35,13 @@
 
                     <div class="text-right" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                         <p>Lampung Selatan, <?= $tindaklanjut[0]->tanggal ?> </p>
-                        <p>Auditee</p>
-                        <p>NIP / NRK <?= $tindaklanjut[0]->nrk ?></p>
+                        <p>Auditee <br> <?= $tindaklanjut[0]->auditee ?> </br></p>
+
+                        <br></br>
+                        <br></br>
+
+
+                        <p>NIP / NRK. <?= $tindaklanjut[0]->nrk ?> </p>
 
                     </div>
 
@@ -94,6 +50,7 @@
                 <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                         <center class="text-dark mt-8" style="color:black;">
+                        <div class="page-break"></div>
                             <h4><b>BAB I <br> PENDAHULUAN </br></b></h4>
                         </center>
                         <b> 1.1 Latar Belakang</b> <br><br>Penjaminan mutu Pendidikan Tinggi merupakan kegiatan sistematik untuk meningkatkan mutu Pendidikan Tinggi secara berencana dan berkelanjutan. Berdasarkan Undang – Undang
@@ -116,8 +73,46 @@
                         <br>3. Untuk menyiapkan laporan permintaan tindakan koreksi auditee sebagai dasar perbaikan mutu selanjutnya <br>4. Untuk memberi kesempatan teraudit memperbaiki sistem penjaminan mutu
                         <br>5. Untuk membantu institutsi/program studi dalam mempersiapakan diri dalam rangka audit eksternal atau akreditasi.
                         <br> <br> <b> 1.3 Waktu dan Pelaksanaan Audit</b><br>
-                        <br> Kegiatan Audit Mutu Internal periode <?= $tindaklanjut[0]->periode ?> tahun <?= $tindaklanjut[0]->tahun ?> oleh tim Auditor LP3M ITERA dilakukan pada: <br> 1.Hari / Tanggal : <?= $tindaklanjut[0]->hari_tgl ?> <br>
-                        2.Waktu Pelaksanaan : <?= $tindaklanjut[0]->waktu ?> <br>3.Tempat Kegiatan : <?= $tindaklanjut[0]->tempat ?> <br>4.Auditor : <?= $tindaklanjut[0]->auditor ?> <br>5.Auditee : <?= $tindaklanjut[0]->auditee ?> <br>5.Dokumentasi : <br><img src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->dokumentasi) ?>" alt="Gambar">
+                        <br> Kegiatan Audit Mutu Internal periode <?= $tindaklanjut[0]->periode ?> tahun <?= $tindaklanjut[0]->tahun ?> oleh tim Auditor LP3M ITERA dilakukan pada:
+                        <div class="table-responsive mt-2">
+                            <table class="table table-borderless" style="color:black;">
+                                <tr>
+                                    <td width="300px">Hari / Tanggal</td>
+                                    <td width="10px">:</td>
+                                    <td><?= $tindaklanjut[0]->hari_tgl ?></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Waktu Pelaksanaan</td>
+                                    <td>:</td>
+                                    <td><?= $tindaklanjut[0]->waktu ?></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Tempat Kegiatan</td>
+                                    <td>:</td>
+                                    <td><?= $tindaklanjut[0]->tempat ?></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Auditor</td>
+                                    <td>:</td>
+                                    <td><?= $tindaklanjut[0]->auditor ?></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Auditee</td>
+                                    <td>:</td>
+                                    <td><?= $tindaklanjut[0]->auditee ?></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Dokumentasi</td>
+                                    <td>:</td>
+                                    <td><img style="width: 600px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->dokumentasi) ?>" alt="Gambar" </td>
+                                </tr>
+                            </table>
+                        </div>
                         <br> <br> <b> 1.4 Dasar Hukum </b><br>
                         <br>Dasar hukum atau aturan yang digunakan untuk pelaksanaan AMI periode pertama tahun
                         20xx adalah sebagai berikut :
@@ -137,6 +132,7 @@
                         <!-- <a class="btn btn-danger" type="button" href="<?= base_url('prodi/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
                         <center class="text-dark mt-8" style="color:black;">
+                        <div class="page-break"></div>
                             <h4><b>BAB II <br> TINDAK LANJUT </br></b></h4>
                         </center>
                         <b> A.1 TEMUAN <?= $tindaklanjut[0]->temuan ?></b>
@@ -186,7 +182,7 @@
                                 <tr>
                                     <td>Dokumen Acuan</td>
                                     <td>:</td>
-                                    <td>Standar Kompetensi Lulusan</td>
+                                    <td><?= $tindaklanjut[0]->dokumenacuan ?></td>
                                 </tr>
                             </table>
                         </div>
@@ -217,15 +213,15 @@
                                         <tr>
                                             <th scope style="color: black;"="row"><?= $number; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->jenis_temuan; ?></th>
-                                            <?php if ($value->OB) : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                            <?php if ($value->OB == 1) : ?>
+                                                <th scope style="color: black;"=>✓</th>
                                             <?php else : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                                <th scope style="color: black;"=></th>
                                             <?php endif; ?>
-                                            <?php if ($value->KTS) : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                            <?php if ($value->KTS == 1) : ?>
+                                                <th scope style="color: black;"=>✓</th>
                                             <?php else : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                                <th scope style="color: black;"=></th>
                                             <?php endif; ?>
                                             <!-- <th scope style="color: black;"="row"><?= $value->OB; ?></th> -->
                                             <!-- <th scope style="color: black;"="row"><?= $value->KTS; ?></th> -->
@@ -253,6 +249,7 @@
                         <div class="card">
                             <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                                 <center class="text-dark mt-8" style="color:black;">
+                                <div class="page-break"></div>
                                     <h4><b>BAB III <br> KESIMPULAN </br></b></h4>
                                 </center>
 
