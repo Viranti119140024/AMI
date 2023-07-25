@@ -17,9 +17,17 @@
         </li>
 
         <li class="list-group">
-            <a class="list-group-item" href="<?= base_url('auditorjurusan/DaftarHadir') ?>">
+            <a class="list-group-item" href="<?= base_url('auditorjurusan/pilihan') ?>">
                 <i class="fa fa-list-alt itemcolor"></i>
                 <span class="itemcolor">Daftar Tilik</span></a>
+        </li>
+
+
+        <li class="list-group">
+            <a class="list-group-item" href="<?= base_url('auditorjurusan/datahasilaudit') ?>">
+                <i class="fa fa-book itemcolor"></i>
+                <span class="itemcolor">Laporan Hasil Audit</span>
+            </a>
         </li>
 
         <li class="list-group">

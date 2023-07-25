@@ -23,60 +23,52 @@
 
   <div class="card mt-4">
     <center class="text-dark mt-4" style="font-family: Arial, Helvetica, sans-serif; color:black;">
-      <h5><b>PROSES AUDIT MUTU INTERNAL</b></h5>
+      <h5><b>INFORMASI AMI</b></h5>
     </center>
     <div class="card-body">
       <table class="table" style="color: black;">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Proses</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
         <tbody>
+          <tr>
+            <th> Berdasarkan Undang – Undang Nomor 12 tahun 2012 Pasal 51 dan 52,
+              Penjaminan mutu pendidikan tinggi dilakukan melalui penetapan, pelaksanaan,
+              evaluasi, pengendalian dan peningkatan Standar Pendidikan Tinggi. Sistem
+              penjaminan mutu pendidikan tinggi tersebut terdiri atas (1) Sistem Penjaminan
+              Mutu Internal (SPMI) yang dikembangkan oleh Perguruan Tinggi; dan (2) Sistem
+              Penjaminan Mutu Eksternal (SPME) yang dilakukan melalui akreditasi.
 
-          <form method="POST" action="<?php base_url('auditor/input_status'); ?>">
-            <tr>
-              <th scope="row">1</th>
-              <td>Mengecek Dokumen Kebutuhan Audit</td>
-              <td>
-                <select name="status_upload" id="status_upload" class="form-control" id="exampleFormControlSelect1">
-                  <option>Selesai</option>
-                  <option>Belum Selesai</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Mengisi Daftar Tilik</td>
-              <td>
-                <select name="status_upload" id="status_laporanhasil" class="form-control" id="exampleFormControlSelect1">
-                  <option>Selesai</option>
-                  <option>Belum Selesai</option>
-                </select>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td> Mengecek Laporan Hasil Tindak Lanjut</td>
-              <td>
-                <select name="status_upload" id="status_tindaklanjut" class="form-control" id="exampleFormControlSelect1">
-                  <option>Selesai</option>
-                  <option>Belum Selesai</option>
-                </select>
-              </td>
-            </tr>
-            <!-- <div class="d-flex justify-content-end">
-              <input type="submit" class="btn btn-success" name="submit" id="submit" value="submit"/>
-            </div> -->
-          </form>
+              <br></br>
+
+              Audit Mutu Internal (AMI) merupakan suatu pemeriksaan yang sistematis
+              dan independen untuk menentukan apakah kegiatan dalam menjaga mutu serta
+              hasilnya telah dilaksanakan secara efektif sesuai dengan standar pendidikan tinggi
+              ITERA. Standar mutu ditetapkan untuk mencapai tujuan ITERA yang telah
+              dituangkan dalam SK Rektor Institut Teknologi Sumatera Nomor
+              722/IT9.A/KP.06.06/2022 stentang Sistem Penjaminan Mutu Internal Institut
+              Teknologi Sumatera.
+
+              <br></br>
+
+              Dalam pelaksanaan AMI, ITERA menetapkan kebijakan AMI sebelum
+              program AMI dilaksanakan. Kebijakan ini memuat beberapa aspek sebagai
+              berikut: <br></br>
+              a. Tujuan<br></br>
+              b. Sasaran<br></br>
+              c. Lingkup/obyek atau bidang atau kegiatan yang diauditArea atau unit
+              kerja yang akan diaudit<br></br>
+              d. Auditor<br></br>
+              e. Metode Audit<br></br>
+              f. Instrumen Audit<br></br>
+              g. Waktu dan jadwal audit<br></br>
+              h. Frekuensi audit<br></br>
+              i. Pelaporan dan tindak lanjut hasil audit<br></br>
+            </th>
+
         </tbody>
       </table>
 
-      <div class="d-flex justify-content-end">
+      <!-- <div class="d-flex justify-content-end">
         <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
-      </div>
+      </div> -->
 
       <!-- <div class="d-flex justify-content-end">
         <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>

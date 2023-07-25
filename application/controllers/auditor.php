@@ -75,13 +75,15 @@ class auditor extends CI_Controller
         // hasil desk
         $data['tampil_hasil_desk_utama'] = $this->Data_ami->tampil_hasil_desk_utama($id);
         $data['tampil_hasil_desk_tambahan'] = $this->Data_ami->tampil_hasil_desk_tambahan($id);
+        $data['total_checkbox'] = $this->Data_ami->total_hasil_desk();
 
         // daftar tilik
         $data['tampil_daftar_tilik_utama'] = $this->Data_ami->tampil_daftar_tilik_utama($id);
         $data['tampil_daftar_tilik_tambahan'] = $this->Data_ami->tampil_daftar_tilik_tambahan($id);
 
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
-        // $data['jumlah'] = $this->Data_ami->jumlah_nilai($id);
+        $data['total_daftar_tilik'] = $this->Data_ami->total_daftar_tilik();
+
 
         $this->load->view('partials/auditor/header', $data);
         $this->load->view('templates/logo', $data);

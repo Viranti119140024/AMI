@@ -81,7 +81,7 @@
                             </tr>
                         </thead>
 
-                        <form action="<?= base_url("auditor/add_nilai_hasil_desk_utama") ?>" method="POST">
+                        <form action="<?= base_url("auditorjurusan/add_nilai_hasil_desk_utama") ?>" method="POST">
                             <tr>
                                 <td colspan="12" class="text-left font-weight-bold">
                                     A. Pertanyaan Utama
@@ -92,7 +92,7 @@
                             <tbody style="background-color: white; color: black;">
                                 <?php
                                 $no = 1;
-                                foreach ($tampil_hasil_desk_utama as $hasil_desk) :
+                                foreach ($tampil_hasil_desk_utama_jurusan as $hasil_desk) :
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no++; ?></td>
@@ -116,7 +116,7 @@
                             </tbody>
                         </form>
 
-                        <form action="<?= base_url("auditor/add_nilai_hasil_desk_tambahan") ?>" method="POST">
+                        <form action="<?= base_url("auditorjurusan/add_nilai_hasil_desk_tambahan") ?>" method="POST">
                             <tr>
                                 <td colspan="12" class="text-left font-weight-bold">B. Pertanyaan Tambahan
                                     <button type="submit" class="btn btn-outline-primary">Simpan Nilai Tambahan</button>
@@ -125,11 +125,11 @@
                             </tr>
 
                             <!-- tampil_tambahan_hasil_desk_auditor -->
-                            <?php if ($tampil_hasil_desk_tambahan !== null) : ?>
+                            <?php if ($tampil_hasil_desk_tambahan_jurusan !== null) : ?>
                                 <tbody style="background-color: white; color: black;">
                                     <?php
                                     $no = 1;
-                                    foreach ($tampil_hasil_desk_tambahan as $hasil_desk) :
+                                    foreach ($tampil_hasil_desk_tambahan_jurusan as $hasil_desk) :
                                     ?>
                                         <tr>
                                             <td class="text-center"><?= $no++; ?></td>
@@ -204,7 +204,7 @@
                             </button>
                         </div>
 
-                        <form action="<?= base_url("auditor/add_nilai_daftar_tilik_utama") ?>" method="POST">
+                        <form action="<?= base_url("auditorjurusan/add_nilai_daftar_tilik_utama") ?>" method="POST">
                             <tr>
                                 <td colspan="12" class="text-left font-weight-bold">
                                     A. Pertanyaan Utama
@@ -215,7 +215,7 @@
                             <tbody style="background-color: white; color:black;">
                                 <?php
                                 $no = 1;
-                                foreach ($tampil_daftar_tilik_utama as $daftar_tilik) :
+                                foreach ($tampil_daftar_tilik_utama_jurusan as $daftar_tilik) :
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no++; ?></td>
@@ -236,7 +236,7 @@
                         </form>
 
 
-                        <form action="<?= base_url("auditor/add_nilai_daftar_tilik_tambahan") ?>" method="POST">
+                        <form action="<?= base_url("auditorjurusan/add_nilai_daftar_tilik_tambahan") ?>" method="POST">
                             <tr>
                                 <td colspan="12" class="text-left font-weight-bold">B. Pertanyaan Tambahan
                                     <button type="submit" class="btn btn-outline-primary">Simpan Nilai Tambahan</button>
@@ -247,7 +247,7 @@
                             <tbody style="background-color: white; color:black;">
                                 <?php
                                 $no = 1;
-                                foreach ($tampil_daftar_tilik_tambahan as $daftar_tilik) :
+                                foreach ($tampil_daftar_tilik_tambahan_jurusan as $daftar_tilik) :
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no++; ?></td>
@@ -343,3 +343,4 @@
             </div>
         </div>
     </div>
+</div>

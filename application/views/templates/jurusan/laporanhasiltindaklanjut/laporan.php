@@ -196,7 +196,7 @@
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Kode Temuan</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Jangka Waktu Perbaikan</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Penanggung Jawab</th>
-                                        <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th>
+                                        <!-- <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th> -->
                                     </tr>
 
                                     <tr>
@@ -228,7 +228,7 @@
                                             <th scope style="color: black;"="row"><?= $value->kode; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->jangka_waktu; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->pj; ?></th>
-                                            <th> <a href="<?= base_url('jurusan_controller/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th>
+                                            <!-- <th> <a href="<?= base_url('jurusan_controller/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
 
                                         </tr>
                                     <?php endforeach; ?>

@@ -48,62 +48,52 @@
     </div>
   </div>
 
-  <div class="card mt-3">
+  <div class="card mt-4">
     <center class="text-dark mt-4" style="font-family: Arial, Helvetica, sans-serif; color:black;">
-      <h5><b style="font-family: Arial, Helvetica, sans-serif;">STATUS PROSES AUDIT MUTU INTERNAL</b></h5>
+      <h5><b>INFORMASI AMI</b></h5>
     </center>
     <div class="card-body">
-      <table id="myTable" class="table" style="color: black;">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Program Studi / Jurusan</th>
-            <th scope="col">Auditor</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
+      <table class="table" style="color: black;">
         <tbody>
           <tr>
-            <th scope="row">1</th>
-            <td>Teknik Informatika</td>
-            <td>Eko Dwi Nugroho</td>
-            <th class="text-success">Selesai</th>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jurusan Teknologi Produksi dan Industri</td>
-            <td>Hadi Yudistira</td>
-            <th class="text-danger">Belum Selesai</th>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Perencanaan Wilayah dan Kota</td>
-            <td>Zenia Saraswati</td>
-            <th class="text-danger">Belum Selesai</th>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Jurusan Sains</td>
-            <td>Hari Wiryanto</td>
-            <th class="text-success">Selesai</th>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Teknik Industri</td>
-            <td>Sritomo Subroto</td>
-            <th class="text-danger">Belum Selesai</th>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td>Fisika</td>
-            <td>Melany Febrina</td>
-            <th class="text-success">Selesai</th>
-          </tr>
+            <th> Berdasarkan Undang – Undang Nomor 12 tahun 2012 Pasal 51 dan 52,
+              Penjaminan mutu pendidikan tinggi dilakukan melalui penetapan, pelaksanaan,
+              evaluasi, pengendalian dan peningkatan Standar Pendidikan Tinggi. Sistem
+              penjaminan mutu pendidikan tinggi tersebut terdiri atas (1) Sistem Penjaminan
+              Mutu Internal (SPMI) yang dikembangkan oleh Perguruan Tinggi; dan (2) Sistem
+              Penjaminan Mutu Eksternal (SPME) yang dilakukan melalui akreditasi.
+
+              <br></br>
+
+              Audit Mutu Internal (AMI) merupakan suatu pemeriksaan yang sistematis
+              dan independen untuk menentukan apakah kegiatan dalam menjaga mutu serta
+              hasilnya telah dilaksanakan secara efektif sesuai dengan standar pendidikan tinggi
+              ITERA. Standar mutu ditetapkan untuk mencapai tujuan ITERA yang telah
+              dituangkan dalam SK Rektor Institut Teknologi Sumatera Nomor
+              722/IT9.A/KP.06.06/2022 stentang Sistem Penjaminan Mutu Internal Institut
+              Teknologi Sumatera.
+
+              <br></br>
+
+              Dalam pelaksanaan AMI, ITERA menetapkan kebijakan AMI sebelum
+              program AMI dilaksanakan. Kebijakan ini memuat beberapa aspek sebagai
+              berikut: <br></br>
+              a. Tujuan<br></br>
+              b. Sasaran<br></br>
+              c. Lingkup/obyek atau bidang atau kegiatan yang diauditArea atau unit
+              kerja yang akan diaudit<br></br>
+              d. Auditor<br></br>
+              e. Metode Audit<br></br>
+              f. Instrumen Audit<br></br>
+              g. Waktu dan jadwal audit<br></br>
+              h. Frekuensi audit<br></br>
+              i. Pelaporan dan tindak lanjut hasil audit<br></br>
+            </th>
+
         </tbody>
       </table>
     </div>
   </div>
-
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

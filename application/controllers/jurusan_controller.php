@@ -303,7 +303,7 @@ class jurusan_controller extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
+        // $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
 
         // $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
         // $this->form_validation->set_rules('pemeriksa1', 'Nama', 'required');
@@ -393,7 +393,7 @@ class jurusan_controller extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
+        // $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
         // $data['id'] = $id;
         // var_dump($data['id']);
 
@@ -430,6 +430,48 @@ class jurusan_controller extends CI_Controller
         $this->Data_ami->tambah_tindaklanjut2($id);
         $this->session->set_flashdata('flash', 'ditambahkan');
         redirect('jurusan_controller/laporanakhir/' . $id);
+    }
+
+    public function edit_data2($id)
+    {
+        $data['title'] = 'Edit Data';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['bab2'] = $this->Data_ami->get_data2_by_id($id);
+        // var_dump($data);
+
+
+        // $this->form_validation->set_rules('prodi', 'Prodi', 'required');
+        // // $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
+        // $this->form_validation->set_rules('ruanglingkup', 'Ruang Lingkup', 'required');
+        // $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+        // $this->form_validation->set_rules('dokumen_acuan', 'Dokumen Acuan', 'required');
+        $this->form_validation->set_rules('jenis_temuan', 'Jenis Temuan', 'required');
+        // $this->form_validation->set_rules('OB', 'Lembaga', 'required');
+        // $this->form_validation->set_rules('KTS', 'Tanggal', 'required');
+        $this->form_validation->set_rules('kode', 'Kode', 'required');
+        $this->form_validation->set_rules('jangka_waktu', 'Jangka Waktu', 'required');
+        $this->form_validation->set_rules('pj', 'Penanggung Jawab', 'required');
+        // $this->form_validation->set_rules('temuan', 'Temuan', 'required');
+        // $this->form_validation->set_rules('a2', 'A2', 'required');
+        // $this->form_validation->set_rules('kesimpulan', 'Kesimpulan', 'required');
+        // // $this->form_validation->set_rules('dokumentasi', 'Dokumentasi', 'required');
+
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('partials/jurusan/header', $data);
+            $this->load->view('templates/logo', $data);
+            $this->load->view('partials/jurusan/sidebar', $data);
+            $this->load->view('templates/jurusan/laporanhasiltindaklanjut/edit2', $data);
+            $this->load->view('partials/jurusan/footer', $data);
+        } else {
+            // var_dump($id_auditor);
+            $this->Data_ami->update_data2();
+            $this->session->set_flashdata('flash', 'diubah');
+
+            // var_dump($data['bab2'][0]->id_tindaklanjut);
+            // var_dump($data['bab2']);
+            redirect('prodi/laporanakhir/' . $data['bab2'][0]->id_tindaklanjut);
+        }
     }
 
     public function datatindaklanjut()
@@ -515,8 +557,8 @@ class jurusan_controller extends CI_Controller
         $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
         $data['bab2'] = $this->Data_ami->get_data2($data['params']);
         $this->load->view('partials/jurusan/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/jurusan/sidebar', $data);
+        // $this->load->view('templates/logo', $data);
+        // $this->load->view('partials/jurusan/sidebar', $data);
         $this->load->view('templates/jurusan/laporanhasiltindaklanjut/generatepdf', $data);
         $this->load->view('partials/jurusan/footer', $data);
     }
@@ -535,7 +577,4 @@ class jurusan_controller extends CI_Controller
         $this->load->view('templates/jurusan/profile', $data);
         $this->load->view('partials/jurusan/footer', $data);
     }
-
-
-
 }

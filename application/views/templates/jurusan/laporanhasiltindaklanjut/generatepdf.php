@@ -19,9 +19,7 @@
                 <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large; color:black;">
                         <center class="text-dark mt-8">
-                            <br></br>
-                            <br></br>
-                            <br></br>
+                            <div class="page-break"></div>
                             <h4><b>KATA PENGANTAR</b></h4>
                         </center>
                         Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat dan bimbinganNya laporan tindak lanjut temuan Audit Mutu Internal siklus periode <?= $tindaklanjut[0]->periode ?> tahun
@@ -210,29 +208,29 @@
                                 </thead>
 
                                 <tbody style="background-color: white; color:black;">
-                                    <?php
+                                <?php
                                     foreach ($bab2 as $key => $value) :
                                         $number = $key + 1;
                                     ?>
                                         <tr>
                                             <th scope style="color: black;"="row"><?= $number; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->jenis_temuan; ?></th>
-                                            <?php if ($value->OB) : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                            <?php if ($value->OB == 1) : ?>
+                                                <th scope style="color: black;"=>✓</th>
                                             <?php else : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                                <th scope style="color: black;"=></th>
                                             <?php endif; ?>
-                                            <?php if ($value->KTS) : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                            <?php if ($value->KTS == 1) : ?>
+                                                <th scope style="color: black;"=>✓</th>
                                             <?php else : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                                <th scope style="color: black;"=></th>
                                             <?php endif; ?>
                                             <!-- <th scope style="color: black;"="row"><?= $value->OB; ?></th> -->
                                             <!-- <th scope style="color: black;"="row"><?= $value->KTS; ?></th> -->
                                             <th scope style="color: black;"="row"><?= $value->kode; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->jangka_waktu; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->pj; ?></th>
-                                            <!-- <th> <a href="<?= base_url('jurusan_controller/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
+                                            <th> <a href="<?= base_url('jurusan_controller/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th>
 
                                         </tr>
                                     <?php endforeach; ?>

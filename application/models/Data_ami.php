@@ -562,7 +562,7 @@ class Data_ami extends CI_Model
         $this->db->insert('admin_hasil_desk_jurusan', $data);
     }
 
-    public function tambah_daftar_tilik_jurusank()
+    public function tambah_daftar_tilik_jurusan()
     {
 
         $data = [
@@ -587,6 +587,15 @@ class Data_ami extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('admin_dokumen_acuan');
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+    function tampil_dok_acuan_jurusan()
+    {
+        $this->db->select('*');
+        $this->db->from('admin_dokumen_acuan_jurusan');
         $query = $this->db->get();
 
         return $query->result();
@@ -733,7 +742,7 @@ class Data_ami extends CI_Model
             ->id_audit;
 
         $id_dokumen_acuan = $this->input->post('id_dokumen_acuan');
-        $id_hasil_desk =  $this->input->post('id_hasil_desk');
+        $id_hasil_desk = $this->input->post('id_hasil_desk');
         $m = $this->input->post('m');
         $mp = $this->input->post('mp');
         $mb = $this->input->post('mb');
@@ -745,8 +754,10 @@ class Data_ami extends CI_Model
         $catatan = $this->input->post('catatan');
         $penanggungjawab = $this->input->post('penanggungjawab');
 
+        // Prepare the data for bulk insertion/update
+        $data = [];
         foreach ($id_hasil_desk as $id) {
-            $data = array(
+            $data[] = array(
                 'id_audit' => $id_audit,
                 'id_dokumen_acuan' => $id_dokumen_acuan,
                 'id_hasil_desk' => $id,
@@ -761,28 +772,126 @@ class Data_ami extends CI_Model
                 'catatan' => $catatan[$id],
                 'penanggungjawab' => $penanggungjawab[$id],
             );
+        }
 
-            // $cekHasilDesk = $this->db->get_where('nilai_ami', array('id_hasil_desk' => $id))
-            $cekHasilDesk = $this->db->where('id_hasil_desk', $id)
+        $this->db->trans_start();
+
+        $updateData = [];
+        $insertData = [];
+        foreach ($data as $item) {
+            $id_hasil_desk = $item['id_hasil_desk'];
+
+            // Check if the data exists in the database
+            $existQuery = $this->db->from('nilai_ami')
+                ->where('id_hasil_desk', $id_hasil_desk)
                 ->where('id_audit', $id_audit)
                 ->where('id_dokumen_acuan', $id_dokumen_acuan)
-                ->from('nilai_ami')
                 ->get();
-            // $cekIdAudit = $this->db->get_where('nilai_ami', array('id_audit' => $id_audit))->row();
-            // $cekIdDokumenAcuan = $this->db->get_where('nilai_ami', array('id_dokumen_acuan' => $id_dokumen_acuan))->row();
 
-
-            // var_dump($cekHasilDesk);
-
-            if ($cekHasilDesk) {
-                // Jika data sudah ada, lakukan operasi update
-                $this->db->where('id_hasil_desk', $id);
-                $this->db->update('nilai_ami', $data);
+            if ($existQuery->num_rows() > 0) {
+                // If data exists, add to the update batch
+                $updateData[] = $item;
             } else {
-                // Jika data belum ada, lakukan operasi insert
-                $this->db->insert('nilai_ami', $data);
+                // If data doesn't exist, add to the insert batch
+                $insertData[] = $item;
             }
         }
+
+        // Perform batch update and insert
+        if (!empty($updateData)) {
+            $this->db->update_batch('nilai_ami', $updateData, 'id_hasil_desk');
+        }
+        if (!empty($insertData)) {
+            $this->db->insert_batch('nilai_ami', $insertData);
+        }
+
+        $this->db->trans_complete();
+
+        return $this->db->trans_status();
+    }
+
+    function total_hasil_desk() 
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+        
+        $id_dokumen_acuan = $this->uri->segment(3);
+
+        $getSum = $this->db->from('nilai_ami')
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->select_sum('m')
+                ->select_sum('mp')
+                ->select_sum('mb')
+                ->select_sum('my')
+                ->select_sum('ob')
+                ->select_sum('kts')
+                ->select_sum('open')
+                ->select_sum('close');
+        
+        $result = $getSum->get()->row();
+
+        $m = $result->m;
+        $mp = $result->mp;
+        $mb = $result->mb;
+        $my =  $result->my;
+        $ob =  $result->ob;
+        $kts =  $result->kts;
+        $open =  $result->open;
+        $close =  $result->close;
+
+        return array(
+            'm' => $m,
+            'mp' => $mp,
+            'mb' => $mb,
+            'my' => $my,
+            'ob' =>  $ob,
+            'kts' =>  $kts,
+            'open' =>  $open,
+            'close' =>  $close,
+        );
+    }
+
+    function total_daftar_tilik() 
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+        
+        $id_dokumen_acuan = $this->uri->segment(3);
+
+        $getSum = $this->db->from('nilai_ami2')
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->select_sum('m')
+                ->select_sum('mp')
+                ->select_sum('mb')
+                ->select_sum('my');
+        
+        $result = $getSum->get()->row();
+
+        $m = $result->m;
+        $mp = $result->mp;
+        $mb = $result->mb;
+        $my =  $result->my;
+
+        return array(
+            'm' => $m,
+            'mp' => $mp,
+            'mb' => $mb,
+            'my' => $my,
+        );
     }
 
     function add_hasil_desk_tambahan()
@@ -815,7 +924,7 @@ class Data_ami extends CI_Model
         $this->db->insert('auditor_daftar_tilik', $data);
     }
 
-    function add_nilai_hasil_desk_tambahan()
+    public function add_nilai_hasil_desk_tambahan()
     {
         $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
@@ -827,7 +936,7 @@ class Data_ami extends CI_Model
             ->id_audit;
 
         $id_dokumen_acuan = $this->input->post('id_dokumen_acuan');
-        $id_auditor_hasil_desk =  $this->input->post('id_auditor_hasil_desk');
+        $id_auditor_hasil_desk = $this->input->post('id_auditor_hasil_desk');
         $m = $this->input->post('m');
         $mp = $this->input->post('mp');
         $mb = $this->input->post('mb');
@@ -839,8 +948,10 @@ class Data_ami extends CI_Model
         $catatan = $this->input->post('catatan');
         $penanggungjawab = $this->input->post('penanggungjawab');
 
+        // Prepare the data for bulk insertion/update
+        $data = [];
         foreach ($id_auditor_hasil_desk as $id) {
-            $data = array(
+            $data[] = array(
                 'id_audit' => $id_audit,
                 'id_dokumen_acuan' => $id_dokumen_acuan,
                 'id_hasil_desk' => $id,
@@ -855,19 +966,44 @@ class Data_ami extends CI_Model
                 'catatan' => $catatan[$id],
                 'penanggungjawab' => $penanggungjawab[$id],
             );
+        }
 
-            $cekSoal = $this->db->get_where('nilai_ami', array('id_hasil_desk' => $id))->row();
+        $this->db->trans_start();
 
-            if ($cekSoal) {
-                // Jika data sudah ada, lakukan operasi update
-                $this->db->where('id_hasil_desk', $id);
-                $this->db->update('nilai_ami', $data);
+        $updateData = [];
+        $insertData = [];
+        foreach ($data as $item) {
+            $id_auditor_hasil_desk = $item['id_hasil_desk'];
+
+            // Check if the data exists in the database
+            $existQuery = $this->db->from('nilai_ami')
+                ->where('id_hasil_desk', $id_auditor_hasil_desk)
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->get();
+
+            if ($existQuery->num_rows() > 0) {
+                // If data exists, add to the update batch
+                $updateData[] = $item;
             } else {
-                // Jika data belum ada, lakukan operasi insert
-                $this->db->insert('nilai_ami', $data);
+                // If data doesn't exist, add to the insert batch
+                $insertData[] = $item;
             }
         }
+
+        // Perform batch update and insert
+        if (!empty($updateData)) {
+            $this->db->update_batch('nilai_ami', $updateData, 'id_hasil_desk');
+        }
+        if (!empty($insertData)) {
+            $this->db->insert_batch('nilai_ami', $insertData);
+        }
+
+        $this->db->trans_complete();
+
+        return $this->db->trans_status();
     }
+
 
     //INPUT NILAI DAFTAR TILIK AUDITOR
 
@@ -883,47 +1019,554 @@ class Data_ami extends CI_Model
             ->id_audit;
 
         $id_dokumen_acuan = $this->input->post('id_dokumen_acuan');
-        $id_auditor_daftar_tilik =  $this->input->post('id_auditor_daftar_tilik');
-        $dokumen_terkait = $this->input->post('dokumen_terkait');
-        $hasil_observasi = $this->input->post('hasil_observasi');
+        $id_auditor_daftar_tilik = $this->input->post('id_auditor_daftar_tilik');
+        $dokumenterkait = $this->input->post('dokumenterkait');
+        $hasilobservasi = $this->input->post('hasilobservasi');
         $m = $this->input->post('m');
         $mp = $this->input->post('mp');
         $mb = $this->input->post('mb');
         $my = $this->input->post('my');
         $rekomendasi = $this->input->post('rekomendasi');
 
+        $data = [];
         foreach ($id_auditor_daftar_tilik as $id) {
-            $data = array(
+            $data[] = array(
                 'id_audit' => $id_audit,
                 'id_dokumen_acuan' => $id_dokumen_acuan,
                 'id_daftar_tilik' => $id,
-                'dokumen_terkait' => $dokumen_terkait[$id],
-                'hasil_observasi' => $hasil_observasi[$id],
+                'dokumen_terkait' => $dokumenterkait[$id],
+                'hasil_observasi' => $hasilobservasi[$id],
                 'm' => isset($m[$id]) ? 1 : 0,
                 'mp' => isset($mp[$id]) ? 1 : 0,
                 'mb' => isset($mb[$id]) ? 1 : 0,
                 'my' => isset($my[$id]) ? 1 : 0,
                 'rekomendasi' => $rekomendasi[$id],
             );
+        }
 
-            $cekSoal = $this->db->get_where('nilai_ami2', array('id_daftar_tilik' => $id))->row();
+        $this->db->trans_start();
 
-            if ($cekSoal) {
-                // Jika data sudah ada, lakukan operasi update
-                $this->db->where('id_daftar_tilik', $id);
-                $this->db->update('nilai_ami2', $data);
+        $updateData = [];
+        $insertData = [];
+        foreach ($data as $item) {
+            $id_auditor_daftar_tilik = $item['id_daftar_tilik'];
+
+            // Check if the data exists in the database
+            $existQuery = $this->db->from('nilai_ami2')
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->where('id_daftar_tilik', $id_auditor_daftar_tilik)
+                ->get();
+
+            if ($existQuery->num_rows() > 0) {
+                // If data exists, add to the update batch
+                $updateData[] = $item;
             } else {
-                // Jika data belum ada, lakukan operasi insert
-                $this->db->insert('nilai_ami2', $data);
+                // If data doesn't exist, add to the insert batch
+                $insertData[] = $item;
             }
         }
+
+        // Perform batch update and insert
+        if (!empty($updateData)) {
+            $this->db->update_batch('nilai_ami2', $updateData, 'id_daftar_tilik');
+        }
+        if (!empty($insertData)) {
+            $this->db->insert_batch('nilai_ami2', $insertData);
+        }
+
+        $this->db->trans_complete();
+
+        return $this->db->trans_status();
+    }
+
+    //daftar tilik untuk auditor jurusan
+    function tampil_hasil_desk_utama_jurusan($id)
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('admin_hasil_desk_jurusan.*, nilai_ami_jurusan.id_nilai, nilai_ami_jurusan.my, nilai_ami_jurusan.mb, nilai_ami_jurusan.m, nilai_ami_jurusan.mp, nilai_ami_jurusan.ob, nilai_ami_jurusan.kts, nilai_ami_jurusan.open, nilai_ami_jurusan.close, nilai_ami_jurusan.catatan, nilai_ami_jurusan.penanggungjawab')
+            ->from('admin_hasil_desk_jurusan')
+            ->join('nilai_ami_jurusan', 'admin_hasil_desk_jurusan.id_hasil_desk = nilai_ami_jurusan.id_hasil_desk AND nilai_ami_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('admin_hasil_desk_jurusan.id_dokumen_acuan', $id_dokumen_acuan)
+            ->order_by('admin_hasil_desk_jurusan.id_hasil_desk', 'ASC')
+            ->get()
+            ->result();
+
+        $total = $this->db->where('my', 1)
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id_dokumen_acuan)
+            ->from('nilai_ami_jurusan')
+            ->get()
+            ->result();
+
+
+        // var_dump($total);
+
+        return $nilai;
+    }
+
+    function tampil_daftar_tilik_utama_jurusan($id)
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('admin_daftar_tilik_jurusan.*, nilai_ami2_jurusan.dokumen_terkait, nilai_ami2_jurusan.hasil_observasi, nilai_ami2_jurusan.m, nilai_ami2_jurusan.mp, nilai_ami2_jurusan.mb, nilai_ami2_jurusan.my, nilai_ami2_jurusan.rekomendasi')
+            ->from('admin_daftar_tilik_jurusan')
+            ->join('nilai_ami2_jurusan', 'admin_daftar_tilik_jurusan.id_daftar_tilik = nilai_ami2_jurusan.id_daftar_tilik AND nilai_ami2_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('admin_daftar_tilik_jurusan.id_dokumen_acuan', $id_dokumen_acuan)
+            ->order_by('admin_daftar_tilik_jurusan.id_daftar_tilik', 'ASC')
+            ->get()
+            ->result();
+
+        return $nilai;
+    }
+
+
+    function tampil_daftar_tilik_tambahan_jurusan($id)
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('auditor_daftar_tilik_jurusan.*, nilai_ami2_jurusan.dokumen_terkait, nilai_ami2_jurusan.hasil_observasi, nilai_ami2_jurusan.m, nilai_ami2_jurusan.mp, nilai_ami2_jurusan.mb, nilai_ami2_jurusan.my, nilai_ami2_jurusan.rekomendasi')
+            ->from('auditor_daftar_tilik_jurusan')
+            ->join('nilai_ami2_jurusan', 'auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik = nilai_ami2_jurusan.id_daftar_tilik AND nilai_ami2_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('auditor_daftar_tilik_jurusan.id_dokumen_acuan', $id_dokumen_acuan)
+            ->order_by('auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik', 'ASC')
+            ->get()
+            ->result();
+
+        return $nilai;
+    }
+
+
+    function tampil_hasil_desk_tambahan_jurusan($id)
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('auditor_hasil_desk_jurusan.*, nilai_ami_jurusan.id_nilai, nilai_ami_jurusan.my, nilai_ami_jurusan.mb, nilai_ami_jurusan.m, nilai_ami_jurusan.mp, nilai_ami_jurusan.ob, nilai_ami_jurusan.kts, nilai_ami_jurusan.open, nilai_ami_jurusan.close, nilai_ami_jurusan.catatan, nilai_ami_jurusan.penanggungjawab')
+            ->from('auditor_hasil_desk_jurusan')
+            ->join('nilai_ami_jurusan', 'auditor_hasil_desk_jurusan.id_auditor_hasil_desk = nilai_ami_jurusan.id_hasil_desk AND nilai_ami_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('auditor_hasil_desk_jurusan.id_dokumen_acuan', $id_dokumen_acuan)
+            ->order_by('auditor_hasil_desk_jurusan.id_auditor_hasil_desk', 'ASC')
+            ->get()
+            ->result();
+
+
+        // var_dump($nilai);
+        return $nilai;
+    }
+
+    function get_nilai_hasil_desk_utama_jurusan($id_audit)
+    {
+        $this->db->select('*');
+        $this->db->from('nilai_ami_jurusan');
+        $this->db->where('id_audit', $id_audit);
+        $query = $this->db->get();
+
+        var_dump($query->result());
+        // return $query->result();
+    }
+
+    function delete_nilai_hasil_desk_utama_jurusan($id_audit)
+    {
+        $this->db->select('*');
+        $this->db->from('nilai_ami_jurusan');
+        $this->db->where('id_audit', $id_audit);
+        $query = $this->db->get();
+
+        var_dump($query->result());
+        // return $query->result();
+    }
+
+    // INPUT NILAI HASIL DESK AUDITOR
+    function add_nilai_hasil_desk_utama_jurusan()
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $id_dokumen_acuan = $this->input->post('id_dokumen_acuan');
+        $id_hasil_desk = $this->input->post('id_hasil_desk');
+        $m = $this->input->post('m');
+        $mp = $this->input->post('mp');
+        $mb = $this->input->post('mb');
+        $my = $this->input->post('my');
+        $ob = $this->input->post('ob');
+        $kts = $this->input->post('kts');
+        $open = $this->input->post('open');
+        $close = $this->input->post('close');
+        $catatan = $this->input->post('catatan');
+        $penanggungjawab = $this->input->post('penanggungjawab');
+
+        // Prepare the data for bulk insertion/update
+        $data = [];
+        foreach ($id_hasil_desk as $id) {
+            $data[] = array(
+                'id_audit' => $id_audit,
+                'id_dokumen_acuan' => $id_dokumen_acuan,
+                'id_hasil_desk' => $id,
+                'm' => isset($m[$id]) ? 1 : 0,
+                'mp' => isset($mp[$id]) ? 1 : 0,
+                'mb' => isset($mb[$id]) ? 1 : 0,
+                'my' => isset($my[$id]) ? 1 : 0,
+                'ob' => isset($ob[$id]) ? 1 : 0,
+                'kts' => isset($kts[$id]) ? 1 : 0,
+                'open' => isset($open[$id]) ? 1 : 0,
+                'close' => isset($close[$id]) ? 1 : 0,
+                'catatan' => $catatan[$id],
+                'penanggungjawab' => $penanggungjawab[$id],
+            );
+        }
+
+        $this->db->trans_start();
+
+        $updateData = [];
+        $insertData = [];
+        foreach ($data as $item) {
+            $id_hasil_desk = $item['id_hasil_desk'];
+
+            // Check if the data exists in the database
+            $existQuery = $this->db->from('nilai_ami_jurusan')
+                ->where('id_hasil_desk', $id_hasil_desk)
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->get();
+
+            if ($existQuery->num_rows() > 0) {
+                // If data exists, add to the update batch
+                $updateData[] = $item;
+            } else {
+                // If data doesn't exist, add to the insert batch
+                $insertData[] = $item;
+            }
+        }
+
+        // Perform batch update and insert
+        if (!empty($updateData)) {
+            $this->db->update_batch('nilai_ami_jurusan', $updateData, 'id_hasil_desk');
+        }
+        if (!empty($insertData)) {
+            $this->db->insert_batch('nilai_ami_jurusan', $insertData);
+        }
+
+        $this->db->trans_complete();
+
+        return $this->db->trans_status();
+    }
+
+    function total_hasil_desk_jurusan() 
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+        
+        $id_dokumen_acuan = $this->uri->segment(3);
+
+        $getSum = $this->db->from('nilai_ami_jurusan')
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->select_sum('m')
+                ->select_sum('mp')
+                ->select_sum('mb')
+                ->select_sum('my')
+                ->select_sum('ob')
+                ->select_sum('kts')
+                ->select_sum('open')
+                ->select_sum('close');
+        
+        $result = $getSum->get()->row();
+
+        $m = $result->m;
+        $mp = $result->mp;
+        $mb = $result->mb;
+        $my =  $result->my;
+        $ob =  $result->ob;
+        $kts =  $result->kts;
+        $open =  $result->open;
+        $close =  $result->close;
+
+        return array(
+            'm' => $m,
+            'mp' => $mp,
+            'mb' => $mb,
+            'my' => $my,
+            'ob' =>  $ob,
+            'kts' =>  $kts,
+            'open' =>  $open,
+            'close' =>  $close,
+        );
+    }
+
+    function total_daftar_tilik_jurusan() 
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+        
+        $id_dokumen_acuan = $this->uri->segment(3);
+
+        $getSum = $this->db->from('nilai_ami2_jurusan')
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->select_sum('m')
+                ->select_sum('mp')
+                ->select_sum('mb')
+                ->select_sum('my');
+        
+        $result = $getSum->get()->row();
+
+        $m = $result->m;
+        $mp = $result->mp;
+        $mb = $result->mb;
+        $my =  $result->my;
+
+        return array(
+            'm' => $m,
+            'mp' => $mp,
+            'mb' => $mb,
+            'my' => $my,
+        );
+    }
+
+    function add_hasil_desk_tambahan_jurusan()
+    {
+        $data = [
+            'id_dokumen_acuan' => $this->input->post('id_dokumen_acuan', true),
+            'tambahan_hasil_desk' => $this->input->post('tambahan_hasil_desk', true),
+            'id_audit' => $this->input->post('id_audit', true),
+            'id_user' => $this->input->post('id_user', true),
+        ];
+
+        $data['id_auditor_hasil_desk'] = generate_custom_id('B', 'id_auditor_hasil_desk', 'auditor_hasil_desk_jurusan');
+        // var_dump($data);
+
+        $this->db->insert('auditor_hasil_desk_jurusan', $data);
+    }
+
+    function add_daftar_tilik_tambahan_jurusan()
+    {
+        $data = [
+            'id_dokumen_acuan' => $this->input->post('id_dokumen_acuan', true),
+            'tambahan_daftar_tilik' => $this->input->post('tambahan_daftar_tilik', true),
+            'id_audit' => $this->input->post('id_audit', true),
+            'id_user' => $this->input->post('id_user', true),
+        ];
+
+        $data['id_auditor_daftar_tilik'] = generate_custom_id('D', 'id_auditor_daftar_tilik', 'auditor_daftar_tilik_jurusan');
+        // var_dump($data);
+
+        $this->db->insert('auditor_daftar_tilik_jurusan', $data);
+    }
+
+    public function add_nilai_hasil_desk_tambahan_jurusan()
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $id_dokumen_acuan = $this->input->post('id_dokumen_acuan');
+        $id_auditor_hasil_desk = $this->input->post('id_auditor_hasil_desk');
+        $m = $this->input->post('m');
+        $mp = $this->input->post('mp');
+        $mb = $this->input->post('mb');
+        $my = $this->input->post('my');
+        $ob = $this->input->post('ob');
+        $kts = $this->input->post('kts');
+        $open = $this->input->post('open');
+        $close = $this->input->post('close');
+        $catatan = $this->input->post('catatan');
+        $penanggungjawab = $this->input->post('penanggungjawab');
+
+        // Prepare the data for bulk insertion/update
+        $data = [];
+        foreach ($id_auditor_hasil_desk as $id) {
+            $data[] = array(
+                'id_audit' => $id_audit,
+                'id_dokumen_acuan' => $id_dokumen_acuan,
+                'id_hasil_desk' => $id,
+                'm' => isset($m[$id]) ? 1 : 0,
+                'mp' => isset($mp[$id]) ? 1 : 0,
+                'mb' => isset($mb[$id]) ? 1 : 0,
+                'my' => isset($my[$id]) ? 1 : 0,
+                'ob' => isset($ob[$id]) ? 1 : 0,
+                'kts' => isset($kts[$id]) ? 1 : 0,
+                'open' => isset($open[$id]) ? 1 : 0,
+                'close' => isset($close[$id]) ? 1 : 0,
+                'catatan' => $catatan[$id],
+                'penanggungjawab' => $penanggungjawab[$id],
+            );
+        }
+
+        $this->db->trans_start();
+
+        $updateData = [];
+        $insertData = [];
+        foreach ($data as $item) {
+            $id_auditor_hasil_desk = $item['id_hasil_desk'];
+
+            // Check if the data exists in the database
+            $existQuery = $this->db->from('nilai_ami_jurusan')
+                ->where('id_hasil_desk', $id_auditor_hasil_desk)
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->get();
+
+            if ($existQuery->num_rows() > 0) {
+                // If data exists, add to the update batch
+                $updateData[] = $item;
+            } else {
+                // If data doesn't exist, add to the insert batch
+                $insertData[] = $item;
+            }
+        }
+
+        // Perform batch update and insert
+        if (!empty($updateData)) {
+            $this->db->update_batch('nilai_ami_jurusan', $updateData, 'id_hasil_desk');
+        }
+        if (!empty($insertData)) {
+            $this->db->insert_batch('nilai_ami_jurusan', $insertData);
+        }
+
+        $this->db->trans_complete();
+
+        return $this->db->trans_status();
+    }
+
+
+    //INPUT NILAI DAFTAR TILIK AUDITOR JURUSAN
+
+    function add_nilai_daftar_tilik_tambahan_jurusan()
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $id_dokumen_acuan = $this->input->post('id_dokumen_acuan');
+        $id_auditor_daftar_tilik = $this->input->post('id_auditor_daftar_tilik');
+        $dokumenterkait = $this->input->post('dokumenterkait');
+        $hasilobservasi = $this->input->post('hasilobservasi');
+        $m = $this->input->post('m');
+        $mp = $this->input->post('mp');
+        $mb = $this->input->post('mb');
+        $my = $this->input->post('my');
+        $rekomendasi = $this->input->post('rekomendasi');
+
+        $data = [];
+        foreach ($id_auditor_daftar_tilik as $id) {
+            $data[] = array(
+                'id_audit' => $id_audit,
+                'id_dokumen_acuan' => $id_dokumen_acuan,
+                'id_daftar_tilik' => $id,
+                'dokumen_terkait' => $dokumenterkait[$id],
+                'hasil_observasi' => $hasilobservasi[$id],
+                'm' => isset($m[$id]) ? 1 : 0,
+                'mp' => isset($mp[$id]) ? 1 : 0,
+                'mb' => isset($mb[$id]) ? 1 : 0,
+                'my' => isset($my[$id]) ? 1 : 0,
+                'rekomendasi' => $rekomendasi[$id],
+            );
+        }
+
+        $this->db->trans_start();
+
+        $updateData = [];
+        $insertData = [];
+        foreach ($data as $item) {
+            $id_auditor_daftar_tilik = $item['id_daftar_tilik'];
+
+            // Check if the data exists in the database
+            $existQuery = $this->db->from('nilai_ami2_jurusan')
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->where('id_daftar_tilik', $id_auditor_daftar_tilik)
+                ->get();
+
+            if ($existQuery->num_rows() > 0) {
+                // If data exists, add to the update batch
+                $updateData[] = $item;
+            } else {
+                // If data doesn't exist, add to the insert batch
+                $insertData[] = $item;
+            }
+        }
+
+        // Perform batch update and insert
+        if (!empty($updateData)) {
+            $this->db->update_batch('nilai_ami2_jurusan', $updateData, 'id_daftar_tilik');
+        }
+        if (!empty($insertData)) {
+            $this->db->insert_batch('nilai_ami2_jurusan', $insertData);
+        }
+
+        $this->db->trans_complete();
+
+        return $this->db->trans_status();
     }
 
 
 
 
 
-    // PERTANYAAN TAMBAHAN DAFTAR TILIK
+
+
+    // PERTANYAAN TAMBAHAN DAFTAR TILIK AUDITOR PRODI
     function add_daftar_tilik_auditor()
     {
         $data = [
@@ -999,41 +1642,206 @@ class Data_ami extends CI_Model
             ->id_audit;
 
         $id_dokumen_acuan = $this->input->post('id_dokumen_acuan');
-        $id_auditor_daftar_tilik =  $this->input->post('id_auditor_daftar_tilik');
-        $dokumen_terkait = $this->input->post('dokumen_terkait');
-        $hasil_observasi = $this->input->post('hasil_observasi');
+        $id_daftar_tilik = $this->input->post('id_daftar_tilik');
+        $dokumenterkait = $this->input->post('dokumenterkait');
+        $hasilobservasi = $this->input->post('hasilobservasi');
         $m = $this->input->post('m');
         $mp = $this->input->post('mp');
         $mb = $this->input->post('mb');
         $my = $this->input->post('my');
         $rekomendasi = $this->input->post('rekomendasi');
 
-        foreach ($id_auditor_daftar_tilik as $id) {
-            $data = array(
+        $data = [];
+        foreach ($id_daftar_tilik as $id) {
+            $data[] = array(
                 'id_audit' => $id_audit,
                 'id_dokumen_acuan' => $id_dokumen_acuan,
                 'id_daftar_tilik' => $id,
-                'dokumen_terkait' => $dokumen_terkait[$id],
-                'hasil_observasi' => $hasil_observasi[$id],
+                'dokumen_terkait' => $dokumenterkait[$id],
+                'hasil_observasi' => $hasilobservasi[$id],
                 'm' => isset($m[$id]) ? 1 : 0,
                 'mp' => isset($mp[$id]) ? 1 : 0,
                 'mb' => isset($mb[$id]) ? 1 : 0,
                 'my' => isset($my[$id]) ? 1 : 0,
                 'rekomendasi' => $rekomendasi[$id],
             );
+        }
 
-            $cekSoal = $this->db->get_where('nilai_ami2', array('id_daftar_tilik' => $id))->row();
+        $this->db->trans_start();
 
-            if ($cekSoal) {
-                // Jika data sudah ada, lakukan operasi update
-                $this->db->where('id_daftar_tilik', $id);
-                $this->db->update('nilai_ami2', $data);
+        $updateData = [];
+        $insertData = [];
+        foreach ($data as $item) {
+            $id_daftar_tilik = $item['id_daftar_tilik'];
+
+            // Check if the data exists in the database
+            $existQuery = $this->db->from('nilai_ami2')
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->where('id_daftar_tilik', $id_daftar_tilik)
+                ->get();
+
+            if ($existQuery->num_rows() > 0) {
+                // If data exists, add to the update batch
+                $updateData[] = $item;
             } else {
-                // Jika data belum ada, lakukan operasi insert
-                $this->db->insert('nilai_ami2', $data);
+                // If data doesn't exist, add to the insert batch
+                $insertData[] = $item;
             }
         }
+
+        // Perform batch update and insert
+        if (!empty($updateData)) {
+            $this->db->update_batch('nilai_ami2', $updateData, 'id_daftar_tilik');
+        }
+        if (!empty($insertData)) {
+            $this->db->insert_batch('nilai_ami2', $insertData);
+        }
+
+        $this->db->trans_complete();
+
+        return $this->db->trans_status();
     }
+
+
+    // PERTANYAAN TAMBAHAN DAFTAR TILIK AUDITOR JURUSAN
+    function add_daftar_tilik_auditor_jurusan()
+    {
+        $data = [
+            'id_dokumen_acuan' => $this->input->post('id_dokumen_acuan', true),
+            'id_audit' => $this->input->post('id_audit', true),
+            'id_user' => $this->input->post('id_user', true),
+            'tambahan_daftar_tilik' => $this->input->post('tambahan_daftar_tilik', true),
+        ];
+        // var_dump($data);
+
+        $this->db->insert('auditor_daftar_tilik_jurusan', $data);
+    }
+
+    function tampil_tambahan_daftar_tilik_auditor_jurusan($id)
+    {
+        $data = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('auditor_daftar_tilik_jurusan')
+            ->where('id_user',  $data['id'])
+            ->get()
+            ->row();
+
+        if ($id_audit !== null) {
+            $getData = $this->db->select('tambahan_daftar_tilik')
+                ->from('auditor_daftar_tilik_jurusan')
+                ->where('id_audit',  $id_audit->id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->get()
+                ->row_array();
+
+            if ($getData !== null && isset($getData['tambahan_daftar_tilik'])) {
+                return $getData['tambahan_daftar_tilik'];
+            }
+        }
+
+        return null;
+    }
+
+    function get_nilai_daftar_tilik_utama_jurusan($id_audit)
+    {
+        $this->db->select('*');
+        $this->db->from('nilai_ami2_jurusan');
+        $this->db->where('id_audit', $id_audit);
+        $query = $this->db->get();
+
+        var_dump($query->result());
+        // return $query->result();
+    }
+
+    function delete_nilai_daftar_tilik_utama_jurusan($id_audit)
+    {
+        $this->db->select('*');
+        $this->db->from('nilai_ami2_jurusan');
+        $this->db->where('id_audit', $id_audit);
+        $query = $this->db->get();
+
+        var_dump($query->result());
+        // return $query->result();
+    }
+
+
+    function add_nilai_daftar_tilik_utama_jurusan()
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $id_dokumen_acuan = $this->input->post('id_dokumen_acuan');
+        $id_daftar_tilik = $this->input->post('id_daftar_tilik');
+        $dokumenterkait = $this->input->post('dokumenterkait');
+        $hasilobservasi = $this->input->post('hasilobservasi');
+        $m = $this->input->post('m');
+        $mp = $this->input->post('mp');
+        $mb = $this->input->post('mb');
+        $my = $this->input->post('my');
+        $rekomendasi = $this->input->post('rekomendasi');
+
+        $data = [];
+        foreach ($id_daftar_tilik as $id) {
+            $data[] = array(
+                'id_audit' => $id_audit,
+                'id_dokumen_acuan' => $id_dokumen_acuan,
+                'id_daftar_tilik' => $id,
+                'dokumen_terkait' => $dokumenterkait[$id],
+                'hasil_observasi' => $hasilobservasi[$id],
+                'm' => isset($m[$id]) ? 1 : 0,
+                'mp' => isset($mp[$id]) ? 1 : 0,
+                'mb' => isset($mb[$id]) ? 1 : 0,
+                'my' => isset($my[$id]) ? 1 : 0,
+                'rekomendasi' => $rekomendasi[$id],
+            );
+        }
+
+        $this->db->trans_start();
+
+        $updateData = [];
+        $insertData = [];
+        foreach ($data as $item) {
+            $id_daftar_tilik = $item['id_daftar_tilik'];
+
+            // Check if the data exists in the database
+            $existQuery = $this->db->from('nilai_ami2_jurusan')
+                ->where('id_audit', $id_audit)
+                ->where('id_dokumen_acuan', $id_dokumen_acuan)
+                ->where('id_daftar_tilik', $id_daftar_tilik)
+                ->get();
+
+            if ($existQuery->num_rows() > 0) {
+                // If data exists, add to the update batch
+                $updateData[] = $item;
+            } else {
+                // If data doesn't exist, add to the insert batch
+                $insertData[] = $item;
+            }
+        }
+
+        // Perform batch update and insert
+        if (!empty($updateData)) {
+            $this->db->update_batch('nilai_ami2_jurusan', $updateData, 'id_daftar_tilik');
+        }
+        if (!empty($insertData)) {
+            $this->db->insert_batch('nilai_ami2_jurusan', $insertData);
+        }
+
+        $this->db->trans_complete();
+
+        return $this->db->trans_status();
+    }
+
+
 
 
     function get_id_hasil_tindak_lanjut()
@@ -1241,6 +2049,26 @@ class Data_ami extends CI_Model
 
         $this->db->where('id_hasilaudit', $this->input->post('id_hasilaudit'));
         $this->db->update('bab2_hasil_audit', $data);
+
+        // $this->db->where('id_auditor', $id);
+        // $this->db->update('auditor', $data);
+    }
+
+    public function update_data2_tindak_lanjut()
+    {
+
+        $data = [
+            'id_tindaklanjut' => $id,
+            'jenis_temuan' => $this->input->post('jenis_temuan', true),
+            'OB' => $this->input->post('OB', true),
+            'KTS' => $this->input->post('KTS', true),
+            'kode' => $this->input->post('kode', true),
+            'jangka_waktu' => $this->input->post('jangka_waktu', true),
+            'pj' => $this->input->post('pj', true),
+        ];
+
+        $this->db->where('id_tindaklanjut', $this->input->post('id_tindaklanjut'));
+        $this->db->update('bab2', $data);
 
         // $this->db->where('id_auditor', $id);
         // $this->db->update('auditor', $data);
