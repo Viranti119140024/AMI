@@ -88,7 +88,8 @@ class User extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         $data['auditor'] = $this->Data_ami->get_auditor();
-        // var_dump($data['get_auditor']);
+        $data['auditorbaru'] = $this->Data_ami->get_auditor_baru();
+        // var_dump(  $data['auditorbaru']);
 
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
@@ -234,6 +235,24 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumen/dok', $data);
+        $this->load->view('partials/admin/footer', $data);
+    }
+
+    public function dokunit()
+    {
+
+        $data['title'] = 'Dokumen Kebutuhan Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $data['unit'] = $this->Data_ami->get_unit_baru();
+
+        // var_dump($data['get_jurusan']);
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/dokumen/dokunit', $data);
         $this->load->view('partials/admin/footer', $data);
     }
 
@@ -784,6 +803,10 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['unit'] = $this->Data_ami->get_unit();
+        $data['unit_baru'] = $this->Data_ami->get_unit_baru();
+
+        var_dump( $data['unit_baru']);
+
 
         // $this->form_validation->set_rules('nama_lembaga', 'Nama Lembaga', 'required');
         // $this->form_validation->set_rules('nama_auditor', 'Nama Auditor', 'required');

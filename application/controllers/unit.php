@@ -104,7 +104,7 @@ class unit extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
+        // $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
 
         $url = $_SERVER['REQUEST_URI'];
         $segments = explode('/', $url);
@@ -146,7 +146,7 @@ class unit extends CI_Controller
         $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
         $data['bab2'] = $this->Data_ami->get_data2($data['params']);
         $this->load->view('partials/unit/header', $data);
-        $this->load->view('templates/unit/laporantindaklanjut/generatepdf', $data);
+        $this->load->view('templates/unit/laporantindaklanjut/generate', $data);
         $this->load->view('partials/unit/footer', $data);
     }
 

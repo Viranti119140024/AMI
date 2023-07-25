@@ -1,16 +1,40 @@
-<div class="container"> 
+<!-- <div class="container">
 
-<div class="row d-flex justify-content-center align-items-center">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Dokumen Kebutuhan Audit</h5>
-        <p class="card-text">Jurusan</p>
-        <a href="<?= base_url('user/dok') ?>" class="btn" type="button" style="background-color: #DAA520; color:white ">Lihat Detail</a>
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Dokumen Kebutuhan Audit</h5>
+          <p class="card-text">Jurusan</p>
+          <a href="<?= base_url('user/dok') ?>" class="btn" type="button" style="background-color: #DAA520; color:white ">Lihat Detail</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Dokumen Kebutuhan Audit</h5>
+          <p class="card-text">Program Studi</p>
+          <a href="<?= base_url('user/dokprodi') ?>" class="btn" type="button" style="background-color: #DAA520; color:white">Lihat Detail</a>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
+
+</div> -->
+
+<div class="container">
+
+  <div class="card-deck">
+    <!-- <div class="card" style="background-color: red; color:white;"> -->
+    <div class="card">
+      <div class="card-body mb-4">
+        <h5 class="card-title">Dokumen Kebutuhan Audit</h5>
+        <p class="card-text">Jurusan</p>
+        <a href="<?= base_url('user/dok') ?>" class="btn" type="button" style="background-color: #DAA520; color:white ">Lihat Detail</a>
+
+      </div>
+    </div>
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Dokumen Kebutuhan Audit</h5>
@@ -18,7 +42,14 @@
         <a href="<?= base_url('user/dokprodi') ?>" class="btn" type="button" style="background-color: #DAA520; color:white">Lihat Detail</a>
       </div>
     </div>
-  </div>
-</div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Dokumen Kebutuhan Audit</h5>
+        <p class="card-text">Unit</p>
+        <a href="<?= base_url('user/dokunit') ?>" class="btn" type="button" style="background-color: #DAA520; color:white">Lihat Detail</a>
 
+      </div>
+    </div>
+
+  </div>
 </div>

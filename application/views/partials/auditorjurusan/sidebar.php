@@ -33,7 +33,7 @@
         <li class="list-group">
             <a class="list-group-item" <?php if ($hasil_tindak_lanjut !== null) : ?> href="<?= base_url('auditorjurusan/generate_pdf/' . $hasil_tindak_lanjut) ?>" <?php else : ?> href="" <?php endif; ?>>
                 <i class="fa fa-book itemcolor"></i>
-                <span class="itemcolor">Laporan Hasil Tindak Lanjut</span>
+                <span class="itemcolor">Laporan Tindak Lanjut</span>
             </a>
         </li>
 

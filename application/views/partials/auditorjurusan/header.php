@@ -35,6 +35,10 @@
                 page-break-after: always;
             }
         }
+
+        .ratakanankiri {
+            text-align: justify;
+        }
     </style>
 
 </head>
@@ -42,4 +46,3 @@
 <body id="page-top">
 
     <!-- Page Wrapper -->
-    

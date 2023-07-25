@@ -4,7 +4,7 @@
 
 
         <li class="list-group">
-            <a class="list-group-item" href="<?= base_url('auditor/BERANDA') ?>">
+            <a class="list-group-item" href="<?= base_url('auditorunit/berandaauditorunit') ?>">
                 <i class="fas fa-fw fa-home itemcolor"></i>
                 <span class="itemcolor">Beranda</span>
             </a>
@@ -18,13 +18,13 @@
         </li>
 
         <li class="list-group">
-            <a class="list-group-item" href="<?= base_url('auditor/pilihan') ?>">
+            <a class="list-group-item" href="<?= base_url('auditorunit/pilihan') ?>">
                 <i class="fa fa-list-alt itemcolor"></i>
                 <span class="itemcolor">Daftar Tilik</span></a>
         </li>
 
         <li class="list-group">
-            <a class="list-group-item" href="<?= base_url('auditor/datahasilaudit') ?>">
+            <a class="list-group-item" href="<?= base_url('auditorunit/datahasilaudit') ?>">
                 <i class="fa fa-book itemcolor"></i>
                 <span class="itemcolor">Laporan Hasil Audit</span>
             </a>

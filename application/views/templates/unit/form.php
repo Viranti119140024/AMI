@@ -12,7 +12,7 @@
                     <a href="<?php echo $link_drive['link_drive']; ?>"><?php echo $link_drive['link_drive']; ?></a>
                 <?php endif; ?> -->
 
-                <form method="POST" action="<?php echo base_url('prodi/terima_link_drive') ?>">
+                <form method="POST" action="<?php echo base_url('unit/terima_link_drive') ?>">
                     <div class="form-group">
                         <label for="drive">Masukkan Link Drive</label>
                         <input type="text" name="link_drive" class="form-control" id="drive" value="<?= $user['link_drive'] ?>">

@@ -46,6 +46,20 @@ class Data_ami extends CI_Model
         // var_dump($query->result());
     }
 
+    public function get_unit_baru()
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('role_name', 'Unit');
+        $query = $this->db->get();
+
+        // var_dump($query->result());
+        return $query->result();
+        // var_dump($query->result());
+    }
+
     public function get_unit_by_id($id)
     {
         $this->db->select('*');
@@ -79,19 +93,24 @@ class Data_ami extends CI_Model
 
     public function get_auditor()
     {
-
-
         $this->db->select('*');
         $this->db->from('user');
 
         $this->db->where('id_audit !=', 0);
+        $this->db->where('id_audit !=', 1);
         $query = $this->db->get();
 
-        // foreach ($query as $key => $value) {
-        //     if ($value['id_audit'] != 1) {
-        //         unset($query[$key]);
-        //     }
-        // }
+        return $query->result();
+        // var_dump($query->result());
+    }
+    public function get_auditor_baru()
+    {
+        // $query = $this->db->query("SELECT * FROM prodi");
+
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('role_name', 'Unit');
+        $query = $this->db->get();
 
         return $query->result();
         // var_dump($query->result());
@@ -531,8 +550,6 @@ class Data_ami extends CI_Model
         ];
 
         $data['id_hasil_desk'] = generate_custom_id('A', 'id_hasil_desk', 'admin_hasil_desk');
-        // var_dump($data);
-
         $this->db->insert('admin_hasil_desk', $data);
     }
 
@@ -556,7 +573,7 @@ class Data_ami extends CI_Model
             'nama_dokumen_terkait' => $this->input->post('nama_dokumen_terkait', true),
         ];
 
-        $data['id_hasil_desk'] = generate_custom_id('A', 'id_hasil_desk', 'admin_hasil_desk_jurusan');
+        $data['id_hasil_desk'] = generate_custom_id('Z', 'id_hasil_desk', 'admin_hasil_desk_jurusan');
         // var_dump($data);
 
         $this->db->insert('admin_hasil_desk_jurusan', $data);
@@ -570,7 +587,7 @@ class Data_ami extends CI_Model
             'pertanyaan' => $this->input->post('pertanyaan', true),
         ];
         // var_dump($data);
-        $data['id_daftar_tilik'] = generate_custom_id('C', 'id_daftar_tilik', 'admin_daftar_tilik_jurusan');
+        $data['id_daftar_tilik'] = generate_custom_id('Y', 'id_daftar_tilik', 'admin_daftar_tilik_jurusan');
         $this->db->insert('admin_daftar_tilik_jurusan', $data);
     }
 
@@ -820,7 +837,7 @@ class Data_ami extends CI_Model
         }
     }
 
-    function total_hasil_desk() 
+    function total_hasil_desk()
     {
         $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
@@ -830,21 +847,21 @@ class Data_ami extends CI_Model
             ->get()
             ->row()
             ->id_audit;
-        
+
         $id_dokumen_acuan = $this->uri->segment(3);
 
         $getSum = $this->db->from('nilai_ami')
-                ->where('id_audit', $id_audit)
-                ->where('id_dokumen_acuan', $id_dokumen_acuan)
-                ->select_sum('m')
-                ->select_sum('mp')
-                ->select_sum('mb')
-                ->select_sum('my')
-                ->select_sum('ob')
-                ->select_sum('kts')
-                ->select_sum('open')
-                ->select_sum('close');
-        
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id_dokumen_acuan)
+            ->select_sum('m')
+            ->select_sum('mp')
+            ->select_sum('mb')
+            ->select_sum('my')
+            ->select_sum('ob')
+            ->select_sum('kts')
+            ->select_sum('open')
+            ->select_sum('close');
+
         $result = $getSum->get()->row();
 
         $m = $result->m;
@@ -868,7 +885,7 @@ class Data_ami extends CI_Model
         );
     }
 
-    function total_daftar_tilik() 
+    function total_daftar_tilik()
     {
         $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
@@ -878,17 +895,17 @@ class Data_ami extends CI_Model
             ->get()
             ->row()
             ->id_audit;
-        
+
         $id_dokumen_acuan = $this->uri->segment(3);
 
         $getSum = $this->db->from('nilai_ami2')
-                ->where('id_audit', $id_audit)
-                ->where('id_dokumen_acuan', $id_dokumen_acuan)
-                ->select_sum('m')
-                ->select_sum('mp')
-                ->select_sum('mb')
-                ->select_sum('my');
-        
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id_dokumen_acuan)
+            ->select_sum('m')
+            ->select_sum('mp')
+            ->select_sum('mb')
+            ->select_sum('my');
+
         $result = $getSum->get()->row();
 
         $m = $result->m;
@@ -1002,7 +1019,7 @@ class Data_ami extends CI_Model
         }
 
         // Perform batch update and insert
-            // Perform batch update and insert
+        // Perform batch update and insert
         if (!empty($updateData)) {
             // Use WHERE clause to update only the specific rows
             $this->db->where('id_audit', $id_audit);
@@ -1329,7 +1346,7 @@ class Data_ami extends CI_Model
         }
     }
 
-    function total_hasil_desk_jurusan() 
+    function total_hasil_desk_jurusan()
     {
         $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
@@ -1339,21 +1356,21 @@ class Data_ami extends CI_Model
             ->get()
             ->row()
             ->id_audit;
-        
+
         $id_dokumen_acuan = $this->uri->segment(3);
 
         $getSum = $this->db->from('nilai_ami_jurusan')
-                ->where('id_audit', $id_audit)
-                ->where('id_dokumen_acuan', $id_dokumen_acuan)
-                ->select_sum('m')
-                ->select_sum('mp')
-                ->select_sum('mb')
-                ->select_sum('my')
-                ->select_sum('ob')
-                ->select_sum('kts')
-                ->select_sum('open')
-                ->select_sum('close');
-        
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id_dokumen_acuan)
+            ->select_sum('m')
+            ->select_sum('mp')
+            ->select_sum('mb')
+            ->select_sum('my')
+            ->select_sum('ob')
+            ->select_sum('kts')
+            ->select_sum('open')
+            ->select_sum('close');
+
         $result = $getSum->get()->row();
 
         $m = $result->m;
@@ -1377,7 +1394,7 @@ class Data_ami extends CI_Model
         );
     }
 
-    function total_daftar_tilik_jurusan() 
+    function total_daftar_tilik_jurusan()
     {
         $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
@@ -1387,17 +1404,17 @@ class Data_ami extends CI_Model
             ->get()
             ->row()
             ->id_audit;
-        
+
         $id_dokumen_acuan = $this->uri->segment(3);
 
         $getSum = $this->db->from('nilai_ami2_jurusan')
-                ->where('id_audit', $id_audit)
-                ->where('id_dokumen_acuan', $id_dokumen_acuan)
-                ->select_sum('m')
-                ->select_sum('mp')
-                ->select_sum('mb')
-                ->select_sum('my');
-        
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id_dokumen_acuan)
+            ->select_sum('m')
+            ->select_sum('mp')
+            ->select_sum('mb')
+            ->select_sum('my');
+
         $result = $getSum->get()->row();
 
         $m = $result->m;
@@ -1422,7 +1439,7 @@ class Data_ami extends CI_Model
             'id_user' => $this->input->post('id_user', true),
         ];
 
-        $data['id_auditor_hasil_desk'] = generate_custom_id('B', 'id_auditor_hasil_desk', 'auditor_hasil_desk_jurusan');
+        $data['id_auditor_hasil_desk'] = generate_custom_id('W', 'id_auditor_hasil_desk', 'auditor_hasil_desk_jurusan');
         // var_dump($data);
 
         $this->db->insert('auditor_hasil_desk_jurusan', $data);
@@ -1437,7 +1454,7 @@ class Data_ami extends CI_Model
             'id_user' => $this->input->post('id_user', true),
         ];
 
-        $data['id_auditor_daftar_tilik'] = generate_custom_id('D', 'id_auditor_daftar_tilik', 'auditor_daftar_tilik_jurusan');
+        $data['id_auditor_daftar_tilik'] = generate_custom_id('X', 'id_auditor_daftar_tilik', 'auditor_daftar_tilik_jurusan');
         // var_dump($data);
 
         $this->db->insert('auditor_daftar_tilik_jurusan', $data);

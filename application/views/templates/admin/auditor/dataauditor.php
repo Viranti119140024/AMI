@@ -33,7 +33,7 @@
             <tr>
               <th scope style="color: black;"="row"><?= $number; ?></th>
               <td style="color: black;"><?= $value->unit; ?></td>
-              <td style="color: black;"><?= $value->name; ?></td>
+              <td style="color: black;"><?= $value->email; ?></td>
               <td>
                 <!-- <a href="<?= base_url('user/dokumen1/') . $value->id_audit ?> "><button type="lihat" class="sbtn btn-primary"><i class="fa fa-eye"></i></button></a>
                 <a href="<?= base_url('user/downloaddokumen') ?>"><button type="download" class="sbtn btn-success"><i class="fas fa-download"></i></button></a> -->

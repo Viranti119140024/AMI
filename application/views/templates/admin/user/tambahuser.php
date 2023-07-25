@@ -25,6 +25,7 @@
                         <option>Auditor Program Studi</option>
                         <option>Auditor Jurusan</option>
                         <option>Unit</option>
+                        <option>Auditor Unit</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -35,7 +36,7 @@
                         foreach ($unit as $key => $value) :
                             $number = $key + 1;
                         ?>
-                            <option value=<?= $value->id ?>><?= $value->name ?></option>
+                            <option value=<?= $value->id ?>><?= $value->email ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
