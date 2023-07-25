@@ -20,7 +20,7 @@
                         <!-- <th scope style="color: black;"="col">Username</th> -->
                         <th scope style="color: black;"="col">Username</th>
                         <th scope style="color: black;"="col">Role</th>
-                        <th scope style="color: black;"="col">Aksi</th>
+                        <!-- <th scope style="color: black;"="col">Aksi</th> -->
 
                     </tr>
                 </thead>
@@ -34,7 +34,7 @@
                             <!-- <td style="color: black;"><?= $value->name; ?></td> -->
                             <td style="color: black;"><?= $value->email; ?></td>
                             <td style="color: black;"><?= $value->role_name; ?></td>
-                            <td> <a href="<?= base_url('user/deleteprodi/') . $value->id  ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a>
+                            <!-- <td> <a href="<?= base_url('user/deleteprodi/') . $value->id  ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a> -->
                             </td>
                         </tr>
                     <?php endforeach; ?>
