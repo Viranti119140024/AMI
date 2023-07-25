@@ -10,7 +10,7 @@ class auditor extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Data_ami');
+        $this->load->model('Data_ami'); 
         $this->load->library('form_validation');
         $this->load->library('session');
         $this->load->library('table');

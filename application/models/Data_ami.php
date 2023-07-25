@@ -799,15 +799,25 @@ class Data_ami extends CI_Model
 
         // Perform batch update and insert
         if (!empty($updateData)) {
+            // Use WHERE clause to update only the specific rows
+            $this->db->where('id_audit', $id_audit);
+            $this->db->where('id_dokumen_acuan', $id_dokumen_acuan);
             $this->db->update_batch('nilai_ami', $updateData, 'id_hasil_desk');
         }
         if (!empty($insertData)) {
             $this->db->insert_batch('nilai_ami', $insertData);
         }
 
-        $this->db->trans_complete();
-
-        return $this->db->trans_status();
+        // Check if the transaction is successful
+        if ($this->db->trans_status() === false) {
+            // Rollback the transaction if there's an error
+            $this->db->trans_rollback();
+            return false;
+        } else {
+            // Commit the transaction if everything is successful
+            $this->db->trans_commit();
+            return true;
+        }
     }
 
     function total_hasil_desk() 
@@ -992,16 +1002,27 @@ class Data_ami extends CI_Model
         }
 
         // Perform batch update and insert
+            // Perform batch update and insert
         if (!empty($updateData)) {
+            // Use WHERE clause to update only the specific rows
+            $this->db->where('id_audit', $id_audit);
+            $this->db->where('id_dokumen_acuan', $id_dokumen_acuan);
             $this->db->update_batch('nilai_ami', $updateData, 'id_hasil_desk');
         }
         if (!empty($insertData)) {
             $this->db->insert_batch('nilai_ami', $insertData);
         }
 
-        $this->db->trans_complete();
-
-        return $this->db->trans_status();
+        // Check if the transaction is successful
+        if ($this->db->trans_status() === false) {
+            // Rollback the transaction if there's an error
+            $this->db->trans_rollback();
+            return false;
+        } else {
+            // Commit the transaction if everything is successful
+            $this->db->trans_commit();
+            return true;
+        }
     }
 
 
@@ -1069,15 +1090,25 @@ class Data_ami extends CI_Model
 
         // Perform batch update and insert
         if (!empty($updateData)) {
+            // Use WHERE clause to update only the specific rows
+            $this->db->where('id_audit', $id_audit);
+            $this->db->where('id_dokumen_acuan', $id_dokumen_acuan);
             $this->db->update_batch('nilai_ami2', $updateData, 'id_daftar_tilik');
         }
         if (!empty($insertData)) {
             $this->db->insert_batch('nilai_ami2', $insertData);
         }
 
-        $this->db->trans_complete();
-
-        return $this->db->trans_status();
+        // Check if the transaction is successful
+        if ($this->db->trans_status() === false) {
+            // Rollback the transaction if there's an error
+            $this->db->trans_rollback();
+            return false;
+        } else {
+            // Commit the transaction if everything is successful
+            $this->db->trans_commit();
+            return true;
+        }
     }
 
     //daftar tilik untuk auditor jurusan
@@ -1692,15 +1723,25 @@ class Data_ami extends CI_Model
 
         // Perform batch update and insert
         if (!empty($updateData)) {
+            // Use WHERE clause to update only the specific rows
+            $this->db->where('id_audit', $id_audit);
+            $this->db->where('id_dokumen_acuan', $id_dokumen_acuan);
             $this->db->update_batch('nilai_ami2', $updateData, 'id_daftar_tilik');
         }
         if (!empty($insertData)) {
             $this->db->insert_batch('nilai_ami2', $insertData);
         }
 
-        $this->db->trans_complete();
-
-        return $this->db->trans_status();
+        // Check if the transaction is successful
+        if ($this->db->trans_status() === false) {
+            // Rollback the transaction if there's an error
+            $this->db->trans_rollback();
+            return false;
+        } else {
+            // Commit the transaction if everything is successful
+            $this->db->trans_commit();
+            return true;
+        }
     }
 
 
