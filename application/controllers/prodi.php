@@ -565,14 +565,6 @@ class prodi extends CI_Controller
         $data['title'] = 'Form Upload Link Drive';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        // // $data['users'] = $this->Data_ami->get_user();
-
-        // $data['link_drive'] = $this->db->get_where('link_drive', ['id_user' => $data['user']['id']])->row_array();
-
-        // var_dump($data['link_drive']);
-        // $this->session->set_flashdata('Sukses', 'Link berhasil diupload');
-        // // var_dump($this->session->flashdata('success'));
-        // var_dump($this->session->flashdata('Sukses'));
 
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/logo', $data);
@@ -581,21 +573,10 @@ class prodi extends CI_Controller
         $this->load->view('partials/prodi/footer', $data);
     }
 
-    // public function set_flash_message($type, $message)
-    // {
-    //     $CI = &get_instance();
-    //     $CI->load->library('session');
-    //     $CI->session->set_flashdata('flash_message', ['type' => $type, 'message' => $message]);
-    // }
 
 
     public function terima_link_drive()
     {
-
-        // $data['title'] = 'Form Upload Link Drive';
-        // $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        // // // $data['users'] = $this->Data_ami->get_user();
 
         $atribut_data = [
             "id" => $this->input->post('id_user'),
@@ -603,20 +584,10 @@ class prodi extends CI_Controller
         ];
 
         $this->session->set_flashdata('Sukses', 'Link berhasil diupload');
-        // var_dump($this->session->flashdata('success'));
-        // var_dump($this->session->flashdata('Sukses'));
-
-        // var_dump($this->input->post('link_drive'), $this->input->post('id_user'));
 
         $this->Data_ami->tambah_link_drive($atribut_data);
 
         redirect('prodi/form_link_drive');
-
-        // $this->load->view('partials/prodi/header', $data);
-        // $this->load->view('templates/logo', $data);
-        // $this->load->view('partials/prodi/sidebar', $data);
-        // $this->load->view('templates/prodi/dokumenkebutuhanprodi/form', $data);
-        // $this->load->view('partials/prodi/footer', $data);
     }
 
     public function profile()

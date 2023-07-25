@@ -48,6 +48,9 @@
                         <option value="prodi">Program Studi</option>
                         <option value="auditor prodi">Auditor Program Studi</option>
                         <option value="auditor jurusan">Auditor Jurusan</option>
+                        <option value="unit">Unit</option>
+                        <option value="auditor unit">Auditor Unit</option>
+
                     </select>
                     <button type="submit" class="btn btn-daftar btn-block">Daftar</button>
                     <div class="form-footer mt-2">

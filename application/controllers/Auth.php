@@ -66,6 +66,12 @@ class Auth extends CI_Controller
                     case 'Auditor Jurusan':
                         redirect('auditorjurusan/berandaauditorjurusan');
                         break;
+                    case 'Unit':
+                        redirect('unit/berandaunit');
+                        break;
+                    case 'Auditor Unit':
+                        redirect('auditorunit/berandaauditorunit');
+                        break;
                     default:
                         redirect('auth');
                         break;
