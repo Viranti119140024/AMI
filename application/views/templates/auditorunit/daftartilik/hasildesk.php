@@ -81,55 +81,20 @@
                             </tr>
                         </thead>
 
-                        <form action="<?= base_url("auditor/add_nilai_hasil_desk_utama") ?>" method="POST">
+                        <form action="<?= base_url("auditorunit/add_nilai_hasil_desk_tambahan") ?>" method="POST">
                             <tr>
-                                <td colspan="12" class="text-left font-weight-bold">
-                                    A. Pertanyaan Utama
-                                    <button type="submit" class="btn btn-outline-primary">Simpan Nilai Utama</button>
-                                    <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>">
-                                </td>
-                            </tr>
-                            <tbody style="background-color: white; color: black;">
-                                <?php
-                                $no = 1;
-                                foreach ($tampil_hasil_desk_utama as $hasil_desk) :
-                                ?>
-                                    <tr>
-                                        <td class="text-center"><?= $no++; ?></td>
-                                        <td>
-                                            <?= $hasil_desk->nama_dokumen_terkait ?>
-                                            <input type="hidden" name="id_hasil_desk[]" value="<?= $hasil_desk->id_hasil_desk ?>">
-                                        </td>
-                                        <td class="text-center"><input type="checkbox" name="my[<?= $hasil_desk->id_hasil_desk ?>]" id="my<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->my == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="checkbox" name="mb[<?= $hasil_desk->id_hasil_desk ?>]" id="mb<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->mb == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="checkbox" name="m[<?= $hasil_desk->id_hasil_desk ?>]" id="m<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->m == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="checkbox" name="mp[<?= $hasil_desk->id_hasil_desk ?>]" id="mp<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->mp == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="checkbox" name="ob[<?= $hasil_desk->id_hasil_desk ?>]" id="ob<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->ob == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="checkbox" name="kts[<?= $hasil_desk->id_hasil_desk ?>]" id="kts<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->kts == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="checkbox" name="open[<?= $hasil_desk->id_hasil_desk ?>]" id="open<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->open == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="checkbox" name="close[<?= $hasil_desk->id_hasil_desk ?>]" id="close<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->close == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="text" name="catatan[<?= $hasil_desk->id_hasil_desk ?>]" id="catatan<?= $hasil_desk->id_hasil_desk ?>" value="<?= $hasil_desk->catatan ?>"></td>
-                                        <td class="text-center"><input type="text" name="penanggungjawab[<?= $hasil_desk->id_hasil_desk ?>]" id="penanggungjawab<?= $hasil_desk->id_hasil_desk ?>" value="<?= $hasil_desk->penanggungjawab ?>"></td>
-
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </form>
-
-                        <form action="<?= base_url("auditor/add_nilai_hasil_desk_tambahan") ?>" method="POST">
-                            <tr>
-                                <td colspan="12" class="text-left font-weight-bold">B. Pertanyaan Tambahan
-                                    <button type="submit" class="btn btn-outline-primary">Simpan Nilai Tambahan</button>
-                                    <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>">
+                                <td colspan="12" class="text-left font-weight-bold">Pertanyaan
+                                    <button type="submit" class="btn btn-outline-primary">Simpan Nilai</button>
+                                    <!-- <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>"> -->
                                 </td>
                             </tr>
 
                             <!-- tampil_tambahan_hasil_desk_auditor -->
-                            <?php if ($tampil_hasil_desk_tambahan !== null) : ?>
+                            <?php if ($tampil_hasil_desk_tambahan_unit !== null) : ?>
                                 <tbody style="background-color: white; color: black;">
                                     <?php
                                     $no = 1;
-                                    foreach ($tampil_hasil_desk_tambahan as $hasil_desk) :
+                                    foreach ($tampil_hasil_desk_tambahan_unit as $hasil_desk) :
                                     ?>
                                         <tr>
                                             <td class="text-center"><?= $no++; ?></td>
@@ -171,7 +136,7 @@
 
                     </table>
                 </div>
-                <p style="color:black;"> * M= Memenuhi, MP= Melampaui, MB= Belum Memenuhi, MY= Menyimpang <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
+                <p style="color:black;"> * MY= Menyimpang, MB= Belum Memenuhi, M= Memenuhi, MP= Melampaui <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
             </div>
         </div>
     </div>
@@ -204,50 +169,18 @@
                             </button>
                         </div>
 
-                        <form action="<?= base_url("auditor/add_nilai_daftar_tilik_utama") ?>" method="POST">
+                        <form action="<?= base_url("auditorunit/add_nilai_daftar_tilik_tambahan") ?>" method="POST">
                             <tr>
-                                <td colspan="12" class="text-left font-weight-bold">
-                                    A. Pertanyaan Utama
-                                    <button type="submit" class="btn btn-outline-primary">Simpan Nilai Utama</button>
-                                    <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>">
-                                </td>
-                            </tr>
-                            <tbody style="background-color: white; color:black;">
-                                <?php
-                                $no = 1;
-                                foreach ($tampil_daftar_tilik_utama as $daftar_tilik) :
-                                ?>
-                                    <tr>
-                                        <td class="text-center"><?= $no++; ?></td>
-                                        <td>
-                                            <?= $daftar_tilik->pertanyaan ?>
-                                            <input type="hidden" name="id_daftar_tilik[]" value="<?= $daftar_tilik->id_daftar_tilik ?>">
-                                        </td>
-                                        <td class="text-center"><input type="text" name="dokumenterkait[<?= $daftar_tilik->id_daftar_tilik ?>]" value="<?= $daftar_tilik->dokumen_terkait ?>"></td>
-                                        <td class="text-center"><input type="text" name="hasilobservasi[<?= $daftar_tilik->id_daftar_tilik ?>]" value="<?= $daftar_tilik->hasil_observasi ?>"></td>
-                                        <td class="text-center"><input type="checkbox" name="my[<?= $daftar_tilik->id_daftar_tilik ?>]" <?= ($daftar_tilik->my == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="checkbox" name="mb[<?= $daftar_tilik->id_daftar_tilik ?>]" <?= ($daftar_tilik->mb == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="checkbox" name="m[<?= $daftar_tilik->id_daftar_tilik ?>]" <?= ($daftar_tilik->m == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="checkbox" name="mp[<?= $daftar_tilik->id_daftar_tilik ?>]" <?= ($daftar_tilik->mp == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="text" name="rekomendasi[<?= $daftar_tilik->id_daftar_tilik ?>]" value="<?= $daftar_tilik->rekomendasi ?>"></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </form>
-
-
-                        <form action="<?= base_url("auditor/add_nilai_daftar_tilik_tambahan") ?>" method="POST">
-                            <tr>
-                                <td colspan="12" class="text-left font-weight-bold">B. Pertanyaan Tambahan
-                                    <button type="submit" class="btn btn-outline-primary">Simpan Nilai Tambahan</button>
-                                    <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>">
+                                <td colspan="12" class="text-left font-weight-bold">Pertanyaan 
+                                    <button type="submit" class="btn btn-outline-primary">Simpan Nilai</button>
+                                    <!-- <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>"> -->
                                 </td>
                             </tr>
                             </thead>
                             <tbody style="background-color: white; color:black;">
                                 <?php
                                 $no = 1;
-                                foreach ($tampil_daftar_tilik_tambahan as $daftar_tilik) :
+                                foreach ($tampil_daftar_tilik_tambahan_unit as $daftar_tilik) :
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $no++; ?></td>
@@ -292,21 +225,21 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?= base_url("auditor/add_hasil_desk_tambahan") ?>" method="POST">
+                <form action="<?= base_url("auditorunit/add_hasil_desk_tambahan") ?>" method="POST">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="tambahan_hasil_desk">Pertanyaan Tambahan</label>
+                            <label for="tambahan_hasil_desk">Masukkan Pertanyaan</label>
                             <input type="text" name="tambahan_hasil_desk" class="form-control" id="tambahan_hasil_desk">
 
-                            <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>">
+                            <!-- <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>"> -->
                             <input type="hidden" name="id_audit" value="<?= $user['id_audit'] ?>">
                             <input type="hidden" name="id_user" value="<?= $user['id'] ?>">
 
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>
@@ -318,18 +251,18 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Pertanyaan</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Masukkan Pertanyaan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?= base_url("auditor/add_daftar_tilik_tambahan") ?>" method="POST">
+                <form action="<?= base_url("auditorunit/add_daftar_tilik_tambahan") ?>" method="POST">
                     <div class="modal-body">
                         <div class="form-group">
-                            <label for="tambahan_daftar_tilik">Pertanyaan Tambahan</label>
+                            <label for="tambahan_daftar_tilik">Pertanyaan</label>
                             <input type="text" name="tambahan_daftar_tilik" class="form-control" id="tambahan_daftar_tilik">
 
-                            <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>">
+                            <!-- <input type="hidden" name="id_dokumen_acuan" value="<?= $this->uri->segment(3) ?>"> -->
                             <input type="hidden" name="id_audit" value="<?= $user['id_audit'] ?>">
                             <input type="hidden" name="id_user" value="<?= $user['id'] ?>">
 

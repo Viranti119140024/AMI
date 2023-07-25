@@ -10,33 +10,30 @@
     </b>
 
     <div class="card mt-4">
-        <div class=" d-flex justify-content-center card-body">
-            <table class="table table-striped">
+        <div class="card-body">
+            <table class="table mt-2">
                 <thead>
                     <tr>
-                        <th class="text-center " style="color: black;"="col">No</th>
-                        <th scope style="color: black;"="col">Nama</th>
-                        <th class="text-center " scope style="color: black;"="col">Aksi</th>
+                        <th scope style="color: black;"="col">No</th>
+                        <th scope style="color: black;"="col">Dokumen</th>
+                        <th scope style="color: black;"="col">Aksi</th>
 
                     </tr>
                 </thead>
                 <tbody>
-                    <td>1</td>
-                    <td>Daftar Tilik</td>
-                    <a href="<?php echo base_url('user/index'); ?>"><button class="btn btn-danger" type="button" name="batal" id="batal">Batal</button></a>
-
+                    <th scope style="color: black;"="row">1</th>
+                    <td style="color: black;">Daftar Tilik Unit</td>
+                    <td class="text">
+                        <a href="<?= base_url('auditorunit/pertanyaan_dok_acuan') ?>">
+                            <button type="lihat" class="btn btn-success">
+                                Nilai
+                            </button>
+                        </a>
+                    </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+
     </div>
-
 </div>
-
-<!-- <script src=" https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                                        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-                                        <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
-
-                                        <script>
-                                            let table = new DataTable('#myTable');
-                                        </script> -->
