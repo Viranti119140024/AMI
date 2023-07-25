@@ -292,7 +292,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?= base_url("auditor/add_hasil_desk_tambahan") ?>" method="POST">
+                <form action="<?= base_url("auditorjurusan/add_hasil_desk_tambahan") ?>" method="POST">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="tambahan_hasil_desk">Pertanyaan Tambahan</label>
@@ -323,7 +323,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="<?= base_url("auditor/add_daftar_tilik_tambahan") ?>" method="POST">
+                <form action="<?= base_url("auditorjurusan/add_daftar_tilik_tambahan") ?>" method="POST">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="tambahan_daftar_tilik">Pertanyaan Tambahan</label>

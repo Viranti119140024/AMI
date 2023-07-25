@@ -37,6 +37,7 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('partials/auditorjurusan/topbar', $data);
         $this->load->view('templates/auditorjurusan/beranda_auditor', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
     public function kebutuhanauditt()
@@ -432,7 +433,7 @@ class auditorjurusan extends CI_Controller
     function add_daftar_tilik_tambahan()
     {
         $id = $this->input->post('id_dokumen_acuan');
-        $this->Data_ami->add_daftar_tilik_tambahan_tambahan();
+        $this->Data_ami->add_daftar_tilik_tambahan_jurusan();
 
         redirect('auditorjurusan/pertanyaan_dok_acuan/' . $id);
     }
