@@ -29,37 +29,23 @@
       <table class="table" style="color: black;">
         <tbody>
           <tr>
-            <th>
-              <p class="ratakanankiri">Berdasarkan Undang – Undang Nomor 12 tahun 2012 Pasal 51 dan 52,
-                Penjaminan mutu pendidikan tinggi dilakukan melalui penetapan, pelaksanaan,
-                evaluasi, pengendalian dan peningkatan Standar Pendidikan Tinggi. Sistem
-                penjaminan mutu pendidikan tinggi tersebut terdiri atas (1) Sistem Penjaminan
-                Mutu Internal (SPMI) yang dikembangkan oleh Perguruan Tinggi; dan (2) Sistem
-                Penjaminan Mutu Eksternal (SPME) yang dilakukan melalui akreditasi.</o>
+            <p class="ratakanankiri">Berdasarkan Undang – Undang Nomor 12 tahun 2012 Pasal 51 dan 52,
+              Penjaminan mutu pendidikan tinggi dilakukan melalui penetapan, pelaksanaan,
+              evaluasi, pengendalian dan peningkatan Standar Pendidikan Tinggi. Sistem
+              penjaminan mutu pendidikan tinggi tersebut terdiri atas (1) Sistem Penjaminan
+              Mutu Internal (SPMI) yang dikembangkan oleh Perguruan Tinggi; dan (2) Sistem
+              Penjaminan Mutu Eksternal (SPME) yang dilakukan melalui akreditasi.</o>
 
-                <br></br>
+              <br></br>
 
-              <p class="ratakanankiri">Audit Mutu Internal (AMI) merupakan suatu pemeriksaan yang sistematis
-                dan independen untuk menentukan apakah kegiatan dalam menjaga mutu serta
-                hasilnya telah dilaksanakan secara efektif sesuai dengan standar pendidikan tinggi
-                ITERA. Standar mutu ditetapkan untuk mencapai tujuan ITERA yang telah
-                dituangkan dalam SK Rektor Institut Teknologi Sumatera Nomor
-                722/IT9.A/KP.06.06/2022 stentang Sistem Penjaminan Mutu Internal Institut
-                Teknologi Sumatera.</p>
+            <p class="ratakanankiri">Audit Mutu Internal (AMI) merupakan suatu pemeriksaan yang sistematis
+              dan independen untuk menentukan apakah kegiatan dalam menjaga mutu serta
+              hasilnya telah dilaksanakan secara efektif sesuai dengan standar pendidikan tinggi
+              ITERA. Standar mutu ditetapkan untuk mencapai tujuan ITERA yang telah
+              dituangkan dalam SK Rektor Institut Teknologi Sumatera Nomor
+              722/IT9.A/KP.06.06/2022 stentang Sistem Penjaminan Mutu Internal Institut
+              Teknologi Sumatera.</p>
 
-              <!-- <p class="ratakanankiri">Dalam pelaksanaan AMI, ITERA menetapkan kebijakan AMI sebelum
-                program AMI dilaksanakan. Kebijakan ini memuat beberapa aspek sebagai
-                berikut: <br></br>
-                a. Tujuan<br></br>
-                b. Sasaran<br></br>
-                c. Lingkup/obyek atau bidang atau kegiatan yang diauditArea atau unit
-                kerja yang akan diaudit<br></br>
-                d. Auditor<br></br>
-                e. Metode Audit<br></br>
-                f. Instrumen Audit<br></br>
-                g. Waktu dan jadwal audit<br></br>
-                h. Frekuensi audit<br></br>
-                i. Pelaporan dan tindak lanjut hasil audit<br></br></p> -->
             </th>
 
         </tbody>
