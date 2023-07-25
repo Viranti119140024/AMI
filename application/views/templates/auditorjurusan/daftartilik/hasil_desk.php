@@ -221,7 +221,7 @@
                                         <td class="text-center"><?= $no++; ?></td>
                                         <td>
                                             <?= $daftar_tilik->pertanyaan ?>
-                                            <input type="text" name="id_daftar_tilik[]" value="<?= $daftar_tilik->id_daftar_tilik ?>">
+                                            <input type="hidden" name="id_daftar_tilik[]" value="<?= $daftar_tilik->id_daftar_tilik ?>">
                                         </td>
                                         <td class="text-center"><input type="text" name="dokumenterkait[<?= $daftar_tilik->id_daftar_tilik ?>]" value="<?= $daftar_tilik->dokumen_terkait ?>"></td>
                                         <td class="text-center"><input type="text" name="hasilobservasi[<?= $daftar_tilik->id_daftar_tilik ?>]" value="<?= $daftar_tilik->hasil_observasi ?>"></td>

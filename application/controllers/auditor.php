@@ -80,9 +80,9 @@ class auditor extends CI_Controller
         // daftar tilik
         $data['tampil_daftar_tilik_utama'] = $this->Data_ami->tampil_daftar_tilik_utama($id);
         $data['tampil_daftar_tilik_tambahan'] = $this->Data_ami->tampil_daftar_tilik_tambahan($id);
+        $data['total_daftar_tilik'] = $this->Data_ami->total_daftar_tilik();
 
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
-        $data['total_daftar_tilik'] = $this->Data_ami->total_daftar_tilik();
 
 
         $this->load->view('partials/auditor/header', $data);

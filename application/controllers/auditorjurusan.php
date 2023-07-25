@@ -368,10 +368,12 @@ class auditorjurusan extends CI_Controller
         // hasil desk
         $data['tampil_hasil_desk_utama_jurusan'] = $this->Data_ami->tampil_hasil_desk_utama_jurusan($id);
         $data['tampil_hasil_desk_tambahan_jurusan'] = $this->Data_ami->tampil_hasil_desk_tambahan_jurusan($id);
+        $data['total_checkbox'] = $this->Data_ami->total_hasil_desk_jurusan();
 
         // daftar tilik
         $data['tampil_daftar_tilik_utama_jurusan'] = $this->Data_ami->tampil_daftar_tilik_utama_jurusan($id);
         $data['tampil_daftar_tilik_tambahan_jurusan'] = $this->Data_ami->tampil_daftar_tilik_tambahan_jurusan($id);
+        $data['total_daftar_tilik'] = $this->Data_ami->total_daftar_tilik_jurusan();
 
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
         // $data['jumlah'] = $this->Data_ami->jumlah_nilai($id);
