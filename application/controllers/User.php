@@ -805,7 +805,7 @@ class User extends CI_Controller
         $data['unit'] = $this->Data_ami->get_unit();
         $data['unit_baru'] = $this->Data_ami->get_unit_baru();
 
-        var_dump( $data['unit_baru']);
+        // var_dump( $data['unit_baru']);
 
 
         // $this->form_validation->set_rules('nama_lembaga', 'Nama Lembaga', 'required');
