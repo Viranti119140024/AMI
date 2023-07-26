@@ -243,7 +243,7 @@ class prodi extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
+        $data['params'] = $segments[$param1Index + 3];
         // var_dump($data['params']);
 
 
@@ -270,7 +270,7 @@ class prodi extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
+        $data['params'] = $segments[$param1Index + 3];
         // var_dump($data['params']);
 
 
@@ -392,8 +392,6 @@ class prodi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        // $data['id'] = $id;
-        // var_dump($data['id']);
 
         $url = $_SERVER['REQUEST_URI'];
         $segments = explode('/', $url);
@@ -401,14 +399,9 @@ class prodi extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
+        $data['params'] = $segments[$param1Index + 3];
         // var_dump($data['params']);
-
-
-        // $this->form_validation->set_rules('dokumen_acuan', 'Dokumen Acuan', 'required');
         $this->form_validation->set_rules('jenis_temuan', 'Jenis Temuan', 'required');
-        // $this->form_validation->set_rules('OB', 'Lembaga', 'required');
-        // $this->form_validation->set_rules('KTS', 'Tanggal', 'required');
         $this->form_validation->set_rules('kode', 'Kode', 'required');
         $this->form_validation->set_rules('jangka_waktu', 'Jangka Waktu', 'required');
         $this->form_validation->set_rules('pj', 'Penanggung Jawab', 'required');

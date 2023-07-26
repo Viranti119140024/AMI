@@ -27,11 +27,6 @@ class jurusan_controller extends CI_Controller
         $this->session->userdata('email')])->row_array();
         // $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
 
-
-
-
-        // var_dump($data['user']);
-
         $this->load->view('partials/jurusan/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/jurusan/sidebar', $data);
