@@ -20,7 +20,7 @@
                     <br></br>
                         <h4><b>KATA PENGANTAR</b></h4>
                     </center>
-                    Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat
+                    <p class="ratakanankiri">Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat
                     dan bimbinganNya laporan Audit Mutu Internal siklus tahun <?= $hasilaudit[0]->tahun ?> Institut Teknologi
                     Sumatera berhasil diselesaikan. Laporan ini merupakan hasil audit yang dilaksanakan oleh
                     tim audit mutu internal berdasarkan permintaan audit Program Studi <?= $hasilaudit[0]->lembaga ?>
@@ -32,7 +32,7 @@
                     </br> <br> Pada kesempatan ini, kami juga mengucapkan terimakasih kepada pihak teraudit yang
                     telah berlaku kooperatif selama proses audit berlangsung. Ucapan terima kasih juga kami
                     sampaikan kepada semua pihak yang telah berkenan membantu sehingga kegiatan audit dapat
-                    terlaksana dengan baik dan lancar.</br>
+                    terlaksana dengan baik dan lancar.</br></p>
                 </div>
 
                 <div class="text-right" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
@@ -53,7 +53,8 @@
                     <br></br>
                         <h4><b>BAB I <br> PENDAHULUAN </br></b></h4>
                     </center>
-                    <b> 1.1 Latar Belakang</b> <br><br>Penjaminan mutu Pendidikan Tinggi merupakan kegiatan sistematik untuk meningkatkan
+                    <b> 1.1 Latar Belakang</b> <br><br>
+                    <p class="ratakanankiri">Penjaminan mutu Pendidikan Tinggi merupakan kegiatan sistematik untuk meningkatkan
                     mutu Pendidikan Tinggi secara berencana dan berkelanjutan. Berdasarkan Undang – Undang
                     Nomor 12 tahun 2012 Pasal 51 dan 52, Penjaminan mutu pendidikan tinggi dilakukan
                     melalui penetapan, pelaksanaan, evaluasi, pengendalian dan peningkatan Standar Pendidikan
@@ -82,7 +83,7 @@
                     <br> 1. Untuk memeriksa kesesuaian dan atau ketaksesuaian pelaksanaan standar yang telah ditetapkan <br> 2. Untuk memeriksa proses dan hasil proses pencapaian mutu sehingga dapat ditentukan keefektifan pencapaian dari tujuan yang telah ditetapkan
                     <br>3. Untuk menyiapkan laporan permintaan tindakan koreksi auditee sebagai dasar perbaikan mutu selanjutnya <br>4. Untuk memberi kesempatan teraudit memperbaiki sistem penjaminan mutu
                     <br>5. Untuk membantu institutsi/program studi dalam mempersiapakan diri dalam rangka audit eksternal atau akreditasi.
-                    <br> <br> <b> 1.3 Waktu dan Pelaksanaan Audit</b><br>
+                    <br> <br> <b> 1.3 Waktu dan Pelaksanaan Audit</b><br></p>
                     <br> Kegiatan Audit Mutu Internal periode <?= $hasilaudit[0]->periode ?> tahun <?= $hasilaudit[0]->tahun ?> oleh tim Auditor LP3M ITERA dilakukan pada:
                     <div class="table-responsive mt-2">
                         <table class="table table-borderless" style="color:black;">

@@ -515,7 +515,7 @@ class auditor extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 3];
+        $data['params'] = $segments[$param1Index + 4];
 
 
         $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($data['params']);
