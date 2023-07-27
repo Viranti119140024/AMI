@@ -248,6 +248,7 @@ class prodi extends CI_Controller
 
 
         $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
+        var_dump($data['params']);
         $data['bab2'] = $this->Data_ami->get_data2($data['params']);
         // var_dump($data['tindaklanjut']);
 
@@ -399,7 +400,7 @@ class prodi extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 3];
+        $data['params'] = $segments[$param1Index + 2];
         // var_dump($data['params']);
         $this->form_validation->set_rules('jenis_temuan', 'Jenis Temuan', 'required');
         $this->form_validation->set_rules('kode', 'Kode', 'required');

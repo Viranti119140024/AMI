@@ -22,7 +22,7 @@
                         <div class="page-break"></div>
                             <h4><b>KATA PENGANTAR</b></h4>
                         </center>
-                        Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat dan bimbinganNya laporan tindak lanjut temuan Audit Mutu Internal siklus periode <?= $tindaklanjut[0]->periode ?> tahun
+                        <p class="ratakanankiri"></p>Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat dan bimbinganNya laporan tindak lanjut temuan Audit Mutu Internal siklus periode <?= $tindaklanjut[0]->periode ?> tahun
                         <?= $tindaklanjut[0]->tahun ?> Program Studi <?= $tindaklanjut[0]->lembaga ?> berhasil diselesaikan. Laporan ini merupakan salah satu bentuk komitmen Studi/Jurusan/Unit Kerja untuk meningkatkan mutu penyelenggaraan
                         pendidikan. <br> <br> Laporan ini memuat beberapa tindakan koreksi dari temuan berdasarkan laporan audit
                         mutu internal yang telah diberikan LP3M ITERA. Beberapa temuan telah ditindaklanjuti dan
@@ -30,7 +30,7 @@
                         Hasil tindakan koreksi tersebut disajikan dalam laporan ini.</br> <br> Pada kesempatan ini, kami juga mengucapkan terimakasih kepada pihak auditor yang
                         telah memberikan masukan-masukan positif selama proses audit berlangsung. Ucapan
                         terima kasih juga kami sampaikan kepada semua pihak yang telah berkenan membantu
-                        sehingga kegiatan audit dapat terlaksana dengan baik dan lancar.</br>
+                        sehingga kegiatan audit dapat terlaksana dengan baik dan lancar.</br></p>
                     </div>
 
                     <div class="text-right" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">

@@ -119,7 +119,7 @@ class Auth extends CI_Controller
                 // var_dump($data['id_audit']);
 
                 if ($data['id_audit'] == $value->id) {
-                    $data['unit'] = $value->name;
+                    $data['unit'] = $value->email;
                     // var_dump($data['unit']);
                 }
             }

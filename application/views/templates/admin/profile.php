@@ -34,18 +34,18 @@
           </div>
         </div>
 
-        <div class="form-group row">
+        <!-- <div class="form-group row">
           <label for="exampleFormControlFile1" class="col-sm-2 col-form-label">Foto</label>
           <div class="col-sm-10">
             <input type="file" class="form-control-file" id="exampleFormControlFile1">
           </div>
-        </div>
+        </div> -->
       </form>
 
 
-
+<!-- 
       <div class=" row justify-content-center pt-5 pb-5">
         <div class="col-3">
           <button type="submit" class="btn btn-success" name="submit" id="submit">Logout</button>
         </div>
-      </div>
+      </div> -->

@@ -29,8 +29,22 @@
             <tr>
               <th scope style="color: black;"="row"><?= $number; ?></th>
               <td style="color: black;"><?= $value->email; ?></td>
-              <td>
-                <a href="#"><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
+              <td class="text">
+                <a href="#">
+                  <button type="lihat" class="btn btn-success">
+                    Lihat
+                  </button>
+                </a>
+                <a href="#">
+                  <button type="lihat" class="btn btn-primary">
+                    Daftar Tilik
+                  </button>
+                </a>
+                <a href="#">
+                  <button type="lihat" class="btn btn-secondary">
+                    Upload
+                  </button>
+                </a>
               </td>
     </div>
     </td>
