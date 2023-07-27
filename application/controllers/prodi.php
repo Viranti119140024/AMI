@@ -243,7 +243,7 @@ class prodi extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 3];
+        $data['params'] = $segments[$param1Index + 4];
         // var_dump($data['params']);
 
 
@@ -271,7 +271,7 @@ class prodi extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 3];
+        $data['params'] = $segments[$param1Index + 4];
         // var_dump($data['params']);
 
 
@@ -400,7 +400,7 @@ class prodi extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 3];
+        $data['params'] = $segments[$param1Index + 4];
 
         // var_dump($data['params']);
         $this->form_validation->set_rules('jenis_temuan', 'Jenis Temuan', 'required');

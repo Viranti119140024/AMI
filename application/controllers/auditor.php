@@ -354,7 +354,7 @@ class auditor extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 3];
+        $data['params'] = $segments[$param1Index + 4];
 
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
@@ -486,7 +486,7 @@ class auditor extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 3];
+        $data['params'] = $segments[$param1Index + 4];
         // var_dump($data['params']);
 
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
@@ -539,4 +539,99 @@ class auditor extends CI_Controller
         $this->load->view('templates/auditor/profile', $data);
         $this->load->view('partials/auditor/footer', $data);
     }
+
+// generate pdf daftar tilik
+public function generate_daftar_tilik()
+    {
+        $data['title'] = 'Pengisian Daftar Tilik';
+        $data['title1'] = 'Hasil Desk Evaluation';
+        $data['title2'] = 'Daftar Tilik ( Checklist )';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+        
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+
+        // hasil desk
+        $data['tampil_hasil_desk_utama1'] = $this->Data_ami->tampil_hasil_desk_utama_baru('1');
+        $data['tampil_hasil_desk_tambahan1'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('1');
+        $data['total_checkbox1'] = $this->Data_ami->total_hasil_desk_baru('1');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama1'] = $this->Data_ami->tampil_daftar_tilik_utama('1');
+        $data['tampil_daftar_tilik_tambahan1'] = $this->Data_ami->tampil_daftar_tilik_tambahan('1');
+        $data['total_daftar_tilik1'] = $this->Data_ami->total_daftar_tilik_baru('1');
+        // var_dump( $data['tampil_hasil_desk_utama1']);
+
+        //2
+        // hasil desk
+        $data['tampil_hasil_desk_utama2'] = $this->Data_ami->tampil_hasil_desk_utama(2);
+        $data['tampil_hasil_desk_tambahan2'] = $this->Data_ami->tampil_hasil_desk_tambahan(2);
+        $data['total_checkbox2'] = $this->Data_ami->total_hasil_desk();
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama2'] = $this->Data_ami->tampil_daftar_tilik_utama(2);
+        $data['tampil_daftar_tilik_tambahan2'] = $this->Data_ami->tampil_daftar_tilik_tambahan(2);
+        $data['total_daftar_tilik2'] = $this->Data_ami->total_daftar_tilik();
+
+         //3
+        // hasil desk
+        $data['tampil_hasil_desk_utama3'] = $this->Data_ami->tampil_hasil_desk_utama(3);
+        $data['tampil_hasil_desk_tambahan3'] = $this->Data_ami->tampil_hasil_desk_tambahan(3);
+        $data['total_checkbox3'] = $this->Data_ami->total_hasil_desk();
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama3'] = $this->Data_ami->tampil_daftar_tilik_utama(3);
+        $data['tampil_daftar_tilik_tambahan3'] = $this->Data_ami->tampil_daftar_tilik_tambahan(3);
+        $data['total_daftar_tilik3'] = $this->Data_ami->total_daftar_tilik();
+
+        // 4
+        $data['tampil_hasil_desk_utama4'] = $this->Data_ami->tampil_hasil_desk_utama(4);
+        $data['tampil_hasil_desk_tambahan4'] = $this->Data_ami->tampil_hasil_desk_tambahan(4);
+        $data['total_checkbox4'] = $this->Data_ami->total_hasil_desk();
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama4'] = $this->Data_ami->tampil_daftar_tilik_utama(4);
+        $data['tampil_daftar_tilik_tambahan4'] = $this->Data_ami->tampil_daftar_tilik_tambahan(4);
+        $data['total_daftar_tilik4'] = $this->Data_ami->total_daftar_tilik();
+
+        // 5
+        $data['tampil_hasil_desk_utama5'] = $this->Data_ami->tampil_hasil_desk_utama(5);
+        $data['tampil_hasil_desk_tambahan5'] = $this->Data_ami->tampil_hasil_desk_tambahan(5);
+        $data['total_checkbox5'] = $this->Data_ami->total_hasil_desk();
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama5'] = $this->Data_ami->tampil_daftar_tilik_utama(5);
+        $data['tampil_daftar_tilik_tambahan5'] = $this->Data_ami->tampil_daftar_tilik_tambahan(5);
+        $data['total_daftar_tilik5'] = $this->Data_ami->total_daftar_tilik();
+
+        // 6
+        $data['tampil_hasil_desk_utama6'] = $this->Data_ami->tampil_hasil_desk_utama(6);
+        $data['tampil_hasil_desk_tambahan6'] = $this->Data_ami->tampil_hasil_desk_tambahan(6);
+        $data['total_checkbox6'] = $this->Data_ami->total_hasil_desk();
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama6'] = $this->Data_ami->tampil_daftar_tilik_utama(6);
+        $data['tampil_daftar_tilik_tambahan6'] = $this->Data_ami->tampil_daftar_tilik_tambahan(6);
+        $data['total_daftar_tilik6'] = $this->Data_ami->total_daftar_tilik();
+
+        // 7
+        $data['tampil_hasil_desk_utama7'] = $this->Data_ami->tampil_hasil_desk_utama(7);
+        $data['tampil_hasil_desk_tambahan7'] = $this->Data_ami->tampil_hasil_desk_tambahan(7);
+        $data['total_checkbox7'] = $this->Data_ami->total_hasil_desk();
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama7'] = $this->Data_ami->tampil_daftar_tilik_utama(7);
+        $data['tampil_daftar_tilik_tambahan7'] = $this->Data_ami->tampil_daftar_tilik_tambahan(7);
+        $data['total_daftar_tilik7'] = $this->Data_ami->total_daftar_tilik();
+
+        $this->load->view('partials/auditor/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/auditor/sidebar', $data);
+        $this->load->view('partials/auditor/topbar', $data);
+        $this->load->view('templates/auditor/DaftarTilik/generatepdf', $data);
+        $this->load->view('partials/auditor/footer', $data);
+    }
+
+
 }
