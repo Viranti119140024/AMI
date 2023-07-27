@@ -207,6 +207,24 @@ class User extends CI_Controller
         $this->load->view('partials/admin/footer', $data);
     }
 
+    public function ltlunit()
+    {
+
+        $data['title'] = 'Laporan Tindak Lanjut';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $data['unit'] = $this->Data_ami->get_unit_baru();
+
+        // $data['dokumen'] = $this->Data_ami->get_dokprodi($data['params']);
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/laporanhasiltindaklanjut/daftarunit', $data);
+        $this->load->view('partials/admin/footer', $data);
+    }
+
     public function berandaadmin()
     {
 
@@ -263,33 +281,8 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        // $data['prodi'] = $this->Data_ami->get_prodi();
-        // <!-- array kosong -->
-        // $data['prodi'] = array();
-        // <!-- ambil data user -->
-        // $data['user'] = $this->Data_ami->get_user();
-        // 
-
-        // foreach ($data['user'] as $data) {
-        //     if ($data->role_name == "Program Studi") {
-        //         $data['prodi'][$data->name] = $data->id;
-        //     }
-        // }
-
-        // <!-- ganti id prodi dengan link drive -->
-        // foreach ($data['prodi'] as $namaProdi => $id_prodi) {
-        //     $ambilLinkDrive = $this->db->query("SELECT link_drive FROM link_drive WHERE id_user=" . $id_prodi)->result();
-        //     var_dump($ambilLinkDrive[0]->link_drive, "\n");
-        // if (count($ambilLinkDrive) != 0) {
-        //     $data['prodi'][$namaProdi] = $ambilLinkDrive[0]->link_drive;
-        // } else {
-        //     $data['prodi'][$namaProdi] = "";
-        // }
-        // }
-
+    
         $data['prodi'] = $this->Data_ami->get_prodi();
-
-
 
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/logo', $data);
@@ -327,6 +320,24 @@ class User extends CI_Controller
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/admin/sidebar', $data);
         $this->load->view('templates/admin/dokumenhasilaudit/daftarjurusan', $data);
+        $this->load->view('partials/admin/footer', $data);
+    }
+
+    public function daftarunit()
+    {
+
+        $data['title'] = 'Dokumen Hasil Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        
+        $data['unit'] = $this->Data_ami->get_unit_baru();
+
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/admin/sidebar', $data);
+        $this->load->view('templates/admin/dokumenhasilaudit/daftarunit', $data);
         $this->load->view('partials/admin/footer', $data);
     }
 
