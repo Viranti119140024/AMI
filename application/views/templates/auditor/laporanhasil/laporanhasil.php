@@ -9,7 +9,7 @@
 
             <center class="text-dark mt-8">
                 <!-- <h5><b> <?= $hasilaudit[0]->foto_pengesahan ?></h5> -->
-                <img style="width: 400px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->foto_pengesahan) ?>" alt="Gambar">
+                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->foto_pengesahan) ?>" alt="Gambar">
             </center>
 
             <div class="card">
@@ -47,6 +47,7 @@
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <center class="text-dark mt-8" style="color:black;">
+                    <div class="page-break"></div>
                         <h4><b>BAB I <br> PENDAHULUAN </br></b></h4>
                     </center>
                     <b> 1.1 Latar Belakang</b> <br><br>
@@ -116,7 +117,7 @@
                             <tr>
                                 <td>Dokumentasi</td>
                                 <td>:</td>
-                                <td><img style="width: 600px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->dokumentasi) ?>" alt="Gambar" </td>
+                                <td><img style="width: 400px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->dokumentasi) ?>" alt="Gambar" </td>
                             </tr>
                         </table>
                     </div>
@@ -137,7 +138,7 @@
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <a class="btn btn-success" type="button" href="<?= base_url('auditor/isidata2/') . $hasilaudit[0]->id_hasilaudit ?>" class="text-white" href="#">+ Tambah</a>
                     <!-- <a class="btn btn-danger" type="button" href="<?= base_url('auditor/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
-
+                    <div class="page-break"></div>
                     <center class="text-dark mt-8" style="color:black;">
                         <h4><b>BAB II <br> DAFTAR TEMUAN AMI </br></b></h4>
                     </center>

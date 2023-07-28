@@ -316,6 +316,9 @@ class prodi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $data['tindaklanjut'] = $this->Data_ami->get_tindaklanjut($data['user']['id']);
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
+
         // $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
         // $this->form_validation->set_rules('pemeriksa1', 'Nama', 'required');
         // $this->form_validation->set_rules('penetapan1', 'Nama', 'required');
@@ -402,6 +405,9 @@ class prodi extends CI_Controller
         $data['title'] = ' Isi Data Laporan Hasil Tindak Lanjut';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+
+        $data['tindaklanjut'] = $this->Data_ami->get_tindaklanjut($data['user']['id']);
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
 
 
         $url = $_SERVER['REQUEST_URI'];
