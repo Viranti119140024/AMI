@@ -7,14 +7,14 @@
             <a class="list-group-item" href="<?= base_url('prodi/berandaprodi') ?>">
                 <i class="fas fa-fw fa-home itemcolor"></i>
                 <span class="itemcolor">Beranda</span></a>
-    
+
         <li class="list-group">
             <a class="list-group-item" href="<?= base_url('prodi/form_link_drive') ?>">
                 <i class="fa fa-file itemcolor"></i>
                 <span class="itemcolor">Dokumen Kebutuhan Audit</span></a>
-    
+
         <li class="list-group">
-            <a class="list-group-item" href="<?= base_url('prodi/halamanawal') ?>">
+            <a class="list-group-item" <?php if ($hasilaudit !== null) : ?> href="<?= base_url('Prodi/generate_pdf_hasil_audit/' . $hasilaudit) ?>" <?php else : ?> href="" <?php endif; ?>>
                 <i class="fa fa-list-alt itemcolor"></i>
                 <span class="itemcolor">Laporan Hasil Audit</span></a>
 

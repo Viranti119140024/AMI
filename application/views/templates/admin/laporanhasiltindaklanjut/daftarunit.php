@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="text-dark mt-8">
-    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Daftar Unit</b></h5>
+    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Laporan Tindak Lanjut Unit</b></h5>
   </div>
 
   <b>

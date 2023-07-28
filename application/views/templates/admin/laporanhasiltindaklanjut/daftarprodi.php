@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="text-dark mt-8">
-    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Laporan Hasil Tindak Lanjut Program Studi</b></h5>
+    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Laporan Tindak Lanjut Program Studi</b></h5>
   </div>
 
 
@@ -30,10 +30,24 @@
             <tr>
               <th scope style="color: black;"="row"><?= $number; ?></th>
               <td style="color: black;"><?= $value->email ?></td>
-              <td>
-                <a href="#"><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
-                <!-- <a href="<?= base_url('user/downloaddokumen') ?>"><button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button></a> -->
-                <!-- <a href="<?= base_url('user/deleteprodi/') . $value->id ?>"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a> -->
+              <td class="text">
+                <a href="#">
+                  <!-- <a <?php if ($hasil_tindak_lanjut !== null) : ?> href="<?= base_url('user/generate_pdf/' . $hasil_tindak_lanjut) ?>" <?php else : ?> href="" <?php endif; ?>> -->
+                  <button type="lihat" class="btn btn-success">
+                    Lihat
+                  </button>
+                </a>
+                <a href="#">
+                  <button type="lihat" class="btn btn-primary">
+                    Daftar Tilik
+                  </button>
+                </a>
+                <a href="#">
+                  <button type="upload" class="btn btn-secondary">
+                    Upload
+                  </button>
+                </a>
+              </td>
     </div>
     </td>
     </tr>

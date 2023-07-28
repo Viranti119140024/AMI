@@ -171,7 +171,7 @@
 
                     </table>
                 </div>
-                <p style="color:black;"> * M= Memenuhi, MP= Melampaui, MB= Belum Memenuhi, MY= Menyimpang <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
+                <p style="color:black;"> * MY= Menyimpang, MB= Belum Memenuhi,M=Memenuhi, MP= Melampaui <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
             </div>
         </div>
     </div>

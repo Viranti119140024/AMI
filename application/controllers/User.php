@@ -197,6 +197,7 @@ class User extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         $data['prodi'] = $this->Data_ami->get_prodi();
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_hasil_tindak_lanjut();
 
         // $data['dokumen'] = $this->Data_ami->get_dokprodi($data['params']);
 
@@ -1019,6 +1020,24 @@ class User extends CI_Controller
         $this->load->view('partials/admin/footer', $data);
 
     }
+
+
+    //lihat dokumen tindak lanjut msing msing unit 
+    public function generate_pdf($params)
+    {
+        $data['title'] = 'Laporan Hasil Tindak Lanjut';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+
+
+        $data['tindaklanjut'] = $this->Data_ami->get_data($params);
+        $data['bab2'] = $this->Data_ami->get_data2($params);
+        $this->load->view('partials/prodi/header', $data);
+        $this->load->view('templates/prodi/laporanhasilprodi/generatepdf', $data);
+        $this->load->view('partials/prodi/footer', $data);
+    }
+
 }
 
 

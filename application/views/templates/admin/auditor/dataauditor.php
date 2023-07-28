@@ -18,7 +18,7 @@
         <thead>
           <tr>
             <th scope style="color: black;"="col">No</th>
-            <th scope style="color: black;"="col">Program Studi / Jurusan</th>
+            <th scope style="color: black;"="col">Program Studi / Jurusan / Unit</th>
             <th scope style="color: black;"="col">Auditor</th>
             <!-- <th scope style="color: black;"="col">Aksi</th> -->
 

@@ -27,6 +27,10 @@ class prodi extends CI_Controller
         $this->session->userdata('email')])->row_array();
         // $data['hasil_audit'] = $this->Data_ami->get_id_hasil_audit();
 
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
+        
+
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
@@ -44,6 +48,9 @@ class prodi extends CI_Controller
         // var_dump($data['user']['id']);
 
         $data['dokumen'] = $this->Data_ami->get_dokprodi($data['user']['id']);
+        // $data['hasilaudit'] = $this->Data_ami->get_data_by_id_hasil_audit($id)
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
+        ;
         // $data['hasil_audit'] = $this->Data_ami->get_id_hasil_audit();
 
         $this->load->view('partials/prodi/header', $data);
@@ -55,180 +62,180 @@ class prodi extends CI_Controller
 
 
 
-    public function upload_dokumen($id)
-    {
-        $data['title'] = 'Form Upload Dokumen';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
-        $data['id'] = $id;
+    // public function upload_dokumen($id)
+    // {
+    //     $data['title'] = 'Form Upload Dokumen';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+    //     $data['id'] = $id;
 
-        // $data['hasil_audit'] = $this->Data_ami->get_id_hasil_audit();
-        // var_dump($id);
+    //     // $data['hasil_audit'] = $this->Data_ami->get_id_hasil_audit();
+    //     // var_dump($id);
 
-        // $data['dokumen'] = $this->Data_ami->update_dokumen($data['user']['id']);
+    //     // $data['dokumen'] = $this->Data_ami->update_dokumen($data['user']['id']);
 
-        // $this->form_validation->set_rules('nama', 'Nama Dokumen', 'required');
-        $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
+    //     // $this->form_validation->set_rules('nama', 'Nama Dokumen', 'required');
+    //     $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
 
-        if ($this->form_validation->run() == FALSE) {
-            $this->load->view('partials/prodi/header', $data);
-            $this->load->view('templates/logo', $data);
-            $this->load->view('partials/prodi/sidebar', $data);
-            $this->load->view('templates/prodi/dokumenkebutuhanprodi/formupload', $data);
-            $this->load->view('partials/prodi/footer', $data);
-        } else {
-            // var_dump($id);
-            // var_dump($_FILES['file_dokumen']);
+    //     if ($this->form_validation->run() == FALSE) {
+    //         $this->load->view('partials/prodi/header', $data);
+    //         $this->load->view('templates/logo', $data);
+    //         $this->load->view('partials/prodi/sidebar', $data);
+    //         $this->load->view('templates/prodi/dokumenkebutuhanprodi/formupload', $data);
+    //         $this->load->view('partials/prodi/footer', $data);
+    //     } else {
+    //         // var_dump($id);
+    //         // var_dump($_FILES['file_dokumen']);
 
-            if ($_FILES['file_dokumen']['name']) {
-                $config['upload_path'] = './assets/dokumen';
-                $config['allowed_types'] = 'pdf';
-                $config['max_size'] = 2048; // 2MB
+    //         if ($_FILES['file_dokumen']['name']) {
+    //             $config['upload_path'] = './assets/dokumen';
+    //             $config['allowed_types'] = 'pdf';
+    //             $config['max_size'] = 2048; // 2MB
 
-                $this->load->library('upload', $config);
-                if (!$this->upload->do_upload('file_dokumen')) {
-                    $error = array('error' => $this->upload->display_errors());
-                    // var_dump($error);
-                } else {
-                    // var_dump("bisa diupload");
-                    $upload_data = $this->upload->data();
-                    // var_dump($upload_data);
-                    $data['nama_file'] = $upload_data['file_name'];
-                    $data['type'] = $upload_data['file_type'];
-                    $data['ukuran'] = $upload_data['file_size'];
-                    $this->Data_ami->update_dokumen($id, $data['nama_file'], $data['type'], $data['ukuran']);
-                    redirect('prodi/dokumenkebutuhan');
-                }
-            }
-            $this->session->set_flashdata('flash', 'ditambahkan');
-        }
-    }
+    //             $this->load->library('upload', $config);
+    //             if (!$this->upload->do_upload('file_dokumen')) {
+    //                 $error = array('error' => $this->upload->display_errors());
+    //                 // var_dump($error);
+    //             } else {
+    //                 // var_dump("bisa diupload");
+    //                 $upload_data = $this->upload->data();
+    //                 // var_dump($upload_data);
+    //                 $data['nama_file'] = $upload_data['file_name'];
+    //                 $data['type'] = $upload_data['file_type'];
+    //                 $data['ukuran'] = $upload_data['file_size'];
+    //                 $this->Data_ami->update_dokumen($id, $data['nama_file'], $data['type'], $data['ukuran']);
+    //                 redirect('prodi/dokumenkebutuhan');
+    //             }
+    //         }
+    //         $this->session->set_flashdata('flash', 'ditambahkan');
+    //     }
+    // }
 
-    public function halamanawal()
-    {
+    // public function halamanawal()
+    // {
 
-        $data['title'] = 'Laporan Hasil Audit';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+    //     $data['title'] = 'Laporan Hasil Audit';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
 
-        $this->load->view('partials/prodi/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/prodi/sidebar', $data);
-        $this->load->view('templates/prodi/hasilauditprodi/laporanaudit', $data);
-        $this->load->view('partials/prodi/footer', $data);
-    }
+    //     $this->load->view('partials/prodi/header', $data);
+    //     $this->load->view('templates/logo', $data);
+    //     $this->load->view('partials/prodi/sidebar', $data);
+    //     $this->load->view('templates/prodi/hasilauditprodi/laporanaudit', $data);
+    //     $this->load->view('partials/prodi/footer', $data);
+    // }
 
-    public function katapengantarr()
-    {
+    // public function katapengantarr()
+    // {
 
-        $data['title'] = 'Laporan Hasil Audit';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+    //     $data['title'] = 'Laporan Hasil Audit';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
 
-        $this->load->view('partials/prodi/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/prodi/sidebar', $data);
-        $this->load->view('templates/prodi/hasilauditprodi/katapengantar1', $data);
-        $this->load->view('partials/prodi/footer', $data);
-    }
+    //     $this->load->view('partials/prodi/header', $data);
+    //     $this->load->view('templates/logo', $data);
+    //     $this->load->view('partials/prodi/sidebar', $data);
+    //     $this->load->view('templates/prodi/hasilauditprodi/katapengantar1', $data);
+    //     $this->load->view('partials/prodi/footer', $data);
+    // }
 
-    public function BAB1()
-    {
+    // public function BAB1()
+    // {
 
-        $data['title'] = 'Laporan Hasil Audit';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+    //     $data['title'] = 'Laporan Hasil Audit';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
 
-        $this->load->view('partials/prodi/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/prodi/sidebar', $data);
-        $this->load->view('templates/prodi/hasilauditprodi/babsatu', $data);
-        $this->load->view('partials/prodi/footer', $data);
-    }
+    //     $this->load->view('partials/prodi/header', $data);
+    //     $this->load->view('templates/logo', $data);
+    //     $this->load->view('partials/prodi/sidebar', $data);
+    //     $this->load->view('templates/prodi/hasilauditprodi/babsatu', $data);
+    //     $this->load->view('partials/prodi/footer', $data);
+    // }
 
-    public function BAB2()
-    {
+    // public function BAB2()
+    // {
 
-        $data['title'] = 'Laporan Hasil Audit';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+    //     $data['title'] = 'Laporan Hasil Audit';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
 
-        $this->load->view('partials/prodi/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/prodi/sidebar', $data);
-        $this->load->view('templates/prodi/hasilauditprodi/babdua', $data);
-        $this->load->view('partials/prodi/footer', $data);
-    }
+    //     $this->load->view('partials/prodi/header', $data);
+    //     $this->load->view('templates/logo', $data);
+    //     $this->load->view('partials/prodi/sidebar', $data);
+    //     $this->load->view('templates/prodi/hasilauditprodi/babdua', $data);
+    //     $this->load->view('partials/prodi/footer', $data);
+    // }
 
-    public function laporanhasilprodi()
-    {
+    // public function laporanhasilprodi()
+    // {
 
-        $data['title'] = 'Laporan Hasil Tindak Lanjut';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+    //     $data['title'] = 'Laporan Hasil Tindak Lanjut';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
 
-        $this->load->view('partials/prodi/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/prodi/sidebar', $data);
-        $this->load->view('templates/prodi/laporanhasilprodi/halamansatu', $data);
-        $this->load->view('partials/prodi/footer', $data);
-    }
+    //     $this->load->view('partials/prodi/header', $data);
+    //     $this->load->view('templates/logo', $data);
+    //     $this->load->view('partials/prodi/sidebar', $data);
+    //     $this->load->view('templates/prodi/laporanhasilprodi/halamansatu', $data);
+    //     $this->load->view('partials/prodi/footer', $data);
+    // }
 
-    public function kataP()
-    {
+    // public function kataP()
+    // {
 
-        $data['title'] = 'Laporan Hasil Tindak Lanjut';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+    //     $data['title'] = 'Laporan Hasil Tindak Lanjut';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
 
-        $this->load->view('partials/prodi/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/prodi/sidebar', $data);
-        $this->load->view('templates/prodi/laporanhasilprodi/katapengantar2', $data);
-        $this->load->view('partials/prodi/footer', $data);
-    }
+    //     $this->load->view('partials/prodi/header', $data);
+    //     $this->load->view('templates/logo', $data);
+    //     $this->load->view('partials/prodi/sidebar', $data);
+    //     $this->load->view('templates/prodi/laporanhasilprodi/katapengantar2', $data);
+    //     $this->load->view('partials/prodi/footer', $data);
+    // }
 
-    public function BabSatu()
-    {
+    // public function BabSatu()
+    // {
 
-        $data['title'] = 'Laporan Hasil Tindak Lanjut';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+    //     $data['title'] = 'Laporan Hasil Tindak Lanjut';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
 
-        $this->load->view('partials/prodi/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/prodi/sidebar', $data);
-        $this->load->view('templates/prodi/laporanhasilprodi/babsatuu', $data);
-        $this->load->view('partials/prodi/footer', $data);
-    }
+    //     $this->load->view('partials/prodi/header', $data);
+    //     $this->load->view('templates/logo', $data);
+    //     $this->load->view('partials/prodi/sidebar', $data);
+    //     $this->load->view('templates/prodi/laporanhasilprodi/babsatuu', $data);
+    //     $this->load->view('partials/prodi/footer', $data);
+    // }
 
-    public function BabDua()
-    {
+    // public function BabDua()
+    // {
 
-        $data['title'] = 'Laporan Hasil Tindak Lanjut';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+    //     $data['title'] = 'Laporan Hasil Tindak Lanjut';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
 
-        $this->load->view('partials/prodi/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/prodi/sidebar', $data);
-        $this->load->view('templates/prodi/laporanhasilprodi/babduaa', $data);
-        $this->load->view('partials/prodi/footer', $data);
-    }
+    //     $this->load->view('partials/prodi/header', $data);
+    //     $this->load->view('templates/logo', $data);
+    //     $this->load->view('partials/prodi/sidebar', $data);
+    //     $this->load->view('templates/prodi/laporanhasilprodi/babduaa', $data);
+    //     $this->load->view('partials/prodi/footer', $data);
+    // }
 
-    public function BabTiga()
-    {
+    // public function BabTiga()
+    // {
 
-        $data['title'] = 'Laporan Hasil Tindak Lanjut';
-        $data['user'] = $this->db->get_where('user', ['email' =>
-        $this->session->userdata('email')])->row_array();
+    //     $data['title'] = 'Laporan Hasil Tindak Lanjut';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
 
-        $this->load->view('partials/prodi/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/prodi/sidebar', $data);
-        $this->load->view('templates/prodi/laporanhasilprodi/babtigaa', $data);
-        $this->load->view('partials/prodi/footer', $data);
-    }
+    //     $this->load->view('partials/prodi/header', $data);
+    //     $this->load->view('templates/logo', $data);
+    //     $this->load->view('partials/prodi/sidebar', $data);
+    //     $this->load->view('templates/prodi/laporanhasilprodi/babtigaa', $data);
+    //     $this->load->view('partials/prodi/footer', $data);
+    // }
 
     public function laporanakhir()
     {
@@ -251,6 +258,9 @@ class prodi extends CI_Controller
         // var_dump($data['params']);
         $data['bab2'] = $this->Data_ami->get_data2($data['params']);
         // var_dump($data['tindaklanjut']);
+
+        // $data['hasilaudit'] = $this->Data_ami->get_data_by_id_hasil_audit($id);
+          $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
 
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/logo', $data);
@@ -433,6 +443,7 @@ class prodi extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         $data['tindaklanjut'] = $this->Data_ami->get_tindaklanjut($data['user']['id']);
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
         // var_dump($data['tindaklanjut']);
 
         $this->load->view('partials/prodi/header', $data);
@@ -561,6 +572,7 @@ class prodi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
 
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/logo', $data);
         $this->load->view('partials/prodi/sidebar', $data);
@@ -601,6 +613,29 @@ class prodi extends CI_Controller
 
     }
 
+    //generate pdf hasil audit dri auditor
+
+    public function generate_pdf_hasil_audit()
+    {
+        $data['title'] = 'Laporan Hasil Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        // $url = $_SERVER['REQUEST_URI'];
+        // $segments = explode('/', $url);
+
+        // // Find the index of the parameter name
+        // $param1Index = array_search('param1', $segments);
+        // // Retrieve the parameter values
+        // $data['params'] = $segments[$param1Index + 4];
+
+
+        $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($data['params']);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
+        $this->load->view('partials/auditor/header', $data);
+        $this->load->view('templates/auditor/laporanhasil/generate', $data);
+        $this->load->view('partials/auditor/footer', $data);
+    }
 
 
 
