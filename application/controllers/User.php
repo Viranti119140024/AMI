@@ -218,64 +218,64 @@ class User extends CI_Controller
         //2
         // hasil desk
         $data['tampil_hasil_desk_utama2'] = $this->Data_ami->tampil_hasil_desk_utama_admin('2', $id_user);
-        $data['tampil_hasil_desk_tambahan2'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('2');
-        $data['total_checkbox2'] = $this->Data_ami->total_hasil_desk_baru('2');
+        $data['tampil_hasil_desk_tambahan2'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin('2', $id_user);
+        $data['total_checkbox2'] = $this->Data_ami->total_hasil_desk_admin('2', $id_user);
 
         // daftar tilik
-        $data['tampil_daftar_tilik_utama2'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('2');
-        $data['tampil_daftar_tilik_tambahan2'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('2');
-        $data['total_daftar_tilik2'] = $this->Data_ami->total_daftar_tilik_baru('2');
+        $data['tampil_daftar_tilik_utama2'] = $this->Data_ami->tampil_daftar_tilik_utama_admin('2', $id_user);
+        $data['tampil_daftar_tilik_tambahan2'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin('2', $id_user);
+        $data['total_daftar_tilik2'] = $this->Data_ami->total_daftar_tilik_admin('2', $id_user);
 
         //3
         // hasil desk
         $data['tampil_hasil_desk_utama3'] = $this->Data_ami->tampil_hasil_desk_utama_admin('3', $id_user);
-        $data['tampil_hasil_desk_tambahan3'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('3');
-        $data['total_checkbox3'] = $this->Data_ami->total_hasil_desk_baru('3');
+        $data['tampil_hasil_desk_tambahan3'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin('3', $id_user);
+        $data['total_checkbox3'] = $this->Data_ami->total_hasil_desk_admin('3', $id_user);
 
         // daftar tilik
-        $data['tampil_daftar_tilik_utama3'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('3');
-        $data['tampil_daftar_tilik_tambahan3'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('3');
-        $data['total_daftar_tilik3'] = $this->Data_ami->total_daftar_tilik_baru('3');
+        $data['tampil_daftar_tilik_utama3'] = $this->Data_ami->tampil_daftar_tilik_utama_admin('3', $id_user);
+        $data['tampil_daftar_tilik_tambahan3'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin('3', $id_user);
+        $data['total_daftar_tilik3'] = $this->Data_ami->total_daftar_tilik_admin('3', $id_user);
 
         // 4
         $data['tampil_hasil_desk_utama4'] = $this->Data_ami->tampil_hasil_desk_utama_admin('4', $id_user);
-        $data['tampil_hasil_desk_tambahan4'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('4');
-        $data['total_checkbox4'] = $this->Data_ami->total_hasil_desk_baru('4');
+        $data['tampil_hasil_desk_tambahan4'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin('4', $id_user);
+        $data['total_checkbox4'] = $this->Data_ami->total_hasil_desk_admin('4', $id_user);
 
         // daftar tilik
-        $data['tampil_daftar_tilik_utama4'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('4');
-        $data['tampil_daftar_tilik_tambahan4'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('4');
-        $data['total_daftar_tilik4'] = $this->Data_ami->total_daftar_tilik_baru('4');
+        $data['tampil_daftar_tilik_utama4'] = $this->Data_ami->tampil_daftar_tilik_utama_admin('4', $id_user);
+        $data['tampil_daftar_tilik_tambahan4'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin('4', $id_user);
+        $data['total_daftar_tilik4'] = $this->Data_ami->total_daftar_tilik_admin('4', $id_user);
 
         // 5
         $data['tampil_hasil_desk_utama5'] = $this->Data_ami->tampil_hasil_desk_utama_admin('5', $id_user);
-        $data['tampil_hasil_desk_tambahan5'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('5');
-        $data['total_checkbox5'] = $this->Data_ami->total_hasil_desk_baru('5');
+        $data['tampil_hasil_desk_tambahan5'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin('5', $id_user);
+        $data['total_checkbox5'] = $this->Data_ami->total_hasil_desk_admin('5', $id_user);
 
         // daftar tilik
-        $data['tampil_daftar_tilik_utama5'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('5');
-        $data['tampil_daftar_tilik_tambahan5'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('5');
-        $data['total_daftar_tilik5'] = $this->Data_ami->total_daftar_tilik_baru('5');
+        $data['tampil_daftar_tilik_utama5'] = $this->Data_ami->tampil_daftar_tilik_utama_admin('5', $id_user);
+        $data['tampil_daftar_tilik_tambahan5'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin('5', $id_user);
+        $data['total_daftar_tilik5'] = $this->Data_ami->total_daftar_tilik_admin('5', $id_user);
 
         // 6
         $data['tampil_hasil_desk_utama6'] = $this->Data_ami->tampil_hasil_desk_utama_admin('6', $id_user);
-        $data['tampil_hasil_desk_tambahan6'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('6');
-        $data['total_checkbox6'] = $this->Data_ami->total_hasil_desk_baru('6');
+        $data['tampil_hasil_desk_tambahan6'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin('6', $id_user);
+        $data['total_checkbox6'] = $this->Data_ami->total_hasil_desk_admin('6', $id_user);
 
         // daftar tilik
-        $data['tampil_daftar_tilik_utama6'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('6');
-        $data['tampil_daftar_tilik_tambahan6'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('6');
-        $data['total_daftar_tilik6'] = $this->Data_ami->total_daftar_tilik_baru('6');
+        $data['tampil_daftar_tilik_utama6'] = $this->Data_ami->tampil_daftar_tilik_utama_admin('6', $id_user);
+        $data['tampil_daftar_tilik_tambahan6'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin('6', $id_user);
+        $data['total_daftar_tilik6'] = $this->Data_ami->total_daftar_tilik_admin('6', $id_user);
 
         // 7
         $data['tampil_hasil_desk_utama7'] = $this->Data_ami->tampil_hasil_desk_utama_admin('7', $id_user);
-        $data['tampil_hasil_desk_tambahan7'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('7');
-        $data['total_checkbox7'] = $this->Data_ami->total_hasil_desk_baru('7');
+        $data['tampil_hasil_desk_tambahan7'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin('7', $id_user);
+        $data['total_checkbox7'] = $this->Data_ami->total_hasil_desk_admin('7', $id_user);
 
         // daftar tilik
-        $data['tampil_daftar_tilik_utama7'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('7');
-        $data['tampil_daftar_tilik_tambahan7'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('7');
-        $data['total_daftar_tilik7'] = $this->Data_ami->total_daftar_tilik_baru('7');
+        $data['tampil_daftar_tilik_utama7'] = $this->Data_ami->tampil_daftar_tilik_utama_admin('7', $id_user);
+        $data['tampil_daftar_tilik_tambahan7'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin('7', $id_user);
+        $data['total_daftar_tilik7'] = $this->Data_ami->total_daftar_tilik_admin('7', $id_user);
 
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/admin/generatepdf_daftartilik', $data);
@@ -1161,4 +1161,71 @@ class User extends CI_Controller
         $this->load->view('templates/prodi/laporanhasilprodi/generatepdf', $data);
         $this->load->view('partials/prodi/footer', $data);
     }
+
+    public function verifikasi()
+    {
+
+        $data['title'] = ' Verifikasi Hasil Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+        // $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($id);
+
+
+        // $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
+        // $this->form_validation->set_rules('pemeriksa1', 'Nama', 'required');
+        // $this->form_validation->set_rules('penetapan1', 'Nama', 'required');
+
+        // $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
+        // $this->form_validation->set_rules('dokumentasi', 'File Dokumentasi', 'in_list');
+        // $this->form_validation->set_rules('tahun', 'Tahun', 'required');
+        // $this->form_validation->set_rules('lembaga', 'Lembaga', 'required');
+        // $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+        // $this->form_validation->set_rules('NIP', 'NIP', 'required');
+        // $this->form_validation->set_rules('periode', 'Periode', 'required');
+        // $this->form_validation->set_rules('hari_tgl', 'Hari dan Tanggal', 'required');
+        // $this->form_validation->set_rules('waktu', 'waktu', 'required');
+        // $this->form_validation->set_rules('tempat', 'Tempat', 'required');
+        // $this->form_validation->set_rules('auditor', 'Auditor', 'required');
+        // $this->form_validation->set_rules('auditee', 'Auditee', 'required');
+        // $this->form_validation->set_rules('tanggalDE', 'Tanggal DE', 'required');
+        // $this->form_validation->set_rules('jangka_waktu', 'Jangka Waktu Perbaikan', 'required');
+
+        $this->form_validation->set_rules('verifikasi', 'Verifikasi', 'in_list');
+
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/logo', $data);
+            $this->load->view('partials/admin/sidebar', $data);
+            $this->load->view('templates/admin/verifikasi', $data);
+            $this->load->view('partials/admin/footer', $data);
+        } else {
+
+            $this->session->set_flashdata('flash', 'ditambahkan');
+            $data['nama_verifikasi'] = 'template1.png';
+            // var_dump($_FILES['foto_pengesahan']['name']);
+
+            if ($_FILES['verifikasi']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 2048; // 2MB
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('verifikasi')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $upload_data = $this->upload->data();
+                    $data['nama_verifikasi'] = $upload_data['file_name'];
+                }
+            }
+
+            // var_dump($data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
+            $this->Data_ami->tambah_hasilaudit($data['user']['id'], $data['nama_verifikasi'], $data['nama_verifikasi']);
+            redirect('user/generate_pdf_hasil_audit');
+        }
+    }
+
 }

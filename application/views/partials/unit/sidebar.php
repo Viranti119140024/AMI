@@ -14,7 +14,7 @@
                 <span class="itemcolor">Dokumen Kebutuhan Audit</span></a>
     
         <li class="list-group">
-            <a class="list-group-item" href="<?= base_url('unit/halamanawal') ?>">
+            <a class="list-group-item" href="<?= base_url('unit/generate_pdf_hasil_audit/') ?>" >
                 <i class="fa fa-list-alt itemcolor"></i>
                 <span class="itemcolor">Laporan Hasil Audit</span></a>
 

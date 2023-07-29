@@ -203,7 +203,7 @@ class auditorjurusan extends CI_Controller
 
             // var_dump($data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
             $this->Data_ami->tambah_hasilaudit($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
-            redirect('auditor/datahasilaudit');
+            redirect('auditorjurusan/datahasilaudit');
         }
     }
 
@@ -259,7 +259,7 @@ class auditorjurusan extends CI_Controller
 
         $this->Data_ami->tambah_hasilaudit2($id);
         $this->session->set_flashdata('flash', 'ditambahkan');
-        redirect('auditor/laporanakhir/' . $id);
+        redirect('auditorjurusan/laporanakhir/' . $id);
     }
 
     public function profile()
@@ -311,6 +311,28 @@ class auditorjurusan extends CI_Controller
         $this->load->view('partials/auditorjurusan/footer', $data);
     }
 
+    public function generate_pdf_hasil_audit()
+    {
+        $data['title'] = 'Laporan Hasil Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        $url = $_SERVER['REQUEST_URI'];
+        $segments = explode('/', $url);
+
+        // Find the index of the parameter name
+        $param1Index = array_search('param1', $segments);
+        // Retrieve the parameter values
+        $data['params'] = $segments[$param1Index + 4];
+
+
+        $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($data['params']);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
+        $this->load->view('partials/auditorjurusan/header', $data);
+        $this->load->view('templates/auditorjurusan/laporanhasiljurusan/generate', $data);
+        $this->load->view('partials/auditorjurusan/footer', $data);
+    }
+
 
     public function generate_pdf($params)
     {
@@ -326,8 +348,8 @@ class auditorjurusan extends CI_Controller
         $data['tindaklanjut'] = $this->Data_ami->get_data($params);
         $data['bab2'] = $this->Data_ami->get_data2($params);
         $this->load->view('partials/auditorjurusan/header', $data);
-        $this->load->view('templates/logo', $data);
-        $this->load->view('partials/auditorjurusan/sidebar', $data);
+        // $this->load->view('templates/logo', $data);
+        // $this->load->view('partials/auditorjurusan/sidebar', $data);
         $this->load->view('templates/jurusan/laporanhasiltindaklanjut/generatepdf', $data);
         $this->load->view('partials/auditorjurusan/footer', $data);
     }

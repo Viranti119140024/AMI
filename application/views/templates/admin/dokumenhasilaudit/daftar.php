@@ -31,19 +31,19 @@
               <th scope style="color: black;"="row"><?= $number; ?></th>
               <td style="color: black;"><?= $value->email ?></td>
               <td class="text">
-                <a href="<?= base_url('User/generate_pdf_hasil_audit/'). $value->id ?>">
+                <a href="<?= base_url('User/generate_pdf_hasil_audit/') . $value->id ?>">
                   <button type="lihat" class="btn btn-success">
                     Lihat
                   </button>
                 </a>
-                <a href="<?= base_url('User/generate_daftar_tilik/'). $value->id ?>">
+                <a href="<?= base_url('User/generate_daftar_tilik/') . $value->id ?>">
                   <button type="lihat" class="btn btn-primary">
                     Daftar Tilik
                   </button>
                 </a>
-                <a href="#">
+                <a href="<?= base_url('User/verifikasi/') . $value->id ?>">
                   <button type="lihat" class="btn btn-secondary">
-                    Upload
+                    Verifikasi
                   </button>
                 </a>
               </td>

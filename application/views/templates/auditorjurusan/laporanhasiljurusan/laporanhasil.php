@@ -9,12 +9,13 @@
 
             <center class="text-dark mt-8">
                 <!-- <h5><b> <?= $hasilaudit[0]->foto_pengesahan ?></h5> -->
-                <img style="width: 400px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->foto_pengesahan) ?>" alt="Gambar">
+                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->foto_pengesahan) ?>" alt="Gambar">
             </center>
 
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <center class="text-dark mt-8" style="color:black;">
+                    <div class="page-break"></div>
                         <h4><b>KATA PENGANTAR</b></h4>
                     </center>
                     <p class="ratakanankiri">Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat
@@ -46,6 +47,7 @@
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <center class="text-dark mt-8" style="color:black;">
+                    <div class="page-break"></div>
                         <h4><b>BAB I <br> PENDAHULUAN </br></b></h4>
                     </center>
                     <b> 1.1 Latar Belakang</b> <br><br>
@@ -138,6 +140,7 @@
                     <!-- <a class="btn btn-danger" type="button" href="<?= base_url('auditorjurusan/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
                     <center class="text-dark mt-8" style="color:black;">
+                    <div class="page-break"></div>
                         <h4><b>BAB II <br> DAFTAR TEMUAN AMI </br></b></h4>
                     </center>
 

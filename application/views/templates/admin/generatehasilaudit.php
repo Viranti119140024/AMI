@@ -37,7 +37,7 @@
                 <div class="text-right" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <p>Lampung Selatan, <?= $hasilaudit->tanggal ?> </p>
                     <p>Ketua Audit Mutu Internal </p>
-                    <br></br>
+                    <br> <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit->verifikasi) ?>" alt="Gambar"></br>
                     <br></br>
                     <p>NIP / NRK. <?= $hasilaudit->NIP ?></p>
 

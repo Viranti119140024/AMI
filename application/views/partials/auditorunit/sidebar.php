@@ -24,14 +24,14 @@
         </li>
 
         <li class="list-group">
-            <a class="list-group-item" href="">
+            <a class="list-group-item" href="<?= base_url('auditorunit/datahasilaudit') ?>">
                 <i class="fa fa-book itemcolor"></i>
                 <span class="itemcolor">Laporan Hasil Audit</span>
             </a>
         </li>
 
         <li class="list-group">
-            <a class="list-group-item" href="">
+            <a class="list-group-item" <?php if ($hasil_tindak_lanjut !== null) : ?> href="<?= base_url('auditorunit/generate_pdf/' . $hasil_tindak_lanjut) ?>" <?php else : ?> href="" <?php endif; ?>>
                 <i class="fa fa-book itemcolor"></i>
                 <span class="itemcolor">Laporan Tindak Lanjut</span>
             </a>

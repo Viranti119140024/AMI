@@ -15,6 +15,7 @@
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <center class="text-dark mt-8" style="color:black;">
+                    <div class="page-break"></div>
                         <h4><b>KATA PENGANTAR</b></h4>
                     </center>
                     <p class="ratakanankiri">Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat
@@ -46,6 +47,7 @@
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <center class="text-dark mt-8" style="color:black;">
+                    <div class="page-break"></div>
                         <h4><b>BAB I <br> PENDAHULUAN </br></b></h4>
                     </center>
                     <b> 1.1 Latar Belakang</b> <br><br>
@@ -134,10 +136,11 @@
 
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                    <a class="btn btn-success" type="button" href="<?= base_url('auditor/isidata2/') . $hasilaudit[0]->id_hasilaudit ?>" class="text-white" href="#">+ Tambah</a>
+                    <a class="btn btn-success" type="button" href="<?= base_url('auditorunit/isidata2/') . $hasilaudit[0]->id_hasilaudit ?>" class="text-white" href="#">+ Tambah</a>
                     <!-- <a class="btn btn-danger" type="button" href="<?= base_url('auditor/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
                     <center class="text-dark mt-8" style="color:black;">
+                    <div class="page-break"></div>
                         <h4><b>BAB II <br> DAFTAR TEMUAN AMI </br></b></h4>
                     </center>
 

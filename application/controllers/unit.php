@@ -410,6 +410,26 @@ class unit extends CI_Controller
         }
     }
 
+    public function generate_pdf_hasil_audit()
+    {
+        $data['title'] = 'Laporan Hasil Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+        // $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit('56');
+        // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit('56');
+
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($data['user']['id']);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
+
+
+
+        // var_dump($data['hasilaudit']->id_hasilaudit);
+        $this->load->view('partials/unit/header', $data);
+        $this->load->view('templates/unit/generatehasilaudit', $data);
+        $this->load->view('partials/unit/footer', $data);
+    }
+
 
 
 }

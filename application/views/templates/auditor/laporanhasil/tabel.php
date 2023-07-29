@@ -8,7 +8,7 @@
         <hr color="red" />
     </b>
 
-    <a class="btn btn-success" type="button" href="<?= base_url('auditor/isidata') ?>" class="text-white" href="#">+ Tambah</a>
+    <a class="btn btn-success" type="button" href="<?= base_url('auditor/isidata') ?>" class="text-white" href="#">Isi Data Hasil Audit</a>
 
     <div class="card mt-4">
         <div class="card-body">

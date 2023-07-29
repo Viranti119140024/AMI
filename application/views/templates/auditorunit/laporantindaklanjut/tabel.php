@@ -8,7 +8,7 @@
         <hr color="red" />
     </b>
 
-    <a class="btn btn-success" type="button" href="<?= base_url('auditor/isidata') ?>" class="text-white" href="#">+ Tambah</a>
+    <a class="btn btn-success" type="button" href="<?= base_url('auditorunit/isidata') ?>" class="text-white" href="#">+ Tambah</a>
 
     <div class="card mt-4">
         <div class="card-body">
@@ -31,8 +31,8 @@
                             <th scope style="color: black;"="row"><?= $number; ?></th>
                             <td style="color: black;"><?= $value->periode; ?></td>
                             <td>
-                                <a href="<?= base_url('auditor/laporanakhir/') . $value->id_hasilaudit ?> "><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
-                                <a href="<?= base_url('auditor/edit_data/') . $value->id_hasilaudit;?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a>
+                                <a href="<?= base_url('auditorunit/laporanakhir/') . $value->id_hasilaudit ?> "><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
+                                <!-- <a href="<?= base_url('auditor/edit_data/') . $value->id_hasilaudit;?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a> -->
      </div>
         </td>
         </tr>

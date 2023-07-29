@@ -49,8 +49,7 @@
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <center class="text-dark mt-8" style="color:black;">
-                    <br></br>
-                    <br></br>
+                    <div class="page-break"></div>
                         <h4><b>BAB I <br> PENDAHULUAN </br></b></h4>
                     </center>
                     <b>1.1 Latar Belakang</b> <br><br>
@@ -143,8 +142,7 @@
                     <!-- <a class="btn btn-danger" type="button" href="<?= base_url('auditor/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
                     <center class="text-dark mt-8" style="color:black;">
-                    <br></br>
-                    <br></br>
+                    <div class="page-break"></div>
                         <h4><b>BAB II <br> DAFTAR TEMUAN AMI </br></b></h4>
                     </center>
 
@@ -209,7 +207,7 @@
                         </table>
                     </div>
                 <!-- </div>
-                <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditor/generate_pdf/' . $params) ?>">
+                <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditorunit/generate_pdf_hasil_audit/' . $params) ?>">
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
                     </div>

@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">NRK / NIP</label>
+                    <label for="exampleFormControlInput1" style="color: black;">NRK / NIP Ketua Audit Mutu Internal</label>
                     <input type="text" class="form-control" id="NIP" name="NIP" placeholder="Masukkan NRK / NIP">
                 </div>
 

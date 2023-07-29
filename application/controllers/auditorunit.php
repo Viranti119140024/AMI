@@ -27,6 +27,7 @@ class auditorunit extends CI_Controller
         $this->session->userdata('email')])->row_array();
         // var_dump($data['user']['id_audit']);
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
         // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
 
         $this->load->view('partials/auditorunit/header', $data);
@@ -43,6 +44,7 @@ class auditorunit extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
 
         // harus ditaruh disemua tempat
         // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
@@ -290,7 +292,7 @@ class auditorunit extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 3];
+        $data['params'] = $segments[$param1Index + 4];
 
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
@@ -422,7 +424,7 @@ class auditorunit extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 3];
+        $data['params'] = $segments[$param1Index + 4];
         // var_dump($data['params']);
 
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
@@ -451,7 +453,7 @@ class auditorunit extends CI_Controller
         // Find the index of the parameter name
         $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 3];
+        $data['params'] = $segments[$param1Index + 4];
 
 
         $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($data['params']);
@@ -459,5 +461,19 @@ class auditorunit extends CI_Controller
         $this->load->view('partials/auditorunit/header', $data);
         $this->load->view('templates/auditorunit/laporantindaklanjut/generate', $data);
         $this->load->view('partials/auditorunit/footer', $data);
+    }
+
+    public function generate_pdf($params)
+    {
+        $data['title'] = 'Laporan Hasil Tindak Lanjut';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+
+        $data['tindaklanjut'] = $this->Data_ami->get_data($params);
+        $data['bab2'] = $this->Data_ami->get_data2($params);
+        $this->load->view('partials/unit/header', $data);
+        $this->load->view('templates/unit/laporantindaklanjut/generate', $data);
+        $this->load->view('partials/unit/footer', $data);
     }
 }

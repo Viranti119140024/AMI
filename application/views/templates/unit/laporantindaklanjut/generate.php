@@ -19,9 +19,7 @@
                 <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large; color:black;">
                         <center class="text-dark mt-8">
-                            <br></br>
-                            <br></br>
-                            <br></br>
+                        <div class="page-break"></div>
                             <h4><b>KATA PENGANTAR</b></h4>
                         </center>
                         Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat dan bimbinganNya laporan tindak lanjut temuan Audit Mutu Internal siklus periode <?= $tindaklanjut[0]->periode ?> tahun
@@ -134,8 +132,7 @@
                         <!-- <a class="btn btn-danger" type="button" href="<?= base_url('prodi/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
                         <center class="text-dark mt-8" style="color:black;">
-                            <br></br>
-                            <br></br>
+                
                             <div class="page-break"></div>
                             <h4><b>BAB II <br> TINDAK LANJUT </br></b></h4>
                         </center>
@@ -253,9 +250,8 @@
                         <div class="card">
                             <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                                 <center class="text-dark mt-8" style="color:black;">
-                                    <br></br>
-                                    <br></br>
-                                    <div class="page-break"></div>
+                                <div class="page-break"></div>
+                        
                                     <h4><b>BAB III <br> KESIMPULAN </br></b></h4>
                                 </center>
 
