@@ -476,4 +476,28 @@ class auditorunit extends CI_Controller
         $this->load->view('templates/unit/laporantindaklanjut/generate', $data);
         $this->load->view('partials/unit/footer', $data);
     }
+
+    public function generate_daftar_tilik_unit()
+    {
+        $data['title'] = 'Generate Daftar Tilik';
+        $data['title1'] = 'Hasil Desk Evaluation';
+        $data['title2'] = 'Daftar Tilik ( Checklist )';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+        
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+       
+        // hasil desk
+        $data['tampil_hasil_desk_tambahan_unit'] = $this->Data_ami->tampil_hasil_desk_tambahan_unit();
+        $data['total_checkbox'] = $this->Data_ami->total_hasil_desk_unit();
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_tambahan_unit'] = $this->Data_ami->tampil_daftar_tilik_tambahan_unit();
+        $data['total_daftar_tilik'] = $this->Data_ami->total_daftar_tilik_unit();
+
+        $this->load->view('partials/auditorunit/header', $data);
+        $this->load->view('templates/auditorunit/daftartilik/generate', $data);
+        $this->load->view('partials/auditorunit/footer', $data);
+    }
 }

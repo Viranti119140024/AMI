@@ -891,6 +891,7 @@ class Data_ami extends CI_Model
             ->from('auditor_daftar_tilik')
             ->join('nilai_ami2', 'auditor_daftar_tilik.id_auditor_daftar_tilik = nilai_ami2.id_daftar_tilik AND nilai_ami2.id_audit = ' . $id_audit, 'left')
             ->where('auditor_daftar_tilik.id_dokumen_acuan', $id)
+            ->where('auditor_daftar_tilik.id_user', $id_user)
             ->order_by('auditor_daftar_tilik.id_auditor_daftar_tilik', 'ASC')
             ->get()
             ->result();
@@ -962,7 +963,7 @@ class Data_ami extends CI_Model
             ->from('auditor_hasil_desk')
             ->join('nilai_ami', 'auditor_hasil_desk.id_auditor_hasil_desk = nilai_ami.id_hasil_desk AND nilai_ami.id_audit = ' . $id_audit, 'left')
             ->where('auditor_hasil_desk.id_dokumen_acuan', $id)
-            // ->where('auditor_hasil_desk.id_user', $userLogin['id'])
+            ->where('auditor_hasil_desk.id_user', $id_user)
             ->order_by('auditor_hasil_desk.id_auditor_hasil_desk', 'ASC')
             ->get()
             ->result();
@@ -1746,6 +1747,7 @@ class Data_ami extends CI_Model
             ->from('auditor_daftar_tilik_jurusan')
             ->join('nilai_ami2_jurusan', 'auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik = nilai_ami2_jurusan.id_daftar_tilik AND nilai_ami2_jurusan.id_audit = ' . $id_audit, 'left')
             ->where('auditor_daftar_tilik_jurusan.id_dokumen_acuan', $id)
+            ->where('auditor_daftar_tilik_jurusan.id_user', $id_user)
             ->order_by('auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik', 'ASC')
             ->get()
             ->result();
@@ -1822,6 +1824,7 @@ class Data_ami extends CI_Model
             ->from('auditor_hasil_desk_jurusan')
             ->join('nilai_ami_jurusan', 'auditor_hasil_desk_jurusan.id_auditor_hasil_desk = nilai_ami_jurusan.id_hasil_desk AND nilai_ami_jurusan.id_audit = ' . $id_audit, 'left')
             ->where('auditor_hasil_desk_jurusan.id_dokumen_acuan', $id)
+            ->where('auditor_hasil_desk_jurusan.id_user', $id_user)
             ->order_by('auditor_hasil_desk_jurusan.id_auditor_hasil_desk', 'ASC')
             ->get()
             ->result();

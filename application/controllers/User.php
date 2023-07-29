@@ -201,6 +201,27 @@ class User extends CI_Controller
         }
     }
 
+    public function generate_pdf_hasil_audit_unit($id)
+    {
+        $data['title'] = 'Laporan Hasil Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($id);
+
+        // var_dump( $data['hasilaudit']);
+
+        if (!is_null($data['hasilaudit'])) {
+            $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/admin/generatehasilaudit', $data);
+            $this->load->view('partials/admin/footer', $data);
+        } else {
+            redirect('user/daftarunit');
+        }
+    }
+
 
 
     public function generate_daftar_tilik($id)
