@@ -36,7 +36,7 @@
                     Lihat
                   </button>
                 </a>
-                <a href="<?= base_url('User/generate_daftar_tilik_jurusan/') . $value->id ?>">
+                <a href="<?= base_url('User/generate_daftar_tilik_unit/') . $value->id ?>">
                   <button type="lihat" class="btn btn-primary">
                     Daftar Tilik
                   </button>

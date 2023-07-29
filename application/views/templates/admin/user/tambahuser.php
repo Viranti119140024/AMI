@@ -10,7 +10,7 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Username</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Email">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Masukkan Username">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Password</label>

@@ -312,10 +312,17 @@ class User extends CI_Controller
         $data['tampil_daftar_tilik_tambahan7'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin('7', $id_user);
         $data['total_daftar_tilik7'] = $this->Data_ami->total_daftar_tilik_admin('7', $id_user);
 
+        if (!is_null($id_user)) {
+            // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/admin/generatepdf_daftartilik', $data);
         $this->load->view('partials/admin/footer', $data);
+    } else {
+        redirect('user/daftarjurusan');
     }
+
+    }
+
 
 
     public function generate_daftar_tilik_jurusan($id)
@@ -449,6 +456,44 @@ class User extends CI_Controller
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/admin/generate_daftar_tilik_jurusan', $data);
         $this->load->view('partials/admin/footer', $data);
+       
+    }
+
+    public function generate_daftar_tilik_unit($id)
+    {
+        $data['title'] = 'Generate Daftar Tilik';
+        $data['title1'] = 'Hasil Desk Evaluation';
+        $data['title2'] = 'Daftar Tilik ( Checklist )';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+
+        // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+    
+        
+        $id_user =$this->Data_ami->get_auditor_admin($id);
+        // var_dump($id_user);
+
+        
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+       
+        // hasil desk
+        $data['tampil_hasil_desk_tambahan_unit'] = $this->Data_ami->tampil_hasil_desk_tambahan_unit_admin($id_user);
+        $data['total_checkbox'] = $this->Data_ami->total_hasil_desk_unit_admin($id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_tambahan_unit'] = $this->Data_ami->tampil_daftar_tilik_tambahan_unit_admin($id_user);
+        $data['total_daftar_tilik'] = $this->Data_ami->total_daftar_tilik_unit_admin($id_user);
+
+        if (!is_null($id_user)) {
+            // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/admin/generate_daftartilik_unit', $data);
+        $this->load->view('partials/admin/footer', $data);
+    } else {
+        redirect('user/daftarunit');
+    }
+
     }
 
 
@@ -1340,28 +1385,6 @@ class User extends CI_Controller
 
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
-
-        // $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($id);
-
-
-        // $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
-        // $this->form_validation->set_rules('pemeriksa1', 'Nama', 'required');
-        // $this->form_validation->set_rules('penetapan1', 'Nama', 'required');
-
-        // $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
-        // $this->form_validation->set_rules('dokumentasi', 'File Dokumentasi', 'in_list');
-        // $this->form_validation->set_rules('tahun', 'Tahun', 'required');
-        // $this->form_validation->set_rules('lembaga', 'Lembaga', 'required');
-        // $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
-        // $this->form_validation->set_rules('NIP', 'NIP', 'required');
-        // $this->form_validation->set_rules('periode', 'Periode', 'required');
-        // $this->form_validation->set_rules('hari_tgl', 'Hari dan Tanggal', 'required');
-        // $this->form_validation->set_rules('waktu', 'waktu', 'required');
-        // $this->form_validation->set_rules('tempat', 'Tempat', 'required');
-        // $this->form_validation->set_rules('auditor', 'Auditor', 'required');
-        // $this->form_validation->set_rules('auditee', 'Auditee', 'required');
-        // $this->form_validation->set_rules('tanggalDE', 'Tanggal DE', 'required');
-        // $this->form_validation->set_rules('jangka_waktu', 'Jangka Waktu Perbaikan', 'required');
 
         $this->form_validation->set_rules('verifikasi', 'Verifikasi', 'in_list');
 

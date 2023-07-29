@@ -26,7 +26,7 @@
         <li class="list-group">
             <a class="list-group-item" href="<?= base_url('user/pilihdaftartilik') ?>">
                 <i class="fa fa-list-alt itemcolor"></i>
-                <span class="itemcolor">Daftar Tilik</span></a>
+                <span class="itemcolor"> Pertanyaan Daftar Tilik</span></a>
 
         <li class="list-group">
             <a class="list-group-item" href="<?= base_url('user/pilihan') ?>">
