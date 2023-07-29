@@ -722,6 +722,40 @@ class Data_ami extends CI_Model
         return $nilai;
     }
 
+
+    function tampil_hasil_desk_utama_admin_jurusan($id, $id_user)
+    {
+        // $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        // $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $id_user)
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('admin_hasil_desk_jurusan.*, nilai_ami_jurusan.id_nilai, nilai_ami_jurusan.my, nilai_ami_jurusan.mb, nilai_ami_jurusan.m, nilai_ami_jurusan.mp, nilai_ami_jurusan.ob, nilai_ami_jurusan.kts, nilai_ami_jurusan.open, nilai_ami_jurusan.close, nilai_ami_jurusan.catatan, nilai_ami_jurusan.penanggungjawab')
+            ->from('admin_hasil_desk_jurusan')
+            ->join('nilai_ami_jurusan', 'admin_hasil_desk_jurusan.id_hasil_desk = nilai_ami_jurusan.id_hasil_desk AND nilai_ami_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('admin_hasil_desk_jurusan.id_dokumen_acuan', $id)
+            ->order_by('admin_hasil_desk_jurusan.id_hasil_desk', 'ASC')
+            ->get()
+            ->result();
+
+        $total = $this->db->where('my', 1)
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id)
+            ->from('nilai_ami_jurusan')
+            ->get()
+            ->result();
+
+
+        // var_dump($total);
+
+        return $nilai;
+    }
+
     function tampil_daftar_tilik_utama($id)
     {
         $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -1546,6 +1580,39 @@ class Data_ami extends CI_Model
         return $nilai;
     }
 
+    function tampil_hasil_desk_utama_jurusan_baru($id)
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        // $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('admin_hasil_desk_jurusan.*, nilai_ami_jurusan.id_nilai, nilai_ami_jurusan.my, nilai_ami_jurusan.mb, nilai_ami_jurusan.m, nilai_ami_jurusan.mp, nilai_ami_jurusan.ob, nilai_ami_jurusan.kts, nilai_ami_jurusan.open, nilai_ami_jurusan.close, nilai_ami_jurusan.catatan, nilai_ami_jurusan.penanggungjawab')
+            ->from('admin_hasil_desk_jurusan')
+            ->join('nilai_ami_jurusan', 'admin_hasil_desk_jurusan.id_hasil_desk = nilai_ami_jurusan.id_hasil_desk AND nilai_ami_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('admin_hasil_desk_jurusan.id_dokumen_acuan', $id)
+            ->order_by('admin_hasil_desk_jurusan.id_hasil_desk', 'ASC')
+            ->get()
+            ->result();
+
+        $total = $this->db->where('my', 1)
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id)
+            ->from('nilai_ami_jurusan')
+            ->get()
+            ->result();
+
+
+        // var_dump($total);
+
+        return $nilai;
+    }
+
     function tampil_daftar_tilik_utama_jurusan($id)
     {
         $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -1562,6 +1629,52 @@ class Data_ami extends CI_Model
             ->from('admin_daftar_tilik_jurusan')
             ->join('nilai_ami2_jurusan', 'admin_daftar_tilik_jurusan.id_daftar_tilik = nilai_ami2_jurusan.id_daftar_tilik AND nilai_ami2_jurusan.id_audit = ' . $id_audit, 'left')
             ->where('admin_daftar_tilik_jurusan.id_dokumen_acuan', $id_dokumen_acuan)
+            ->order_by('admin_daftar_tilik_jurusan.id_daftar_tilik', 'ASC')
+            ->get()
+            ->result();
+
+        return $nilai;
+    }
+
+    function tampil_daftar_tilik_utama_jurusan_baru($id)
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        // $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('admin_daftar_tilik_jurusan.*, nilai_ami2_jurusan.dokumen_terkait, nilai_ami2_jurusan.hasil_observasi, nilai_ami2_jurusan.m, nilai_ami2_jurusan.mp, nilai_ami2_jurusan.mb, nilai_ami2_jurusan.my, nilai_ami2_jurusan.rekomendasi')
+            ->from('admin_daftar_tilik_jurusan')
+            ->join('nilai_ami2_jurusan', 'admin_daftar_tilik_jurusan.id_daftar_tilik = nilai_ami2_jurusan.id_daftar_tilik AND nilai_ami2_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('admin_daftar_tilik_jurusan.id_dokumen_acuan', $id)
+            ->order_by('admin_daftar_tilik_jurusan.id_daftar_tilik', 'ASC')
+            ->get()
+            ->result();
+
+        return $nilai;
+    }
+
+    function tampil_daftar_tilik_utama_admin_jurusan($id, $id_user)
+    {
+        // $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        // $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $id_user)
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('admin_daftar_tilik_jurusan.*, nilai_ami2_jurusan.dokumen_terkait, nilai_ami2_jurusan.hasil_observasi, nilai_ami2_jurusan.m, nilai_ami2_jurusan.mp, nilai_ami2_jurusan.mb, nilai_ami2_jurusan.my, nilai_ami2_jurusan.rekomendasi')
+            ->from('admin_daftar_tilik_jurusan')
+            ->join('nilai_ami2_jurusan', 'admin_daftar_tilik_jurusan.id_daftar_tilik = nilai_ami2_jurusan.id_daftar_tilik AND nilai_ami2_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('admin_daftar_tilik_jurusan.id_dokumen_acuan', $id)
             ->order_by('admin_daftar_tilik_jurusan.id_daftar_tilik', 'ASC')
             ->get()
             ->result();
@@ -1586,6 +1699,53 @@ class Data_ami extends CI_Model
             ->from('auditor_daftar_tilik_jurusan')
             ->join('nilai_ami2_jurusan', 'auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik = nilai_ami2_jurusan.id_daftar_tilik AND nilai_ami2_jurusan.id_audit = ' . $id_audit, 'left')
             ->where('auditor_daftar_tilik_jurusan.id_dokumen_acuan', $id_dokumen_acuan)
+            ->where('auditor_daftar_tilik_jurusan.id_user', $userLogin['id'])
+            ->order_by('auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik', 'ASC')
+            ->get()
+            ->result();
+
+        return $nilai;
+    }
+
+    function tampil_daftar_tilik_tambahan_jurusan_baru($id)
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        // $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('auditor_daftar_tilik_jurusan.*, nilai_ami2_jurusan.dokumen_terkait, nilai_ami2_jurusan.hasil_observasi, nilai_ami2_jurusan.m, nilai_ami2_jurusan.mp, nilai_ami2_jurusan.mb, nilai_ami2_jurusan.my, nilai_ami2_jurusan.rekomendasi')
+            ->from('auditor_daftar_tilik_jurusan')
+            ->join('nilai_ami2_jurusan', 'auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik = nilai_ami2_jurusan.id_daftar_tilik AND nilai_ami2_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('auditor_daftar_tilik_jurusan.id_dokumen_acuan', $id)
+            ->order_by('auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik', 'ASC')
+            ->get()
+            ->result();
+
+        return $nilai;
+    }
+
+    function tampil_daftar_tilik_tambahan_admin_jurusan($id, $id_user)
+    {
+        // $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        // $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $id_user)
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('auditor_daftar_tilik_jurusan.*, nilai_ami2_jurusan.dokumen_terkait, nilai_ami2_jurusan.hasil_observasi, nilai_ami2_jurusan.m, nilai_ami2_jurusan.mp, nilai_ami2_jurusan.mb, nilai_ami2_jurusan.my, nilai_ami2_jurusan.rekomendasi')
+            ->from('auditor_daftar_tilik_jurusan')
+            ->join('nilai_ami2_jurusan', 'auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik = nilai_ami2_jurusan.id_daftar_tilik AND nilai_ami2_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('auditor_daftar_tilik_jurusan.id_dokumen_acuan', $id)
             ->order_by('auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik', 'ASC')
             ->get()
             ->result();
@@ -1610,6 +1770,58 @@ class Data_ami extends CI_Model
             ->from('auditor_hasil_desk_jurusan')
             ->join('nilai_ami_jurusan', 'auditor_hasil_desk_jurusan.id_auditor_hasil_desk = nilai_ami_jurusan.id_hasil_desk AND nilai_ami_jurusan.id_audit = ' . $id_audit, 'left')
             ->where('auditor_hasil_desk_jurusan.id_dokumen_acuan', $id_dokumen_acuan)
+            ->where('auditor_hasil_desk_jurusan.id_user', $userLogin['id'])
+            ->order_by('auditor_hasil_desk_jurusan.id_auditor_hasil_desk', 'ASC')
+            ->get()
+            ->result();
+
+
+        // var_dump($nilai);
+        return $nilai;
+    }
+
+    function tampil_hasil_desk_tambahan_jurusan_baru($id)
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        // $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('auditor_hasil_desk_jurusan.*, nilai_ami_jurusan.id_nilai, nilai_ami_jurusan.my, nilai_ami_jurusan.mb, nilai_ami_jurusan.m, nilai_ami_jurusan.mp, nilai_ami_jurusan.ob, nilai_ami_jurusan.kts, nilai_ami_jurusan.open, nilai_ami_jurusan.close, nilai_ami_jurusan.catatan, nilai_ami_jurusan.penanggungjawab')
+            ->from('auditor_hasil_desk_jurusan')
+            ->join('nilai_ami_jurusan', 'auditor_hasil_desk_jurusan.id_auditor_hasil_desk = nilai_ami_jurusan.id_hasil_desk AND nilai_ami_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('auditor_hasil_desk_jurusan.id_dokumen_acuan', $id)
+            ->order_by('auditor_hasil_desk_jurusan.id_auditor_hasil_desk', 'ASC')
+            ->get()
+            ->result();
+
+
+        // var_dump($nilai);
+        return $nilai;
+    }
+
+
+    function tampil_hasil_desk_tambahan_admin_jurusan($id, $id_user)
+    {
+        // $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        // $id_dokumen_acuan = $this->uri->segment(3);
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $id_user)
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $nilai = $this->db->select('auditor_hasil_desk_jurusan.*, nilai_ami_jurusan.id_nilai, nilai_ami_jurusan.my, nilai_ami_jurusan.mb, nilai_ami_jurusan.m, nilai_ami_jurusan.mp, nilai_ami_jurusan.ob, nilai_ami_jurusan.kts, nilai_ami_jurusan.open, nilai_ami_jurusan.close, nilai_ami_jurusan.catatan, nilai_ami_jurusan.penanggungjawab')
+            ->from('auditor_hasil_desk_jurusan')
+            ->join('nilai_ami_jurusan', 'auditor_hasil_desk_jurusan.id_auditor_hasil_desk = nilai_ami_jurusan.id_hasil_desk AND nilai_ami_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('auditor_hasil_desk_jurusan.id_dokumen_acuan', $id)
             ->order_by('auditor_hasil_desk_jurusan.id_auditor_hasil_desk', 'ASC')
             ->get()
             ->result();
@@ -1778,6 +1990,102 @@ class Data_ami extends CI_Model
         );
     }
 
+    function total_hasil_desk_jurusan_baru($id)
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $id_dokumen_acuan = $id;
+
+        $getSum = $this->db->from('nilai_ami_jurusan')
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id_dokumen_acuan)
+            ->select_sum('m')
+            ->select_sum('mp')
+            ->select_sum('mb')
+            ->select_sum('my')
+            ->select_sum('ob')
+            ->select_sum('kts')
+            ->select_sum('open')
+            ->select_sum('close');
+
+        $result = $getSum->get()->row();
+
+        $m = $result->m;
+        $mp = $result->mp;
+        $mb = $result->mb;
+        $my =  $result->my;
+        $ob =  $result->ob;
+        $kts =  $result->kts;
+        $open =  $result->open;
+        $close =  $result->close;
+
+        return array(
+            'm' => $m,
+            'mp' => $mp,
+            'mb' => $mb,
+            'my' => $my,
+            'ob' =>  $ob,
+            'kts' =>  $kts,
+            'open' =>  $open,
+            'close' =>  $close,
+        );
+    }
+
+    function total_hasil_desk_admin_jurusan($id, $id_user)
+    {
+        // $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $id_user)
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $id_dokumen_acuan = $id;
+
+        $getSum = $this->db->from('nilai_ami_jurusan')
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id_dokumen_acuan)
+            ->select_sum('m')
+            ->select_sum('mp')
+            ->select_sum('mb')
+            ->select_sum('my')
+            ->select_sum('ob')
+            ->select_sum('kts')
+            ->select_sum('open')
+            ->select_sum('close');
+
+        $result = $getSum->get()->row();
+
+        $m = $result->m;
+        $mp = $result->mp;
+        $mb = $result->mb;
+        $my =  $result->my;
+        $ob =  $result->ob;
+        $kts =  $result->kts;
+        $open =  $result->open;
+        $close =  $result->close;
+
+        return array(
+            'm' => $m,
+            'mp' => $mp,
+            'mb' => $mb,
+            'my' => $my,
+            'ob' =>  $ob,
+            'kts' =>  $kts,
+            'open' =>  $open,
+            'close' =>  $close,
+        );
+    }
+
     function total_daftar_tilik_jurusan()
     {
         $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -1813,6 +2121,79 @@ class Data_ami extends CI_Model
             'my' => $my,
         );
     }
+
+    function total_daftar_tilik_jurusan_baru($id)
+    {
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $id_dokumen_acuan = $id;
+
+        $getSum = $this->db->from('nilai_ami2_jurusan')
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id_dokumen_acuan)
+            ->select_sum('m')
+            ->select_sum('mp')
+            ->select_sum('mb')
+            ->select_sum('my');
+
+        $result = $getSum->get()->row();
+
+        $m = $result->m;
+        $mp = $result->mp;
+        $mb = $result->mb;
+        $my =  $result->my;
+
+        return array(
+            'm' => $m,
+            'mp' => $mp,
+            'mb' => $mb,
+            'my' => $my,
+        );
+    }
+
+    function total_daftar_tilik_admin_jurusan($id, $id_user)
+    {
+        // $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $id_user)
+            ->get()
+            ->row()
+            ->id_audit;
+
+        $id_dokumen_acuan = $id;
+
+        $getSum = $this->db->from('nilai_ami2_jurusan')
+            ->where('id_audit', $id_audit)
+            ->where('id_dokumen_acuan', $id_dokumen_acuan)
+            ->select_sum('m')
+            ->select_sum('mp')
+            ->select_sum('mb')
+            ->select_sum('my');
+
+        $result = $getSum->get()->row();
+
+        $m = $result->m;
+        $mp = $result->mp;
+        $mb = $result->mb;
+        $my =  $result->my;
+
+        return array(
+            'm' => $m,
+            'mp' => $mp,
+            'mb' => $mb,
+            'my' => $my,
+        );
+    }
+
 
     function add_hasil_desk_tambahan_jurusan()
     {

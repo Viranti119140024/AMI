@@ -32,6 +32,18 @@
     <link href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <link href="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.css" rel="stylesheet"/>
 
+    <style>
+        @media print {
+            .page-break {
+                page-break-after: always;
+            }
+        }
+
+        .ratakanankiri {
+            text-align: justify;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">

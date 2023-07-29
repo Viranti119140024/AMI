@@ -178,15 +178,29 @@ class User extends CI_Controller
         } else {
             redirect('user/DHA');
         }
-
-
-        // $data['tindaklanjut'] = $this->Data_ami->get_data($params);
-        // $data['bab2'] = $this->Data_ami->get_data2($params);
-
-        // $this->load->view('partials/admin/header', $data);
-        // $this->load->view('templates/admin/generatehasilaudit', $data);
-        // $this->load->view('partials/admin/footer', $data);
     }
+
+    public function generate_pdf_hasil_audit_jurusan($id)
+    {
+        $data['title'] = 'Laporan Hasil Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($id);
+
+        // var_dump( $data['hasilaudit']);
+
+        if (!is_null($data['hasilaudit'])) {
+            $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/admin/generatehasilaudit', $data);
+            $this->load->view('partials/admin/footer', $data);
+        } else {
+            redirect('user/daftarjurusan');
+        }
+    }
+
 
 
     public function generate_daftar_tilik($id)
@@ -279,6 +293,140 @@ class User extends CI_Controller
 
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/admin/generatepdf_daftartilik', $data);
+        $this->load->view('partials/admin/footer', $data);
+    }
+
+
+    public function generate_daftar_tilik_jurusan($id)
+    {
+        $data['title'] = 'Generate Daftar Tilik';
+        $data['title1'] = 'Hasil Desk Evaluation';
+        $data['title2'] = 'Daftar Tilik ( Checklist )';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+
+        // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+    
+        
+        $id_user =$this->Data_ami->get_auditor_admin($id);
+        // var_dump($id_user);
+
+            // hasil desk
+        $data['tampil_hasil_desk_utama_jurusan1'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('1', $id_user);
+        $data['tampil_hasil_desk_tambahan_jurusan1'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('1', $id_user);
+        $data['total_checkbox1'] = $this->Data_ami->total_hasil_desk_admin_jurusan('1', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan1'] = $this->Data_ami->tampil_daftar_tilik_utama_admin_jurusan('1', $id_user);
+        $data['tampil_daftar_tilik_tambahan_jurusan1'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin_jurusan('1', $id_user);
+        $data['total_daftar_tilik1'] = $this->Data_ami->total_daftar_tilik_admin_jurusan('1', $id_user);
+        // var_dump( $data['tampil_hasil_desk_utama1']);
+
+        //2
+        // hasil desk
+        $data['tampil_hasil_desk_utama_jurusan2'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('2', $id_user);
+        $data['tampil_hasil_desk_tambahan_jurusan2'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('2', $id_user);
+        $data['total_checkbox2'] = $this->Data_ami->total_hasil_desk_admin_jurusan('2', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan2'] = $this->Data_ami->tampil_daftar_tilik_utama_admin_jurusan('2', $id_user);
+        $data['tampil_daftar_tilik_tambahan_jurusan2'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin_jurusan('2', $id_user);
+        $data['total_daftar_tilik2'] = $this->Data_ami->total_daftar_tilik_admin_jurusan('2', $id_user);
+
+        //3
+        // hasil desk
+        $data['tampil_hasil_desk_utama_jurusan3'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('3', $id_user);
+        $data['tampil_hasil_desk_tambahan_jurusan3'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('3', $id_user);
+        $data['total_checkbox3'] = $this->Data_ami->total_hasil_desk_admin_jurusan('3', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan3'] = $this->Data_ami->tampil_daftar_tilik_utama_admin_jurusan('3', $id_user);
+        $data['tampil_daftar_tilik_tambahan_jurusan3'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin_jurusan('3', $id_user);
+        $data['total_daftar_tilik3'] = $this->Data_ami->total_daftar_tilik_admin_jurusan('3', $id_user);
+
+        // 4
+        $data['tampil_hasil_desk_utama_jurusan4'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('4', $id_user);
+        $data['tampil_hasil_desk_tambahan_jurusan4'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('4', $id_user);
+        $data['total_checkbox4'] = $this->Data_ami->total_hasil_desk_admin_jurusan('4', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan4'] = $this->Data_ami->tampil_daftar_tilik_utama_admin_jurusan('4', $id_user);
+        $data['tampil_daftar_tilik_tambahan_jurusan4'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin_jurusan('4', $id_user);
+        $data['total_daftar_tilik4'] = $this->Data_ami->total_daftar_tilik_admin_jurusan('4', $id_user);
+
+        // 5
+        $data['tampil_hasil_desk_utama_jurusan5'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('5', $id_user);
+        $data['tampil_hasil_desk_tambahan_jurusan5'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('5', $id_user);
+        $data['total_checkbox5'] = $this->Data_ami->total_hasil_desk_admin_jurusan('5', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan5'] = $this->Data_ami->tampil_daftar_tilik_utama_admin_jurusan('5', $id_user);
+        $data['tampil_daftar_tilik_tambahan_jurusan5'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin_jurusan('5', $id_user);
+        $data['total_daftar_tilik5'] = $this->Data_ami->total_daftar_tilik_admin_jurusan('5', $id_user);
+
+        // 6
+        $data['tampil_hasil_desk_utama_jurusan6'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('6', $id_user);
+        $data['tampil_hasil_desk_tambahan_jurusan6'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('6', $id_user);
+        $data['total_checkbox6'] = $this->Data_ami->total_hasil_desk_admin_jurusan('6', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan6'] = $this->Data_ami->tampil_daftar_tilik_utama_admin_jurusan('6', $id_user);
+        $data['tampil_daftar_tilik_tambahan_jurusan6'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin_jurusan('6', $id_user);
+        $data['total_daftar_tilik6'] = $this->Data_ami->total_daftar_tilik_admin_jurusan('6', $id_user);
+
+        // 7
+        $data['tampil_hasil_desk_utama_jurusan7'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('7', $id_user);
+        $data['tampil_hasil_desk_tambahan_jurusan7'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('7', $id_user);
+        $data['total_checkbox7'] = $this->Data_ami->total_hasil_desk_admin_jurusan('7', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan7'] = $this->Data_ami->tampil_daftar_tilik_utama_admin_jurusan('7', $id_user);
+        $data['tampil_daftar_tilik_tambahan_jurusan7'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin_jurusan('7', $id_user);
+        $data['total_daftar_tilik7'] = $this->Data_ami->total_daftar_tilik_admin_jurusan('7', $id_user);
+
+        // 8
+        $data['tampil_hasil_desk_utama_jurusan8'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('8', $id_user);
+        $data['tampil_hasil_desk_tambahan_jurusan8'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('8', $id_user);
+        $data['total_checkbox8'] = $this->Data_ami->total_hasil_desk_admin_jurusan('8', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan8'] = $this->Data_ami->tampil_daftar_tilik_utama_admin_jurusan('8', $id_user);
+        $data['tampil_daftar_tilik_tambahan_jurusan8'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin_jurusan('8', $id_user);
+        $data['total_daftar_tilik8'] = $this->Data_ami->total_daftar_tilik_admin_jurusan('8', $id_user);
+
+        // 9
+        $data['tampil_hasil_desk_utama_jurusan9'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('9', $id_user);
+        $data['tampil_hasil_desk_tambahan_jurusan9'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('9', $id_user);
+        $data['total_checkbox9'] = $this->Data_ami->total_hasil_desk_admin_jurusan('9', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan9'] = $this->Data_ami->tampil_daftar_tilik_utama_admin_jurusan('9', $id_user);
+        $data['tampil_daftar_tilik_tambahan_jurusan9'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin_jurusan('9', $id_user);
+        $data['total_daftar_tilik9'] = $this->Data_ami->total_daftar_tilik_admin_jurusan('9', $id_user);
+
+        // 10
+        $data['tampil_hasil_desk_utama_jurusan10'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('10', $id_user);
+        $data['tampil_hasil_desk_tambahan_jurusan10'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('10', $id_user);
+        $data['total_checkbox10'] = $this->Data_ami->total_hasil_desk_admin_jurusan('10', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan10'] = $this->Data_ami->tampil_daftar_tilik_utama_admin_jurusan('10', $id_user);
+        $data['tampil_daftar_tilik_tambahan_jurusan10'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin_jurusan('10', $id_user);
+        $data['total_daftar_tilik10'] = $this->Data_ami->total_daftar_tilik_admin_jurusan('10', $id_user);
+
+        // 11
+        $data['tampil_hasil_desk_utama_jurusan11'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('11', $id_user);
+        $data['tampil_hasil_desk_tambahan_jurusan11'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('11', $id_user);
+        $data['total_checkbox11'] = $this->Data_ami->total_hasil_desk_admin_jurusan('11', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan11'] = $this->Data_ami->tampil_daftar_tilik_utama_admin_jurusan('11', $id_user);
+        $data['tampil_daftar_tilik_tambahan_jurusan11'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin_jurusan('11', $id_user);
+        $data['total_daftar_tilik11'] = $this->Data_ami->total_daftar_tilik_admin_jurusan('11', $id_user);
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/admin/generate_daftar_tilik_jurusan', $data);
         $this->load->view('partials/admin/footer', $data);
     }
 

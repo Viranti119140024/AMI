@@ -43,4 +43,10 @@
         </div>
     </div>
 
+    <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditorjurusan/generate_daftar_tilik_jurusan') ?>">
+    <div class="d-flex justify-content-end">
+        <button type="submit" class="btn btn-primary" name="submit" id="submit">Generate Daftar Tilik</button>
+    </div>
+</form>
+
 </div>
