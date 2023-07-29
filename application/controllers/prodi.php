@@ -449,7 +449,7 @@ class prodi extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         $data['tindaklanjut'] = $this->Data_ami->get_tindaklanjut($data['user']['id']);
-        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($data['user']['id']);
         // var_dump($data['tindaklanjut']);
 
         $this->load->view('partials/prodi/header', $data);
@@ -627,20 +627,18 @@ class prodi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        // $url = $_SERVER['REQUEST_URI'];
-        // $segments = explode('/', $url);
+        // $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit('56');
+        // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit('56');
 
-        // // Find the index of the parameter name
-        // $param1Index = array_search('param1', $segments);
-        // // Retrieve the parameter values
-        // $data['params'] = $segments[$param1Index + 4];
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($data['user']['id']);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
 
 
-        $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($data['params']);
-        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
-        $this->load->view('partials/auditor/header', $data);
-        $this->load->view('templates/auditor/laporanhasil/generate', $data);
-        $this->load->view('partials/auditor/footer', $data);
+
+        // var_dump($data['hasilaudit']->id_hasilaudit);
+        $this->load->view('partials/prodi/header', $data);
+        $this->load->view('templates/prodi/generatehasilaudit', $data);
+        $this->load->view('partials/prodi/footer', $data);
     }
 
 

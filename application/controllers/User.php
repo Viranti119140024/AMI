@@ -148,7 +148,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        
+
         $data['prodi'] = $this->Data_ami->get_prodi();
 
 
@@ -158,6 +158,131 @@ class User extends CI_Controller
         $this->load->view('templates/admin/dokumenhasilaudit/daftar', $data);
         $this->load->view('partials/admin/footer', $data);
     }
+
+    public function generate_pdf_hasil_audit($id)
+    {
+        $data['title'] = 'Laporan Hasil Audit';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+        // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($id);
+
+        // var_dump( $data['hasilaudit']);
+
+        if (!is_null($data['hasilaudit'])) {
+            $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/admin/generatehasilaudit', $data);
+            $this->load->view('partials/admin/footer', $data);
+        } else {
+            redirect('user/DHA');
+        }
+
+
+        // $data['tindaklanjut'] = $this->Data_ami->get_data($params);
+        // $data['bab2'] = $this->Data_ami->get_data2($params);
+
+        // $this->load->view('partials/admin/header', $data);
+        // $this->load->view('templates/admin/generatehasilaudit', $data);
+        // $this->load->view('partials/admin/footer', $data);
+    }
+
+
+    public function generate_daftar_tilik($id)
+    {
+        $data['title'] = 'Generate Daftar Tilik';
+        $data['title1'] = 'Hasil Desk Evaluation';
+        $data['title2'] = 'Daftar Tilik ( Checklist )';
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
+
+        // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+    
+        
+        $id_user =$this->Data_ami->get_auditor_admin($id);
+        // var_dump($id_user);
+
+            // hasil desk
+        $data['tampil_hasil_desk_utama1'] = $this->Data_ami->tampil_hasil_desk_utama_admin('1', $id_user);
+        $data['tampil_hasil_desk_tambahan1'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin('1', $id_user);
+        $data['total_checkbox1'] = $this->Data_ami->total_hasil_desk_admin('1', $id_user);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama1'] = $this->Data_ami->tampil_daftar_tilik_utama_admin('1', $id_user);
+        $data['tampil_daftar_tilik_tambahan1'] = $this->Data_ami->tampil_daftar_tilik_tambahan_admin('1', $id_user);
+        $data['total_daftar_tilik1'] = $this->Data_ami->total_daftar_tilik_admin('1', $id_user);
+        // var_dump( $data['tampil_hasil_desk_utama1']);
+
+        //2
+        // hasil desk
+        $data['tampil_hasil_desk_utama2'] = $this->Data_ami->tampil_hasil_desk_utama_admin('2', $id_user);
+        $data['tampil_hasil_desk_tambahan2'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('2');
+        $data['total_checkbox2'] = $this->Data_ami->total_hasil_desk_baru('2');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama2'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('2');
+        $data['tampil_daftar_tilik_tambahan2'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('2');
+        $data['total_daftar_tilik2'] = $this->Data_ami->total_daftar_tilik_baru('2');
+
+        //3
+        // hasil desk
+        $data['tampil_hasil_desk_utama3'] = $this->Data_ami->tampil_hasil_desk_utama_admin('3', $id_user);
+        $data['tampil_hasil_desk_tambahan3'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('3');
+        $data['total_checkbox3'] = $this->Data_ami->total_hasil_desk_baru('3');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama3'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('3');
+        $data['tampil_daftar_tilik_tambahan3'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('3');
+        $data['total_daftar_tilik3'] = $this->Data_ami->total_daftar_tilik_baru('3');
+
+        // 4
+        $data['tampil_hasil_desk_utama4'] = $this->Data_ami->tampil_hasil_desk_utama_admin('4', $id_user);
+        $data['tampil_hasil_desk_tambahan4'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('4');
+        $data['total_checkbox4'] = $this->Data_ami->total_hasil_desk_baru('4');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama4'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('4');
+        $data['tampil_daftar_tilik_tambahan4'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('4');
+        $data['total_daftar_tilik4'] = $this->Data_ami->total_daftar_tilik_baru('4');
+
+        // 5
+        $data['tampil_hasil_desk_utama5'] = $this->Data_ami->tampil_hasil_desk_utama_admin('5', $id_user);
+        $data['tampil_hasil_desk_tambahan5'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('5');
+        $data['total_checkbox5'] = $this->Data_ami->total_hasil_desk_baru('5');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama5'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('5');
+        $data['tampil_daftar_tilik_tambahan5'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('5');
+        $data['total_daftar_tilik5'] = $this->Data_ami->total_daftar_tilik_baru('5');
+
+        // 6
+        $data['tampil_hasil_desk_utama6'] = $this->Data_ami->tampil_hasil_desk_utama_admin('6', $id_user);
+        $data['tampil_hasil_desk_tambahan6'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('6');
+        $data['total_checkbox6'] = $this->Data_ami->total_hasil_desk_baru('6');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama6'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('6');
+        $data['tampil_daftar_tilik_tambahan6'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('6');
+        $data['total_daftar_tilik6'] = $this->Data_ami->total_daftar_tilik_baru('6');
+
+        // 7
+        $data['tampil_hasil_desk_utama7'] = $this->Data_ami->tampil_hasil_desk_utama_admin('7', $id_user);
+        $data['tampil_hasil_desk_tambahan7'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('7');
+        $data['total_checkbox7'] = $this->Data_ami->total_hasil_desk_baru('7');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama7'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('7');
+        $data['tampil_daftar_tilik_tambahan7'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('7');
+        $data['total_daftar_tilik7'] = $this->Data_ami->total_daftar_tilik_baru('7');
+
+        $this->load->view('partials/admin/header', $data);
+        $this->load->view('templates/admin/generatepdf_daftartilik', $data);
+        $this->load->view('partials/admin/footer', $data);
+    }
+
+
 
     public function pilihJdanP()
     {
@@ -282,7 +407,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-    
+
         $data['prodi'] = $this->Data_ami->get_prodi();
 
         $this->load->view('partials/admin/header', $data);
@@ -313,7 +438,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        
+
         $data['jurusan'] = $this->Data_ami->get_jurusan();
 
 
@@ -331,7 +456,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        
+
         $data['unit'] = $this->Data_ami->get_unit_baru();
 
 
@@ -1018,7 +1143,6 @@ class User extends CI_Controller
         $this->load->view('partials/admin/topbar', $data);
         $this->load->view('templates/admin/profile', $data);
         $this->load->view('partials/admin/footer', $data);
-
     }
 
 
@@ -1037,8 +1161,4 @@ class User extends CI_Controller
         $this->load->view('templates/prodi/laporanhasilprodi/generatepdf', $data);
         $this->load->view('partials/prodi/footer', $data);
     }
-
 }
-
-
-

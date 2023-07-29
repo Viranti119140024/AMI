@@ -4,12 +4,12 @@
     <div class="card mt-2">
         <div class="card-body">
             <center class="text-dark mt-8">
-                <h5><b>LAPORAN AUDIT MUTU INTERNAL <?= $hasilaudit[0]->tahun ?> <br>Program Studi <?= $hasilaudit[0]->lembaga ?> <br></b></h5>
+                <h5><b>LAPORAN AUDIT MUTU INTERNAL <?= $hasilaudit->tahun ?> <br>Program Studi <?= $hasilaudit->lembaga ?> <br></b></h5>
             </center>
 
             <center class="text-dark mt-8">
-                <!-- <h5><b> <?= $hasilaudit[0]->foto_pengesahan ?></h5> -->
-                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->foto_pengesahan) ?>" alt="Gambar">
+                <!-- <h5><b> <?= $hasilaudit->foto_pengesahan ?></h5> -->
+                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit->foto_pengesahan) ?>" alt="Gambar">
             </center>
 
             <div class="card">
@@ -20,14 +20,14 @@
                         <h4><b>KATA PENGANTAR</b></h4>
                     </center>
                     <p class="ratakanankiri">Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat
-                    dan bimbinganNya laporan Audit Mutu Internal siklus tahun <?= $hasilaudit[0]->tahun ?> Institut Teknologi
+                    dan bimbinganNya laporan Audit Mutu Internal siklus tahun <?= $hasilaudit->tahun ?> Institut Teknologi
                     Sumatera berhasil diselesaikan. Laporan ini merupakan hasil audit yang dilaksanakan oleh
-                    tim audit mutu internal berdasarkan permintaan audit Program Studi <?= $hasilaudit[0]->lembaga ?>
+                    tim audit mutu internal berdasarkan permintaan audit Program Studi <?= $hasilaudit->lembaga ?>
                     <br> <br> Laporan ini memuat beberapa temuan yang secara keseluruhan telah mendapat
                     tanggapan dari pihak teraudit. Selanjutnya dalam laporan ini juga memuat tindakan
                     permintaan koreksi untuk beberapa temuan selama pelaksanaan audit. Harapan kami, agar
                     temuan – temuan tersebut ditindaklanjuti sesuai dengan jangka waktu yang telah ditetapkan,
-                    sehingga mutu penyelengaraan layanan pendidikan di Program Studi <?= $hasilaudit[0]->lembaga ?> dapat ditingkatkan
+                    sehingga mutu penyelengaraan layanan pendidikan di Program Studi <?= $hasilaudit->lembaga ?> dapat ditingkatkan
                     </br> <br> Pada kesempatan ini, kami juga mengucapkan terimakasih kepada pihak teraudit yang
                     telah berlaku kooperatif selama proses audit berlangsung. Ucapan terima kasih juga kami
                     sampaikan kepada semua pihak yang telah berkenan membantu sehingga kegiatan audit dapat
@@ -35,11 +35,11 @@
                 </div>
 
                 <div class="text-right" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                    <p>Lampung Selatan, <?= $hasilaudit[0]->tanggal ?> </p>
+                    <p>Lampung Selatan, <?= $hasilaudit->tanggal ?> </p>
                     <p>Ketua Audit Mutu Internal </p>
                     <br></br>
                     <br></br>
-                    <p>NIP / NRK. <?= $hasilaudit[0]->NIP ?></p>
+                    <p>NIP / NRK. <?= $hasilaudit->NIP ?></p>
 
                 </div>
 
@@ -82,43 +82,43 @@
                     <br>3. Untuk menyiapkan laporan permintaan tindakan koreksi auditee sebagai dasar perbaikan mutu selanjutnya <br>4. Untuk memberi kesempatan teraudit memperbaiki sistem penjaminan mutu
                     <br>5. Untuk membantu institutsi/program studi dalam mempersiapakan diri dalam rangka audit eksternal atau akreditasi.
                     <br> <br> <b> 1.3 Waktu dan Pelaksanaan Audit</b><br>
-                    <br> Kegiatan Audit Mutu Internal periode <?= $hasilaudit[0]->periode ?> tahun <?= $hasilaudit[0]->tahun ?> oleh tim Auditor LP3M ITERA dilakukan pada:
+                    <br> Kegiatan Audit Mutu Internal periode <?= $hasilaudit->periode ?> tahun <?= $hasilaudit->tahun ?> oleh tim Auditor LP3M ITERA dilakukan pada:
                     <div class="table-responsive mt-2">
                         <table class="table table-borderless" style="color:black;">
                             <tr>
                                 <td width="300px">Hari / Tanggal</td>
                                 <td width="10px">:</td>
-                                <td><?= $hasilaudit[0]->hari_tgl ?></td>
+                                <td><?= $hasilaudit->hari_tgl ?></td>
                             </tr>
 
                             <tr>
                                 <td>Waktu Pelaksanaan</td>
                                 <td>:</td>
-                                <td><?= $hasilaudit[0]->waktu ?></td>
+                                <td><?= $hasilaudit->waktu ?></td>
                             </tr>
 
                             <tr>
                                 <td>Tempat Kegiatan</td>
                                 <td>:</td>
-                                <td><?= $hasilaudit[0]->tempat ?></td>
+                                <td><?= $hasilaudit->tempat ?></td>
                             </tr>
 
                             <tr>
                                 <td>Auditor</td>
                                 <td>:</td>
-                                <td><?= $hasilaudit[0]->auditor ?></td>
+                                <td><?= $hasilaudit->auditor ?></td>
                             </tr>
 
                             <tr>
                                 <td>Auditee</td>
                                 <td>:</td>
-                                <td><?= $hasilaudit[0]->auditee ?></td>
+                                <td><?= $hasilaudit->auditee ?></td>
                             </tr>
 
                             <tr>
                                 <td>Dokumentasi</td>
                                 <td>:</td>
-                                <td><img style="width: 600px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->dokumentasi) ?>" alt="Gambar" </td>
+                                <td><img style="width: 600px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit->dokumentasi) ?>" alt="Gambar" </td>
                             </tr>
                         </table>
                     </div>
@@ -138,7 +138,7 @@
 
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                    <!-- <a class="btn btn-success" type="button" href="<?= base_url('auditor/isidata2/') . $hasilaudit[0]->id_hasilaudit ?>" class="text-white" href="#">+ Tambah</a> -->
+                    <!-- <a class="btn btn-success" type="button" href="<?= base_url('auditor/isidata2/') . $hasilaudit->id_hasilaudit ?>" class="text-white" href="#">+ Tambah</a> -->
                     <!-- <a class="btn btn-danger" type="button" href="<?= base_url('auditor/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
                     
@@ -153,7 +153,7 @@
                             <tr>
                                 <td width="300px">Program Studi</td>
                                 <td width="10px">:</td>
-                                <td><?= $hasilaudit[0]->lembaga ?></td>
+                                <td><?= $hasilaudit->lembaga ?></td>
                             </tr>
 
                             <tr>
@@ -165,19 +165,19 @@
                             <tr>
                                 <td>Auditor</td>
                                 <td>:</td>
-                                <td><?= $hasilaudit[0]->auditor ?></td>
+                                <td><?= $hasilaudit->auditor ?></td>
                             </tr>
 
                             <tr>
                                 <td>Tanggal DE</td>
                                 <td>:</td>
-                                <td><?= $hasilaudit[0]->tanggalDE ?></td>
+                                <td><?= $hasilaudit->tanggalDE ?></td>
                             </tr>
 
                             <tr>
                                 <td>Jangka Waktu Perbaikan</td>
                                 <td>:</td>
-                                <td><?= $hasilaudit[0]->jangka_waktu ?></td>
+                                <td><?= $hasilaudit->jangka_waktu ?></td>
                             </tr>
                         </table>
                     </div>

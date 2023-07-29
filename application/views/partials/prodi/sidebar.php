@@ -14,7 +14,7 @@
                 <span class="itemcolor">Dokumen Kebutuhan Audit</span></a>
 
         <li class="list-group">
-            <a class="list-group-item" <?php if ($hasilaudit !== null) : ?> href="<?= base_url('Prodi/generate_pdf_hasil_audit/' . $hasilaudit) ?>" <?php else : ?> href="" <?php endif; ?>>
+            <a class="list-group-item" href="<?= base_url('Prodi/generate_pdf_hasil_audit/') ?>" >
                 <i class="fa fa-list-alt itemcolor"></i>
                 <span class="itemcolor">Laporan Hasil Audit</span></a>
 
