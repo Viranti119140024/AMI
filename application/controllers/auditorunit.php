@@ -469,6 +469,10 @@ class auditorunit extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+
 
         $data['tindaklanjut'] = $this->Data_ami->get_data($params);
         $data['bab2'] = $this->Data_ami->get_data2($params);

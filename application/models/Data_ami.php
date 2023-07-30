@@ -371,6 +371,31 @@ class Data_ami extends CI_Model
         return $query->result();
     }
 
+    function get_id_tindak_lanjut_baru($id)
+    {
+
+        // var_dump($id);
+        // $id_auditor = $this->db->select('user.id')
+        //     ->from('user')
+        //     ->where('id_audit', $id)
+        //     ->limit(1)
+        //     ->get()
+        //     ->row()
+        //     ->id;
+
+        // var_dump($id_auditor);
+
+        $result = $this->db->select('*')
+            ->from('tindaklanjut')
+            ->where('id_user', $id)
+            ->limit(1)
+            ->get()
+            ->row();
+
+        return $result;
+
+    }
+
     public function get_data_by_id($id)
     {
         // $query = $this->db->query("SELECT * FROM prodi");
@@ -398,6 +423,7 @@ class Data_ami extends CI_Model
         // var_dump($id);
         return $query->result();
     }
+
 
     public function get_data2_by_id($id)
     {
@@ -3468,7 +3494,6 @@ class Data_ami extends CI_Model
         // var_dump($id);
         return $query->result();
     }
-
 
     public function get_data2_by_id_hasil_audit($id)
     {

@@ -212,7 +212,7 @@ class auditorjurusan extends CI_Controller
 
         $this->Data_ami->tambah_hasilaudit($id);
         $this->session->set_flashdata('flash', 'ditambahkan');
-        redirect('auditor/laporanakhir/' . $id);
+        redirect('auditorjurusan/laporanakhir/' . $id);
     }
 
 

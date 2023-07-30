@@ -13,15 +13,9 @@
   <div class="card">
     <div class="card-body" style="color: black;">
       <form>
-        <div class="form-group row">
-          <label for="inputName" class="col-sm-2 col-form-label">Nama</label>
-          <div class="col-sm-10">
-            <input type="name" class="form-control" id="inputName" value="<?= $user['name'] ?>">
-          </div>
-        </div>
 
         <div class="form-group row">
-          <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+          <label for="inputEmail" class="col-sm-2 col-form-label">Username</label>
           <div class="col-sm-10">
             <input type="email" class="form-control" id="inputEmail" value="<?= $user['email'] ?>">
           </div>
@@ -34,18 +28,6 @@
           </div>
         </div>
 
-        <div class="form-group row">
-          <label for="exampleFormControlFile1" class="col-sm-2 col-form-label">Foto</label>
-          <div class="col-sm-10">
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-          </div>
-        </div>
-      </form>
-
-
-
-      <div class=" row justify-content-center pt-5 pb-5">
-        <div class="col-3">
-          <button type="submit" class="btn btn-success" name="submit" id="submit">Logout</button>
-        </div>
-      </div>
+    </div>
+  </div>
+</div>

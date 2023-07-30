@@ -41,11 +41,11 @@
                     Daftar Tilik
                   </button>
                 </a>
-                <a href="<?= base_url('User/verifikasi/') . $value->id ?>">
+                <!-- <a href="<?= base_url('User/verifikasi/') . $value->id ?>">
                   <button type="lihat" class="btn btn-secondary">
                     Verifikasi
                   </button>
-                </a>
+                </a> -->
               </td>
     </div>
     </td>

@@ -40,11 +40,11 @@
                     Daftar Tilik
                   </button>
                 </a>
-                <a href="#">
+                <!-- <a href="#">
                   <button type="lihat" class="btn btn-secondary">
                     Upload
                   </button>
-                </a>
+                </a> -->
               </td>
     </div>
     </td>

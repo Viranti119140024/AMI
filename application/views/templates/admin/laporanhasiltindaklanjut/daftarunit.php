@@ -23,17 +23,20 @@
           </tr>
         </thead>
         <tbody>
-        <?php
+          <?php
           foreach ($unit as $key => $value) :
             $number = $key + 1;
           ?>
             <tr>
               <th scope style="color: black;"="row"><?= $number; ?></th>
               <td style="color: black;"><?= $value->email ?></td>
-              <td>
-                <a href="#"><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
-                <!-- <a href="<?= base_url('user/downloaddokumen') ?>"><button type="download" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fas fa-download" style="color: #008000;"></i></button></a> -->
-                <!-- <a href="<?= base_url('user/deleteprodi/') . $value->id ?>"><button type="delete" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-trash" style="color: #8B0000;"></i></button></a> -->
+              <td class="text">
+                <a href="<?= base_url('User/generate_pdf_tindaklanjut_unit/') . $value->id ?>">
+                  <button type="lihat" class="btn btn-success">
+                    Lihat
+                  </button>
+                </a>
+              </td>
     </div>
     </td>
     </tr>
@@ -42,6 +45,10 @@
   </tbody>
   </table>
   </div>
+</div>
+
+
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

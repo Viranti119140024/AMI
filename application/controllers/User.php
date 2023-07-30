@@ -180,6 +180,66 @@ class User extends CI_Controller
         }
     }
 
+    public function generate_pdf_tindaklanjut($id)
+    {
+        $data['title'] = 'Laporan Hasil Tindak Lanjut';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+
+        $data['tindaklanjut'] = $this->Data_ami->get_id_tindak_lanjut_baru($id);
+
+        // var_dump( $data['tindaklanjut']);
+        if (!is_null($data['tindaklanjut'])) {
+            $data['bab2'] = $this->Data_ami->get_data2($data['tindaklanjut']->id_tindaklanjut);
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/admin/generatepdf_tindaklanjut', $data);
+            $this->load->view('partials/admin/footer', $data);
+        } else {
+            redirect('user/laporantlprodi');
+        }
+    }
+
+    public function generate_pdf_tindaklanjut_jurusan($id)
+    {
+        $data['title'] = 'Laporan Hasil Tindak Lanjut';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+
+        $data['tindaklanjut'] = $this->Data_ami->get_id_tindak_lanjut_baru($id);
+
+        // var_dump( $data['tindaklanjut']);
+        if (!is_null($data['tindaklanjut'])) {
+            $data['bab2'] = $this->Data_ami->get_data2($data['tindaklanjut']->id_tindaklanjut);
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/admin/generatepdf_tindaklanjut', $data);
+            $this->load->view('partials/admin/footer', $data);
+        } else {
+            redirect('user/laporanhasil');
+        }
+    }
+
+    public function generate_pdf_tindaklanjut_unit($id)
+    {
+        $data['title'] = 'Laporan Hasil Tindak Lanjut';
+        $data['user'] = $this->db->get_where('user', ['email' =>
+        $this->session->userdata('email')])->row_array();
+
+
+        $data['tindaklanjut'] = $this->Data_ami->get_id_tindak_lanjut_baru($id);
+
+        // var_dump( $data['tindaklanjut']);
+        if (!is_null($data['tindaklanjut'])) {
+            $data['bab2'] = $this->Data_ami->get_data2($data['tindaklanjut']->id_tindaklanjut);
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/admin/generatepdf_tindaklanjut', $data);
+            $this->load->view('partials/admin/footer', $data);
+        } else {
+            redirect('user/ltlunit');
+        }
+    }
+
     public function generate_pdf_hasil_audit_jurusan($id)
     {
         $data['title'] = 'Laporan Hasil Audit';
@@ -234,12 +294,12 @@ class User extends CI_Controller
 
 
         // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
-    
-        
-        $id_user =$this->Data_ami->get_auditor_admin($id);
+
+
+        $id_user = $this->Data_ami->get_auditor_admin($id);
         // var_dump($id_user);
 
-            // hasil desk
+        // hasil desk
         $data['tampil_hasil_desk_utama1'] = $this->Data_ami->tampil_hasil_desk_utama_admin('1', $id_user);
         $data['tampil_hasil_desk_tambahan1'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin('1', $id_user);
         $data['total_checkbox1'] = $this->Data_ami->total_hasil_desk_admin('1', $id_user);
@@ -314,13 +374,12 @@ class User extends CI_Controller
 
         if (!is_null($id_user)) {
             // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
-        $this->load->view('partials/admin/header', $data);
-        $this->load->view('templates/admin/generatepdf_daftartilik', $data);
-        $this->load->view('partials/admin/footer', $data);
-    } else {
-        redirect('user/daftarjurusan');
-    }
-
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/admin/generatepdf_daftartilik', $data);
+            $this->load->view('partials/admin/footer', $data);
+        } else {
+            redirect('user/daftarjurusan');
+        }
     }
 
 
@@ -335,12 +394,12 @@ class User extends CI_Controller
 
 
         // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
-    
-        
-        $id_user =$this->Data_ami->get_auditor_admin($id);
+
+
+        $id_user = $this->Data_ami->get_auditor_admin($id);
         // var_dump($id_user);
 
-            // hasil desk
+        // hasil desk
         $data['tampil_hasil_desk_utama_jurusan1'] = $this->Data_ami->tampil_hasil_desk_utama_admin_jurusan('1', $id_user);
         $data['tampil_hasil_desk_tambahan_jurusan1'] = $this->Data_ami->tampil_hasil_desk_tambahan_admin_jurusan('1', $id_user);
         $data['total_checkbox1'] = $this->Data_ami->total_hasil_desk_admin_jurusan('1', $id_user);
@@ -456,7 +515,6 @@ class User extends CI_Controller
         $this->load->view('partials/admin/header', $data);
         $this->load->view('templates/admin/generate_daftar_tilik_jurusan', $data);
         $this->load->view('partials/admin/footer', $data);
-       
     }
 
     public function generate_daftar_tilik_unit($id)
@@ -469,14 +527,14 @@ class User extends CI_Controller
 
 
         // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
-    
-        
-        $id_user =$this->Data_ami->get_auditor_admin($id);
+
+
+        $id_user = $this->Data_ami->get_auditor_admin($id);
         // var_dump($id_user);
 
-        
+
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
-       
+
         // hasil desk
         $data['tampil_hasil_desk_tambahan_unit'] = $this->Data_ami->tampil_hasil_desk_tambahan_unit_admin($id_user);
         $data['total_checkbox'] = $this->Data_ami->total_hasil_desk_unit_admin($id_user);
@@ -487,13 +545,12 @@ class User extends CI_Controller
 
         if (!is_null($id_user)) {
             // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
-        $this->load->view('partials/admin/header', $data);
-        $this->load->view('templates/admin/generate_daftartilik_unit', $data);
-        $this->load->view('partials/admin/footer', $data);
-    } else {
-        redirect('user/daftarunit');
-    }
-
+            $this->load->view('partials/admin/header', $data);
+            $this->load->view('templates/admin/generate_daftartilik_unit', $data);
+            $this->load->view('partials/admin/footer', $data);
+        } else {
+            redirect('user/daftarunit');
+        }
     }
 
 
@@ -1419,5 +1476,4 @@ class User extends CI_Controller
             redirect('user/generate_pdf_hasil_audit');
         }
     }
-
 }

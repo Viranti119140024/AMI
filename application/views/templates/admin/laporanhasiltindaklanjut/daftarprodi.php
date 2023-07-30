@@ -29,20 +29,9 @@
               <th scope style="color: black;"="row"><?= $number; ?></th>
               <td style="color: black;"><?= $value->email ?></td>
               <td class="text">
-                <a href="#">
-                  <!-- <a <?php if ($hasil_tindak_lanjut !== null) : ?> href="<?= base_url('user/generate_pdf/' . $hasil_tindak_lanjut) ?>" <?php else : ?> href="" <?php endif; ?>> -->
+                <a href="<?= base_url('User/generate_pdf_tindaklanjut/') . $value->id ?>">
                   <button type="lihat" class="btn btn-success">
                     Lihat
-                  </button>
-                </a>
-                <a href="#">
-                  <button type="lihat" class="btn btn-primary">
-                    Daftar Tilik
-                  </button>
-                </a>
-                <a href="#">
-                  <button type="upload" class="btn btn-secondary">
-                    Upload
                   </button>
                 </a>
               </td>
@@ -61,7 +50,9 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src ="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/v/dt/dt-1.13.4/datatables.min.js"></script>
 
-<script> let table = new DataTable('#myTable'); </script>
+<script>
+  let table = new DataTable('#myTable');
+</script>

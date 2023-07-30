@@ -43,6 +43,7 @@ class jurusan_controller extends CI_Controller
         // var_dump((int)$data['user']['id']);
 
         $data['dokumen'] = $this->Data_ami->get_dokjurusan($data['user']['id']);
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($data['user']['id']);
 
         // var_dump($this->Data_ami->get_dokjurusan( (int)$data['user']['id']));
 

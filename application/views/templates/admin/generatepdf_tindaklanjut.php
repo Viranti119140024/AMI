@@ -4,12 +4,12 @@
     <div class="card mt-2">
         <div class="card-body">
             <center style="font: bold;" class="text-dark mt-8">
-                <h5><b>LAPORAN TINDAK LANJUT AUDIT MUTU INTERNAL <?= $tindaklanjut[0]->periode ?> <br>Program Studi <?= $tindaklanjut[0]->lembaga ?> <br></b></h5>
+                <h5><b>LAPORAN TINDAK LANJUT AUDIT MUTU INTERNAL <?= $tindaklanjut->periode ?> <br>Program Studi <?= $tindaklanjut->lembaga ?> <br></b></h5>
             </center>
 
             <center class="text-dark mt-8">
-                <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->foto_pengesahan ?></h5> -->
-                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->foto_pengesahan) ?>" alt="Gambar">
+                <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut->foto_pengesahan ?></h5> -->
+                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut->foto_pengesahan) ?>" alt="Gambar">
             </center>
 
 
@@ -24,8 +24,8 @@
                             <br></br>
                             <h4><b>KATA PENGANTAR</b></h4>
                         </center>
-                        Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat dan bimbinganNya laporan tindak lanjut temuan Audit Mutu Internal siklus periode <?= $tindaklanjut[0]->periode ?> tahun
-                        <?= $tindaklanjut[0]->tahun ?> Program Studi <?= $tindaklanjut[0]->lembaga ?> berhasil diselesaikan. Laporan ini merupakan salah satu bentuk komitmen Studi/Jurusan/Unit Kerja untuk meningkatkan mutu penyelenggaraan
+                        Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat dan bimbinganNya laporan tindak lanjut temuan Audit Mutu Internal siklus periode <?= $tindaklanjut->periode ?> tahun
+                        <?= $tindaklanjut->tahun ?> Program Studi <?= $tindaklanjut->lembaga ?> berhasil diselesaikan. Laporan ini merupakan salah satu bentuk komitmen Studi/Jurusan/Unit Kerja untuk meningkatkan mutu penyelenggaraan
                         pendidikan. <br> <br> Laporan ini memuat beberapa tindakan koreksi dari temuan berdasarkan laporan audit
                         mutu internal yang telah diberikan LP3M ITERA. Beberapa temuan telah ditindaklanjuti dan
                         dikoreksi berdasarkan masukan dari audit serta waktu yang telah ditetapkan sebelumnya.
@@ -36,14 +36,14 @@
                     </div>
 
                     <div class="text-right" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                        <p>Lampung Selatan, <?= $tindaklanjut[0]->tanggal ?> </p>
-                        <p>Auditee <br> <?= $tindaklanjut[0]->auditee ?> </br></p>
+                        <p>Lampung Selatan, <?= $tindaklanjut->tanggal ?> </p>
+                        <p>Auditee <br> <?= $tindaklanjut->auditee ?> </br></p>
 
                         <br></br>
                         <br></br>
 
 
-                        <p>NIP / NRK. <?= $tindaklanjut[0]->nrk ?> </p>
+                        <p>NIP / NRK. <?= $tindaklanjut->nrk ?> </p>
 
                     </div>
 
@@ -63,7 +63,7 @@
                         Pelaksanaan, Evaluasi, Pengendalian dan Pengembangan standar yang telah ditetapkan. Pada tahapan Evaluasi dapt dilakukan melalui Audit Mutu Intenal.</br> <br> Audit Mutu Internal (AMI) merupakan suatu pemeriksaan yang sistematis dan
                         independen untuk menentukan apakah kegiatan dalam menjaga mutu serta hasilnya telah dilaksanakan secara efektif sesuai dengan standar pendidikan tinggi ITERA.Standar mutu
                         ditetapkan untuk mencapai tujuan ITERA yang telah dituangkan dalam SK Rektor Institut Teknologi Sumatera Nomor 722/IT9.A/KP.06.06/2022 tentang Sistem Penjaminan Mutu
-                        Internal Institut Teknologi Sumatera. <br><br> Pelaksanaan audit mutu periode tahun <?= $tindaklanjut[0]->periode ?> merupakan kegiatan audit pertama kali yang
+                        Internal Institut Teknologi Sumatera. <br><br> Pelaksanaan audit mutu periode tahun <?= $tindaklanjut->periode ?> merupakan kegiatan audit pertama kali yang
                         dilakukan oleh sistem penjamin mutu ITERA. Pada periode pertama,audit dilakukan untuk memeriksa kesesuaian mutu akademik di tingkat Program Studi. Mutu penelitian dan
                         pengabdian kepada masyarakat akan dilakukan pada periode kedua audit. Proses audit dilaksanakan dalam 2 tahap, yaitu desk evaluation dan audit lapangan. Aspek yang
                         dievaluasi untuk kinerja unit adalah proses atau kegiatan yang berdasarkan kesesuaian dengan 5 standar mutu pendidikan, yaitu (1) standar kompetensi lulusan, (2) standar isi
@@ -75,43 +75,43 @@
                         <br>3. Untuk menyiapkan laporan permintaan tindakan koreksi auditee sebagai dasar perbaikan mutu selanjutnya <br>4. Untuk memberi kesempatan teraudit memperbaiki sistem penjaminan mutu
                         <br>5. Untuk membantu institutsi/program studi dalam mempersiapakan diri dalam rangka audit eksternal atau akreditasi.
                         <br> <br> <b> 1.3 Waktu dan Pelaksanaan Audit</b><br>
-                        <br> Kegiatan Audit Mutu Internal periode <?= $tindaklanjut[0]->periode ?> tahun <?= $tindaklanjut[0]->tahun ?> oleh tim Auditor LP3M ITERA dilakukan pada:
+                        <br> Kegiatan Audit Mutu Internal periode <?= $tindaklanjut->periode ?> tahun <?= $tindaklanjut->tahun ?> oleh tim Auditor LP3M ITERA dilakukan pada:
                         <div class="table-responsive mt-2">
                             <table class="table table-borderless" style="color:black;">
                                 <tr>
                                     <td width="300px">Hari / Tanggal</td>
                                     <td width="10px">:</td>
-                                    <td><?= $tindaklanjut[0]->hari_tgl ?></td>
+                                    <td><?= $tindaklanjut->hari_tgl ?></td>
                                 </tr>
 
                                 <tr>
                                     <td>Waktu Pelaksanaan</td>
                                     <td>:</td>
-                                    <td><?= $tindaklanjut[0]->waktu ?></td>
+                                    <td><?= $tindaklanjut->waktu ?></td>
                                 </tr>
 
                                 <tr>
                                     <td>Tempat Kegiatan</td>
                                     <td>:</td>
-                                    <td><?= $tindaklanjut[0]->tempat ?></td>
+                                    <td><?= $tindaklanjut->tempat ?></td>
                                 </tr>
 
                                 <tr>
                                     <td>Auditor</td>
                                     <td>:</td>
-                                    <td><?= $tindaklanjut[0]->auditor ?></td>
+                                    <td><?= $tindaklanjut->auditor ?></td>
                                 </tr>
 
                                 <tr>
                                     <td>Auditee</td>
                                     <td>:</td>
-                                    <td><?= $tindaklanjut[0]->auditee ?></td>
+                                    <td><?= $tindaklanjut->auditee ?></td>
                                 </tr>
 
                                 <tr>
                                     <td>Dokumentasi</td>
                                     <td>:</td>
-                                    <td><img style="width: 600px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->dokumentasi) ?>" alt="Gambar" </td>
+                                    <td><img style="width: 600px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut->dokumentasi) ?>" alt="Gambar" </td>
                                 </tr>
                             </table>
                         </div>
@@ -130,7 +130,7 @@
 
                 <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                        <!-- <a class="btn btn-success" type="button" href="<?= base_url('prodi/isidata2/') . $tindaklanjut[0]->id_tindaklanjut ?>" class="text-white" href="#">+ Tambah</a> -->
+                        <!-- <a class="btn btn-success" type="button" href="<?= base_url('prodi/isidata2/') . $tindaklanjut->id_tindaklanjut ?>" class="text-white" href="#">+ Tambah</a> -->
                         <!-- <a class="btn btn-danger" type="button" href="<?= base_url('prodi/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
                         <center class="text-dark mt-8" style="color:black;">
@@ -139,7 +139,7 @@
                             <div class="page-break"></div>
                             <h4><b>BAB II <br> TINDAK LANJUT </br></b></h4>
                         </center>
-                        <b> A.1 TEMUAN <?= $tindaklanjut[0]->temuan ?></b>
+                        <b> A.1 TEMUAN <?= $tindaklanjut->temuan ?></b>
 
                         <center>
                             <li class="list-group-item mt-2" style="background-color: #ffa07a; color:black;"><b>PERMINTAAN TINDAKAN KOREKSI</b></li>
@@ -150,7 +150,7 @@
                                 <tr>
                                     <td width="300px">Program Studi/Jurusan/Unit</td>
                                     <td width="10px">:</td>
-                                    <td><?= $tindaklanjut[0]->prodi ?></td>
+                                    <td><?= $tindaklanjut->prodi ?></td>
                                 </tr>
 
                                 <tr>
@@ -168,7 +168,7 @@
                                 <tr>
                                     <td>Ruang Lingkup DE</td>
                                     <td>:</td>
-                                    <td><?= $tindaklanjut[0]->ruanglingkup ?></td>
+                                    <td><?= $tindaklanjut->ruanglingkup ?></td>
                                 </tr>
 
                                 <tr>
@@ -180,13 +180,13 @@
                                 <tr>
                                     <td>Tanggal DE</td>
                                     <td>:</td>
-                                    <td><?= $tindaklanjut[0]->tanggalDE ?></td>
+                                    <td><?= $tindaklanjut->tanggalDE ?></td>
                                 </tr>
 
                                 <tr>
                                     <td>Dokumen Acuan</td>
                                     <td>:</td>
-                                    <td><?= $tindaklanjut[0]->dokumenacuan ?></td>
+                                    <td><?= $tindaklanjut->dokumenacuan ?></td>
                                 </tr>
                             </table>
                         </div>
@@ -240,14 +240,14 @@
                             </table>
                         </div>
 
-                        <b> A.2 TINDAK LANJUT TEMUAN <?= $tindaklanjut[0]->temuan ?></b>
+                        <b> A.2 TINDAK LANJUT TEMUAN <?= $tindaklanjut->temuan ?></b>
 
                         <div class="form-group">
                             <center>
                                 <li class="list-group-item mt-2" style="background-color: #6B8E23; color:black;"><b>KODE TEMUAN :</b></li>
                             </center>
                             <label for="exampleFormControlTextarea1"></label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3"> <?= $tindaklanjut[0]->a2 ?></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3"> <?= $tindaklanjut->a2 ?></textarea>
                         </div>
 
                         <div class="card">
@@ -261,7 +261,7 @@
 
                                 <div class="form-group">
                                     <label for="exampleFormControlTextarea1"></label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"> <?= $tindaklanjut[0]->kesimpulan ?></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1"> <?= $tindaklanjut->kesimpulan ?></textarea>
                                 </div>
 
                             </div>

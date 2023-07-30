@@ -449,7 +449,7 @@ class prodi extends CI_Controller
         $this->session->userdata('email')])->row_array();
 
         $data['tindaklanjut'] = $this->Data_ami->get_tindaklanjut($data['user']['id']);
-        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($data['user']['id']);
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
         // var_dump($data['tindaklanjut']);
 
         $this->load->view('partials/prodi/header', $data);
@@ -631,7 +631,7 @@ class prodi extends CI_Controller
         // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit('56');
 
         $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($data['user']['id']);
-        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
+        // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
 
 
 
