@@ -292,20 +292,6 @@ class prodi extends CI_Controller
         $this->load->view('partials/prodi/footer', $data);
     }
 
-    // public function generate_pdf_hasil_audit($params)
-    // {
-    //     $data['title'] = 'Laporan Hasil Audit';
-    //     $data['user'] = $this->db->get_where('user', ['email' =>
-    //     $this->session->userdata('email')])->row_array();
-
-    //     $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($params);
-    //     $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($params);
-    //     $this->load->view('partials/auditor/header', $data);
-    //     $this->load->view('templates/auditor/laporanhasil/generate', $data);
-    //     $this->load->view('partials/auditor/footer', $data);
-    // }
-
-
 
     //form untuk semua 
 
@@ -630,7 +616,7 @@ class prodi extends CI_Controller
         // $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit('56');
         // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit('56');
 
-        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($data['user']['id']);
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
         // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
 
 
@@ -640,44 +626,4 @@ class prodi extends CI_Controller
         $this->load->view('templates/prodi/generatehasilaudit', $data);
         $this->load->view('partials/prodi/footer', $data);
     }
-
-
-
-
-
-
-
-
-    //upload dokumen
-
-    // public function update($id)
-    // {
-    //     $data['gambar'] = array(
-    //         'nama_file' => $this->input->post('nama_file'),
-    //         'type' => $this->input->post('type'),
-    //         'ukuran' => $this->input->post('ukuran'),
-    //     );
-
-    //     if ($_FILES['image']['nama_file']) {
-    //         $config['upload_path'] = './uploads/';
-    //         $config['allowed_types'] = 'pdf';
-    //         $config['max_size'] = 2048; // 2MB
-
-    //         $this->upload->initialize($config);
-
-    //         if (!$this->upload->do_upload('image')) {
-    //             $error = array('error' => $this->upload->display_errors());
-    //             $this->load->view('dokumen', $error);
-    //         } else {
-    //             var_dump($data['gambar']);
-    //             // $upload_data = $this->upload->data();
-    //             // $data['nama_file'] = $upload_data['nama_file'];
-    //             // $data['type'] = $upload_data['type'];
-    //             // $data['ukuran'] = $upload_data['ukuran'];
-    //         }
-    //     }
-
-    //     // $this->Data_ami->update_dokumen($id, $data);
-    //     // redirect('prodi/show/' . $id);
-    // }
 }

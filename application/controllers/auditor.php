@@ -192,18 +192,30 @@ class auditor extends CI_Controller
         }
     }
 
-    public function generate_pdf($params)
+    // public function generate_pdf($params)
+    // {
+    //     $data['title'] = 'Laporan Hasil Tindak Lanjut';
+    //     $data['user'] = $this->db->get_where('user', ['email' =>
+    //     $this->session->userdata('email')])->row_array();
+
+
+    //     $data['tindaklanjut'] = $this->Data_ami->get_data($params);
+    //     $data['bab2'] = $this->Data_ami->get_data2($params);
+    //     $this->load->view('partials/prodi/header', $data);
+    //     $this->load->view('templates/prodi/laporanhasilprodi/generatepdf', $data);
+    //     $this->load->view('partials/prodi/footer', $data);
+    // }
+
+    public function generate_pdf_tindaklanjut()
     {
         $data['title'] = 'Laporan Hasil Tindak Lanjut';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-
-        $data['tindaklanjut'] = $this->Data_ami->get_data($params);
-        $data['bab2'] = $this->Data_ami->get_data2($params);
-        $this->load->view('partials/prodi/header', $data);
-        $this->load->view('templates/prodi/laporanhasilprodi/generatepdf', $data);
-        $this->load->view('partials/prodi/footer', $data);
+        $data['tindaklanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+        $this->load->view('partials/auditor/header', $data);
+        $this->load->view('templates/auditor/generate_pdf_tindaklanjut', $data);
+        $this->load->view('partials/auditor/footer', $data);
     }
 
 

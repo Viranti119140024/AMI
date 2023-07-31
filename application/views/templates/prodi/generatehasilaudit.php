@@ -5,7 +5,7 @@
         <div class="card">
             <div class="card-body">
                 <center class="text-dark mt-8">
-                    <h5><b>BELUM ADA DATA</b></h5>
+                    <h5><b>AUDITOR BELUM MEMBUAT LAPORAN HASIL AUDIT</b></h5>
                 </center>
             </div>
         </div>
@@ -220,13 +220,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <!-- </div>
-                <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditor/generate_pdf/' . $params) ?>">
-                    <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
-                    </div>
-                </form>
-            </div> -->
+                
 
                     </div>
                 </div>

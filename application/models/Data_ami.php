@@ -374,16 +374,6 @@ class Data_ami extends CI_Model
     function get_id_tindak_lanjut_baru($id)
     {
 
-        // var_dump($id);
-        // $id_auditor = $this->db->select('user.id')
-        //     ->from('user')
-        //     ->where('id_audit', $id)
-        //     ->limit(1)
-        //     ->get()
-        //     ->row()
-        //     ->id;
-
-        // var_dump($id_auditor);
 
         $result = $this->db->select('*')
             ->from('tindaklanjut')
