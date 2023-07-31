@@ -1,30 +1,34 @@
-<?php 
+<?php
 
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-if (!function_exists('generate_custom_id')) {
-    function generate_custom_id($prefix, $id, $table)
-    {
-        $CI =& get_instance();
-        $CI->load->database();
+function generate_custom_id($prefix, $column, $table)
+{
+    $CI = &get_instance();
+    $CI->load->database();
 
-        $prefix = strtoupper($prefix); // Konversi prefix menjadi huruf besar
+    $last_id = $CI->db
+        ->select($column)
+        ->order_by($column, 'desc')
+        ->limit(1)
+        ->get($table)
+        ->row($column);
 
-        // Lakukan query untuk mencari ID terakhir dengan prefix yang sama
-        $CI->db->select_max($id);
-        $CI->db->like($id, $prefix, 'after');
-        $lastId = $CI->db->get($table)->row();
-
-        if ($lastId) {
-            $lastNumber = intval(str_replace($prefix, '', $lastId->$id));
-            $newNumber = $lastNumber + 1;
-        } else {
-            $newNumber = 1;
-        }
-
-        // Menghasilkan format ID dengan memadai angka dengan nol di depan
-        $id = $prefix . $newNumber;
-
-        return $id;
+    // Check if the last ID exists and extract the numeric part
+    $id_number = 1;
+    if ($last_id) {
+        $last_id_numeric_part = (int) substr($last_id, strlen($prefix));
+        $id_number = $last_id_numeric_part + 1;
     }
+
+    // Find the next available ID by incrementing the numeric part
+    $next_id = $prefix . $id_number;
+
+    // Check if the next ID already exists, if yes, keep incrementing until we find an available one
+    while ($CI->db->get_where($table, array($column => $next_id))->row()) {
+        $id_number++;
+        $next_id = $prefix . $id_number;
+    }
+
+    return $next_id;
 }
