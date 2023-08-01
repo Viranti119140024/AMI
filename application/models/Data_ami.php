@@ -383,7 +383,6 @@ class Data_ami extends CI_Model
             ->row();
 
         return $result;
-
     }
 
     public function get_data_by_id($id)
@@ -2936,7 +2935,7 @@ class Data_ami extends CI_Model
             'close' =>  $close,
         );
     }
-    
+
 
     function total_daftar_tilik_unit()
     {
@@ -3477,10 +3476,28 @@ class Data_ami extends CI_Model
 
     public function get_data2_hasil_audit()
     {
-        $id = $this->uri->segment(3);
-        $query = $this->db->get_where('bab2_hasil_audit', array('id_hasilaudit' => $id));
+        $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        return $query->result();
+        $result = $this->db->select('hasilaudit.*')
+            ->from('hasilaudit')
+            ->join('user', 'user.id = hasilaudit.id_user')
+            ->where('user.id_audit', $data['user']['id'])
+            ->get()
+            ->row();
+
+        // Check if the query result is not empty
+        if ($result !== null) {
+            $id = $result->id_hasilaudit;
+
+            $query = $this->db->get_where('bab2_hasil_audit', array('id_hasilaudit' => $id));
+
+            // Check if the query result is not empty
+            if ($query->num_rows() > 0) {
+                return $query->result();
+            }
+        }
+
+        return null;
     }
 
     public function get_data2_by_id_hasil_audit($id)

@@ -617,7 +617,7 @@ class prodi extends CI_Controller
         // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit('56');
 
         $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
-        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit();
 
         // var_dump($data['hasilaudit']);
 
