@@ -32,16 +32,16 @@
                             <td style="color: black;"><?= $value->periode; ?></td>
                             <td>
                                 <a href="<?= base_url('auditor/laporanakhir/') . $value->id_hasilaudit ?> "><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
-                                <!-- <a href="<?= base_url('auditor/edit_data/') . $value->id_hasilaudit;?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a> -->
-     </div>
-        </td>
-        </tr>
-    <?php endforeach; ?>
+                                <!-- <a href="<?= base_url('auditor/edit_data/') . $value->id_hasilaudit; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a> -->
 
-    </tbody>
-    </table>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
 </div>
 
