@@ -3278,17 +3278,16 @@ class Data_ami extends CI_Model
     {
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
 
-        $result = $this->db->select('hasilaudit.id_hasilaudit')
+        // var_dump($data['user']['id']);
+        $result = $this->db->select('hasilaudit.*')
             ->from('hasilaudit')
-            ->join('user', 'user.id_audit = hasilaudit.id_user')
-            ->where('user.id', $data['user']['id'])
+            ->join('user', 'user.id = hasilaudit.id_user')
+            ->where('user.id_audit', $data['user']['id'])
             ->get()
             ->row();
 
-        if ($result !== null && isset($result->id_hasilaudit)) {
-
-            // var_dump($result);
-            return $result->id_hasilaudit;
+        if ($result !== null && isset($result)) {
+            return $result;
         }
         return null;
     }
@@ -3390,8 +3389,20 @@ class Data_ami extends CI_Model
 
     public function tambah_hasilaudit($id, $foto1, $foto2)
     {
+
+        $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
+        $id_audit = $this->db->select('id_audit')
+            ->from('user')
+            ->where('id', $userLogin['id'])
+            ->get()
+            ->row()
+            ->id_audit;
+
+
         $data = [
             'id_user' => $id,
+            'id_audit' => $id_audit,
             'foto_pengesahan' => $foto1,
             'dokumentasi' => $foto2,
             'tahun' => $this->input->post('tahun', true),
@@ -3442,24 +3453,17 @@ class Data_ami extends CI_Model
         $this->db->insert('bab2_hasil_audit', $data,);
     }
 
-    public function get_data_hasil_audit($id)
+    public function get_data_hasil_audit()
     {
-        // $query = $this->db->query("SELECT * FROM prodi");
-        // $id = (int)$id;
-        $this->db->select('*');
-        $this->db->from('hasilaudit');
-        $this->db->where('id_hasilaudit', $id);
-        $query = $this->db->get();
+        $id = $this->uri->segment(3);
+        $query = $this->db->get_where('hasilaudit', array('id_hasilaudit' => $id));
 
-        // var_dump($query->result());
-        // var_dump($id);
         return $query->result();
     }
 
     public function get_data_by_id_hasil_audit($id)
     {
-        // $query = $this->db->query("SELECT * FROM prodi");
-        // $id = (int)$id;
+
         $this->db->select('*');
         $this->db->from('hasilaudit');
         $this->db->where('id_hasilaudit', $id);
@@ -3471,17 +3475,11 @@ class Data_ami extends CI_Model
     }
 
 
-    public function get_data2_hasil_audit($id)
+    public function get_data2_hasil_audit()
     {
-        // $query = $this->db->query("SELECT * FROM prodi");
-        // $id = (int)$id;
-        $this->db->select('*');
-        $this->db->from('bab2_hasil_audit');
-        $this->db->where('id_hasilaudit', $id);
-        $query = $this->db->get();
+        $id = $this->uri->segment(3);
+        $query = $this->db->get_where('bab2_hasil_audit', array('id_hasilaudit' => $id));
 
-        // var_dump($query->result());
-        // var_dump($id);
         return $query->result();
     }
 
