@@ -1,7 +1,7 @@
 <div class="container">
 
 
-    <?php if ($tindaklanjut == null) : ?>
+    <?php if ($tindaklanjut == null) { ?>
 
         <div class="card">
             <div class="card-body">
@@ -11,7 +11,7 @@
             </div>
         </div>
 
-    <?php else : ?>
+    <?php } else { ?>
 
         <div class="card mt-2">
             <div class="card-body">
@@ -280,16 +280,19 @@
                         </div>
                     </div>
                 </div>
-            <?php endif; ?>
-            </div>
 
-            <script>
-                // Automatically trigger print when the page loads
-                window.onload = function() {
-                    window.print(
-                        options = [{
-                            'background-graphics': false,
-                        }]
-                    );
-                };
-            </script>
+            <?php } ?>
+            </div>
+        </div>
+</div>
+
+<script>
+    // Automatically trigger print when the page loads
+    window.onload = function() {
+        window.print(
+            options = [{
+                'background-graphics': false,
+            }]
+        );
+    };
+</script>
