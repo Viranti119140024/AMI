@@ -208,13 +208,6 @@
                             </tbody>
                         </table>
                     </div>
-                <!-- </div>
-                <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditor/generate_pdf/' . $params) ?>">
-                    <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
-                    </div>
-                </form>
-            </div> -->
 
         </div>
 
