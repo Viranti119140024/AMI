@@ -10,7 +10,7 @@ class auditor extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Data_ami'); 
+        $this->load->model('Data_ami');
         $this->load->library('form_validation');
         $this->load->library('session');
         $this->load->library('table');
@@ -372,8 +372,6 @@ class auditor extends CI_Controller
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
 
         // var_dump($data['params']);
-
-
         // $this->form_validation->set_rules('dokumen_acuan', 'Dokumen Acuan', 'required');
         $this->form_validation->set_rules('dokumen_acuan', 'Dokumen Acuan', 'required');
         $this->form_validation->set_rules('deskripsi_temuan', 'Deskripsi Temuan', 'required');
@@ -501,6 +499,8 @@ class auditor extends CI_Controller
         // $data['params'] = $segments[$param1Index + 4];
         // var_dump($data['params']);
 
+        $data['params'] = $this->uri->segment(3);
+
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
         $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit();
         $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit();
@@ -525,10 +525,11 @@ class auditor extends CI_Controller
         $segments = explode('/', $url);
 
         // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
+        // $param1Index = array_search('param1', $segments);
         // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
+        // $data['params'] = $segments[$param1Index + 4];
 
+        $data['params'] = $this->uri->segment(3);
 
         $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($data['params']);
         $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
@@ -552,8 +553,8 @@ class auditor extends CI_Controller
         $this->load->view('partials/auditor/footer', $data);
     }
 
-// generate pdf daftar tilik
-public function generate_daftar_tilik()
+    // generate pdf daftar tilik
+    public function generate_daftar_tilik()
     {
         $data['title'] = 'Generate Daftar Tilik';
         $data['title1'] = 'Hasil Desk Evaluation';
@@ -561,7 +562,7 @@ public function generate_daftar_tilik()
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
 
-        
+
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
 
         // hasil desk
@@ -586,7 +587,7 @@ public function generate_daftar_tilik()
         $data['tampil_daftar_tilik_tambahan2'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('2');
         $data['total_daftar_tilik2'] = $this->Data_ami->total_daftar_tilik_baru('2');
 
-         //3
+        //3
         // hasil desk
         $data['tampil_hasil_desk_utama3'] = $this->Data_ami->tampil_hasil_desk_utama_baru('3');
         $data['tampil_hasil_desk_tambahan3'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('3');
@@ -641,6 +642,4 @@ public function generate_daftar_tilik()
         $this->load->view('templates/auditor/DaftarTilik/generatepdf', $data);
         $this->load->view('partials/auditor/footer', $data);
     }
-
-
 }

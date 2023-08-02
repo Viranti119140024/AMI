@@ -202,21 +202,29 @@
                                         <th rowspan="2" style="background-color: #FF0000; color:black;">Permintaan Tindakan Koreksi</th>
                                 </thead>
 
-                                <tbody style="background-color: white; color:black;">
-                                    <?php
-                                    foreach ($bab2_hasil_audit as $key => $value) :
-                                        $number = $key + 1;
-                                    ?>
-                                        <tr>
-                                            <th scope style="color: black;"="row"><?= $number; ?></th>
-                                            <th scope style="color: black;"="row"><?= $value->dokumen_acuan; ?></th>
-                                            <th scope style="color: black;"="row"><?= $value->deskripsi_temuan; ?></th>
-                                            <th scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></th>
-                                            <!-- <th> <a href="<?= base_url('auditor/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
+                                <?php if ($bab2_hasil_audit != null) : ?>
+                                    <tbody style="background-color: white; color:black;">
+                                        <?php
+                                        $number = 1;
+                                        foreach ($bab2_hasil_audit as $value) :
+                                        ?>
+                                            <tr>
+                                                <th scope style="color: black;"="row"><?= $number++; ?></th>
+                                                <th scope style="color: black;"="row"><?= $value->dokumen_acuan; ?></th>
+                                                <th scope style="color: black;"="row"><?= $value->deskripsi_temuan; ?></th>
+                                                <th scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></th>
+                                                <!-- <th> <a href="<?= base_url('auditor/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
 
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                <?php else : ?>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="4" class="text-center">DATA KOSONG</td>
                                         </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
+                                    </tbody>
+                                <?php endif; ?>
                             </table>
                         </div>
                         <!-- </div>

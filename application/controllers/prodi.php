@@ -29,7 +29,7 @@ class prodi extends CI_Controller
 
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
         $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
-        
+
 
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/logo', $data);
@@ -49,8 +49,7 @@ class prodi extends CI_Controller
 
         $data['dokumen'] = $this->Data_ami->get_dokprodi($data['user']['id']);
         // $data['hasilaudit'] = $this->Data_ami->get_data_by_id_hasil_audit($id)
-        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
-        ;
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();;
         // $data['hasil_audit'] = $this->Data_ami->get_id_hasil_audit();
 
         $this->load->view('partials/prodi/header', $data);
@@ -260,7 +259,7 @@ class prodi extends CI_Controller
         // var_dump($data['tindaklanjut']);
 
         // $data['hasilaudit'] = $this->Data_ami->get_data_by_id_hasil_audit($id);
-          $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
 
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/logo', $data);
@@ -602,7 +601,6 @@ class prodi extends CI_Controller
         $this->load->view('partials/prodi/topbar', $data);
         $this->load->view('templates/prodi/profile', $data);
         $this->load->view('partials/prodi/footer', $data);
-
     }
 
     //generate pdf hasil audit dri auditor
@@ -619,11 +617,6 @@ class prodi extends CI_Controller
         $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
         $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit();
 
-        // var_dump($data['hasilaudit']);
-
-
-
-        // var_dump($data['hasilaudit']->id_hasilaudit);
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/prodi/generatehasilaudit', $data);
         $this->load->view('partials/prodi/footer', $data);
