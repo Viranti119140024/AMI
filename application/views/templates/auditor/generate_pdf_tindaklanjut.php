@@ -11,8 +11,15 @@
                 <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut->foto_pengesahan ?></h5> -->
                 <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut->foto_pengesahan) ?>" alt="Gambar">
             </center>
+            <center class="text-dark mt-8">
+                <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut->daftarhadir ?></h5> -->
+                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut->daftarhadir) ?>" alt="Gambar">
+            </center>
 
-
+            <center class="text-dark mt-8">
+                <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut->beritaacara ?></h5> -->
+                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut->beritaacara) ?>" alt="Gambar">
+            </center>
 
             <div class="table-responsive">
 
@@ -100,6 +107,12 @@
                                     <td>Auditor</td>
                                     <td>:</td>
                                     <td><?= $tindaklanjut->auditor ?></td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td>:</td>
+                                    <td><?= $tindaklanjut->auditor2 ?></td>
                                 </tr>
 
                                 <tr>

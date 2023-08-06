@@ -6,8 +6,20 @@
 
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Surat Pengesahan</b></h5>
-                    <label for="exampleFormControlInput1" style="color: black;">Upload Foto Surat Pengesahan</label>
+                    <label for="exampleFormControlInput1" style="color: black;">Upload Foto Surat Pengesahan (Format JPG,PNG, JPEG / Max = 5MB)</label>
                     <input type="file" name="foto_pengesahan" id="foto_pengesahan" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+
+                <div class="form-group">
+                    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Daftar Hadir</b></h5>
+                    <label for="exampleFormControlInput1" style="color: black;">Upload Daftar Hadir (Format JPG,PNG, JPEG / Max = 5MB)</label>
+                    <input type="file" name="daftarhadir" id="daftarhadir" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+
+                <div class="form-group">
+                    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Berita Acara</b></h5>
+                    <label for="exampleFormControlInput1" style="color: black;">Upload Berita Acara (Format JPG,PNG, JPEG / Max = 5MB)</label>
+                    <input type="file" name="beritaacara" id="beritaacara" class="form-control-file" id="exampleFormControlFile1">
                 </div>
 
                 <div class="form-group">
@@ -19,16 +31,16 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Lembaga</label>
-                    <input type="text" class="form-control" id="lembaga" name="lembaga" placeholder="Masukkan Unit">
+                    <input type="text" class="form-control" id="lembaga" name="lembaga" placeholder="Contoh : Teknik Informatika">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Tanggal</label>
-                    <input type="text" class="form-control" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal">
+                    <input type="date" class="form-control" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal">
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">NRK / NIP Ketua Audit Mutu Internal</label>
+                    <label for="exampleFormControlInput1" style="color: black;">NRK / NIP</label>
                     <input type="text" class="form-control" id="NIP" name="NIP" placeholder="Masukkan NRK / NIP">
                 </div>
 
@@ -59,6 +71,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="exampleFormControlInput1" style="color: black;">Auditor 2</label>
+                    <input type="text" class="form-control" id="auditor2" name="auditor2" placeholder="Masukkan Nama">
+                </div>
+
+                <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Auditee</label>
                     <input type="text" class="form-control" id="auditee" name="auditee" placeholder="Masukkan Nama">
                 </div>
@@ -71,7 +88,7 @@
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Bab II Daftar Temuan AMI</b></h5>
                     <label for="exampleFormControlInput1" style="color: black;">Tanggal DE</label>
-                    <input type="text" class="form-control" id="tanggalDE" name="tanggalDE" placeholder="Masukkan Tanggal DE">
+                    <input type="date" class="form-control" id="tanggalDE" name="tanggalDE" placeholder="Masukkan Tanggal DE">
                 </div>
 
                 <div class="form-group">

@@ -2,12 +2,24 @@
 
     <div class="card">
         <div class="card-body">
-            <form enctype="multipart/form-data" method="post" class="form-horizontal form-label-left">
-    
+        <form enctype="multipart/form-data" method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditor/edit_data/') ?>">
+
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Surat Pengesahan</b></h5>
-                    <label for="exampleFormControlInput1" style="color: black;">Upload Foto Surat Pengesahan</label>
+                    <label for="exampleFormControlInput1" style="color: black;">Upload Foto Surat Pengesahan (Format JPG,PNG, JPEG / Max = 5MB)</label>
                     <input value="<?= $hasilaudit[0]->foto_pengesahan; ?>" type="file" name="foto_pengesahan" id="foto_pengesahan" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+
+                <div class="form-group">
+                    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Daftar Hadir</b></h5>
+                    <label for="exampleFormControlInput1" style="color: black;">Upload Daftar Hadir (Format JPG,PNG, JPEG / Max = 5MB)</label>
+                    <input value="<?= $hasilaudit[0]->daftarhadir; ?>" type="file" name="daftarhadir" id="daftarhadir" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+
+                <div class="form-group">
+                    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Berita Acara</b></h5>
+                    <label for="exampleFormControlInput1" style="color: black;">Upload Berita Acara (Format JPG,PNG, JPEG / Max = 5MB)</label>
+                    <input value="<?= $hasilaudit[0]->beritaacara; ?>" type="file" name="beritaacara" id="beritaacara" class="form-control-file" id="exampleFormControlFile1">
                 </div>
 
                 <div class="form-group">
@@ -18,13 +30,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">Unit</label>
-                    <input value="<?= $hasilaudit[0]->lembaga; ?>" type="text" class="form-control" id="lembaga" name="lembaga" placeholder="Masukkan Unit">
+                    <label for="exampleFormControlInput1" style="color: black;">Lembaga</label>
+                    <input value="<?= $hasilaudit[0]->lembaga; ?>" type="text" class="form-control" id="lembaga" name="lembaga" placeholder="Contoh : Teknik Informatika">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Tanggal</label>
-                    <input value="<?= $hasilaudit[0]->tanggal; ?>" type="text" class="form-control" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal">
+                    <input value="<?= $hasilaudit[0]->tanggal; ?>" type="date" class="form-control" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal">
                 </div>
 
                 <div class="form-group">
@@ -59,6 +71,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="exampleFormControlInput1" style="color: black;">Auditor 2</label>
+                    <input value="<?= $hasilaudit[0]->auditor2; ?>" type="text" class="form-control" id="auditor2" name="auditor2" placeholder="Masukkan Nama">
+                </div>
+
+                <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Auditee</label>
                     <input value="<?= $hasilaudit[0]->auditee; ?>" type="text" class="form-control" id="auditee" name="auditee" placeholder="Masukkan Nama">
                 </div>
@@ -71,12 +88,12 @@
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Bab II Daftar Temuan AMI</b></h5>
                     <label for="exampleFormControlInput1" style="color: black;">Tanggal DE</label>
-                    <input value="<?= $hasilaudit[0]->tanggalDE; ?>" type="text" class="form-control" id="tanggalDE" name="tanggalDE" placeholder="Masukkan Tanggal DE">
+                    <input value="<?= $hasilaudit[0]->tanggalDE; ?>" type="date" class="form-control" id="tanggalDE" name="tanggalDE" placeholder="Masukkan Tanggal DE">
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Jangka Waktu Perbaikan</label>
-                    <input value="<?= $hasilaudit[0]->jangka_waktu; ?>" type="text" class="form-control" id="jangka_waktu" name="jangka_waktu" placeholder="Masukkan Jangka Waktu">
+                    <inpu value="<?= $hasilaudit[0]->jangka_waktu; ?>" t type="text" class="form-control" id="jangka_waktu" name="jangka_waktu" placeholder="Masukkan Jangka Waktu">
                 </div>
 
 
