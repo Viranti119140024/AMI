@@ -110,11 +110,11 @@
                         <input type="text" class="form-control" id="dokumenacuan" name="dokumenacuan" placeholder="Masukkan Dokumen Acuan">
                     </div> -->
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>TINDAK LANJUT TEMUAN</b></h5>
                         <label for="exampleFormControlInput1" style="color: black;">Deskripsi Tindak Lanjut Temuan</label>
                         <input type="textarea" class="form-control" id="a2" name="a2" placeholder="Masukkan Deskripsi Tindak Lanjut Temuan">
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Bab II KESIMPULAN</b></h5>

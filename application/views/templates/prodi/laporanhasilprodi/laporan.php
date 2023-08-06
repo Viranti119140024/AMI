@@ -11,16 +11,19 @@
                 <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->foto_pengesahan ?></h5> -->
                 <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->foto_pengesahan) ?>" alt="Gambar">
             </center>
+            <div class="page-break"></div>
 
             <center class="text-dark mt-8">
                 <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->daftarhadir ?></h5> -->
                 <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->daftarhadir) ?>" alt="Gambar">
             </center>
+            <div class="page-break"></div>
 
             <center class="text-dark mt-8">
                 <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->beritaacara ?></h5> -->
                 <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->beritaacara) ?>" alt="Gambar">
             </center>
+            
 
 
             <div class="table-responsive">

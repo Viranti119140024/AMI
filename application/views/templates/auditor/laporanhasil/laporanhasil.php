@@ -26,7 +26,6 @@
                 <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->beritaacara) ?>" alt="Gambar">
             </center>
 
-            <div class="page-break"></div>
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <center class="text-dark mt-8" style="color:black;">
