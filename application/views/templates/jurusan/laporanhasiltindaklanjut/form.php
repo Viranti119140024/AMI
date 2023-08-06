@@ -2,7 +2,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form enctype="multipart/form-data" method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('prodi/isidata/') ?>">
+            <form enctype="multipart/form-data" method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('jurusan_controller/isidata/') ?>">
 
             <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Surat Pengesahan</b></h5>

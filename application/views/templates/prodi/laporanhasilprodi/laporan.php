@@ -23,7 +23,6 @@
                 <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->beritaacara ?></h5> -->
                 <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->beritaacara) ?>" alt="Gambar">
             </center>
-            
 
 
             <div class="table-responsive">

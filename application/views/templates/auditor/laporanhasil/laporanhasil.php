@@ -185,6 +185,13 @@
                             </tr>
 
                             <tr>
+                                <td></td>
+                                <td>:</td>
+                                <td><?= $hasilaudit[0]->auditor2 ?></td>
+                            </tr>
+
+
+                            <tr>
                                 <td>Tanggal DE</td>
                                 <td>:</td>
                                 <td><?= $hasilaudit[0]->tanggalDE ?></td>

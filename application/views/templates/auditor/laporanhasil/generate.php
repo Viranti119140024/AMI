@@ -1,5 +1,5 @@
 <div class="container">
-
+<!-- 
     <?php if ($hasilaudit == null) : ?>
 
         <div class="card">
@@ -10,7 +10,7 @@
             </div>
         </div>
 
-    <?php else : ?>
+    <?php else : ?> -->
         <div class="card mt-2">
             <div class="card-body">
                 <center class="text-dark mt-8">

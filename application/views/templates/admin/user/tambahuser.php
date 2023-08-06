@@ -24,8 +24,8 @@
                         <option>Program Studi</option>
                         <option>Auditor Program Studi</option>
                         <option>Auditor Jurusan</option>
-                        <!-- <option>Unit</option>
-                        <option>Auditor Unit</option> -->
+                        <option>Unit</option>
+                        <option>Auditor Unit</option>
                     </select>
                 </div>
                 <div class="form-group">
