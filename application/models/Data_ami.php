@@ -324,7 +324,7 @@ class Data_ami extends CI_Model
             // 'ruanglingkup' => $this->input->post('ruanglingkup', true),
             'tanggalDE' => $this->input->post('tanggalDE', true),
             // 'dokumenacuan' => $this->input->post('dokumenacuan', true),
-            'a2' => $this->input->post('a2', true),
+            // 'a2' => $this->input->post('a2', true),
             'kesimpulan' => $this->input->post('kesimpulan', true),
             // 'dokumentasi' => $this->input->post('dokumentasi', true),
         ];

@@ -328,7 +328,7 @@ class prodi extends CI_Controller
         // $this->form_validation->set_rules('ruanglingkup', 'Ruang Lingkup', 'required');
         $this->form_validation->set_rules('tanggalDE', 'Tanggal DE', 'required');
         // $this->form_validation->set_rules('dokumenacuan', 'Dokumen Acuan', 'required');
-        $this->form_validation->set_rules('a2', 'A2', 'required');
+        // $this->form_validation->set_rules('a2', 'A2', 'required');
         $this->form_validation->set_rules('kesimpulan', 'Kesimpulan', 'required');
 
         if ($this->form_validation->run() == FALSE) {
@@ -404,7 +404,9 @@ class prodi extends CI_Controller
 
             // var_dump($data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
             $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi'], $data['nama_file_daftarhadir'], $data['nama_file_beritaacara'] );
+           
             redirect('prodi/datatindaklanjut');
+            // var_dump( $data['tindaklanjut']);
         }
     }
 

@@ -39,26 +39,6 @@
                     <input type="text" class="form-control" id="pj" name="pj" placeholder="Masukkan Penanggung Jawab">
                 </div>
 
-                <!-- <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">Temuan</label>
-                    <input type="text" class="form-control" id="temuan" name="temuan" placeholder="Masukkan Nama">
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">A2. TINDAK LANJUT TEMUAN</label>
-                    <input type="text" class="form-control" id="a2" name="a2" placeholder="Masukkan Nama">
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">Kesimpulan</label>
-                    <input type="text" class="form-control" id="kesimpulan" name="kesimpulan" kesimpulan="Masukkan Nama">
-                </div> -->
-
-                <!-- <div class="form-group">
-                    <label for="exampleFormControlFile1"> Dokumentasi</label>
-                    <input type="file" name="file_dokumen" id="file_dokumen" class="form-control-file" id="exampleFormControlFile1">
-                </div> -->
-
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
                 </div>
@@ -68,3 +48,16 @@
 
     </div>
 </div>
+
+<div class="form-group">
+                    <label for="exampleFormControlSelect1">Role</label>
+                    <select name="role_name" id="role_name" class="form-control" id="exampleFormControlSelect1">
+                        <option>Admin</option>
+                        <option>Jurusan</option>
+                        <option>Program Studi</option>
+                        <option>Auditor Program Studi</option>
+                        <option>Auditor Jurusan</option>
+                        <option>Unit</option>
+                        <option>Auditor Unit</option>
+                    </select>
+                </div>
