@@ -295,7 +295,7 @@ class Data_ami extends CI_Model
         return $query->result();
     }
 
-    public function tambah_tindaklanjut($id, $foto1, $foto2)
+    public function tambah_tindaklanjut($id, $foto1, $foto2, $foto3, $foto4)
     {
         $data = [
             'id_user' => $id,
@@ -306,6 +306,8 @@ class Data_ami extends CI_Model
             // 'penetapan2' => $this->input->post('penetapan2', true),
             'foto_pengesahan' => $foto1,
             'dokumentasi' => $foto2,
+            'daftarhadir' => $foto1,
+            'beritaacara' => $foto2,
             'periode' => $this->input->post('periode', true),
             'tahun' => $this->input->post('tahun', true),
             'lembaga' => $this->input->post('lembaga', true),
@@ -315,12 +317,13 @@ class Data_ami extends CI_Model
             'waktu' => $this->input->post('waktu', true),
             'tempat' => $this->input->post('tempat', true),
             'auditor' => $this->input->post('auditor', true),
+            'auditor2' => $this->input->post('auditor2', true),
             'auditee' => $this->input->post('auditee', true),
-            'temuan' => $this->input->post('temuan', true),
+            // 'temuan' => $this->input->post('temuan', true),
             'prodi' => $this->input->post('prodi', true),
-            'ruanglingkup' => $this->input->post('ruanglingkup', true),
+            // 'ruanglingkup' => $this->input->post('ruanglingkup', true),
             'tanggalDE' => $this->input->post('tanggalDE', true),
-            'dokumenacuan' => $this->input->post('dokumenacuan', true),
+            // 'dokumenacuan' => $this->input->post('dokumenacuan', true),
             'a2' => $this->input->post('a2', true),
             'kesimpulan' => $this->input->post('kesimpulan', true),
             // 'dokumentasi' => $this->input->post('dokumentasi', true),
@@ -3386,7 +3389,7 @@ class Data_ami extends CI_Model
         return $query->result();
     }
 
-    public function tambah_hasilaudit($id, $foto1, $foto2)
+    public function tambah_hasilaudit($id, $foto1, $foto2, $foto3, $foto4)
     {
 
         $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -3404,6 +3407,8 @@ class Data_ami extends CI_Model
             'id_audit' => $id_audit,
             'foto_pengesahan' => $foto1,
             'dokumentasi' => $foto2,
+            'daftarhadir' => $foto3,
+            'beritaacara' => $foto4,
             'tahun' => $this->input->post('tahun', true),
             'lembaga' => $this->input->post('lembaga', true),
             'tanggal' => $this->input->post('tanggal', true),
@@ -3413,6 +3418,7 @@ class Data_ami extends CI_Model
             'waktu' => $this->input->post('waktu', true),
             'tempat' => $this->input->post('tempat', true),
             'auditor' => $this->input->post('auditor', true),
+            'auditor2' => $this->input->post('auditor2', true),
             'auditee' => $this->input->post('auditee', true),
             'tanggalDE' => $this->input->post('tanggalDE', true),
             'jangka_waktu' => $this->input->post('jangka_waktu', true),

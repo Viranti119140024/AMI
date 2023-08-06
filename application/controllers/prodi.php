@@ -310,6 +310,8 @@ class prodi extends CI_Controller
 
         $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
         $this->form_validation->set_rules('dokumentasi', 'File Dokumentasi', 'in_list');
+        $this->form_validation->set_rules('daftarhadir', 'Daftar Hadir', 'in_list');
+        $this->form_validation->set_rules('beritaacara', 'Berita Acara', 'in_list');
         $this->form_validation->set_rules('periode', 'Periode', 'required');
         $this->form_validation->set_rules('tahun', 'Tahun', 'required');
         $this->form_validation->set_rules('lembaga', 'Lembaga', 'required');
@@ -319,12 +321,13 @@ class prodi extends CI_Controller
         $this->form_validation->set_rules('waktu', 'waktu', 'required');
         $this->form_validation->set_rules('tempat', 'Tempat', 'required');
         $this->form_validation->set_rules('auditor', 'Auditor', 'required');
+        $this->form_validation->set_rules('auditor2', 'Auditor', 'required');
         $this->form_validation->set_rules('auditee', 'Auditee', 'required');
-        $this->form_validation->set_rules('temuan', 'Temuan', 'required');
+        // $this->form_validation->set_rules('temuan', 'Temuan', 'required');
         $this->form_validation->set_rules('prodi', 'Prodi', 'required');
-        $this->form_validation->set_rules('ruanglingkup', 'Ruang Lingkup', 'required');
+        // $this->form_validation->set_rules('ruanglingkup', 'Ruang Lingkup', 'required');
         $this->form_validation->set_rules('tanggalDE', 'Tanggal DE', 'required');
-        $this->form_validation->set_rules('dokumenacuan', 'Dokumen Acuan', 'required');
+        // $this->form_validation->set_rules('dokumenacuan', 'Dokumen Acuan', 'required');
         $this->form_validation->set_rules('a2', 'A2', 'required');
         $this->form_validation->set_rules('kesimpulan', 'Kesimpulan', 'required');
 
@@ -343,7 +346,7 @@ class prodi extends CI_Controller
             if ($_FILES['foto_pengesahan']['name']) {
                 $config['upload_path'] = './assets/dokumen';
                 $config['allowed_types'] = array('jpg', 'jpeg', 'png');
-                $config['max_size'] = 2048; // 2MB
+                $config['max_size'] = 10000; // 10MB
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('foto_pengesahan')) {
                     $error = array('error' => $this->upload->display_errors());
@@ -359,7 +362,7 @@ class prodi extends CI_Controller
             if ($_FILES['dokumentasi']['name']) {
                 $config['upload_path'] = './assets/dokumen';
                 $config['allowed_types'] = array('jpg', 'jpeg', 'png');
-                $config['max_size'] = 2048; // 2MB
+                $config['max_size'] = 10000; // 10MB
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('dokumentasi')) {
                     $error = array('error' => $this->upload->display_errors());
@@ -368,9 +371,39 @@ class prodi extends CI_Controller
                     $data['nama_file_dokumentasi'] = $upload_data['file_name'];
                 }
             }
+            $data['nama_file_daftarhadir'] = 'template3.png';
+            // var_dump($_FILES['foto_pengesahan']['name']);
+
+            if ($_FILES['daftarhadir']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 10000; // 10MB
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('daftarhadir')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $upload_data = $this->upload->data();
+                    $data['nama_file_daftarhadir'] = $upload_data['file_name'];
+                }
+            }
+            $data['nama_file_beritaacara'] = 'template4.png';
+            // var_dump($_FILES['foto_pengesahan']['name']);
+
+            if ($_FILES['beritaacara']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 10000; // 10MB
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('beritaacara')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $upload_data = $this->upload->data();
+                    $data['nama_file_beritaacara'] = $upload_data['file_name'];
+                }
+            }
 
             // var_dump($data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
-            $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
+            $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi'], $data['nama_file_daftarhadir'], $data['nama_file_beritaacara'] );
             redirect('prodi/datatindaklanjut');
         }
     }
@@ -608,6 +641,8 @@ class prodi extends CI_Controller
     public function generate_pdf_hasil_audit()
     {
         $data['title'] = 'Laporan Hasil Audit';
+        $data['title1'] = 'Hasil Desk Evaluation';
+        $data['title2'] = 'Daftar Tilik ( Checklist )';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
@@ -616,6 +651,79 @@ class prodi extends CI_Controller
 
         $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
         $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit();
+
+        $data['tampil_hasil_desk_utama1'] = $this->Data_ami->tampil_hasil_desk_utama_baru('1');
+        $data['tampil_hasil_desk_tambahan1'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('1');
+        $data['total_checkbox1'] = $this->Data_ami->total_hasil_desk_baru('1');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama1'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('1');
+        $data['tampil_daftar_tilik_tambahan1'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('1');
+        $data['total_daftar_tilik1'] = $this->Data_ami->total_daftar_tilik_baru('1');
+        // var_dump( $data['tampil_hasil_desk_utama1']);
+
+        //2
+        // hasil desk
+        $data['tampil_hasil_desk_utama2'] = $this->Data_ami->tampil_hasil_desk_utama_baru('2');
+        $data['tampil_hasil_desk_tambahan2'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('2');
+        $data['total_checkbox2'] = $this->Data_ami->total_hasil_desk_baru('2');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama2'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('2');
+        $data['tampil_daftar_tilik_tambahan2'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('2');
+        $data['total_daftar_tilik2'] = $this->Data_ami->total_daftar_tilik_baru('2');
+
+        //3
+        // hasil desk
+        $data['tampil_hasil_desk_utama3'] = $this->Data_ami->tampil_hasil_desk_utama_baru('3');
+        $data['tampil_hasil_desk_tambahan3'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('3');
+        $data['total_checkbox3'] = $this->Data_ami->total_hasil_desk_baru('3');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama3'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('3');
+        $data['tampil_daftar_tilik_tambahan3'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('3');
+        $data['total_daftar_tilik3'] = $this->Data_ami->total_daftar_tilik_baru('3');
+
+        // 4
+        $data['tampil_hasil_desk_utama4'] = $this->Data_ami->tampil_hasil_desk_utama_baru('4');
+        $data['tampil_hasil_desk_tambahan4'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('4');
+        $data['total_checkbox4'] = $this->Data_ami->total_hasil_desk_baru('4');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama4'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('4');
+        $data['tampil_daftar_tilik_tambahan4'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('4');
+        $data['total_daftar_tilik4'] = $this->Data_ami->total_daftar_tilik_baru('4');
+
+        // 5
+        $data['tampil_hasil_desk_utama5'] = $this->Data_ami->tampil_hasil_desk_utama_baru('5');
+        $data['tampil_hasil_desk_tambahan5'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('5');
+        $data['total_checkbox5'] = $this->Data_ami->total_hasil_desk_baru('5');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama5'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('5');
+        $data['tampil_daftar_tilik_tambahan5'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('5');
+        $data['total_daftar_tilik5'] = $this->Data_ami->total_daftar_tilik_baru('5');
+
+        // 6
+        $data['tampil_hasil_desk_utama6'] = $this->Data_ami->tampil_hasil_desk_utama_baru('6');
+        $data['tampil_hasil_desk_tambahan6'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('6');
+        $data['total_checkbox6'] = $this->Data_ami->total_hasil_desk_baru('6');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama6'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('6');
+        $data['tampil_daftar_tilik_tambahan6'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('6');
+        $data['total_daftar_tilik6'] = $this->Data_ami->total_daftar_tilik_baru('6');
+
+        // 7
+        $data['tampil_hasil_desk_utama7'] = $this->Data_ami->tampil_hasil_desk_utama_baru('7');
+        $data['tampil_hasil_desk_tambahan7'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('7');
+        $data['total_checkbox7'] = $this->Data_ami->total_hasil_desk_baru('7');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama7'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('7');
+        $data['tampil_daftar_tilik_tambahan7'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru('7');
+        $data['total_daftar_tilik7'] = $this->Data_ami->total_daftar_tilik_baru('7');
+
 
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/prodi/generatehasilaudit', $data);

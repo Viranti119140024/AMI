@@ -21,6 +21,16 @@
                     <!-- <h5><b> <?= $hasilaudit[0]->foto_pengesahan ?></h5> -->
                     <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->foto_pengesahan) ?>" alt="Gambar">
                 </center>
+                <div class="page-break"></div>
+                <center class="text-dark mt-8">
+                    <!-- <h5><b> <?= $hasilaudit[0]->daftarhadir ?></h5> -->
+                    <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->daftarhadir) ?>" alt="Gambar">
+                </center>
+                <div class="page-break"></div>
+                <center class="text-dark mt-8">
+                    <!-- <h5><b> <?= $hasilaudit[0]->beritaacara ?></h5> -->
+                    <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->beritaacara) ?>" alt="Gambar">
+                </center>
 
                 <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
@@ -118,6 +128,12 @@
                                     <td>Auditor</td>
                                     <td>:</td>
                                     <td><?= $hasilaudit[0]->auditor ?></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Auditor</td>
+                                    <td>:</td>
+                                    <td><?= $hasilaudit[0]->auditor2 ?></td>
                                 </tr>
 
                                 <tr>
