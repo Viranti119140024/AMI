@@ -562,14 +562,100 @@ class jurusan_controller extends CI_Controller
     public function generate_pdf_hasil_audit()
     {
         $data['title'] = 'Laporan Hasil Audit';
+        $data['title1'] = 'Hasil Desk Evaluation';
+        $data['title2'] = 'Daftar Tilik ( Checklist )';
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
+        
 
-        // $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit('56');
-        // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit('56');
+        $id = $data['user']['id'];
 
-        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($data['user']['id']);
-        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit();
+
+        $data['tampil_hasil_desk_utama_jurusan1'] = $this->Data_ami->tampil_hasil_desk_utama_auditor_jurusan('1');
+        $data['tampil_hasil_desk_tambahan_jurusan1'] = $this->Data_ami->tampil_hasil_desk_tambahan_auditor_jurusan('1');
+        $data['total_checkbox1'] = $this->Data_ami->total_hasil_desk_baru_jurusan('1');
+
+        // var_dump($id);
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan1'] = $this->Data_ami->tampil_daftar_tilik_utama_baru_auditor_jurusan('1');
+        $data['tampil_daftar_tilik_tambahan_jurusan1'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru_auditor_jurusan('1');
+        $data['total_daftar_tilik1'] = $this->Data_ami->total_daftar_tilik_baru_jurusan('1');
+        // var_dump( $data['tampil_hasil_desk_utama1']);
+
+        //2
+        // hasil desk
+        $data['tampil_hasil_desk_utama_jurusan2'] = $this->Data_ami->tampil_hasil_desk_utama_auditor_jurusan('2');
+        $data['tampil_hasil_desk_tambahan_jurusan2'] = $this->Data_ami->tampil_hasil_desk_tambahan_auditor_jurusan('2');
+        $data['total_checkbox2'] = $this->Data_ami->total_hasil_desk_baru_jurusan('2');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan2'] = $this->Data_ami->tampil_daftar_tilik_utama_baru_auditor_jurusan('2');
+        $data['tampil_daftar_tilik_tambahan_jurusan2'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru_auditor_jurusan('2');
+        $data['total_daftar_tilik2'] = $this->Data_ami->total_daftar_tilik_baru_jurusan('2');
+
+        //3
+        // hasil desk
+        $data['tampil_hasil_desk_utama_jurusan3'] = $this->Data_ami->tampil_hasil_desk_utama_auditor_jurusan('3');
+        $data['tampil_hasil_desk_tambahan_jurusan3'] = $this->Data_ami->tampil_hasil_desk_tambahan_auditor_jurusan('3');
+        $data['total_checkbox3'] = $this->Data_ami->total_hasil_desk_baru_jurusan('3');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan3'] = $this->Data_ami->tampil_daftar_tilik_utama_baru_auditor_jurusan('3');
+        $data['tampil_daftar_tilik_tambahan_jurusan3'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru_auditor_jurusan('3');
+        $data['total_daftar_tilik3'] = $this->Data_ami->total_daftar_tilik_baru_jurusan('3');
+
+        // 4
+        $data['tampil_hasil_desk_utama_jurusan4'] = $this->Data_ami->tampil_hasil_desk_utama_auditor_jurusan('4');
+        $data['tampil_hasil_desk_tambahan_jurusan4'] = $this->Data_ami->tampil_hasil_desk_tambahan_auditor_jurusan('4');
+        $data['total_checkbox4'] = $this->Data_ami->total_hasil_desk_baru_jurusan('4');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan4'] = $this->Data_ami->tampil_daftar_tilik_utama_baru_auditor_jurusan('4');
+        $data['tampil_daftar_tilik_tambahan_jurusan4'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru_auditor_jurusan('4');
+        $data['total_daftar_tilik4'] = $this->Data_ami->total_daftar_tilik_baru_jurusan('4');
+
+        // 5
+        $data['tampil_hasil_desk_utama_jurusan8'] = $this->Data_ami->tampil_hasil_desk_utama_auditor_jurusan('8');
+        $data['tampil_hasil_desk_tambahan_jurusan8'] = $this->Data_ami->tampil_hasil_desk_tambahan_auditor_jurusan('8');
+        $data['total_checkbox8'] = $this->Data_ami->total_hasil_desk_baru_jurusan('8');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan8'] = $this->Data_ami->tampil_daftar_tilik_utama_baru_auditor_jurusan('8');
+        $data['tampil_daftar_tilik_tambahan_jurusan8'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru_auditor_jurusan('8');
+        $data['total_daftar_tilik8'] = $this->Data_ami->total_daftar_tilik_baru_jurusan('8');
+
+        // 6
+        $data['tampil_hasil_desk_utama_jurusan9'] = $this->Data_ami->tampil_hasil_desk_utama_auditor_jurusan('9');
+        $data['tampil_hasil_desk_tambahan_jurusan9'] = $this->Data_ami->tampil_hasil_desk_tambahan_auditor_jurusan('9');
+        $data['total_checkbox9'] = $this->Data_ami->total_hasil_desk_baru_jurusan('9');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan9'] = $this->Data_ami->tampil_daftar_tilik_utama_baru_auditor_jurusan('9');
+        $data['tampil_daftar_tilik_tambahan_jurusan9'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru_auditor_jurusan('9');
+        $data['total_daftar_tilik9'] = $this->Data_ami->total_daftar_tilik_baru_jurusan('9');
+
+        // 7
+        $data['tampil_hasil_desk_utama_jurusan10'] = $this->Data_ami->tampil_hasil_desk_utama_auditor_jurusan('10');
+        $data['tampil_hasil_desk_tambahan_jurusan10'] = $this->Data_ami->tampil_hasil_desk_tambahan_auditor_jurusan('10');
+        $data['total_checkbox10'] = $this->Data_ami->total_hasil_desk_baru_jurusan('10');
+
+        // daftar tilik
+        $data['tampil_daftar_tilik_utama_jurusan10'] = $this->Data_ami->tampil_daftar_tilik_utama_baru_auditor_jurusan('10');
+        $data['tampil_daftar_tilik_tambahan_jurusan10'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru_auditor_jurusan('10');
+        $data['total_daftar_tilik10'] = $this->Data_ami->total_daftar_tilik_baru_jurusan('10');
+
+         // 8
+         $data['tampil_hasil_desk_utama_jurusan11'] = $this->Data_ami->tampil_hasil_desk_utama_auditor_jurusan('11');
+         $data['tampil_hasil_desk_tambahan_jurusan11'] = $this->Data_ami->tampil_hasil_desk_tambahan_auditor_jurusan('11');
+         $data['total_checkbox11'] = $this->Data_ami->total_hasil_desk_baru_jurusan('11');
+ 
+         // daftar tilik
+         $data['tampil_daftar_tilik_utama_jurusan11'] = $this->Data_ami->tampil_daftar_tilik_utama_baru_auditor_jurusan('11');
+         $data['tampil_daftar_tilik_tambahan_jurusan11'] = $this->Data_ami->tampil_daftar_tilik_tambahan_baru_auditor_jurusan('11');
+         $data['total_daftar_tilik11'] = $this->Data_ami->total_daftar_tilik_baru_jurusan('11');
 
 
 

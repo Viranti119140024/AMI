@@ -506,7 +506,6 @@ class auditorjurusan extends CI_Controller
 
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
 
-
             // hasil desk
         $data['tampil_hasil_desk_utama_jurusan1'] = $this->Data_ami->tampil_hasil_desk_utama_jurusan_baru('1');
         $data['tampil_hasil_desk_tambahan_jurusan1'] = $this->Data_ami->tampil_hasil_desk_tambahan_jurusan_baru('1');
@@ -549,36 +548,6 @@ class auditorjurusan extends CI_Controller
         $data['tampil_daftar_tilik_utama_jurusan4'] = $this->Data_ami->tampil_daftar_tilik_utama_jurusan_baru('4');
         $data['tampil_daftar_tilik_tambahan_jurusan4'] = $this->Data_ami->tampil_daftar_tilik_tambahan_jurusan_baru('4');
         $data['total_daftar_tilik4'] = $this->Data_ami->total_daftar_tilik_jurusan_baru('4');
-
-        // 5
-        $data['tampil_hasil_desk_utama_jurusan5'] = $this->Data_ami->tampil_hasil_desk_utama_jurusan_baru('5');
-        $data['tampil_hasil_desk_tambahan_jurusan5'] = $this->Data_ami->tampil_hasil_desk_tambahan_jurusan_baru('5');
-        $data['total_checkbox5'] = $this->Data_ami->total_hasil_desk_jurusan_baru('5');
-
-        // daftar tilik
-        $data['tampil_daftar_tilik_utama_jurusan5'] = $this->Data_ami->tampil_daftar_tilik_utama_jurusan_baru('5');
-        $data['tampil_daftar_tilik_tambahan_jurusan5'] = $this->Data_ami->tampil_daftar_tilik_tambahan_jurusan_baru('5');
-        $data['total_daftar_tilik5'] = $this->Data_ami->total_daftar_tilik_jurusan_baru('5');
-
-        // 6
-        $data['tampil_hasil_desk_utama_jurusan6'] = $this->Data_ami->tampil_hasil_desk_utama_jurusan_baru('6');
-        $data['tampil_hasil_desk_tambahan_jurusan6'] = $this->Data_ami->tampil_hasil_desk_tambahan_jurusan_baru('6');
-        $data['total_checkbox6'] = $this->Data_ami->total_hasil_desk_jurusan_baru('6');
-
-        // daftar tilik
-        $data['tampil_daftar_tilik_utama_jurusan6'] = $this->Data_ami->tampil_daftar_tilik_utama_jurusan_baru('6');
-        $data['tampil_daftar_tilik_tambahan_jurusan6'] = $this->Data_ami->tampil_daftar_tilik_tambahan_jurusan_baru('6');
-        $data['total_daftar_tilik6'] = $this->Data_ami->total_daftar_tilik_jurusan_baru('6');
-
-        // 7
-        $data['tampil_hasil_desk_utama_jurusan7'] = $this->Data_ami->tampil_hasil_desk_utama_jurusan_baru('7');
-        $data['tampil_hasil_desk_tambahan_jurusan7'] = $this->Data_ami->tampil_hasil_desk_tambahan_jurusan_baru('7');
-        $data['total_checkbox7'] = $this->Data_ami->total_hasil_desk_jurusan_baru('7');
-
-        // daftar tilik
-        $data['tampil_daftar_tilik_utama_jurusan7'] = $this->Data_ami->tampil_daftar_tilik_utama_jurusan_baru('7');
-        $data['tampil_daftar_tilik_tambahan_jurusan7'] = $this->Data_ami->tampil_daftar_tilik_tambahan_jurusan_baru('7');
-        $data['total_daftar_tilik7'] = $this->Data_ami->total_daftar_tilik_jurusan_baru('7');
 
          // 8
          $data['tampil_hasil_desk_utama_jurusan8'] = $this->Data_ami->tampil_hasil_desk_utama_jurusan_baru('8');

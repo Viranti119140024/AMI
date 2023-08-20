@@ -648,12 +648,6 @@ class prodi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        // $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit('56');
-        // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit('56');
-
-        // var_dump($data['user']);
-
-        // $data['user'] = $i
         $id = $data['user']['id'];
 
         $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();

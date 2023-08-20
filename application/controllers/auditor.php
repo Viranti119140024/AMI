@@ -600,17 +600,12 @@ class auditor extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
 
-
-
-
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
 
         // hasil desk
         $data['tampil_hasil_desk_utama1'] = $this->Data_ami->tampil_hasil_desk_utama_baru('1');
         $data['tampil_hasil_desk_tambahan1'] = $this->Data_ami->tampil_hasil_desk_tambahan_baru('1');
         $data['total_checkbox1'] = $this->Data_ami->total_hasil_desk_baru('1');
-
-    
 
         // daftar tilik
         $data['tampil_daftar_tilik_utama1'] = $this->Data_ami->tampil_daftar_tilik_utama_baru('1');

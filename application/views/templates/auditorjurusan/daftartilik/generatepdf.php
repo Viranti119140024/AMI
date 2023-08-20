@@ -919,7 +919,7 @@
     </div>
 </div>
 
-<div class="page-break"></div>
+<!-- <div class="page-break"></div>
 
 <div class="container-fluid">
     <div class="row-lg-12">
@@ -1003,15 +1003,15 @@
                                         <td class="text-center"><input type="checkbox" name="close[<?= $hasil_desk->id_hasil_desk ?>]" id="close<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->close == 1) ? 'checked' : '' ?>></td>
                                         <td class="text-center"><input type="text" name="catatan[<?= $hasil_desk->id_hasil_desk ?>]" id="catatan<?= $hasil_desk->id_hasil_desk ?>" value="<?= $hasil_desk->catatan ?>"></td>
                                         <td class="text-center"><input type="text" name="penanggungjawab[<?= $hasil_desk->id_hasil_desk ?>]" id="penanggungjawab<?= $hasil_desk->id_hasil_desk ?>" value="<?= $hasil_desk->penanggungjawab ?>"></td>
-
-                                    </tr>
+ -->
+                                    <!-- </tr>
                                 <?php endforeach; ?>
                             </tbody>
-                        </form>
+                        </form> -->
 
-                        <form action="<?= base_url("auditorjurusan/add_nilai_hasil_desk_tambahan") ?>" method="POST">
+                        <!-- <form action="<?= base_url("auditorjurusan/add_nilai_hasil_desk_tambahan") ?>" method="POST"> -->
                             <!-- tampil_tambahan_hasil_desk_auditor -->
-                            <?php if ($tampil_hasil_desk_tambahan_jurusan5 !== null) : ?>
+                            <!-- <?php if ($tampil_hasil_desk_tambahan_jurusan5 !== null) : ?>
                                 <tbody style="background-color: white; color: black;">
                                     <?php
                                     $no = 1;
@@ -1053,9 +1053,9 @@
 
                             </tr>
                             </thead>
-                        </tfoot>
+                        </tfoot> -->
 
-                    </table>
+                    <!-- </table>
                 </div>
                 <p style="color:black;"> * M= Memenuhi, MP= Melampaui, MB= Belum Memenuhi, MY= Menyimpang <br> <br>* OB= Observasi, KTS= Ketidaksesuaian</br></br></p>
             </div>
@@ -1106,9 +1106,9 @@
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
-                        </form>
+                        </form> -->
 
-
+<!-- 
                         <form action="<?= base_url("auditorjurusan/add_nilai_daftar_tilik_tambahan") ?>" method="POST">
 
                             </thead>
@@ -1148,9 +1148,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-<div class="page-break"></div>
+<!-- <div class="page-break"></div>
 
 <div class="container-fluid">
     <div class="row-lg-12">
@@ -1238,11 +1238,11 @@
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
-                        </form>
+                        </form> -->
 
-                        <form action="<?= base_url("auditorjurusan/add_nilai_hasil_desk_tambahan") ?>" method="POST">
+                        <!-- <form action="<?= base_url("auditorjurusan/add_nilai_hasil_desk_tambahan") ?>" method="POST"> -->
                             <!-- tampil_tambahan_hasil_desk_auditor -->
-                            <?php if ($tampil_hasil_desk_tambahan_jurusan6 !== null) : ?>
+                            <!-- <?php if ($tampil_hasil_desk_tambahan_jurusan6 !== null) : ?>
                                 <tbody style="background-color: white; color: black;">
                                     <?php
                                     $no = 1;
@@ -1379,9 +1379,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-<div class="page-break"></div>
+<!-- <div class="page-break"></div>
 
 <div class="container-fluid">
     <div class="row-lg-12">
@@ -1469,11 +1469,11 @@
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
-                        </form>
+                        </form> -->
 
-                        <form action="<?= base_url("auditorjurusan/add_nilai_hasil_desk_tambahan") ?>" method="POST">
+                        <!-- <form action="<?= base_url("auditorjurusan/add_nilai_hasil_desk_tambahan") ?>" method="POST"> -->
                             <!-- tampil_tambahan_hasil_desk_auditor -->
-                            <?php if ($tampil_hasil_desk_tambahan_jurusan7 !== null) : ?>
+                            <!-- <?php if ($tampil_hasil_desk_tambahan_jurusan7 !== null) : ?>
                                 <tbody style="background-color: white; color: black;">
                                     <?php
                                     $no = 1;
@@ -1610,7 +1610,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <div class="page-break"></div>
 
