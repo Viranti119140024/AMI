@@ -440,7 +440,6 @@ class auditor extends CI_Controller
 
         //  var_dump( $data['hasilaudit']);
 
-
         $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
         $this->form_validation->set_rules('daftarhadir', 'Daftar Hadir', 'in_list');
         $this->form_validation->set_rules('beritaacara', 'Berita Acara', 'in_list');

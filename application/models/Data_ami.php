@@ -1144,7 +1144,7 @@ class Data_ami extends CI_Model
         $nilai = $this->db->select('auditor_hasil_desk_unit.*, nilai_ami_unit.id_nilai, nilai_ami_unit.my, nilai_ami_unit.mb, nilai_ami_unit.m, nilai_ami_unit.mp, nilai_ami_unit.ob, nilai_ami_unit.kts, nilai_ami_unit.open, nilai_ami_unit.close, nilai_ami_unit.catatan, nilai_ami_unit.penanggungjawab')
             ->from('auditor_hasil_desk_unit')
             ->join('nilai_ami_unit', 'auditor_hasil_desk_unit.id_auditor_hasil_desk = nilai_ami_unit.id_hasil_desk AND nilai_ami_unit.id_audit = ' . $id_audit, 'left')
-            ->where('auditor_hasil_desk_jurusan.id_dokumen_acuan', $id)
+            ->where('auditor_hasil_desk_unit.id_dokumen_acuan', $id)
             ->where('auditor_hasil_desk_unit.id_user', $userLogin['id'])
             ->order_by('auditor_hasil_desk_unit.id_auditor_hasil_desk', 'ASC')
             ->get()
@@ -3808,13 +3808,15 @@ class Data_ami extends CI_Model
         return $query->result();
     }
 
-    public function update_data_hasil_audit($id)
+    public function update_data_hasil_audit($id, $foto1, $foto2, $foto3, $foto4)
     {
 
         $data = [
             // 'id_user' => $id,
-            // 'foto_pengesahan' => $foto1,
-            // 'dokumentasi' => $foto2,
+            'foto_pengesahan' => $foto1,
+            'dokumentasi' => $foto2,
+            'daftarhadir' => $foto3,
+            'beritaacara' => $foto4,
             'tahun' => $this->input->post('tahun', true),
             'lembaga' => $this->input->post('lembaga', true),
             'tanggal' => $this->input->post('tanggal', true),

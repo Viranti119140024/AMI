@@ -62,9 +62,12 @@
                                         <td class="text-center"><input type="checkbox" name="kts[<?= $hasil_desk->id_hasil_desk ?>]" id="kts<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->kts == 1) ? 'checked' : '' ?>></td>
                                         <td class="text-center"><input type="checkbox" name="open[<?= $hasil_desk->id_hasil_desk ?>]" id="open<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->open == 1) ? 'checked' : '' ?>></td>
                                         <td class="text-center"><input type="checkbox" name="close[<?= $hasil_desk->id_hasil_desk ?>]" id="close<?= $hasil_desk->id_hasil_desk ?>" <?= ($hasil_desk->close == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="text" name="catatan[<?= $hasil_desk->id_hasil_desk ?>]" id="catatan<?= $hasil_desk->id_hasil_desk ?>" value="<?= $hasil_desk->catatan ?>"></td>
-                                        <td class="text-center"><input type="text" name="penanggungjawab[<?= $hasil_desk->id_hasil_desk ?>]" id="penanggungjawab<?= $hasil_desk->id_hasil_desk ?>" value="<?= $hasil_desk->penanggungjawab ?>"></td>
-
+                                        <td class="text-center">
+                                            <textarea name="catatan[<?= $hasil_desk->id_hasil_desk ?>]" id="catatan<?= $hasil_desk->id_hasil_desk ?>" style="width: 100%; height: 400px; border: 1px solid #ccc; padding: 5px;"><?= $hasil_desk->catatan ?></textarea>
+                                        </td>
+                                        <td class="text-center">
+                                            <textarea name="penanggungjawab[<?= $hasil_desk->id_hasil_desk ?>]" id="penanggungjawab<?= $hasil_desk->id_hasil_desk ?>" style="width: 100%; border: 1px solid #ccc; padding: 5px;"><?= $hasil_desk->penanggungjawab ?></textarea>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -99,8 +102,12 @@
                                             <td class="text-center"><input type="checkbox" name="kts[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="kts<?= $hasil_desk->id_auditor_hasil_desk ?>" <?= ($hasil_desk->kts == 1) ? 'checked' : '' ?>></td>
                                             <td class="text-center"><input type="checkbox" name="open[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="open<?= $hasil_desk->id_auditor_hasil_desk ?>" <?= ($hasil_desk->open == 1) ? 'checked' : '' ?>></td>
                                             <td class="text-center"><input type="checkbox" name="close[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="close<?= $hasil_desk->id_auditor_hasil_desk ?>" <?= ($hasil_desk->close == 1) ? 'checked' : '' ?>></td>
-                                            <td class="text-center"><input type="text" name="catatan[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="catatan<?= $hasil_desk->id_auditor_hasil_desk ?>" value="<?= $hasil_desk->catatan ?>"></td>
-                                            <td class="text-center"><input type="text" name="penanggungjawab[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="penanggungjawab<?= $hasil_desk->id_auditor_hasil_desk ?>" value="<?= $hasil_desk->penanggungjawab ?>"></td>
+                                            <td class="text-center">
+                                                <textarea name="catatan[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="catatan<?= $hasil_desk->id_auditor_hasil_desk ?>" style="width: 100%; height: 400px; border: 1px solid #ccc; padding: 5px; resize: vertical;"><?= $hasil_desk->catatan ?></textarea>
+                                            </td>
+                                            <td class="text-center">
+                                                <textarea name="penanggungjawab[<?= $hasil_desk->id_auditor_hasil_desk ?>]" id="penanggungjawab<?= $hasil_desk->id_auditor_hasil_desk ?>" style="width: 100%; height: 100px; border: 1px solid #ccc; padding: 5px; resize: vertical;"><?= $hasil_desk->penanggungjawab ?></textarea>
+                                            </td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
@@ -177,13 +184,19 @@
                                             <?= $daftar_tilik->pertanyaan ?>
                                             <input type="hidden" name="id_daftar_tilik[]" value="<?= $daftar_tilik->id_daftar_tilik ?>">
                                         </td>
-                                        <td class="text-center"><input type="text" name="dokumenterkait[<?= $daftar_tilik->id_daftar_tilik ?>]" value="<?= $daftar_tilik->dokumen_terkait ?>"></td>
-                                        <td class="text-center"><input type="text" name="hasilobservasi[<?= $daftar_tilik->id_daftar_tilik ?>]" value="<?= $daftar_tilik->hasil_observasi ?>"></td>
+                                        <td class="text-center">
+                                            <textarea name="dokumenterkait[<?= $daftar_tilik->id_daftar_tilik ?>]" style="width: 100%; border: 1px solid #ccc; padding: 5px;"><?= $daftar_tilik->dokumen_terkait ?></textarea>
+                                        </td>
+                                        <td class="text-center">
+                                            <textarea name="hasilobservasi[<?= $daftar_tilik->id_daftar_tilik ?>]" style="width: 100%; border: 1px solid #ccc; padding: 5px;"><?= $daftar_tilik->hasil_observasi ?></textarea>
+                                        </td>
                                         <td class="text-center"><input type="checkbox" name="my[<?= $daftar_tilik->id_daftar_tilik ?>]" <?= ($daftar_tilik->my == 1) ? 'checked' : '' ?>></td>
                                         <td class="text-center"><input type="checkbox" name="mb[<?= $daftar_tilik->id_daftar_tilik ?>]" <?= ($daftar_tilik->mb == 1) ? 'checked' : '' ?>></td>
                                         <td class="text-center"><input type="checkbox" name="m[<?= $daftar_tilik->id_daftar_tilik ?>]" <?= ($daftar_tilik->m == 1) ? 'checked' : '' ?>></td>
                                         <td class="text-center"><input type="checkbox" name="mp[<?= $daftar_tilik->id_daftar_tilik ?>]" <?= ($daftar_tilik->mp == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="text" name="rekomendasi[<?= $daftar_tilik->id_daftar_tilik ?>]" value="<?= $daftar_tilik->rekomendasi ?>"></td>
+                                        <td class="text-center">
+                                            <textarea name="rekomendasi[<?= $daftar_tilik->id_daftar_tilik ?>]" style="width: 100%; border: 1px solid #ccc; padding: 5px;"><?= $daftar_tilik->rekomendasi ?></textarea>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
@@ -209,13 +222,19 @@
                                             <?= $daftar_tilik->tambahan_daftar_tilik ?>
                                             <input type="hidden" name="id_auditor_daftar_tilik[]" value="<?= $daftar_tilik->id_auditor_daftar_tilik ?>">
                                         </td>
-                                        <td class="text-center"><input type="text" name="dokumenterkait[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" value="<?= $daftar_tilik->dokumen_terkait ?>"></td>
-                                        <td class="text-center"><input type="text" name="hasilobservasi[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" value="<?= $daftar_tilik->hasil_observasi ?>"></td>
+                                        <td class="text-center">
+                                            <textarea name="dokumenterkait[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" style="width: 100%; border: 1px solid #ccc; padding: 5px;"><?= $daftar_tilik->dokumen_terkait ?></textarea>
+                                        </td>
+                                        <td class="text-center">
+                                            <textarea name="hasilobservasi[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" style="width: 100%; border: 1px solid #ccc; padding: 5px;"><?= $daftar_tilik->hasil_observasi ?></textarea>
+                                        </td>
                                         <td class="text-center"><input type="checkbox" name="my[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" <?= ($daftar_tilik->my == 1) ? 'checked' : '' ?>></td>
                                         <td class="text-center"><input type="checkbox" name="mb[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" <?= ($daftar_tilik->mb == 1) ? 'checked' : '' ?>></td>
                                         <td class="text-center"><input type="checkbox" name="m[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" <?= ($daftar_tilik->m == 1) ? 'checked' : '' ?>></td>
                                         <td class="text-center"><input type="checkbox" name="mp[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" <?= ($daftar_tilik->mp == 1) ? 'checked' : '' ?>></td>
-                                        <td class="text-center"><input type="text" name="rekomendasi[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" value="<?= $daftar_tilik->rekomendasi ?>"></td>
+                                        <td class="text-center">
+                                            <textarea name="rekomendasi[<?= $daftar_tilik->id_auditor_daftar_tilik ?>]" style="width: 100%; border: 1px solid #ccc; padding: 5px;"><?= $daftar_tilik->rekomendasi ?></textarea>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
