@@ -2,7 +2,8 @@
 
     <div class="card">
         <div class="card-body">
-        <form enctype="multipart/form-data" method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditor/edit_data/') ?>">
+        <form action="<?= base_url("auditor/edit_data/". $id) ?>" method="post" class="form-horizontal form-label-left" novalidate>
+        <!-- <form enctype="multipart/form-data" method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditor/edit_data/') . $id_hasilaudit ?>"> -->
 
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Surat Pengesahan</b></h5>

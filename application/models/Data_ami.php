@@ -3833,10 +3833,6 @@ class Data_ami extends CI_Model
         ];
         $this->db->where('id_hasilaudit', $id);
         $this->db->update('hasilaudit', $data);
-        // var_dump($data);
-
-        // $this->db->where('id_auditor', $id);
-        // $this->db->update('auditor', $data);
     }
 
     public function update_data2_hasil_audit()
