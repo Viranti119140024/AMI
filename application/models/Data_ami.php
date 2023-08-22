@@ -998,19 +998,19 @@ class Data_ami extends CI_Model
         $id_audit = $userLogin['id'];
 
         $nilai = $this->db->select('auditor_daftar_tilik_jurusan.*, nilai_ami2_jurusan.dokumen_terkait, nilai_ami2_jurusan.hasil_observasi, nilai_ami2_jurusan.m, nilai_ami2_jurusan.mp, nilai_ami2_jurusan.mb, nilai_ami2_jurusan.my, nilai_ami2_jurusan.rekomendasi')
-        ->from('auditor_daftar_tilik_jurusan')
-        ->join('nilai_ami2_jurusan', 'auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik = nilai_ami2_jurusan.id_daftar_tilik AND nilai_ami2_jurusan.id_audit = ' . $id_audit, 'left')
-        ->where('auditor_daftar_tilik_jurusan.id_dokumen_acuan', $id)
-        ->where('auditor_daftar_tilik_jurusan.id_audit', $id_audit)
-        ->order_by('auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik', 'ASC')
-        ->get()
-        ->result();
+            ->from('auditor_daftar_tilik_jurusan')
+            ->join('nilai_ami2_jurusan', 'auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik = nilai_ami2_jurusan.id_daftar_tilik AND nilai_ami2_jurusan.id_audit = ' . $id_audit, 'left')
+            ->where('auditor_daftar_tilik_jurusan.id_dokumen_acuan', $id)
+            ->where('auditor_daftar_tilik_jurusan.id_audit', $id_audit)
+            ->order_by('auditor_daftar_tilik_jurusan.id_auditor_daftar_tilik', 'ASC')
+            ->get()
+            ->result();
 
         return $nilai;
     }
 
 
-    
+
 
 
 
@@ -3766,7 +3766,7 @@ class Data_ami extends CI_Model
         $this->db->where('id_hasilaudit', $id);
         $query = $this->db->get();
 
-        // var_dump($query->result());
+        // var_dump($query);
         // var_dump($id);
         return $query->result();
     }
@@ -3810,7 +3810,6 @@ class Data_ami extends CI_Model
 
     public function update_data_hasil_audit($id, $foto1, $foto2, $foto3, $foto4)
     {
-
         $data = [
             // 'id_user' => $id,
             'foto_pengesahan' => $foto1,

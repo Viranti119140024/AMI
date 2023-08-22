@@ -7,19 +7,19 @@
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Surat Pengesahan</b></h5>
                     <label for="exampleFormControlInput1" style="color: black;">Upload Foto Surat Pengesahan (Format JPG,PNG, JPEG / Max = 5MB)</label>
-                    <input type="file" name="foto_pengesahan" id="foto_pengesahan" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="file" name="foto_pengesahan" id="foto_pengesahan" class="form-control-file">
                 </div>
 
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Daftar Hadir</b></h5>
                     <label for="exampleFormControlInput1" style="color: black;">Upload Daftar Hadir (Format JPG,PNG, JPEG / Max = 5MB)</label>
-                    <input type="file" name="daftarhadir" id="daftarhadir" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="file" name="daftarhadir" id="daftarhadir" class="form-control-file">
                 </div>
 
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Berita Acara</b></h5>
                     <label for="exampleFormControlInput1" style="color: black;">Upload Berita Acara (Format JPG,PNG, JPEG / Max = 5MB)</label>
-                    <input type="file" name="beritaacara" id="beritaacara" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="file" name="beritaacara" id="beritaacara" class="form-control-file">
                 </div>
 
                 <div class="form-group">

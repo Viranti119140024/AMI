@@ -423,6 +423,7 @@ class auditor extends CI_Controller
     {
         $data['title'] = 'Edit Data';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+
         $data['hasilaudit'] = $this->Data_ami->get_data_by_id_hasil_audit($id);
 
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
@@ -455,7 +456,7 @@ class auditor extends CI_Controller
             $this->load->view('templates/auditor/laporanhasil/edit', $data);
             $this->load->view('partials/auditor/footer', $data);
         } else {
-                $updated_data = array(
+            $updated_data = array(
                 'file_dokumen' => $this->input->post('file_dokumen'),
                 'daftarhadir' => $this->input->post('daftarhadir'),
                 'beritaacara' => $this->input->post('beritaacara'),
@@ -473,48 +474,47 @@ class auditor extends CI_Controller
                 'auditee' => $this->input->post('auditee'),
                 'tanggalDE' => $this->input->post('tanggalDE'),
                 'jangka_waktu' => $this->input->post('jangka_waktu'),
-                );
+            );
+
+            if ($_FILES['foto_pengesahan']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 10000; // 10MB
+                $this->load->library('upload', $config);
+                if ($this->upload->do_upload('foto_pengesahan')) {
+                    $upload_data = $this->upload->data();
+                    $updated_data['nama_file_pengesahan'] = $upload_data['file_name'];
+                } else {
+                    $error = array('error' => $this->upload->display_errors());
+                    // Handle error case as needed
+                }
+            }
+            if ($_FILES['dokumentasi']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 10000; // 10MB
+                $this->load->library('upload', $config);
+                if ($this->upload->do_upload('dokumentasi')) {
+                    $upload_data = $this->upload->data();
+                    $updated_data['nama_file_dokumentasi'] = $upload_data['file_name'];
+                } else {
+                    $error = array('error' => $this->upload->display_errors());
+                    // Handle error case as needed
+                }
             }
 
-                if ($_FILES['foto_pengesahan']['name']) {
-                    $config['upload_path'] = './assets/dokumen';
-                    $config['allowed_types'] = array('jpg', 'jpeg', 'png');
-                    $config['max_size'] = 10000; // 10MB
-                    $this->load->library('upload', $config);
-                    if ($this->upload->do_upload('foto_pengesahan')) {
-                        $upload_data = $this->upload->data();
-                        $updated_data['nama_file_pengesahan'] = $upload_data['file_name'];
-                    } else {
-                        $error = array('error' => $this->upload->display_errors());
-                        // Handle error case as needed
-                    }
+            if ($_FILES['daftarhadir']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 10000; // 10MB
+                $this->load->library('upload', $config);
+                if ($this->upload->do_upload('daftarhadir')) {
+                    $upload_data = $this->upload->data();
+                    $data['nama_file_daftarhadir'] = $upload_data['file_name'];
+                } else {
+                    $error = array('error' => $this->upload->display_errors());
                 }
-                if ($_FILES['dokumentasi']['name']) {
-                    $config['upload_path'] = './assets/dokumen';
-                    $config['allowed_types'] = array('jpg', 'jpeg', 'png');
-                    $config['max_size'] = 10000; // 10MB
-                    $this->load->library('upload', $config);
-                    if ($this->upload->do_upload('dokumentasi')) {
-                        $upload_data = $this->upload->data();
-                        $updated_data['nama_file_dokumentasi'] = $upload_data['file_name'];
-                    } else {
-                        $error = array('error' => $this->upload->display_errors());
-                        // Handle error case as needed
-                    }
-                }
-        
-                if ($_FILES['daftarhadir']['name']) {
-                    $config['upload_path'] = './assets/dokumen';
-                    $config['allowed_types'] = array('jpg', 'jpeg', 'png');
-                    $config['max_size'] = 10000; // 10MB
-                    $this->load->library('upload', $config);
-                    if ($this->upload->do_upload('daftarhadir')) {
-                        $upload_data = $this->upload->data();
-                        $data['nama_file_daftarhadir'] = $upload_data['file_name'];
-                    } else {
-                        $error = array('error' => $this->upload->display_errors());
-                }
-        
+
                 if ($_FILES['beritaacara']['name']) {
                     $config['upload_path'] = './assets/dokumen';
                     $config['allowed_types'] = array('jpg', 'jpeg', 'png');
@@ -527,14 +527,13 @@ class auditor extends CI_Controller
                         $error = array('error' => $this->upload->display_errors());
                     }
                 }
-
+            }
             $this->Data_ami->update_data_hasil_audit($id, $updated_data);
-            $this->session->set_flashdata('flash', 'diubah');
-
-            redirect('auditor/laporanakhir/' . $id);
+            // $this->session->set_flashdata('flash', 'diubah');
+            // redirect('auditor/laporanakhir/' . $id);
         }
     }
-    
+
     public function edit_form($id)
     {
 
