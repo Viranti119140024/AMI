@@ -7,9 +7,10 @@
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Surat Pengesahan</b></h5>
                     <label for="exampleFormControlInput1" style="color: black;">Upload Foto Surat Pengesahan (Format JPG,PNG, JPEG / Max = 5MB)</label>
-                    <input type="file" value="<?= $hasilaudit[0]->foto_pengesahan; ?>" name="foto_pengesahan" id="foto_pengesahan" class="form-control-file">
+                    <input type="file" name="foto_pengesahan" id="foto_pengesahan" class="form-control-file"> 
                 </div>
-
+                <img src="<?php echo base_url() . '/assets/dokumen' . $hasilaudit[0]->foto_pengesahan; ?>" width="100" alt="Gambar">
+                </div>
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Daftar Hadir</b></h5>
                     <label for="exampleFormControlInput1" style="color: black;">Upload Daftar Hadir (Format JPG,PNG, JPEG / Max = 5MB)</label>

@@ -429,7 +429,6 @@ class auditor extends CI_Controller
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
 
-        // var_dump($id);
 
         $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
         $this->form_validation->set_rules('daftarhadir', 'Daftar Hadir', 'in_list');
@@ -456,31 +455,15 @@ class auditor extends CI_Controller
             $this->load->view('templates/auditor/laporanhasil/edit', $data);
             $this->load->view('partials/auditor/footer', $data);
         } else {
-            $updated_data = array(
-                'file_dokumen' => $this->input->post('file_dokumen'),
-                'daftarhadir' => $this->input->post('daftarhadir'),
-                'beritaacara' => $this->input->post('beritaacara'),
-                'dokumentasi' => $this->input->post('dokumentasi'),
-                'tahun' => $this->input->post('tahun'),
-                'lembaga' => $this->input->post('lembaga'),
-                'tanggal' => $this->input->post('tanggal'),
-                'NIP'  => $this->input->post('NIP'),
-                'periode' => $this->input->post('periode'),
-                'hari_tgl' => $this->input->post('hari_tgl'),
-                'waktu' => $this->input->post('waktu'),
-                'tempat' => $this->input->post('tempat'),
-                'auditor' => $this->input->post('auditor'),
-                'auditor2' => $this->input->post('auditor2'),
-                'auditee' => $this->input->post('auditee'),
-                'tanggalDE' => $this->input->post('tanggalDE'),
-                'jangka_waktu' => $this->input->post('jangka_waktu'),
-            );
+          
+            $updated_data = [];
 
-            if ($_FILES['foto_pengesahan']['name']) {
+            if (isset($_FILES['foto_pengesahan']) && $_FILES['foto_pengesahan']['name']) {
                 $config['upload_path'] = './assets/dokumen';
                 $config['allowed_types'] = array('jpg', 'jpeg', 'png');
                 $config['max_size'] = 10000; // 10MB
                 $this->load->library('upload', $config);
+
                 if ($this->upload->do_upload('foto_pengesahan')) {
                     $upload_data = $this->upload->data();
                     $updated_data['nama_file_pengesahan'] = $upload_data['file_name'];
@@ -489,11 +472,12 @@ class auditor extends CI_Controller
                     // Handle error case as needed
                 }
             }
-            if ($_FILES['dokumentasi']['name']) {
+            if (isset($_FILES['dokumentasi']) && $_FILES['dokumentasi']['name']) {
                 $config['upload_path'] = './assets/dokumen';
                 $config['allowed_types'] = array('jpg', 'jpeg', 'png');
                 $config['max_size'] = 10000; // 10MB
                 $this->load->library('upload', $config);
+            
                 if ($this->upload->do_upload('dokumentasi')) {
                     $upload_data = $this->upload->data();
                     $updated_data['nama_file_dokumentasi'] = $upload_data['file_name'];
@@ -503,37 +487,131 @@ class auditor extends CI_Controller
                 }
             }
 
-            if ($_FILES['daftarhadir']['name']) {
+            if (isset($_FILES['daftarhadir']) && $_FILES['daftarhadir']['name']) {
                 $config['upload_path'] = './assets/dokumen';
                 $config['allowed_types'] = array('jpg', 'jpeg', 'png');
                 $config['max_size'] = 10000; // 10MB
                 $this->load->library('upload', $config);
+                
                 if ($this->upload->do_upload('daftarhadir')) {
                     $upload_data = $this->upload->data();
                     $data['nama_file_daftarhadir'] = $upload_data['file_name'];
                 } else {
                     $error = array('error' => $this->upload->display_errors());
-                }
-
-                if ($_FILES['beritaacara']['name']) {
-                    $config['upload_path'] = './assets/dokumen';
-                    $config['allowed_types'] = array('jpg', 'jpeg', 'png');
-                    $config['max_size'] = 10000; // 10MB
-                    $this->load->library('upload', $config);
-                    if (!$this->upload->do_upload('beritaacara')) {
-                        $upload_data = $this->upload->data();
-                        $data['nama_file_beritaacara'] = $upload_data['file_name'];
-                    } else {
-                        $error = array('error' => $this->upload->display_errors());
-                    }
+                    // Handle error case as needed
                 }
             }
-            $this->Data_ami->update_data_hasil_audit($id, $updated_data);
-            // $this->session->set_flashdata('flash', 'diubah');
-            // redirect('auditor/laporanakhir/' . $id);
-        }
-    }
+            
 
+            if (isset($_FILES['beritaacara']) && $_FILES['beritaacara']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 10000; // 10MB
+                $this->load->library('upload', $config);
+                
+                if ($this->upload->do_upload('beritaacara')) {
+                    $upload_data = $this->upload->data();
+                    $data['nama_file_beritaacara'] = $upload_data['file_name'];
+                } else {
+                    $error = array('error' => $this->upload->display_errors());
+                    // Handle error case as needed
+                }
+            }
+            
+            }
+            $data = [
+                'tahun' => $this->input->post('tahun', TRUE),
+                'lembaga' => $this->input->post('lembaga', TRUE),
+                'tanggal' => $this->input->post('tanggal', TRUE),
+                'NIP' => $this->input->post('NIP', TRUE),
+                'periode' => $this->input->post('periode', TRUE),
+                'hari_tgl' => $this->input->post('hari_tgl', TRUE),
+                'waktu' => $this->input->post('waktu', TRUE),
+                'tempat' => $this->input->post('tempat', TRUE),
+                'auditor' => $this->input->post('auditor', TRUE),
+                'auditor2' => $this->input->post('auditor2', TRUE),
+                'auditee' => $this->input->post('auditee', TRUE),
+                'tanggalDE' => $this->input->post('tanggalDE', TRUE),
+                'jangka_waktu' => $this->input->post('jangka_waktu', TRUE),
+
+
+            ];
+            if (isset($updated_data['file_dokumen'])) {
+                $data['file_dokumen'] = $updated_data['file_dokumen'];
+            }
+            if (isset($updated_data['daftarhadir'])) {
+                $data['daftarhadir'] = $updated_data['daftarhadir'];
+            }
+            if (isset($updated_data['beritaacara'])) {
+                $data['beritaacara'] = $updated_data['beritaacara'];
+            }
+            if (isset($updated_data['dokumentasi'])) {
+                $data['dokumentasi'] = $updated_data['dokumentasi'];
+            }
+            
+            $this->db->update('hasilaudit', $data, ['id' => $id]);
+            $this->Data_ami->update_data_hasil_audit($id, $updated_data);
+
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
+            redirect('auditor/laporanakhir/' . $id);
+        }
+
+        // if ($_FILES['foto_pengesahan']['name']) {
+        //     $config['upload_path'] = './assets/dokumen';
+        //     $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+        //     $config['max_size'] = 10000; // 10MB
+        //     $this->load->library('upload', $config);
+        //     if ($this->upload->do_upload('foto_pengesahan')) {
+        //         $upload_data = $this->upload->data();
+        //         $updated_data['nama_file_pengesahan'] = $upload_data['file_name'];
+        //     } else {
+        //         $error = array('error' => $this->upload->display_errors());
+        //         // Handle error case as needed
+        //     }
+        // }
+        // if ($_FILES['dokumentasi']['name']) {
+        //     $config['upload_path'] = './assets/dokumen';
+        //     $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+        //     $config['max_size'] = 10000; // 10MB
+        //     $this->load->library('upload', $config);
+        //     if ($this->upload->do_upload('dokumentasi')) {
+        //         $upload_data = $this->upload->data();
+        //         $updated_data['nama_file_dokumentasi'] = $upload_data['file_name'];
+        //     } else {
+        //         $error = array('error' => $this->upload->display_errors());
+        //         // Handle error case as needed
+        //     }
+        // }
+
+        // if ($_FILES['daftarhadir']['name']) {
+        //     $config['upload_path'] = './assets/dokumen';
+        //     $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+        //     $config['max_size'] = 10000; // 10MB
+        //     $this->load->library('upload', $config);
+        //     if ($this->upload->do_upload('daftarhadir')) {
+        //         $upload_data = $this->upload->data();
+        //         $data['nama_file_daftarhadir'] = $upload_data['file_name'];
+        //     } else {
+        //         $error = array('error' => $this->upload->display_errors());
+        //     }
+
+        //     if ($_FILES['beritaacara']['name']) {
+        //         $config['upload_path'] = './assets/dokumen';
+        //         $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+        //         $config['max_size'] = 10000; // 10MB
+        //         $this->load->library('upload', $config);
+        //         if (!$this->upload->do_upload('beritaacara')) {
+        //             $upload_data = $this->upload->data();
+        //             $data['nama_file_beritaacara'] = $upload_data['file_name'];
+        //         } else {
+        //             $error = array('error' => $this->upload->display_errors());
+        //         }
+        //     }
+        // }
+        // $this->Data_ami->update_data_hasil_audit($id, $updated_data);
+        // // $this->session->set_flashdata('flash', 'diubah');
+        // redirect('auditor/laporanakhir/' . $id);
+    
     public function edit_form($id)
     {
 
