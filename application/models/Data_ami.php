@@ -3738,6 +3738,8 @@ class Data_ami extends CI_Model
             'id_hasilaudit' => $id,
             'dokumen_acuan' => $this->input->post('dokumen_acuan', true),
             'deskripsi_temuan' => $this->input->post('deskripsi_temuan', true),
+            'open' => $this->input->post('open', true),
+            'close' => $this->input->post('close', true),
             'permintaan_tindakan' => $this->input->post('permintaan_tindakan', true),
         ];
 

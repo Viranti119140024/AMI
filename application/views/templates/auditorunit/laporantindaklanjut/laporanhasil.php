@@ -15,22 +15,23 @@
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <center class="text-dark mt-8" style="color:black;">
-                    <div class="page-break"></div>
+                        <div class="page-break"></div>
                         <h4><b>KATA PENGANTAR</b></h4>
                     </center>
                     <p class="ratakanankiri">Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat
-                    dan bimbinganNya laporan Audit Mutu Internal siklus tahun <?= $hasilaudit[0]->tahun ?> Institut Teknologi
-                    Sumatera berhasil diselesaikan. Laporan ini merupakan hasil audit yang dilaksanakan oleh
-                    tim audit mutu internal berdasarkan permintaan audit Program Studi <?= $hasilaudit[0]->lembaga ?>
-                    <br> <br> Laporan ini memuat beberapa temuan yang secara keseluruhan telah mendapat
-                    tanggapan dari pihak teraudit. Selanjutnya dalam laporan ini juga memuat tindakan
-                    permintaan koreksi untuk beberapa temuan selama pelaksanaan audit. Harapan kami, agar
-                    temuan – temuan tersebut ditindaklanjuti sesuai dengan jangka waktu yang telah ditetapkan,
-                    sehingga mutu penyelengaraan layanan pendidikan di Program Studi <?= $hasilaudit[0]->lembaga ?> dapat ditingkatkan
-                    </br> <br> Pada kesempatan ini, kami juga mengucapkan terimakasih kepada pihak teraudit yang
-                    telah berlaku kooperatif selama proses audit berlangsung. Ucapan terima kasih juga kami
-                    sampaikan kepada semua pihak yang telah berkenan membantu sehingga kegiatan audit dapat
-                    terlaksana dengan baik dan lancar.</br></p>
+                        dan bimbinganNya laporan Audit Mutu Internal siklus tahun <?= $hasilaudit[0]->tahun ?> Institut Teknologi
+                        Sumatera berhasil diselesaikan. Laporan ini merupakan hasil audit yang dilaksanakan oleh
+                        tim audit mutu internal berdasarkan permintaan audit Program Studi <?= $hasilaudit[0]->lembaga ?>
+                        <br> <br> Laporan ini memuat beberapa temuan yang secara keseluruhan telah mendapat
+                        tanggapan dari pihak teraudit. Selanjutnya dalam laporan ini juga memuat tindakan
+                        permintaan koreksi untuk beberapa temuan selama pelaksanaan audit. Harapan kami, agar
+                        temuan – temuan tersebut ditindaklanjuti sesuai dengan jangka waktu yang telah ditetapkan,
+                        sehingga mutu penyelengaraan layanan pendidikan di Program Studi <?= $hasilaudit[0]->lembaga ?> dapat ditingkatkan
+                        </br> <br> Pada kesempatan ini, kami juga mengucapkan terimakasih kepada pihak teraudit yang
+                        telah berlaku kooperatif selama proses audit berlangsung. Ucapan terima kasih juga kami
+                        sampaikan kepada semua pihak yang telah berkenan membantu sehingga kegiatan audit dapat
+                        terlaksana dengan baik dan lancar.</br>
+                    </p>
                 </div>
 
                 <div class="text-right" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
@@ -47,41 +48,41 @@
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                     <center class="text-dark mt-8" style="color:black;">
-                    <div class="page-break"></div>
+                        <div class="page-break"></div>
                         <h4><b>BAB I <br> PENDAHULUAN </br></b></h4>
                     </center>
                     <b> 1.1 Latar Belakang</b> <br><br>
                     <p class="ratakanankiri">Penjaminan mutu Pendidikan Tinggi merupakan kegiatan sistematik untuk meningkatkan
-                    mutu Pendidikan Tinggi secara berencana dan berkelanjutan. Berdasarkan Undang – Undang
-                    Nomor 12 tahun 2012 Pasal 51 dan 52, Penjaminan mutu pendidikan tinggi dilakukan
-                    melalui penetapan, pelaksanaan, evaluasi, pengendalian dan peningkatan Standar Pendidikan
-                    Tinggi. Sistem penjaminan mutu pendidikan tinggi tersebut terdiri atas (1) Sistem
-                    Penjaminan Mutu Internal (SPMI) yang dikembangkan oleh Perguruan Tinggi; dan (2)
-                    Sistem Penjaminan Mutu Eksternal (SPME) yang dilakukan melalui akreditasi <br> <br> SPMI yang dilaksanakan ITERA bertujuan untuk menjamin pemenuhan Standar
-                    Nasional Dikti secara sistemati dan berkelanjutan hingga tumbuh dan berkembang budaya
-                    mutu di setiap unit di ITERA. Pelaksanaan SPMI mengikuti kaidah PPEPP, yaitu Penetapan,
-                    Pelaksanaan, Evaluasi, Pengendalian dan Pengembangan standar yang telah ditetapkan. Pada
-                    tahapan Evaluasi dapt dilakukan melalui Audit Mutu Intenal.</br> <br> Audit Mutu Internal (AMI) merupakan suatu pemeriksaan yang sistematis dan
-                    independen untuk menentukan apakah kegiatan dalam menjaga mutu serta hasilnya telah
-                    dilaksanakan secara efektif sesuai dengan standar pendidikan tinggi ITERA.Standar mutu
-                    ditetapkan untuk mencapai tujuan ITERA yang telah dituangkan dalam SK Rektor Institut
-                    Teknologi Sumatera Nomor 722/IT9.A/KP.06.06/2022 tentang Sistem Penjaminan Mutu
-                    Internal Institut Teknologi Sumatera.
-                    <br><br> Proses audit dilaksanakan dalam 2 tahap, yaitu desk evaluation dan audit lapangan.
-                    Aspek yang dievaluasi untuk kinerja unit adalah proses atau kegiatan yang berdasarkan
-                    kesesuaian dengan 5 standar mutu pendidikan, yaitu (1) standar kompetensi lulusan, (2)
-                    standar isi pembelajaran, (3) standar proses pembelajaran, (4) standar penilaian
-                    pembelajaran, (5) standar pengelolaan pembelajaran.
-                    <br> <br> <b> 1.2 Tujuan</b><br>
-                    <br>AMI dilakukan untuk kepentingan peningkatan mutu Unit yang diaudit. Audit bukan
-                    merupakan asesmen / penilaian melainkan pencocokan antara pelaksanaan dengan standar
-                    yang sudah ditetapkan. Dengan demikian, tujuan secara khusus kegiatan audit mutu internal
-                    Institut Teknologi Sumatera adalah:
-                    <br> 1. Untuk memeriksa kesesuaian dan atau ketaksesuaian pelaksanaan standar yang telah ditetapkan <br> 2. Untuk memeriksa proses dan hasil proses pencapaian mutu sehingga dapat ditentukan keefektifan pencapaian dari tujuan yang telah ditetapkan
-                    <br>3. Untuk menyiapkan laporan permintaan tindakan koreksi auditee sebagai dasar perbaikan mutu selanjutnya <br>4. Untuk memberi kesempatan teraudit memperbaiki sistem penjaminan mutu
-                    <br>5. Untuk membantu institutsi/program studi dalam mempersiapakan diri dalam rangka audit eksternal atau akreditasi.
-                    <br> <br> <b> 1.3 Waktu dan Pelaksanaan Audit</b><br>
-                    <br> Kegiatan Audit Mutu Internal periode <?= $hasilaudit[0]->periode ?> tahun <?= $hasilaudit[0]->tahun ?> oleh tim Auditor LP3M ITERA dilakukan pada: 
+                        mutu Pendidikan Tinggi secara berencana dan berkelanjutan. Berdasarkan Undang – Undang
+                        Nomor 12 tahun 2012 Pasal 51 dan 52, Penjaminan mutu pendidikan tinggi dilakukan
+                        melalui penetapan, pelaksanaan, evaluasi, pengendalian dan peningkatan Standar Pendidikan
+                        Tinggi. Sistem penjaminan mutu pendidikan tinggi tersebut terdiri atas (1) Sistem
+                        Penjaminan Mutu Internal (SPMI) yang dikembangkan oleh Perguruan Tinggi; dan (2)
+                        Sistem Penjaminan Mutu Eksternal (SPME) yang dilakukan melalui akreditasi <br> <br> SPMI yang dilaksanakan ITERA bertujuan untuk menjamin pemenuhan Standar
+                        Nasional Dikti secara sistemati dan berkelanjutan hingga tumbuh dan berkembang budaya
+                        mutu di setiap unit di ITERA. Pelaksanaan SPMI mengikuti kaidah PPEPP, yaitu Penetapan,
+                        Pelaksanaan, Evaluasi, Pengendalian dan Pengembangan standar yang telah ditetapkan. Pada
+                        tahapan Evaluasi dapt dilakukan melalui Audit Mutu Intenal.</br> <br> Audit Mutu Internal (AMI) merupakan suatu pemeriksaan yang sistematis dan
+                        independen untuk menentukan apakah kegiatan dalam menjaga mutu serta hasilnya telah
+                        dilaksanakan secara efektif sesuai dengan standar pendidikan tinggi ITERA.Standar mutu
+                        ditetapkan untuk mencapai tujuan ITERA yang telah dituangkan dalam SK Rektor Institut
+                        Teknologi Sumatera Nomor 722/IT9.A/KP.06.06/2022 tentang Sistem Penjaminan Mutu
+                        Internal Institut Teknologi Sumatera.
+                        <br><br> Proses audit dilaksanakan dalam 2 tahap, yaitu desk evaluation dan audit lapangan.
+                        Aspek yang dievaluasi untuk kinerja unit adalah proses atau kegiatan yang berdasarkan
+                        kesesuaian dengan 5 standar mutu pendidikan, yaitu (1) standar kompetensi lulusan, (2)
+                        standar isi pembelajaran, (3) standar proses pembelajaran, (4) standar penilaian
+                        pembelajaran, (5) standar pengelolaan pembelajaran.
+                        <br> <br> <b> 1.2 Tujuan</b><br>
+                        <br>AMI dilakukan untuk kepentingan peningkatan mutu Unit yang diaudit. Audit bukan
+                        merupakan asesmen / penilaian melainkan pencocokan antara pelaksanaan dengan standar
+                        yang sudah ditetapkan. Dengan demikian, tujuan secara khusus kegiatan audit mutu internal
+                        Institut Teknologi Sumatera adalah:
+                        <br> 1. Untuk memeriksa kesesuaian dan atau ketaksesuaian pelaksanaan standar yang telah ditetapkan <br> 2. Untuk memeriksa proses dan hasil proses pencapaian mutu sehingga dapat ditentukan keefektifan pencapaian dari tujuan yang telah ditetapkan
+                        <br>3. Untuk menyiapkan laporan permintaan tindakan koreksi auditee sebagai dasar perbaikan mutu selanjutnya <br>4. Untuk memberi kesempatan teraudit memperbaiki sistem penjaminan mutu
+                        <br>5. Untuk membantu institutsi/program studi dalam mempersiapakan diri dalam rangka audit eksternal atau akreditasi.
+                        <br> <br> <b> 1.3 Waktu dan Pelaksanaan Audit</b><br>
+                        <br> Kegiatan Audit Mutu Internal periode <?= $hasilaudit[0]->periode ?> tahun <?= $hasilaudit[0]->tahun ?> oleh tim Auditor LP3M ITERA dilakukan pada:
                     <div class="table-responsive mt-2">
                         <table class="table table-borderless" style="color:black;">
                             <tr>
@@ -117,7 +118,7 @@
                             <tr>
                                 <td>Dokumentasi</td>
                                 <td>:</td>
-                                <td><img style="width: 600px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->dokumentasi) ?>" alt="Gambar"</td>
+                                <td><img style="width: 600px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->dokumentasi) ?>" alt="Gambar" </td>
                             </tr>
                         </table>
                     </div>
@@ -140,7 +141,7 @@
                     <!-- <a class="btn btn-danger" type="button" href="<?= base_url('auditor/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
                     <center class="text-dark mt-8" style="color:black;">
-                    <div class="page-break"></div>
+                        <div class="page-break"></div>
                         <h4><b>BAB II <br> DAFTAR TEMUAN AMI </br></b></h4>
                     </center>
 
@@ -181,13 +182,22 @@
                         <table class="table table-bordered">
                             <thead class="text-center">
                                 <tr>
-                                    <th rowspan="2" style="background-color: #FFD700; color:black;">No</th>
+                                    <th rowspan="2" style="background-color: #FFD700; color:black;">Kode PTK</th>
                                     <th rowspan="2" style="background-color: #FFD700; color:black;">Dokumen Acuan</th>
                                     <th rowspan="2" style="background-color: #FFD700; color:black;">Deskripsi Temuan</th>
+                                    <th colspan="2" style="background-color: #FFD700; color:black;">Status Temuan</th>
                                     <th rowspan="2" style="background-color: #FF0000; color:black;">Permintaan Tindakan Koreksi</th>
-                                    <!-- <th rowspan="2" style="background-color: #FF0000; color:black;">Aksi</th> -->
+                                    <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th>
+                                </tr>
+
+                                <tr>
+                                    <th style="background-color: #FFD700; color:black;">Open</th>
+                                    <th style="background-color: #FFD700; color:black;">Close</th>
+                                </tr>
 
                             </thead>
+
+
 
                             <tbody style="background-color: white; color:black;">
                                 <?php
