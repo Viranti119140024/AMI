@@ -66,12 +66,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">Auditor</label>
+                    <label for="exampleFormControlInput1" style="color: black;">Ketua Auditor</label>
                     <input type="text" class="form-control" id="auditor" name="auditor" placeholder="Masukkan Nama dan Gelar">
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">Auditor 2</label>
+                    <label for="exampleFormControlInput1" style="color: black;">Sekretaris Auditor</label>
                     <input type="text" class="form-control" id="auditor2" name="auditor2" placeholder="Masukkan Nama dan Gelar">
                 </div>
 
@@ -91,8 +91,8 @@
                     <input type="text" class="form-control" id="temuan" name="temuan" placeholder="Masukkan Nama"> -->
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">Program Studi/Jurusan/Unit</label>
-                    <input type="text" class="form-control" id="prodi" name="prodi" placeholder="Masukkan Program Studi/Jurusan/Unit">
+                    <label for="exampleFormControlInput1" style="color: black;">Program Studi</label>
+                    <input type="text" class="form-control" id="prodi" name="prodi" placeholder="Masukkan Program Studi">
                 </div>
 
                 <!-- <div class="form-group">
@@ -118,9 +118,10 @@
 
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Bab II KESIMPULAN</b></h5>
-                    <label for="exampleFormControlInput1" style="color: black;">Kesimpulan</label>
-                    <input type="text" class="form-control" id="kesimpulan" name="kesimpulan" placeholder="Masukkan Kesimpulan">
+                    <label for="kesimpulan" style="color: black;">Kesimpulan</label>
+                    <textarea class="form-control" id="kesimpulan" name="kesimpulan" placeholder="Masukkan Kesimpulan" style="width: 100%; height: 150px;"></textarea>
                 </div>
+
 
 
 

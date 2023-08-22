@@ -94,7 +94,6 @@ class unit extends CI_Controller
         $this->load->view('partials/unit/topbar', $data);
         $this->load->view('templates/unit/profile', $data);
         $this->load->view('partials/unit/footer', $data);
-
     }
 
     public function laporanakhir()
@@ -157,12 +156,17 @@ class unit extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
+        $data['tindaklanjut'] = $this->Data_ami->get_tindaklanjut($data['user']['id']);
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
+
         // $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
         // $this->form_validation->set_rules('pemeriksa1', 'Nama', 'required');
         // $this->form_validation->set_rules('penetapan1', 'Nama', 'required');
 
         $this->form_validation->set_rules('file_dokumen', 'File Dokumen', 'in_list');
         $this->form_validation->set_rules('dokumentasi', 'File Dokumentasi', 'in_list');
+        $this->form_validation->set_rules('daftarhadir', 'Daftar Hadir', 'in_list');
+        $this->form_validation->set_rules('beritaacara', 'Berita Acara', 'in_list');
         $this->form_validation->set_rules('periode', 'Periode', 'required');
         $this->form_validation->set_rules('tahun', 'Tahun', 'required');
         $this->form_validation->set_rules('lembaga', 'Lembaga', 'required');
@@ -172,13 +176,14 @@ class unit extends CI_Controller
         $this->form_validation->set_rules('waktu', 'waktu', 'required');
         $this->form_validation->set_rules('tempat', 'Tempat', 'required');
         $this->form_validation->set_rules('auditor', 'Auditor', 'required');
+        $this->form_validation->set_rules('auditor2', 'Auditor', 'required');
         $this->form_validation->set_rules('auditee', 'Auditee', 'required');
-        $this->form_validation->set_rules('temuan', 'Temuan', 'required');
+        // $this->form_validation->set_rules('temuan', 'Temuan', 'required');
         $this->form_validation->set_rules('prodi', 'Prodi', 'required');
-        $this->form_validation->set_rules('ruanglingkup', 'Ruang Lingkup', 'required');
+        // $this->form_validation->set_rules('ruanglingkup', 'Ruang Lingkup', 'required');
         $this->form_validation->set_rules('tanggalDE', 'Tanggal DE', 'required');
-        $this->form_validation->set_rules('dokumenacuan', 'Dokumen Acuan', 'required');
-        $this->form_validation->set_rules('a2', 'A2', 'required');
+        // $this->form_validation->set_rules('dokumenacuan', 'Dokumen Acuan', 'required');
+        // $this->form_validation->set_rules('a2', 'A2', 'required');
         $this->form_validation->set_rules('kesimpulan', 'Kesimpulan', 'required');
 
         if ($this->form_validation->run() == FALSE) {
@@ -196,7 +201,7 @@ class unit extends CI_Controller
             if ($_FILES['foto_pengesahan']['name']) {
                 $config['upload_path'] = './assets/dokumen';
                 $config['allowed_types'] = array('jpg', 'jpeg', 'png');
-                $config['max_size'] = 2048; // 2MB
+                $config['max_size'] = 10000; // 10MB
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('foto_pengesahan')) {
                     $error = array('error' => $this->upload->display_errors());
@@ -212,7 +217,7 @@ class unit extends CI_Controller
             if ($_FILES['dokumentasi']['name']) {
                 $config['upload_path'] = './assets/dokumen';
                 $config['allowed_types'] = array('jpg', 'jpeg', 'png');
-                $config['max_size'] = 2048; // 2MB
+                $config['max_size'] = 10000; // 10MB
                 $this->load->library('upload', $config);
                 if (!$this->upload->do_upload('dokumentasi')) {
                     $error = array('error' => $this->upload->display_errors());
@@ -221,10 +226,42 @@ class unit extends CI_Controller
                     $data['nama_file_dokumentasi'] = $upload_data['file_name'];
                 }
             }
+            $data['nama_file_daftarhadir'] = 'template3.png';
+            // var_dump($_FILES['foto_pengesahan']['name']);
+
+            if ($_FILES['daftarhadir']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 10000; // 10MB
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('daftarhadir')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $upload_data = $this->upload->data();
+                    $data['nama_file_daftarhadir'] = $upload_data['file_name'];
+                }
+            }
+            $data['nama_file_beritaacara'] = 'template4.png';
+            // var_dump($_FILES['foto_pengesahan']['name']);
+
+            if ($_FILES['beritaacara']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 10000; // 10MB
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('beritaacara')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $upload_data = $this->upload->data();
+                    $data['nama_file_beritaacara'] = $upload_data['file_name'];
+                }
+            }
 
             // var_dump($data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
-            $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
-            redirect('unit/datatindaklanjut');
+            $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi'], $data['nama_file_daftarhadir'], $data['nama_file_beritaacara'] );
+           
+            redirect('prodi/datatindaklanjut');
+            // var_dump( $data['tindaklanjut']);
         }
     }
 
@@ -429,7 +466,4 @@ class unit extends CI_Controller
         $this->load->view('templates/unit/generatehasilaudit', $data);
         $this->load->view('partials/unit/footer', $data);
     }
-
-
-
 }

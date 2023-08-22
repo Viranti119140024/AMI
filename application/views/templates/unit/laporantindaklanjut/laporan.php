@@ -11,6 +11,18 @@
                 <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->foto_pengesahan ?></h5> -->
                 <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->foto_pengesahan) ?>" alt="Gambar">
             </center>
+            <div class="page-break"></div>
+
+            <center class="text-dark mt-8">
+                <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->daftarhadir ?></h5> -->
+                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->daftarhadir) ?>" alt="Gambar">
+            </center>
+            <div class="page-break"></div>
+
+            <center class="text-dark mt-8">
+                <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->beritaacara ?></h5> -->
+                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->beritaacara) ?>" alt="Gambar">
+            </center>
 
 
 
@@ -23,7 +35,7 @@
                             <h4><b>KATA PENGANTAR</b></h4>
                         </center>
                         Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat dan bimbinganNya laporan tindak lanjut temuan Audit Mutu Internal siklus periode <?= $tindaklanjut[0]->periode ?> tahun
-                        <?= $tindaklanjut[0]->tahun ?> Program Studi <?= $tindaklanjut[0]->lembaga ?> berhasil diselesaikan. Laporan ini merupakan salah satu bentuk komitmen Studi/Jurusan/Unit Kerja untuk meningkatkan mutu penyelenggaraan
+                        <?= $tindaklanjut[0]->tahun ?> Unit <?= $tindaklanjut[0]->lembaga ?> berhasil diselesaikan. Laporan ini merupakan salah satu bentuk komitmen Studi/Jurusan/Unit Kerja untuk meningkatkan mutu penyelenggaraan
                         pendidikan. <br> <br> Laporan ini memuat beberapa tindakan koreksi dari temuan berdasarkan laporan audit
                         mutu internal yang telah diberikan LP3M ITERA. Beberapa temuan telah ditindaklanjuti dan
                         dikoreksi berdasarkan masukan dari audit serta waktu yang telah ditetapkan sebelumnya.
@@ -95,9 +107,15 @@
                                 </tr>
 
                                 <tr>
-                                    <td>Auditor</td>
+                                    <td> Ketua Auditor</td>
                                     <td>:</td>
                                     <td><?= $tindaklanjut[0]->auditor ?></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Sekretaris Auditor</td>
+                                    <td>:</td>
+                                    <td><?= $tindaklanjut[0]->auditor2 ?></td>
                                 </tr>
 
                                 <tr>
@@ -135,6 +153,7 @@
                         <div class="page-break"></div>
                             <h4><b>BAB II <br> TINDAK LANJUT </br></b></h4>
                         </center>
+                        <br></br>
                         <b> A.1 TEMUAN <?= $tindaklanjut[0]->temuan ?></b>
 
                         <center>
@@ -144,7 +163,7 @@
                         <div class="table-responsive mt-2">
                             <table class="table table-borderless" style="color:black;">
                                 <tr>
-                                    <td width="300px">Program Studi/Jurusan/Unit</td>
+                                    <td width="300px">Unit</td>
                                     <td width="10px">:</td>
                                     <td><?= $tindaklanjut[0]->prodi ?></td>
                                 </tr>
@@ -161,11 +180,11 @@
                                     <td>INSTITUT TEKNOLOGI SUMATERA</td>
                                 </tr>
 
-                                <tr>
+                                <!-- <tr>
                                     <td>Ruang Lingkup DE</td>
                                     <td>:</td>
                                     <td><?= $tindaklanjut[0]->ruanglingkup ?></td>
-                                </tr>
+                                </tr> -->
 
                                 <tr>
                                     <td>Auditor</td>
@@ -182,7 +201,7 @@
                                 <tr>
                                     <td>Dokumen Acuan</td>
                                     <td>:</td>
-                                    <td><?= $tindaklanjut[0]->dokumenacuan ?></td>
+                                    <td>Daftar Tilik</td>
                                 </tr>
                             </table>
                         </div>
@@ -236,26 +255,28 @@
                             </table>
                         </div>
 
-                        <b> A.2 TINDAK LANJUT TEMUAN <?= $tindaklanjut[0]->temuan ?></b>
+                        <b> A.2 TINDAK LANJUT TEMUAN</b>
 
                         <div class="form-group">
-                            <center>
-                                <li class="list-group-item mt-2" style="background-color: #6B8E23; color:black;"><b>KODE TEMUAN :</b></li>
-                            </center>
-                            <label for="exampleFormControlTextarea1"></label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3"> <?= $tindaklanjut[0]->a2 ?></textarea>
-                        </div>
+                                <center>
+                                    <li class="list-group-item mt-2" style="background-color: #6B8E23; color:black;"><b>KODE TEMUAN : A1</b></li>
+                                </center>
+                                <label for="exampleFormControlTextarea1"></label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3" style="width: 100%; height: 200px;"> <?= $tindaklanjut[0]->a2 ?></textarea>
+                            </div>
 
                         <div class="card">
-                            <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                                <center class="text-dark mt-8" style="color:black;">
-                                <div class="page-break"></div>
-                                    <h4><b>BAB III <br> KESIMPULAN </br></b></h4>
-                                </center>
+                                <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
+                                    <center class="text-dark mt-8" style="color:black;">
+                                        <div class="page-break"></div>
+                                        <h4><b>BAB III <br> KESIMPULAN </br></b></h4>
+                                    </center>
 
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1"></label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1"> <?= $tindaklanjut[0]->kesimpulan ?></textarea>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1"></label>
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" style="width: 100%; height: 200px;"> <?= $tindaklanjut[0]->kesimpulan ?></textarea>
+                                    </div>
+
                                 </div>
 
                             </div>

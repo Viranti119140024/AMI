@@ -52,6 +52,13 @@
 
                 <h4>TINDAK LANJUT</h4>
 
+                <div class="form-group">
+                    <!-- <label for="exampleFormControlTextarea1" style="color: black;">Tindak Lanjut</label> -->
+                    <textarea class="form-control" id="a2" name="a2" placeholder="Masukkan Tindak Lanjut" style="width: 100%; height: 150px;"></textarea>
+                </div>
+
+
+
 
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-success" name="submit" id="submit">Simpan</button>
