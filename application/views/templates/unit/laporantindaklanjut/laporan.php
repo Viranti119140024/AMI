@@ -31,7 +31,7 @@
                 <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                         <center class="text-dark mt-8" style="color:black;">
-                        <div class="page-break"></div>
+                            <div class="page-break"></div>
                             <h4><b>KATA PENGANTAR</b></h4>
                         </center>
                         Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat dan bimbinganNya laporan tindak lanjut temuan Audit Mutu Internal siklus periode <?= $tindaklanjut[0]->periode ?> tahun
@@ -62,7 +62,7 @@
                 <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
                         <center class="text-dark mt-8" style="color:black;">
-                        <div class="page-break"></div>
+                            <div class="page-break"></div>
                             <h4><b>BAB I <br> PENDAHULUAN </br></b></h4>
                         </center>
                         <b> 1.1 Latar Belakang</b> <br><br>Penjaminan mutu Pendidikan Tinggi merupakan kegiatan sistematik untuk meningkatkan mutu Pendidikan Tinggi secara berencana dan berkelanjutan. Berdasarkan Undang – Undang
@@ -150,7 +150,7 @@
                         <!-- <a class="btn btn-danger" type="button" href="<?= base_url('unit/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
                         <center class="text-dark mt-8" style="color:black;">
-                        <div class="page-break"></div>
+                            <div class="page-break"></div>
                             <h4><b>BAB II <br> TINDAK LANJUT </br></b></h4>
                         </center>
                         <br></br>
@@ -209,13 +209,49 @@
                             <table class="table table-bordered">
                                 <thead class="text-center">
                                     <tr>
+                                        <th rowspan="2" style="background-color: #FFD700; color:black;">Kode PTK</th>
+                                        <th rowspan="2" style="background-color: #FFD700; color:black;">Dokumen Acuan</th>
+                                        <th rowspan="2" style="background-color: #FFD700; color:black;">Deskripsi Temuan</th>
+                                        <th colspan="2" style="background-color: #FFD700; color:black;">Status Temuan</th>
+                                        <th rowspan="2" style="background-color: #FF0000; color:black;">Permintaan Tindakan Koreksi</th>
+                                        <!-- <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th> -->
+                                    </tr>
+
+                                    <tr>
+                                        <th style="background-color: #FFD700; color:black;">Open</th>
+                                        <th style="background-color: #FFD700; color:black;">Close</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody style="background-color: white; color:black;">
+                                    <?php if ($bab2_hasil_audit != null) : ?>
+                                        <?php
+                                        $number = 1;
+                                        foreach ($bab2_hasil_audit as $value) :
+                                        ?>
+                                            <tr>
+                                                <td scope style="color: black;"="row"><?= $number++; ?></td>
+                                                <td scope style="color: black;"="row"><?= $value->dokumen_acuan; ?></td>
+                                                <td scope style="color: black;"="row"><?= $value->deskripsi_temuan; ?></td>
+                                                <td class="text-center"><input type="checkbox" name="open[<?= $value->id_bab2 ?>]" <?= ($value->open == 1) ? 'checked' : '' ?>></td>
+                                                <td class="text-center"><input type="checkbox" name="close[<?= $value->id_bab2 ?>]" <?= ($value->close == 1) ? 'checked' : '' ?>></td>
+                                                <td scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></td>
+                                                <!-- <td> <a href="<?= base_url('auditorunit/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td> -->
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
+                            <!-- <table class="table table-bordered">
+                                <thead class="text-center">
+                                    <tr>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">No</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Jenis Temuan</th>
                                         <th colspan="2" style="background-color: #FFD700; color:black;">Kategori Temuan</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Kode Temuan</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Jangka Waktu Perbaikan</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Penanggung Jawab</th>
-                                        <!-- <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th> -->
+                            
                                     </tr>
 
                                     <tr>
@@ -242,52 +278,51 @@
                                             <?php else : ?>
                                                 <th scope style="color: black;"=></th>
                                             <?php endif; ?>
-                                            <!-- <th scope style="color: black;"="row"><?= $value->OB; ?></th> -->
-                                            <!-- <th scope style="color: black;"="row"><?= $value->KTS; ?></th> -->
+                                         
                                             <th scope style="color: black;"="row"><?= $value->kode; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->jangka_waktu; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->pj; ?></th>
-                                            <!-- <th> <a href="<?= base_url('unit/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
+                                           
 
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
-                            </table>
+                            </table> -->
                         </div>
 
                         <b> A.2 TINDAK LANJUT TEMUAN</b>
 
                         <div class="form-group">
-                                <center>
-                                    <li class="list-group-item mt-2" style="background-color: #6B8E23; color:black;"><b>KODE TEMUAN : A1</b></li>
-                                </center>
-                                <label for="exampleFormControlTextarea1"></label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3" style="width: 100%; height: 200px;"> <?= $tindaklanjut[0]->a2 ?></textarea>
-                            </div>
-
-                        <div class="card">
-                                <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                                    <center class="text-dark mt-8" style="color:black;">
-                                        <div class="page-break"></div>
-                                        <h4><b>BAB III <br> KESIMPULAN </br></b></h4>
-                                    </center>
-
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea1"></label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" style="width: 100%; height: 200px;"> <?= $tindaklanjut[0]->kesimpulan ?></textarea>
-                                    </div>
-
-                                </div>
-
-                            </div>
-                            <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('unit/generate_pdf/' . $params) ?>">
-                                <div class="d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
-                                </div>
-                            </form>
+                            <center>
+                                <li class="list-group-item mt-2" style="background-color: #6B8E23; color:black;"><b>KODE TEMUAN : A1</b></li>
+                            </center>
+                            <label for="exampleFormControlTextarea1"></label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3" style="width: 100%; height: 200px;"> <?= $tindaklanjut[0]->a2 ?></textarea>
                         </div>
 
+                        <div class="card">
+                            <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
+                                <center class="text-dark mt-8" style="color:black;">
+                                    <div class="page-break"></div>
+                                    <h4><b>BAB III <br> KESIMPULAN </br></b></h4>
+                                </center>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1"></label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" style="width: 100%; height: 200px;"> <?= $tindaklanjut[0]->kesimpulan ?></textarea>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('unit/generate_pdf/' . $params) ?>">
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
+                            </div>
+                        </form>
                     </div>
 
-
                 </div>
+
+
+            </div>

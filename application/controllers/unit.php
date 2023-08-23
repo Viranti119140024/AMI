@@ -109,6 +109,7 @@ class unit extends CI_Controller
 
         $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
         $data['bab2'] = $this->Data_ami->get_data2($data['params']);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
         // var_dump($data['tindaklanjut']);
 
         $this->load->view('partials/unit/header', $data);
