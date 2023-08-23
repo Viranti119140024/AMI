@@ -243,13 +243,7 @@ class prodi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
-
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
+        $data['params'] = $this->uri->segment(3);;
         // var_dump($data['params']);
 
 
@@ -274,13 +268,8 @@ class prodi extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
 
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
+        $data['params'] = $this->uri->segment(3);
         // var_dump($data['params']);
 
 
@@ -403,8 +392,8 @@ class prodi extends CI_Controller
             }
 
             // var_dump($data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
-            $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi'], $data['nama_file_daftarhadir'], $data['nama_file_beritaacara'] );
-           
+            $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi'], $data['nama_file_daftarhadir'], $data['nama_file_beritaacara']);
+
             redirect('prodi/datatindaklanjut');
             // var_dump( $data['tindaklanjut']);
         }
@@ -429,14 +418,7 @@ class prodi extends CI_Controller
         $data['tindaklanjut'] = $this->Data_ami->get_tindaklanjut($data['user']['id']);
         $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
 
-
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
-
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
+        $data['params'] = $this->uri->segment(3);;
 
         // var_dump($data['params']);
         $this->form_validation->set_rules('jenis_temuan', 'Jenis Temuan', 'required');

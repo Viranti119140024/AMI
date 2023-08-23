@@ -194,25 +194,24 @@
                                     <th style="background-color: #FFD700; color:black;">Open</th>
                                     <th style="background-color: #FFD700; color:black;">Close</th>
                                 </tr>
-
                             </thead>
 
-
-
                             <tbody style="background-color: white; color:black;">
-                                <?php
-                                foreach ($bab2_hasil_audit as $key => $value) :
-                                    $number = $key + 1;
-                                ?>
-                                    <tr>
-                                        <th scope style="color: black;"="row"><?= $number; ?></th>
-                                        <th scope style="color: black;"="row"><?= $value->dokumen_acuan; ?></th>
-                                        <th scope style="color: black;"="row"><?= $value->deskripsi_temuan; ?></th>
-                                        <th scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></th>
-                                        <!-- <th> <a href="<?= base_url('auditor/edit_data2/') . $value->id_hasilaudit; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
-
-                                    </tr>
-                                <?php endforeach; ?>
+                                <?php if ($bab2_hasil_audit != null) : ?>
+                                    <?php
+                                    $number = 1;
+                                    foreach ($bab2_hasil_audit as $value) :
+                                    ?>
+                                        <tr>
+                                            <td scope style="color: black;"="row"><?= $number++; ?></td>
+                                            <td scope style="color: black;"="row"><?= $value->dokumen_acuan; ?></td>
+                                            <td scope style="color: black;"="row"><?= $value->deskripsi_temuan; ?></td>
+                                            <td class="text-center"><input type="checkbox" name="open[<?= $value->id_bab2 ?>]" <?= ($value->open == 1) ? 'checked' : '' ?>></td>
+                                            <td class="text-center"><input type="checkbox" name="close[<?= $value->id_bab2 ?>]" <?= ($value->close == 1) ? 'checked' : '' ?>></td>
+                                            <td scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
