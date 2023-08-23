@@ -3784,23 +3784,11 @@ class Data_ami extends CI_Model
 
     public function get_data2_hasil_audit($id)
     {
-        // $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-
-        // $result = $this->db->select('hasilaudit.*')
-        //     ->from('hasilaudit')
-        //     ->join('user', 'user.id = hasilaudit.id_user')
-        //     ->where('user.id_audit', $data['user']['id'])
-        //     ->get()
-        //     ->row();
-        // $id = $result->id_hasilaudit;
 
         $query = $this->db->get_where('bab2_hasil_audit', array('id_hasilaudit' => $id));
-        
 
         // Check if the query result is not empty
         if ($query !== null) {
-
-
             // Check if the query result is not empty
             if ($query->num_rows() > 0) {
                 return $query->result();
@@ -3809,6 +3797,38 @@ class Data_ami extends CI_Model
 
         return null;
     }
+
+    public function get_data2_hasil_audit2($id)
+    {
+
+        $query = $this->db->get_where('bab2_hasil_audit', array('id_bab2' => $id));
+
+        // Check if the query result is not empty
+        if ($query !== null) {
+            // Check if the query result is not empty
+            if ($query->num_rows() > 0) {
+                return $query->result();
+            }
+        }
+
+        return null;
+    }
+
+    // public function update_dokumen_temuan($id)
+    // {
+    //     $data = [
+    //         'id_hasilaudit' => $id,
+    //         'dokumen_acuan' => $this->input->post('dokumen_acuan', true),
+    //         'deskripsi_temuan' => $this->input->post('deskripsi_temuan', true),
+    //         'open' => $this->input->post('open', true),
+    //         'close' => $this->input->post('close', true),
+    //         'permintaan_tindakan' => $this->input->post('permintaan_tindakan', true),
+    //     ];
+    //     $this->db->where('id_hasilaudit', $id);
+    //     $this->db->update('hasilaudit', $data);
+    // }
+
+
 
     public function get_data2_by_id_hasil_audit($id)
     {
@@ -3846,21 +3866,18 @@ class Data_ami extends CI_Model
         $this->db->update('hasilaudit', $data);
     }
 
-    public function update_data2_hasil_audit()
+    public function update_data2_hasil_audit($id)
     {
 
         $data = [
-            'id_hasilaudit' => $id,
             'dokumen_acuan' => $this->input->post('dokumen_acuan', true),
             'deskripsi_temuan' => $this->input->post('deskripsi_temuan', true),
+            'open' => $this->input->post('open')[$id],   // Retrieve the value based on id
+            'close' => $this->input->post('close')[$id], // Retrieve the value based on id
             'permintaan_tindakan' => $this->input->post('permintaan_tindakan', true),
         ];
-
-        $this->db->where('id_hasilaudit', $this->input->post('id_hasilaudit'));
+        $this->db->where('id_bab2', $id);
         $this->db->update('bab2_hasil_audit', $data);
-
-        // $this->db->where('id_auditor', $id);
-        // $this->db->update('auditor', $data);
     }
 
     public function update_data2_tindak_lanjut()

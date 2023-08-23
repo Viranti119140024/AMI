@@ -398,9 +398,12 @@ class auditorunit extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['bab2'] = $this->Data_ami->get_data2_hasil_audit($id);
 
+        $data['params'] = $this->uri->segment(3);
+
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
-        // var_dump($data);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit2($data['params']);
+        // var_dump($data['params']);
 
         $this->form_validation->set_rules('dokumen_acuan', 'Dokumen Acuan', 'required');
         $this->form_validation->set_rules('deskripsi_temuan', 'Deskripsi Temuan', 'required');
@@ -414,14 +417,20 @@ class auditorunit extends CI_Controller
             $this->load->view('templates/auditorunit/laporantindaklanjut/edit2', $data);
             $this->load->view('partials/auditorunit/footer', $data);
         } else {
-            // var_dump($id_auditor);
-            $this->Data_ami->update_data2_hasil_audit();
+            $this->Data_ami->update_data2_hasil_audit($id);
             $this->session->set_flashdata('flash', 'diubah');
 
-            // var_dump($data['bab2'][0]->id_tindaklanjut);
-            // var_dump($data['bab2']);
             redirect('auditorunit/laporanakhir/' . $id);
         }
+    }
+
+    public function edit_data2_post($id)
+    {
+        // $a = $this->uri->segment(3);
+        $this->Data_ami->update_data2_hasil_audit($id);
+        $this->session->set_flashdata('flash', 'diubah');
+
+        redirect('auditorunit/datahasilaudit');
     }
 
 
