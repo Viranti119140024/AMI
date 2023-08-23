@@ -393,14 +393,7 @@ class jurusan_controller extends CI_Controller
         // $data['id'] = $id;
         // var_dump($data['id']);
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
-
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
-        // var_dump($data['params']);
+        $data['params'] = $this->uri->segment(3);
 
 
         // $this->form_validation->set_rules('dokumen_acuan', 'Dokumen Acuan', 'required');
@@ -513,15 +506,7 @@ class jurusan_controller extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
-
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
-        // var_dump($data['params']);
-
+        $data['params'] = $this->uri->segment(3);
 
         $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
         $data['bab2'] = $this->Data_ami->get_data2($data['params']);
@@ -540,14 +525,7 @@ class jurusan_controller extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
-
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
-        // var_dump($data['params']);
+        $data['params'] = $this->uri->segment(3);
 
 
         $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);

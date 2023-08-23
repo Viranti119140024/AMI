@@ -5,14 +5,14 @@
             <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('unit/isidata2_post/') . $params ?>">
 
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Jenis Temuan</label>
                     <input type="text" class="form-control" id="jenis_temuan" name="jenis_temuan" placeholder="Masukkan Jenis Temuan">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group"> -->
                     <!-- <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Waktu dan Pelaksanaan Audit</b></h5> -->
-                    <label for="exampleFormControlInput1" style="color: black;">OB</label>
+                    <!-- <label for="exampleFormControlInput1" style="color: black;">OB</label>
                     <input type="radio" id="OB" name="OB" value='1'>Ya
                     <input type="radio" id="OB" name="OB" value='0'>Tidak
 
@@ -37,7 +37,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Penanggung Jawab</label>
                     <input type="text" class="form-control" id="pj" name="pj" placeholder="Masukkan Penanggung Jawab">
-                </div>
+                </div> -->
 
                 <h4>TINDAK LANJUT</h4>
 

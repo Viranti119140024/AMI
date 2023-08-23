@@ -4,13 +4,22 @@
     <div class="card mt-2">
         <div class="card-body">
             <center class="text-dark mt-8">
-                <h5><b>LAPORAN AUDIT MUTU INTERNAL <?= $hasilaudit[0]->tahun ?> <br>Program Studi <?= $hasilaudit[0]->lembaga ?> <br></b></h5>
+                <h5><b>LAPORAN AUDIT MUTU INTERNAL <?= $hasilaudit[0]->tahun ?> <br>Unit<?= $hasilaudit[0]->lembaga ?> <br></b></h5>
             </center>
 
             <center class="text-dark mt-8">
                 <!-- <h5><b> <?= $hasilaudit[0]->foto_pengesahan ?></h5> -->
                 <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->foto_pengesahan) ?>" alt="Gambar">
             </center>
+            <center class="text-dark mt-8">
+                    <!-- <h5><b> <?= $hasilaudit[0]->daftarhadir ?></h5> -->
+                    <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->daftarhadir) ?>" alt="Gambar">
+                </center>
+                <div class="page-break"></div>
+                <center class="text-dark mt-8">
+                    <!-- <h5><b> <?= $hasilaudit[0]->beritaacara ?></h5> -->
+                    <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->beritaacara) ?>" alt="Gambar">
+                </center>
 
             <div class="card">
                 <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
@@ -180,32 +189,45 @@
                         </table>
                     </div>
                     <div class="table-responsive">
+                    <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead class="text-center">
                                 <tr>
-                                    <th rowspan="2" style="background-color: #FFD700; color:black;">No</th>
+                                    <th rowspan="2" style="background-color: #FFD700; color:black;">Kode PTK</th>
                                     <th rowspan="2" style="background-color: #FFD700; color:black;">Dokumen Acuan</th>
                                     <th rowspan="2" style="background-color: #FFD700; color:black;">Deskripsi Temuan</th>
+                                    <th colspan="2" style="background-color: #FFD700; color:black;">Status Temuan</th>
                                     <th rowspan="2" style="background-color: #FF0000; color:black;">Permintaan Tindakan Koreksi</th>
+                                    <!--<th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th>-->
+                                </tr>
+
+                                <tr>
+                                    <th style="background-color: #FFD700; color:black;">Open</th>
+                                    <th style="background-color: #FFD700; color:black;">Close</th>
+                                </tr>
                             </thead>
 
                             <tbody style="background-color: white; color:black;">
-                                <?php
-                                foreach ($bab2_hasil_audit as $key => $value) :
-                                    $number = $key + 1;
-                                ?>
-                                    <tr>
-                                        <th scope style="color: black;"="row"><?= $number; ?></th>
-                                        <th scope style="color: black;"="row"><?= $value->dokumen_acuan; ?></th>
-                                        <th scope style="color: black;"="row"><?= $value->deskripsi_temuan; ?></th>
-                                        <th scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></th>
-                                        <!-- <th> <a href="<?= base_url('auditor/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
-
-                                    </tr>
-                                <?php endforeach; ?>
+                                <?php if ($bab2_hasil_audit != null) : ?>
+                                    <?php
+                                    $number = 1;
+                                    foreach ($bab2_hasil_audit as $value) :
+                                    ?>
+                                        <tr>
+                                            <td scope style="color: black;"="row"><?= $number++; ?></td>
+                                            <td scope style="color: black;"="row"><?= $value->dokumen_acuan; ?></td>
+                                            <td scope style="color: black;"="row"><?= $value->deskripsi_temuan; ?></td>
+                                            <td class="text-center"><input type="checkbox" name="open[<?= $value->id_bab2 ?>]" <?= ($value->open == 1) ? 'checked' : '' ?>></td>
+                                            <td class="text-center"><input type="checkbox" name="close[<?= $value->id_bab2 ?>]" <?= ($value->close == 1) ? 'checked' : '' ?>></td>
+                                            <td scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></td>
+                                            <!--<td> <a href="<?= base_url('auditorunit/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td>-->
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
+                </div>
                 <!-- </div>
                 <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditorunit/generate_pdf_hasil_audit/' . $params) ?>">
                     <div class="d-flex justify-content-end">

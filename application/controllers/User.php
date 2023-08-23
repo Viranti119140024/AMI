@@ -62,14 +62,7 @@ class User extends CI_Controller
 
         // $data['url'] = $this->uri->segment(3);
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
-
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
-        // var_dump($data['params']);
+        $data['params'] = $this->uri->segment(3);
 
 
         $data['dokumen'] = $this->Data_ami->get_dokjurusan($data['params']);
@@ -121,14 +114,7 @@ class User extends CI_Controller
 
         // $data['url'] = $this->uri->segment(3);
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
-
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
-        // var_dump($data['params']);
+        $data['params'] = $this->uri->segment(3);
 
 
         $data['dokumen'] = $this->Data_ami->get_dokprodi($data['params']);
@@ -1035,14 +1021,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
-
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
-        // var_dump($data['params']);
+        $data['params'] = $this->uri->segment(3);
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('partials/admin/header', $data);
@@ -1073,15 +1052,7 @@ class User extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
-
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
-        // var_dump($data['params']);
-        // var_dump($segments);
+        $data['params'] = $this->uri->segment(3);
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('partials/admin/header', $data);
