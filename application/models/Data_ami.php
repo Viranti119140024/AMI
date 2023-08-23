@@ -3840,14 +3840,62 @@ class Data_ami extends CI_Model
         return $query->result();
     }
 
-    public function update_data_hasil_audit($id, $foto1, $foto2, $foto3, $foto4)
+    public function update_data_hasil_audit($id)
     {
+        $updated_data = [];
+
+        $config['upload_path'] = './assets/dokumen';
+        $config['allowed_types'] = 'jpg|jpeg|png';
+        $config['max_size'] = 10000; // 10MB
+        $this->load->library('upload', $config);
+
+        if (
+            isset($_FILES['foto_pengesahan']['name']) && $_FILES['foto_pengesahan']['name']
+        ) {
+            if ($this->upload->do_upload('foto_pengesahan')) {
+                $upload_data = $this->upload->data();
+                $updated_data['nama_file_pengesahan'] = $upload_data['file_name'];
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                // Handle error case as needed
+            }
+        }
+
+        if (isset($_FILES['dokumentasi']['name']) && $_FILES['dokumentasi']['name']) {
+            if ($this->upload->do_upload('dokumentasi')) {
+                $upload_data = $this->upload->data();
+                $updated_data['nama_file_dokumentasi'] = $upload_data['file_name'];
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                // Handle error case as needed
+            }
+        }
+
+        if (isset($_FILES['daftarhadir']['name']) && $_FILES['daftarhadir']['name']) {
+            if ($this->upload->do_upload('daftarhadir')) {
+                $upload_data = $this->upload->data();
+                $updated_data['nama_file_daftarhadir'] = $upload_data['file_name'];
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                // Handle error case as needed
+            }
+        }
+
+        if (isset($_FILES['beritaacara']['name']) && $_FILES['beritaacara']['name']) {
+            if ($this->upload->do_upload('beritaacara')) {
+                $upload_data = $this->upload->data();
+                $updated_data['nama_file_beritaacara'] = $upload_data['file_name'];
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+                // Handle error case as needed
+            }
+        }
+
         $data = [
-            // 'id_user' => $id,
-            'foto_pengesahan' => $foto1,
-            'dokumentasi' => $foto2,
-            'daftarhadir' => $foto3,
-            'beritaacara' => $foto4,
+            'foto_pengesahan' => isset($updated_data['nama_file_pengesahan']) ? $updated_data['nama_file_pengesahan'] : $this->input->post('foto_pengesahan_db'),
+            'dokumentasi' => isset($updated_data['nama_file_dokumentasi']) ? $updated_data['nama_file_dokumentasi'] : $this->input->post('dokumentasi_db'),
+            'daftarhadir' => isset($updated_data['nama_file_daftarhadir']) ? $updated_data['nama_file_daftarhadir'] : $this->input->post('daftarhadir_db'),
+            'beritaacara' => isset($updated_data['nama_file_beritaacara']) ? $updated_data['nama_file_beritaacara'] : $this->input->post('beritaacara_db'),
             'tahun' => $this->input->post('tahun', true),
             'lembaga' => $this->input->post('lembaga', true),
             'tanggal' => $this->input->post('tanggal', true),
@@ -3860,11 +3908,15 @@ class Data_ami extends CI_Model
             'auditee' => $this->input->post('auditee', true),
             'tanggalDE' => $this->input->post('tanggalDE', true),
             'jangka_waktu' => $this->input->post('jangka_waktu', true),
-
         ];
+
+        // Update data in the database
         $this->db->where('id_hasilaudit', $id);
         $this->db->update('hasilaudit', $data);
+
+        // Redirect or display a success message as needed
     }
+
 
     public function update_data2_hasil_audit($id)
     {
