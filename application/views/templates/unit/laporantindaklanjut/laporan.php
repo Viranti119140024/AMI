@@ -294,7 +294,7 @@
 
                 <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                        <a class="btn btn-success" type="button" href="<?= base_url('unit/isidata2/') . $bab2[0]->id_bab2 ?>" class="text-white" href="#">+ Tambah</a>
+                        <a class="btn btn-success" type="button" href="<?= base_url('unit/isidata2/') . $tindaklanjut[0]->id_tindaklanjut ?>" class="text-white" href="#">+ Tambah</a>
                     </div>
                     <!-- <a class="btn btn-danger" type="button" href="<?= base_url('unit/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
@@ -318,10 +318,11 @@
                                     ?>
                                         <tr>
                                             <td scope style="color: black;"="row"><?= $number++; ?></td>
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <label for="exampleFormControlTextarea1"></label>
                                                 <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3" style="width: 100%; height: 200px;"> <?= $bab2[0]->a2 ?></textarea>
-                                            </div>
+                                            </div> -->
+                                            <td scope style="color: black;"="row"><?= $value->a2 ?></td>
                                             <td> <a href="<?= base_url('auditorunit/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td>
                                         </tr>
                                     <?php endforeach; ?>
