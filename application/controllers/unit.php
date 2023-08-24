@@ -109,7 +109,9 @@ class unit extends CI_Controller
 
         $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
         $data['bab2'] = $this->Data_ami->get_data2($data['params']);
-        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
+        // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($data['user']['id']);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
         // var_dump($data['tindaklanjut']);
 
         $this->load->view('partials/unit/header', $data);
@@ -253,7 +255,7 @@ class unit extends CI_Controller
             // var_dump($data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
             $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi'], $data['nama_file_daftarhadir'], $data['nama_file_beritaacara']);
 
-            redirect('prodi/datatindaklanjut');
+            redirect('unit/datatindaklanjut');
             // var_dump( $data['tindaklanjut']);
         }
     }

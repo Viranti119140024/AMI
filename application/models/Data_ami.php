@@ -3842,81 +3842,68 @@ class Data_ami extends CI_Model
 
     public function update_data_hasil_audit($id)
     {
+        // Load the upload library
+        $this->load->library('upload');
+
+        // Configuration for file upload
+        $config['upload_path'] = './assets/dokumen';
+        $config['allowed_types'] = 'jpg|jpeg|png'; // Allowable file types
+        $config['max_size'] = 10000; // 10MB
+
+        // Initialize the upload library with the configuration
+        $this->upload->initialize($config);
+
+        // Array to store updated data
         $updated_data = [];
 
-        $config['upload_path'] = './assets/dokumen';
-        $config['allowed_types'] = 'jpg|jpeg|png';
-        $config['max_size'] = 10000; // 10MB
-        $this->load->library('upload', $config);
+        // List of fields that involve file uploads
+        $fields = ['foto_pengesahan', 'dokumentasi', 'daftarhadir', 'beritaacara'];
 
-        if (
-            isset($_FILES['foto_pengesahan']['name']) && $_FILES['foto_pengesahan']['name']
-        ) {
-            if ($this->upload->do_upload('foto_pengesahan')) {
+        foreach ($fields as $field) {
+            if ($this->upload->do_upload($field)) {
                 $upload_data = $this->upload->data();
-                $updated_data['nama_file_pengesahan'] = $upload_data['file_name'];
+                $updated_data[$field] = $upload_data['file_name'];
             } else {
-                $error = array('error' => $this->upload->display_errors());
+                $error = $this->upload->display_errors();
                 // Handle error case as needed
+                // For debugging purposes, you can log the error
+                log_message('error', 'File Upload Error: ' . $error);
+                // Display an error message to the user if needed
             }
         }
 
-        if (isset($_FILES['dokumentasi']['name']) && $_FILES['dokumentasi']['name']) {
-            if ($this->upload->do_upload('dokumentasi')) {
-                $upload_data = $this->upload->data();
-                $updated_data['nama_file_dokumentasi'] = $upload_data['file_name'];
-            } else {
-                $error = array('error' => $this->upload->display_errors());
-                // Handle error case as needed
-            }
-        }
-
-        if (isset($_FILES['daftarhadir']['name']) && $_FILES['daftarhadir']['name']) {
-            if ($this->upload->do_upload('daftarhadir')) {
-                $upload_data = $this->upload->data();
-                $updated_data['nama_file_daftarhadir'] = $upload_data['file_name'];
-            } else {
-                $error = array('error' => $this->upload->display_errors());
-                // Handle error case as needed
-            }
-        }
-
-        if (isset($_FILES['beritaacara']['name']) && $_FILES['beritaacara']['name']) {
-            if ($this->upload->do_upload('beritaacara')) {
-                $upload_data = $this->upload->data();
-                $updated_data['nama_file_beritaacara'] = $upload_data['file_name'];
-            } else {
-                $error = array('error' => $this->upload->display_errors());
-                // Handle error case as needed
-            }
-        }
-
-        $data = [
-            'foto_pengesahan' => isset($updated_data['nama_file_pengesahan']) ? $updated_data['nama_file_pengesahan'] : $this->input->post('foto_pengesahan_db'),
-            'dokumentasi' => isset($updated_data['nama_file_dokumentasi']) ? $updated_data['nama_file_dokumentasi'] : $this->input->post('dokumentasi_db'),
-            'daftarhadir' => isset($updated_data['nama_file_daftarhadir']) ? $updated_data['nama_file_daftarhadir'] : $this->input->post('daftarhadir_db'),
-            'beritaacara' => isset($updated_data['nama_file_beritaacara']) ? $updated_data['nama_file_beritaacara'] : $this->input->post('beritaacara_db'),
-            'tahun' => $this->input->post('tahun', true),
-            'lembaga' => $this->input->post('lembaga', true),
-            'tanggal' => $this->input->post('tanggal', true),
-            'NIP' => $this->input->post('NIP', true),
-            'periode' => $this->input->post('periode', true),
-            'hari_tgl' => $this->input->post('hari_tgl', true),
-            'waktu' => $this->input->post('waktu', true),
-            'tempat' => $this->input->post('tempat', true),
-            'auditor' => $this->input->post('auditor', true),
-            'auditee' => $this->input->post('auditee', true),
-            'tanggalDE' => $this->input->post('tanggalDE', true),
-            'jangka_waktu' => $this->input->post('jangka_waktu', true),
+        // Get other form input values
+        $other_data = [
+            'tahun', 'lembaga', 'tanggal', 'NIP', 'periode',
+            'hari_tgl', 'waktu', 'tempat', 'auditor', 'auditee',
+            'tanggalDE', 'jangka_waktu'
         ];
+
+        // Initialize the data array
+        $data = [];
+
+        // Combine updated file data with other form input data
+        foreach ($other_data as $field) {
+            $data[$field] = $this->input->post($field, true);
+        }
+
+        // Merge with updated file data
+        $data = array_merge($data, $updated_data);
 
         // Update data in the database
         $this->db->where('id_hasilaudit', $id);
-        $this->db->update('hasilaudit', $data);
+        $result = $this->db->update('hasilaudit', $data);
 
-        // Redirect or display a success message as needed
+        if ($result) {
+            // Redirect or display a success message
+            // You might also want to log the successful update
+            log_message('info', 'Data updated successfully.');
+        } else {
+            // Handle update error
+            log_message('error', 'Data update error.');
+            // Display an error message to the user if needed
+        }
     }
-
 
     public function update_data2_hasil_audit($id)
     {

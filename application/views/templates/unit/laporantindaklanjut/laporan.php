@@ -330,10 +330,10 @@
                         </table>
 
                         <!-- <div class="form-group"> -->
-                            <!-- <center>
+                        <!-- <center>
                                 <li class="list-group-item mt-2" style="background-color: #6B8E23; color:black;"><b>KODE TEMUAN : A1</b></li>
                             </center> -->
-                            <!-- <label for="exampleFormControlTextarea1"></label>
+                        <!-- <label for="exampleFormControlTextarea1"></label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3" style="width: 100%; height: 200px;"> <?= $tindaklanjut[0]->a2 ?></textarea>
                         </div> -->
 
