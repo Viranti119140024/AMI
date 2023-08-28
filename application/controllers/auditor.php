@@ -398,16 +398,8 @@ class auditor extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        // $data['id'] = $id;
-        // var_dump($data['id']);
+        $data['params'] = $this->uri->segment(3);;
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
-
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
 
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
@@ -616,8 +608,8 @@ class auditor extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
+        // $url = $_SERVER['REQUEST_URI'];
+        // $segments = explode('/', $url);
 
         // Find the index of the parameter name
         // $param1Index = array_search('param1', $segments);

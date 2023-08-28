@@ -3956,20 +3956,14 @@ class Data_ami extends CI_Model
     }
 
 
-    public function update_data2_tindak_lanjut()
+    public function update_data2_tindak_lanjut($id)
     {
 
         $data = [
-            'id_tindaklanjut' => $id,
-            'jenis_temuan' => $this->input->post('jenis_temuan', true),
-            'OB' => $this->input->post('OB', true),
-            'KTS' => $this->input->post('KTS', true),
-            'kode' => $this->input->post('kode', true),
-            'jangka_waktu' => $this->input->post('jangka_waktu', true),
-            'pj' => $this->input->post('pj', true),
+            'a2' => $this->input->post('a2', true),
         ];
 
-        $this->db->where('id_tindaklanjut', $this->input->post('id_tindaklanjut'));
+        $this->db->where('id_bab2', $id);
         $this->db->update('bab2', $data);
 
         // $this->db->where('id_auditor', $id);

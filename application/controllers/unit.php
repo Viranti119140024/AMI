@@ -127,14 +127,10 @@ class unit extends CI_Controller
         $data['user'] = $this->db->get_where('user', ['email' =>
         $this->session->userdata('email')])->row_array();
 
-        $url = $_SERVER['REQUEST_URI'];
-        $segments = explode('/', $url);
+        $data['params'] = $this->uri->segment(3);
 
-        // Find the index of the parameter name
-        $param1Index = array_search('param1', $segments);
-        // Retrieve the parameter values
-        $data['params'] = $segments[$param1Index + 4];
-        // var_dump($data['params']);
+        $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($data['params']);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
 
 
         $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);

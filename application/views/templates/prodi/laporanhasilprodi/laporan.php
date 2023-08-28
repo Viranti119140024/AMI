@@ -244,52 +244,6 @@
                             <?php endif; ?>
                         </tbody>
                     </table>
-                    <!-- <table class="table table-bordered">
-                                <thead class="text-center">
-                                    <tr>
-                                        <th rowspan="2" style="background-color: #FFD700; color:black;">No</th>
-                                        <th rowspan="2" style="background-color: #FFD700; color:black;">Jenis Temuan</th>
-                                        <th colspan="2" style="background-color: #FFD700; color:black;">Kategori Temuan</th>
-                                        <th rowspan="2" style="background-color: #FFD700; color:black;">Kode Temuan</th>
-                                        <th rowspan="2" style="background-color: #FFD700; color:black;">Jangka Waktu Perbaikan</th>
-                                        <th rowspan="2" style="background-color: #FFD700; color:black;">Penanggung Jawab</th>
-                            
-                                    </tr>
-
-                                    <tr>
-                                        <th style="background-color: #FFD700; color:black;">OB</th>
-                                        <th style="background-color: #FFD700; color:black;">KTS</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody style="background-color: white; color:black;">
-                                    <?php
-                                    foreach ($bab2 as $key => $value) :
-                                        $number = $key + 1;
-                                    ?>
-                                        <tr>
-                                            <th scope style="color: black;"="row"><?= $number; ?></th>
-                                            <th scope style="color: black;"="row"><?= $value->jenis_temuan; ?></th>
-                                            <?php if ($value->OB == 1) : ?>
-                                                <th scope style="color: black;"=>✓</th>
-                                            <?php else : ?>
-                                                <th scope style="color: black;"=></th>
-                                            <?php endif; ?>
-                                            <?php if ($value->KTS == 1) : ?>
-                                                <th scope style="color: black;"=>✓</th>
-                                            <?php else : ?>
-                                                <th scope style="color: black;"=></th>
-                                            <?php endif; ?>
-                                         
-                                            <th scope style="color: black;"="row"><?= $value->kode; ?></th>
-                                            <th scope style="color: black;"="row"><?= $value->jangka_waktu; ?></th>
-                                            <th scope style="color: black;"="row"><?= $value->pj; ?></th>
-                                           
-
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table> -->
                 </div>
 
                 <div class="card">
@@ -323,7 +277,7 @@
                                                 <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3" style="width: 100%; height: 200px;"> <?= $bab2[0]->a2 ?></textarea>
                                             </div> -->
                                             <td scope style="color: black;"="row"><?= $value->a2 ?></td>
-                                            <td> <a href="<?= base_url('unit/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td>
+                                            <td> <a href="<?= base_url('prodi/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
@@ -353,7 +307,7 @@
                             </div>
 
                         </div>
-                        <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('unit/generate_pdf/' . $params) ?>">
+                        <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('prodi/generate_pdf/' . $params) ?>">
                             <div class="d-flex justify-content-end">
                                 <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
                             </div>
