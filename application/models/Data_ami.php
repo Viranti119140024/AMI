@@ -344,26 +344,8 @@ class Data_ami extends CI_Model
     {
         $data = [
             'id_tindaklanjut' => $id,
-            // 'prodi' => $this->input->post('prodi', true),
-            // 'ruanglingkup' => $this->input->post('ruanglingkup', true),
-            // 'tanggal' => $this->input->post('tanggal', true),
-            // 'dokumen_acuan' => $this->input->post('dokumen_acuan', true),
-            // 'jenis_temuan' => $this->input->post('jenis_temuan', true),
-            // 'OB' => $this->input->post('OB', true),
-            // 'KTS' => $this->input->post('KTS', true),
-            // 'kode' => $this->input->post('kode', true),
-            // 'jangka_waktu' => $this->input->post('jangka_waktu', true),
-            // 'pj' => $this->input->post('pj', true),
-            // 'temuan' => $this->input->post('temuan', true),
             'a2' => $this->input->post('a2', true),
-            // 'kesimpulan' => $this->input->post('kesimpulan', true),
         ];
-
-        // $data['nama_file'] = $nama;
-        // $data['type'] = $tipe;
-        // $data['ukuran'] = $ukuran; 
-
-        // var_dump($data);
 
         $this->db->insert('bab2', $data,);
     }
@@ -472,33 +454,21 @@ class Data_ami extends CI_Model
         // $this->db->update('auditor', $data);
     }
 
-    public function update_data2()
+    public function update_data2($id)
     {
 
         $data = [
-            'id_tindaklanjut' => $this->input->post('id_tindaklanjut', true),
-            // 'prodi' => $this->input->post('prodi', true),
-            // 'ruanglingkup' => $this->input->post('ruanglingkup', true),
-            // 'tanggal' => $this->input->post('tanggal', true),
-            // 'dokumen_acuan' => $this->input->post('dokumen_acuan', true),
-            'jenis_temuan' => $this->input->post('jenis_temuan', true),
-            'OB' => $this->input->post('OB', true),
-            'KTS' => $this->input->post('KTS', true),
-            'kode' => $this->input->post('kode', true),
-            'jangka_waktu' => $this->input->post('jangka_waktu', true),
-            'pj' => $this->input->post('pj', true),
-            'temuan' => $this->input->post('temuan', true),
-            // 'a2' => $this->input->post('a2', true),
+    
+            'a2' => $this->input->post('a2', true),
             // 'kesimpulan' => $this->input->post('kesimpulan', true),
         ];
 
-        $this->db->where('id_tindaklanjut', $this->input->post('id_tindaklanjut'));
+        $this->db->where('id_bab2', $id);
         $this->db->update('bab2', $data);
 
         // $this->db->where('id_auditor', $id);
         // $this->db->update('auditor', $data);
     }
-
     public function get_acuan()
     {
         // $query = $this->db->query("SELECT * FROM prodi");
@@ -3689,7 +3659,7 @@ class Data_ami extends CI_Model
         return $query->result();
     }
 
-    public function tambah_hasilaudit($id, $foto1, $foto2, $foto3, $foto4)
+    public function tambah_hasilaudit($id, $foto1, $foto2, $foto3, $foto4, $foto5)
     {
 
         $userLogin = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
@@ -3709,9 +3679,11 @@ class Data_ami extends CI_Model
             'dokumentasi' => $foto2,
             'daftarhadir' => $foto3,
             'beritaacara' => $foto4,
+            'cover' => $foto5,
             'tahun' => $this->input->post('tahun', true),
             'lembaga' => $this->input->post('lembaga', true),
             'tanggal' => $this->input->post('tanggal', true),
+            'ketua' => $this->input->post('ketua', true),
             'NIP' => $this->input->post('NIP', true),
             'periode' => $this->input->post('periode', true),
             'hari_tgl' => $this->input->post('hari_tgl', true),
@@ -3857,7 +3829,7 @@ class Data_ami extends CI_Model
         $updated_data = [];
 
         // List of fields that involve file uploads
-        $fields = ['foto_pengesahan', 'dokumentasi', 'daftarhadir', 'beritaacara'];
+        $fields = ['foto_pengesahan', 'dokumentasi', 'daftarhadir', 'beritaacara', 'cover'];
 
         foreach ($fields as $field) {
             if ($this->upload->do_upload($field)) {
@@ -3874,8 +3846,8 @@ class Data_ami extends CI_Model
 
         // Get other form input values
         $other_data = [
-            'tahun', 'lembaga', 'tanggal', 'NIP', 'periode',
-            'hari_tgl', 'waktu', 'tempat', 'auditor', 'auditee',
+            'tahun', 'lembaga', 'tanggal', 'ketua', 'NIP', 'periode',
+            'hari_tgl', 'waktu', 'tempat', 'auditor', 'auditor2', 'auditee',
             'tanggalDE', 'jangka_waktu'
         ];
 
@@ -3905,6 +3877,71 @@ class Data_ami extends CI_Model
         }
     }
 
+    public function update_data_tindak_lanjut($id)
+    {
+        // Load the upload library
+        $this->load->library('upload');
+
+        // Configuration for file upload
+        $config['upload_path'] = './assets/dokumen';
+        $config['allowed_types'] = 'jpg|jpeg|png'; // Allowable file types
+        $config['max_size'] = 10000; // 10MB
+
+        // Initialize the upload library with the configuration
+        $this->upload->initialize($config);
+
+        // Array to store updated data
+        $updated_data = [];
+
+        // List of fields that involve file uploads
+        $fields = ['foto_pengesahan', 'dokumentasi', 'daftarhadir', 'beritaacara'];
+
+        foreach ($fields as $field) {
+            if ($this->upload->do_upload($field)) {
+                $upload_data = $this->upload->data();
+                $updated_data[$field] = $upload_data['file_name'];
+            } else {
+                $error = $this->upload->display_errors();
+                // Handle error case as needed
+                // For debugging purposes, you can log the error
+                log_message('error', 'File Upload Error: ' . $error);
+                // Display an error message to the user if needed
+            }
+        }
+
+        // Get other form input values
+        $other_data = [
+            'periode', 'tahun', 'lembaga', 'tanggal', 'nrk',
+            'hari_tgl', 'waktu', 'tempat', 'auditor', 'auditor2', 'auditee',
+            'prodi', 'tanggalDE', 'kesimpulan'
+        ];
+
+        // Initialize the data array
+        $data = [];
+
+        // Combine updated file data with other form input data
+        foreach ($other_data as $field) {
+            $data[$field] = $this->input->post($field, true);
+        }
+
+        // Merge with updated file data
+        $data = array_merge($data, $updated_data);
+
+        // Update data in the database
+        $this->db->where('id_tindaklanjut', $id);
+        $result = $this->db->update('tindaklanjut', $data);
+
+        if ($result) {
+            // Redirect or display a success message
+            // You might also want to log the successful update
+            log_message('info', 'Data updated successfully.');
+        } else {
+            // Handle update error
+            log_message('error', 'Data update error.');
+            // Display an error message to the user if needed
+        }
+    }
+
     public function update_data2_hasil_audit($id)
     {
 
@@ -3918,6 +3955,7 @@ class Data_ami extends CI_Model
         $this->db->where('id_bab2', $id);
         $this->db->update('bab2_hasil_audit', $data);
     }
+
 
     public function update_data2_tindak_lanjut()
     {

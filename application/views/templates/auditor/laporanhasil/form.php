@@ -4,6 +4,13 @@
         <div class="card-body">
             <form enctype="multipart/form-data" method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditor/isidata/') ?>">
 
+
+                <div class="form-group">
+                    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Cover</b></h5>
+                    <label for="exampleFormControlInput1" style="color: black;">Upload Cover (Format JPG,PNG, JPEG / Max = 5MB)</label>
+                    <input type="file" name="cover" id="cover" class="form-control-file">
+                </div>
+
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Surat Pengesahan</b></h5>
                     <label for="exampleFormControlInput1" style="color: black;">Upload Foto Surat Pengesahan (Format JPG,PNG, JPEG / Max = 5MB)</label>
@@ -40,7 +47,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1" style="color: black;">NRK / NIP</label>
+                    <label for="exampleFormControlInput1" style="color: black;">Nama Ketua Audit Mutu Internal</label>
+                    <input type="text" class="form-control" id="ketua" name="ketua" placeholder="Masukkan Nama dan Gelar">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1" style="color: black;">NRK / NIP Ketua Audit Mutu Internal </label>
                     <input type="text" class="form-control" id="NIP" name="NIP" placeholder="Masukkan NRK / NIP">
                 </div>
 

@@ -14,9 +14,15 @@
 
         <div class="card mt-2">
             <div class="card-body">
-                <center class="text-dark mt-8">
+                <!-- <center class="text-dark mt-8">
                     <h5><b>LAPORAN AUDIT MUTU INTERNAL <?= $hasilaudit->tahun ?> <br>Program Studi <?= $hasilaudit->lembaga ?> <br></b></h5>
+                </center> -->
+
+                <center class="text-dark mt-8">
+                    <!-- <h5><b> <?= $hasilaudit->foto_pengesahan ?></h5> -->
+                    <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit->cover) ?>" alt="Gambar">
                 </center>
+                <div class="page-break"></div>
 
                 <center class="text-dark mt-8">
                     <!-- <h5><b> <?= $hasilaudit->foto_pengesahan ?></h5> -->
@@ -61,6 +67,7 @@
                         <p>Ketua Audit Mutu Internal </p>
                         <br></br>
                         <br></br>
+                        <p><?= $hasilaudit->ketua ?></p>
                         <p>NIP / NRK. <?= $hasilaudit->NIP ?></p>
 
                     </div>
@@ -210,7 +217,7 @@
                                 </tr>
                             </table>
                         </div>
-                        <div class="table-responsive">
+            
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <thead class="text-center">

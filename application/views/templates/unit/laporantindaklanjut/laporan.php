@@ -323,7 +323,7 @@
                                                 <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3" style="width: 100%; height: 200px;"> <?= $bab2[0]->a2 ?></textarea>
                                             </div> -->
                                             <td scope style="color: black;"="row"><?= $value->a2 ?></td>
-                                            <td> <a href="<?= base_url('auditorunit/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td>
+                                            <td> <a href="<?= base_url('unit/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php endif; ?>

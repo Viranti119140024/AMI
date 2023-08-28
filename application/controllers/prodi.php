@@ -246,14 +246,11 @@ class prodi extends CI_Controller
         $data['params'] = $this->uri->segment(3);;
         // var_dump($data['params']);
 
-
         $data['tindaklanjut'] = $this->Data_ami->get_data($data['params']);
-        // var_dump($data['params']);
         $data['bab2'] = $this->Data_ami->get_data2($data['params']);
-        // var_dump($data['tindaklanjut']);
-
-        // $data['hasilaudit'] = $this->Data_ami->get_data_by_id_hasil_audit($id);
-        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
+        // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
+        $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($data['user']['id']);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
 
         $this->load->view('partials/prodi/header', $data);
         $this->load->view('templates/logo', $data);
@@ -487,46 +484,59 @@ class prodi extends CI_Controller
         $data['title'] = 'Edit Data';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
         $data['tindaklanjut'] = $this->Data_ami->get_data_by_id($id);
+        $data['hasilaudit'] = $this->Data_ami->get_data_by_id_hasil_audit($id);
+
+        $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
+        $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
+
         // var_dump($data);
 
 
         // $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
         // $this->form_validation->set_rules('pemeriksa1', 'Nama', 'required');
         // $this->form_validation->set_rules('penetapan1', 'Nama', 'required');
-        $this->form_validation->set_rules('periode', 'Periode', 'required');
-        $this->form_validation->set_rules('tahun', 'Tahun', 'required');
-        $this->form_validation->set_rules('lembaga', 'Lembaga', 'required');
-        $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
-        $this->form_validation->set_rules('nrk', 'NRK', 'required');
-        $this->form_validation->set_rules('hari_tgl', 'Hari dan Tanggal', 'required');
-        $this->form_validation->set_rules('waktu', 'waktu', 'required');
-        $this->form_validation->set_rules('tempat', 'Tempat', 'required');
-        $this->form_validation->set_rules('auditor', 'Auditor', 'required');
-        $this->form_validation->set_rules('auditee', 'Auditee', 'required');
-        $this->form_validation->set_rules('temuan', 'Temuan', 'required');
-        $this->form_validation->set_rules('prodi', 'Prodi', 'required');
-        $this->form_validation->set_rules('ruanglingkup', 'Ruang Lingkup', 'required');
-        $this->form_validation->set_rules('tanggalDE', 'Tanggal DE', 'required');
-        $this->form_validation->set_rules('dokumenacuan', 'Dokumen Acuan', 'required');
-        $this->form_validation->set_rules('a2', 'A2', 'required');
-        $this->form_validation->set_rules('kesimpulan', 'Kesimpulan', 'required');
+        // $this->form_validation->set_rules('periode', 'Periode', 'required');
+        // $this->form_validation->set_rules('tahun', 'Tahun', 'required');
+        // $this->form_validation->set_rules('lembaga', 'Lembaga', 'required');
+        // $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+        // $this->form_validation->set_rules('nrk', 'NRK', 'required');
+        // $this->form_validation->set_rules('hari_tgl', 'Hari dan Tanggal', 'required');
+        // $this->form_validation->set_rules('waktu', 'waktu', 'required');
+        // $this->form_validation->set_rules('tempat', 'Tempat', 'required');
+        // $this->form_validation->set_rules('auditor', 'Auditor', 'required');
+        // $this->form_validation->set_rules('auditee', 'Auditee', 'required');
+        // $this->form_validation->set_rules('temuan', 'Temuan', 'required');
+        // $this->form_validation->set_rules('prodi', 'Prodi', 'required');
+        // $this->form_validation->set_rules('ruanglingkup', 'Ruang Lingkup', 'required');
+        // $this->form_validation->set_rules('tanggalDE', 'Tanggal DE', 'required');
+        // $this->form_validation->set_rules('dokumenacuan', 'Dokumen Acuan', 'required');
+        // $this->form_validation->set_rules('a2', 'A2', 'required');
+        // $this->form_validation->set_rules('kesimpulan', 'Kesimpulan', 'required');
 
 
-        if ($this->form_validation->run() == FALSE) {
+        // if ($this->form_validation->run() == FALSE) {
             $this->load->view('partials/prodi/header', $data);
             $this->load->view('templates/logo', $data);
             $this->load->view('partials/prodi/sidebar', $data);
             $this->load->view('templates/prodi/laporanhasilprodi/editbab1', $data);
             $this->load->view('partials/prodi/footer', $data);
-        } else {
-            // var_dump($id_auditor);
-            $this->Data_ami->update_data();
-            $this->session->set_flashdata('flash', 'diubah');
+        // } else {
+        //     // var_dump($id_auditor);
+        //     $this->Data_ami->update_data();
+        //     $this->session->set_flashdata('flash', 'diubah');
 
-            // var_dump($data['bab2'][0]->id_tindaklanjut);
-            // var_dump($data['bab2']);
-            redirect('prodi/laporanakhir/' . $data['tindaklanjut'][0]->id_user);
+        //     // var_dump($data['bab2'][0]->id_tindaklanjut);
+        //     // var_dump($data['bab2']);
+        //     redirect('prodi/laporanakhir/' . $data['tindaklanjut'][0]->id_user);
         }
+    
+        public function edit_form_hasil_auditor($id)
+    {
+
+        $this->Data_ami->update_data_tindak_lanjut($id);
+        $this->session->set_flashdata('flash', 'diubah');
+
+        redirect('prodi/laporanakhir/' . $id);
     }
 
 
@@ -633,7 +643,7 @@ class prodi extends CI_Controller
         $id = $data['user']['id'];
 
         $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
-        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit();
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
 
         $data['tampil_hasil_desk_utama1'] = $this->Data_ami->tampil_hasil_desk_utama_auditor('1');
         $data['tampil_hasil_desk_tambahan1'] = $this->Data_ami->tampil_hasil_desk_tambahan_auditor('1');

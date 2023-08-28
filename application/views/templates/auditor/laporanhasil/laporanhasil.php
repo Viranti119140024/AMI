@@ -3,9 +3,16 @@
 
     <div class="card mt-2">
         <div class="card-body">
-            <center class="text-dark mt-8">
+            <!-- <center class="text-dark mt-8">
                 <h5><b>LAPORAN AUDIT MUTU INTERNAL <?= $hasilaudit[0]->tahun ?> <br>Program Studi <?= $hasilaudit[0]->lembaga ?> <br></b></h5>
+            </center> -->
+
+            <center class="text-dark mt-8">
+                <!-- <h5><b> <?= $hasilaudit[0]->foto_pengesahan ?></h5> -->
+                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $hasilaudit[0]->cover) ?>" alt="Gambar">
             </center>
+
+            <div class="page-break"></div>
 
             <center class="text-dark mt-8">
                 <!-- <h5><b> <?= $hasilaudit[0]->foto_pengesahan ?></h5> -->
@@ -53,6 +60,7 @@
                     <p>Ketua Audit Mutu Internal </p>
                     <br></br>
                     <br></br>
+                    <p><?= $hasilaudit[0]->ketua ?></p>
                     <p>NIP / NRK. <?= $hasilaudit[0]->NIP ?></p>
 
                 </div>

@@ -3,7 +3,7 @@
 
     <div class="card mt-2">
         <div class="card-body">
-            <center style="font: bold;" class="text-dark mt-8">
+            <center class="text-dark mt-8">
                 <h5><b>LAPORAN TINDAK LANJUT AUDIT MUTU INTERNAL <?= $tindaklanjut[0]->periode ?> <br>Program Studi <?= $tindaklanjut[0]->lembaga ?> <br></b></h5>
             </center>
 
@@ -25,16 +25,17 @@
             </center>
 
 
+
             <div class="table-responsive">
 
                 <div class="card">
-                    <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large; color:black;">
-                        <center class="text-dark mt-8">
-                        <div class="page-break"></div>
+                    <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
+                        <center class="text-dark mt-8" style="color:black;">
+                            <div class="page-break"></div>
                             <h4><b>KATA PENGANTAR</b></h4>
                         </center>
                         Segala puji bagi Allah Subhanahu wa Ta’ala karena hanya dengan limpahan rahmat dan bimbinganNya laporan tindak lanjut temuan Audit Mutu Internal siklus periode <?= $tindaklanjut[0]->periode ?> tahun
-                        <?= $tindaklanjut[0]->tahun ?> Program Studi <?= $tindaklanjut[0]->lembaga ?> berhasil diselesaikan. Laporan ini merupakan salah satu bentuk komitmen Studi/Jurusan/Unit Kerja untuk meningkatkan mutu penyelenggaraan
+                        <?= $tindaklanjut[0]->tahun ?> Unit <?= $tindaklanjut[0]->lembaga ?> berhasil diselesaikan. Laporan ini merupakan salah satu bentuk komitmen Studi/Jurusan/Unit Kerja untuk meningkatkan mutu penyelenggaraan
                         pendidikan. <br> <br> Laporan ini memuat beberapa tindakan koreksi dari temuan berdasarkan laporan audit
                         mutu internal yang telah diberikan LP3M ITERA. Beberapa temuan telah ditindaklanjuti dan
                         dikoreksi berdasarkan masukan dari audit serta waktu yang telah ditetapkan sebelumnya.
@@ -59,8 +60,8 @@
                 </div>
 
                 <div class="card">
-                    <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large; color:black;">
-                        <center class="text-dark mt-8">
+                    <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
+                        <center class="text-dark mt-8" style="color:black;">
                             <div class="page-break"></div>
                             <h4><b>BAB I <br> PENDAHULUAN </br></b></h4>
                         </center>
@@ -106,7 +107,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td>Ketua Auditor</td>
+                                    <td> Ketua Auditor</td>
                                     <td>:</td>
                                     <td><?= $tindaklanjut[0]->auditor ?></td>
                                 </tr>
@@ -143,70 +144,107 @@
 
                 </div>
 
-                <div class="card">
+                <!-- <div class="card">
                     <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                        <!-- <a class="btn btn-success" type="button" href="<?= base_url('prodi/isidata2/') . $tindaklanjut[0]->id_tindaklanjut ?>" class="text-white" href="#">+ Tambah</a> -->
-                        <!-- <a class="btn btn-danger" type="button" href="<?= base_url('prodi/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
+                        <a class="btn btn-success" type="button" href="<?= base_url('unit/isidata2/') . $tindaklanjut[0]->id_tindaklanjut ?>" class="text-white" href="#">+ Tambah</a> -->
+                <!-- <a class="btn btn-danger" type="button" href="<?= base_url('unit/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
-                        <center class="text-dark mt-8" style="color:black;">
-                
-                            <div class="page-break"></div>
-                            <h4><b>BAB II <br> TINDAK LANJUT </br></b></h4>
-                        </center>
-                        <br></br>
-                        <b> A.1 TEMUAN <?= $tindaklanjut[0]->temuan ?></b>
+                <center class="text-dark mt-8" style="color:black;">
+                    <div class="page-break"></div>
+                    <h4><b>BAB II <br> TINDAK LANJUT </br></b></h4>
+                </center>
+                <br></br>
+                <b> 1. TEMUAN </b>
 
-                        <center>
-                            <li class="list-group-item mt-2" style="background-color: #ffa07a; color:black;"><b>PERMINTAAN TINDAKAN KOREKSI</b></li>
-                        </center>
+                <center>
+                    <li class="list-group-item mt-2" style="background-color: #ffa07a; color:black;"><b>PERMINTAAN TINDAKAN KOREKSI</b></li>
+                </center>
 
-                        <div class="table-responsive mt-2">
-                            <table class="table table-borderless" style="color:black;">
-                                <tr>
-                                    <td width="300px">Program Studi/Jurusan/Unit</td>
-                                    <td width="10px">:</td>
-                                    <td><?= $tindaklanjut[0]->prodi ?></td>
-                                </tr>
+                <div class="table-responsive mt-2">
+                    <table class="table table-borderless" style="color:black;">
+                        <tr>
+                            <td width="300px">Unit</td>
+                            <td width="10px">:</td>
+                            <td><?= $tindaklanjut[0]->prodi ?></td>
+                        </tr>
 
-                                <tr>
-                                    <td>Strata</td>
-                                    <td>:</td>
-                                    <td>S1</td>
-                                </tr>
+                        <tr>
+                            <td>Strata</td>
+                            <td>:</td>
+                            <td>S1</td>
+                        </tr>
 
-                                <tr>
-                                    <td>Universitas</td>
-                                    <td>:</td>
-                                    <td>INSTITUT TEKNOLOGI SUMATERA</td>
-                                </tr>
+                        <tr>
+                            <td>Universitas</td>
+                            <td>:</td>
+                            <td>INSTITUT TEKNOLOGI SUMATERA</td>
+                        </tr>
 
-                                <!-- <tr>
-                                    <td>Ruang Lingkup DE</td>
-                                    <td>:</td>
-                                    <td><?= $tindaklanjut[0]->ruanglingkup ?></td>
-                                </tr> -->
+                        <tr>
+                            <td> Ketua Auditor</td>
+                            <td>:</td>
+                            <td><?= $tindaklanjut[0]->auditor ?></td>
+                        </tr>
 
-                                <tr>
-                                    <td>Auditor</td>
-                                    <td>:</td>
-                                    <td>Tim Auditor Mutu Internal ITERA</td>
-                                </tr>
+                        <tr>
+                            <td>Sekretaris Auditor</td>
+                            <td>:</td>
+                            <td><?= $tindaklanjut[0]->auditor2 ?></td>
+                        </tr>
 
-                                <tr>
-                                    <td>Tanggal DE</td>
-                                    <td>:</td>
-                                    <td><?= $tindaklanjut[0]->tanggalDE ?></td>
-                                </tr>
+                        <tr>
+                            <td>Tanggal DE</td>
+                            <td>:</td>
+                            <td><?= $tindaklanjut[0]->tanggalDE ?></td>
+                        </tr>
 
-                                <tr>
-                                    <td>Dokumen Acuan</td>
-                                    <td>:</td>
-                                    <td>Daftar Tilik</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
+                        <tr>
+                            <td>Jangka Waktu Perbaikan</td>
+                            <td>:</td>
+                            <td>2 Bulan</td>
+                        </tr>
+
+
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="text-center">
+                            <tr>
+                                <th rowspan="2" style="background-color: #FFD700; color:black;">Kode PTK</th>
+                                <th rowspan="2" style="background-color: #FFD700; color:black;">Dokumen Acuan</th>
+                                <th rowspan="2" style="background-color: #FFD700; color:black;">Deskripsi Temuan</th>
+                                <th colspan="2" style="background-color: #FFD700; color:black;">Status Temuan</th>
+                                <th rowspan="2" style="background-color: #FF0000; color:black;">Permintaan Tindakan Koreksi</th>
+                                <!-- <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th> -->
+                            </tr>
+
+                            <tr>
+                                <th style="background-color: #FFD700; color:black;">Open</th>
+                                <th style="background-color: #FFD700; color:black;">Close</th>
+                            </tr>
+                        </thead>
+
+                        <tbody style="background-color: white; color:black;">
+                            <?php if ($bab2_hasil_audit != null) : ?>
+                                <?php
+                                $number = 1;
+                                foreach ($bab2_hasil_audit as $value) :
+                                ?>
+                                    <tr>
+                                        <td scope style="color: black;"="row"><?= $number++; ?></td>
+                                        <td scope style="color: black;"="row"><?= $value->dokumen_acuan; ?></td>
+                                        <td scope style="color: black;"="row"><?= $value->deskripsi_temuan; ?></td>
+                                        <td class="text-center"><input type="checkbox" name="open[<?= $value->id_bab2 ?>]" <?= ($value->open == 1) ? 'checked' : '' ?>></td>
+                                        <td class="text-center"><input type="checkbox" name="close[<?= $value->id_bab2 ?>]" <?= ($value->close == 1) ? 'checked' : '' ?>></td>
+                                        <td scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></td>
+                                        <!-- <td> <a href="<?= base_url('auditorunit/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td> -->
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                    <!-- <table class="table table-bordered">
                                 <thead class="text-center">
                                     <tr>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">No</th>
@@ -215,7 +253,7 @@
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Kode Temuan</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Jangka Waktu Perbaikan</th>
                                         <th rowspan="2" style="background-color: #FFD700; color:black;">Penanggung Jawab</th>
-                                        <!-- <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th> -->
+                            
                                     </tr>
 
                                     <tr>
@@ -232,67 +270,102 @@
                                         <tr>
                                             <th scope style="color: black;"="row"><?= $number; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->jenis_temuan; ?></th>
-                                            <?php if ($value->OB) : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                            <?php if ($value->OB == 1) : ?>
+                                                <th scope style="color: black;"=>✓</th>
                                             <?php else : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                                <th scope style="color: black;"=></th>
                                             <?php endif; ?>
-                                            <?php if ($value->KTS) : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                            <?php if ($value->KTS == 1) : ?>
+                                                <th scope style="color: black;"=>✓</th>
                                             <?php else : ?>
-                                                <th scope style="color: black;"="row">✓</th>
+                                                <th scope style="color: black;"=></th>
                                             <?php endif; ?>
-                                            <!-- <th scope style="color: black;"="row"><?= $value->OB; ?></th> -->
-                                            <!-- <th scope style="color: black;"="row"><?= $value->KTS; ?></th> -->
+                                         
                                             <th scope style="color: black;"="row"><?= $value->kode; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->jangka_waktu; ?></th>
                                             <th scope style="color: black;"="row"><?= $value->pj; ?></th>
-                                            <!-- <th> <a href="<?= base_url('prodi/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
+                                           
 
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
-                            </table>
-                        </div>
+                            </table> -->
+                </div>
 
-                        <b> A.2 TINDAK LANJUT TEMUAN <?= $tindaklanjut[0]->temuan ?></b>
+                <!-- <div class="card">
+                    <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
+                        <a class="btn btn-success" type="button" href="<?= base_url('unit/isidata2/') . $tindaklanjut[0]->id_tindaklanjut ?>" class="text-white" href="#">+ Tambah</a>
+                    </div> -->
+                <!-- <a class="btn btn-danger" type="button" href="<?= base_url('unit/isidata2/') ?>" class="text-white" href="#"> Edit</a> -->
 
-                        <div class="form-group">
-                                <center>
-                                    <li class="list-group-item mt-2" style="background-color: #6B8E23; color:black;"><b>KODE TEMUAN : A1</b></li>
-                                </center>
+                <b style="font-style: bold;"> 2. TINDAK LANJUT TEMUAN</b>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="text-center">
+                            <tr>
+                                <th rowspan="2" style="background-color: #FFD700; color:black;">No</th>
+                                <th rowspan="2" style="background-color: #FFD700; color:black;">Tindak Lanjut Temuan</th>
+                                <!-- <th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th> -->
+                            </tr>
+                        </thead>
+
+                        <tbody style="background-color: white; color:black;">
+                            <?php if ($bab2 != null) : ?>
+                                <?php
+                                $number = 1;
+                                foreach ($bab2 as $value) :
+                                ?>
+                                    <tr>
+                                        <td scope style="color: black;"="row"><?= $number++; ?></td>
+                                        <!-- <div class="form-group">
+                                                <label for="exampleFormControlTextarea1"></label>
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3" style="width: 100%; height: 200px;"> <?= $bab2[0]->a2 ?></textarea>
+                                            </div> -->
+                                        <td scope style="color: black;"="row"><?= $value->a2 ?></td>
+                                        <!-- <td> <a href="<?= base_url('unit/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td> -->
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+
+                    <!-- <div class="form-group"> -->
+                    <!-- <center>
+                                <li class="list-group-item mt-2" style="background-color: #6B8E23; color:black;"><b>KODE TEMUAN : A1</b></li>
+                            </center> -->
+                    <!-- <label for="exampleFormControlTextarea1"></label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3" style="width: 100%; height: 200px;"> <?= $tindaklanjut[0]->a2 ?></textarea>
+                        </div> -->
+
+                    <div class="card">
+                        <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
+                            <center class="text-dark mt-8" style="color:black;">
+                                <div class="page-break"></div>
+                                <h4><b>BAB III <br> KESIMPULAN </br></b></h4>
+                            </center>
+
+                            <div class="form-group">
                                 <label for="exampleFormControlTextarea1"></label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Deskripsi..." rows="3" style="width: 100%; height: 200px;"> <?= $tindaklanjut[0]->a2 ?></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" style="width: 100%; height: 200px;"> <?= $tindaklanjut[0]->kesimpulan ?></textarea>
                             </div>
 
-                        <div class="card">
-                                <div class="card-body" style="font-family:Arial, Helvetica, sans-serif; color:black; font-size:large;">
-                                    <center class="text-dark mt-8" style="color:black;">
-                                        <div class="page-break"></div>
-                                        <h4><b>BAB III <br> KESIMPULAN </br></b></h4>
-                                    </center>
-
-                                    <div class="form-group">
-                                        <label for="exampleFormControlTextarea1"></label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" style="width: 100%; height: 200px;"> <?= $tindaklanjut[0]->kesimpulan ?></textarea>
-                                    </div>
-
-                                </div>
-                            <!-- <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('prodi/generate_pdf/' . $params) ?>">
-                                <div class="d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
-                                </div>
-                            </form> -->
                         </div>
 
                     </div>
-
-
+                    <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('unit/generate_pdf/' . $params) ?>">
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
+                        </div>
+                    </form>
                 </div>
+
             </div>
+
         </div>
     </div>
 </div>
+
 
 <script>
     // Automatically trigger print when the page loads

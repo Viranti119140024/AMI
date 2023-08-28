@@ -32,7 +32,7 @@
                             <td style="color: black;"><?= $value->periode; ?></td>
                             <td>
                                 <a href="<?= base_url('prodi/laporanakhir/') . $value->id_tindaklanjut ?> "><button type="lihat" class="sbtn btn" style="background-color: 	#DCDCDC;"><i class="fa fa-eye" style="color: #696969;"></i></button></a>
-                                <!-- <a href="<?= base_url('prodi/edit_data/') . $value->id_tindaklanjut;?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a> -->
+                                <a href="<?= base_url('prodi/edit_data/') . $value->id_tindaklanjut;?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: 	#4169E1;"></i></button></a>
      </div>
         </td>
         </tr>

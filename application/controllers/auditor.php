@@ -278,9 +278,11 @@ class auditor extends CI_Controller
         $this->form_validation->set_rules('daftarhadir', 'Daftar Hadir', 'in_list');
         $this->form_validation->set_rules('beritaacara', 'Berita Acara', 'in_list');
         $this->form_validation->set_rules('dokumentasi', 'File Dokumentasi', 'in_list');
+        $this->form_validation->set_rules('cover', 'Cover', 'in_list');
         $this->form_validation->set_rules('tahun', 'Tahun', 'required');
         $this->form_validation->set_rules('lembaga', 'Lembaga', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+        $this->form_validation->set_rules('ketua', 'Ketua', 'required');
         $this->form_validation->set_rules('NIP', 'NIP', 'required');
         $this->form_validation->set_rules('periode', 'Periode', 'required');
         $this->form_validation->set_rules('hari_tgl', 'Hari dan Tanggal', 'required');
@@ -360,8 +362,22 @@ class auditor extends CI_Controller
                     $data['nama_file_beritaacara'] = $upload_data['file_name'];
                 }
             }
+            $data['nama_file_cover'] = 'template5.png';
 
-            $this->Data_ami->tambah_hasilaudit($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi'], $data['nama_file_daftarhadir'], $data['nama_file_beritaacara']);
+            if ($_FILES['cover']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 10000; // 10MB
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('cover')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $upload_data = $this->upload->data();
+                    $data['nama_file_cover'] = $upload_data['file_name'];
+                }
+            }
+
+            $this->Data_ami->tambah_hasilaudit($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi'], $data['nama_file_daftarhadir'], $data['nama_file_beritaacara'], $data['nama_file_cover']);
             redirect('auditor/datahasilaudit');
         }
     }
