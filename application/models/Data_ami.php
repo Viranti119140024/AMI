@@ -277,15 +277,11 @@ class Data_ami extends CI_Model
 
     public function get_tindaklanjut($id)
     {
-        // $query = $this->db->query("SELECT * FROM prodi");
-        // $id = (int)$id;
         $this->db->select('*');
         $this->db->from('tindaklanjut');
         $this->db->where('id_user', $id);
         $query = $this->db->get();
 
-        // var_dump($query->result());
-        // var_dump($id);
         return $query->result();
     }
 
@@ -378,18 +374,21 @@ class Data_ami extends CI_Model
         return $result;
     }
 
-    public function get_data_by_id($id)
+    public function get_data_by_id($id_user, $id_tindaklanjut)
     {
-        // $query = $this->db->query("SELECT * FROM prodi");
-        // $id = (int)$id;
         $this->db->select('*');
         $this->db->from('tindaklanjut');
-        $this->db->where('id_user', $id);
+        $this->db->where('id_user', $id_user);
+        $this->db->where('id_tindaklanjut', $id_tindaklanjut);
         $query = $this->db->get();
 
-        // var_dump($query->result());
-        // var_dump($id);
-        return $query->result();
+        $result = $query->result();
+
+        if (!empty($result)) {
+            return $result;
+        } else {
+            return null; // mengembalikan array kosong jika tidak ada data
+        }
     }
 
     public function get_data2($id)
@@ -458,7 +457,7 @@ class Data_ami extends CI_Model
     {
 
         $data = [
-    
+
             'a2' => $this->input->post('a2', true),
             // 'kesimpulan' => $this->input->post('kesimpulan', true),
         ];

@@ -483,13 +483,20 @@ class prodi extends CI_Controller
     {
         $data['title'] = 'Edit Data';
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
-        $data['tindaklanjut'] = $this->Data_ami->get_data_by_id($id);
+
+        $data['tindaklanjut'] = $this->Data_ami->get_data_by_id($data['user']['id'], $id);
         $data['hasilaudit'] = $this->Data_ami->get_data_by_id_hasil_audit($id);
 
         $data['unit'] = $this->Data_ami->get_unit_by_id($data['user']['id_audit']);
         $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
 
-        // var_dump($data);
+        $this->load->view('partials/prodi/header', $data);
+        $this->load->view('templates/logo', $data);
+        $this->load->view('partials/prodi/sidebar', $data);
+        $this->load->view('templates/prodi/laporanhasilprodi/editbab1', $data);
+        $this->load->view('partials/prodi/footer', $data);
+
+        // var_dump($data['tindaklanjut']);
 
 
         // $this->form_validation->set_rules('nama_penyusunan', 'Nama', 'required');
@@ -515,11 +522,7 @@ class prodi extends CI_Controller
 
 
         // if ($this->form_validation->run() == FALSE) {
-            $this->load->view('partials/prodi/header', $data);
-            $this->load->view('templates/logo', $data);
-            $this->load->view('partials/prodi/sidebar', $data);
-            $this->load->view('templates/prodi/laporanhasilprodi/editbab1', $data);
-            $this->load->view('partials/prodi/footer', $data);
+
         // } else {
         //     // var_dump($id_auditor);
         //     $this->Data_ami->update_data();
@@ -528,9 +531,9 @@ class prodi extends CI_Controller
         //     // var_dump($data['bab2'][0]->id_tindaklanjut);
         //     // var_dump($data['bab2']);
         //     redirect('prodi/laporanakhir/' . $data['tindaklanjut'][0]->id_user);
-        }
-    
-        public function edit_form_hasil_auditor($id)
+    }
+
+    public function edit_form_hasil_auditor($id)
     {
 
         $this->Data_ami->update_data_tindak_lanjut($id);
