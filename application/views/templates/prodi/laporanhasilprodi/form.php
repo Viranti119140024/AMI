@@ -4,6 +4,12 @@
         <div class="card-body">
             <form enctype="multipart/form-data" method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('prodi/isidata/') ?>">
 
+            <div class="form-group">
+                    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Cover</b></h5>
+                    <label for="exampleFormControlInput1" style="color: black;">Upload Cover (Format JPG,PNG, JPEG / Max = 5MB)</label>
+                    <input type="file" name="cover" id="cover" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+            
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Surat Pengesahan</b></h5>
                     <label for="exampleFormControlInput1" style="color: black;">Upload Foto Surat Pengesahan (Format JPG,PNG, JPEG / Max = 5MB)</label>
@@ -42,6 +48,11 @@
                 <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">Tanggal</label>
                     <input type="date" class="form-control" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1" style="color: black;">Nama</label>
+                    <input type="text" class="form-control" id="ketua" name="ketua" placeholder="Masukkan Nama">
                 </div>
 
                 <div class="form-group">

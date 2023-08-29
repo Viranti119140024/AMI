@@ -8,10 +8,17 @@
 
         </div>
 
-        <div class="form-group">
-            <label for="exampleFormControlInput1" style="color: black;">A2. TINDAK LANJUT TEMUAN</label>
+        <!-- <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: black;">TINDAK LANJUT TEMUAN</label>
             <input value="<?= $bab2[0]->a2; ?>" type="text" class="form-control" id="a2" name="a2" placeholder="Masukkan Nama">
+        </div> -->
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1" style="color: black;"> TINDAK LANJUT TEMUAN</label>
+            <textarea class="form-control" id="a2" name="a2" placeholder="Masukkan Nama" style="width: 100%; height: 200px;"><?= $bab2[0]->a2; ?></textarea>
         </div>
+
+
 
 
         <div class="d-flex justify-content-end">

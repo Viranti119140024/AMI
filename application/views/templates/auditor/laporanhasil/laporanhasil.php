@@ -243,7 +243,7 @@
                                             <td class="text-center"><input type="checkbox" name="open[<?= $value->id_bab2 ?>]" <?= ($value->open == 1) ? 'checked' : '' ?>></td>
                                             <td class="text-center"><input type="checkbox" name="close[<?= $value->id_bab2 ?>]" <?= ($value->close == 1) ? 'checked' : '' ?>></td>
                                             <td scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></td>
-                                            <td> <a href="<?= base_url('auditorunit/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td>
+                                            <td> <a href="<?= base_url('auditor/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 <?php endif; ?>

@@ -4,6 +4,13 @@
         <div class="card-body">
             <form enctype="multipart/form-data" method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url("prodi/edit_form_hasil_auditor/") . $tindaklanjut[0]->id_tindaklanjut; ?>">
 
+               
+                <div class="form-group">
+                    <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Cover</b></h5>
+                    <label for="exampleFormControlInput1" style="color: black;">Upload Cover (Format JPG,PNG, JPEG / Max = 5MB)</label>
+                    <input type="file" value="<?= $tindaklanjut[0]->cover; ?>" name="cover" id="cover" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+            
                 <div class="form-group">
                     <h5 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:black;"><b>Surat Pengesahan</b></h5>
                     <label for="exampleFormControlInput1" style="color: black;">Upload Foto Surat Pengesahan (Format JPG,PNG, JPEG / Max = 5MB)</label>
@@ -43,6 +50,12 @@
                     <label for="exampleFormControlInput1" style="color: black;">Tanggal</label>
                     <input type="date" value="<?= $tindaklanjut[0]->tanggal; ?>" class="form-control" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal">
                 </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1" style="color: black;">Nama</label>
+                    <input type="text" value="<?= $tindaklanjut[0]->ketua; ?>" class="form-control" id="ketua" name="ketua" placeholder="Masukkan Nama">
+                </div>
+
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1" style="color: black;">NRK / NIP</label>

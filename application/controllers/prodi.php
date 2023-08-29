@@ -300,10 +300,12 @@ class prodi extends CI_Controller
         $this->form_validation->set_rules('dokumentasi', 'File Dokumentasi', 'in_list');
         $this->form_validation->set_rules('daftarhadir', 'Daftar Hadir', 'in_list');
         $this->form_validation->set_rules('beritaacara', 'Berita Acara', 'in_list');
+        $this->form_validation->set_rules('cover', 'Cover', 'in_list');
         $this->form_validation->set_rules('periode', 'Periode', 'required');
         $this->form_validation->set_rules('tahun', 'Tahun', 'required');
         $this->form_validation->set_rules('lembaga', 'Lembaga', 'required');
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+        $this->form_validation->set_rules('ketua', 'Ketua', 'required');
         $this->form_validation->set_rules('nrk', 'NRK', 'required');
         $this->form_validation->set_rules('hari_tgl', 'Hari dan Tanggal', 'required');
         $this->form_validation->set_rules('waktu', 'waktu', 'required');
@@ -389,9 +391,24 @@ class prodi extends CI_Controller
                     $data['nama_file_beritaacara'] = $upload_data['file_name'];
                 }
             }
+            $data['nama_file_cover'] = 'template5.png';
+            // var_dump($_FILES['foto_pengesahan']['name']);
+
+            if ($_FILES['cover']['name']) {
+                $config['upload_path'] = './assets/dokumen';
+                $config['allowed_types'] = array('jpg', 'jpeg', 'png');
+                $config['max_size'] = 10000; // 10MB
+                $this->load->library('upload', $config);
+                if (!$this->upload->do_upload('cover')) {
+                    $error = array('error' => $this->upload->display_errors());
+                } else {
+                    $upload_data = $this->upload->data();
+                    $data['nama_file_cover'] = $upload_data['file_name'];
+                }
+            }
 
             // var_dump($data['nama_file_pengesahan'], $data['nama_file_dokumentasi']);
-            $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi'], $data['nama_file_daftarhadir'], $data['nama_file_beritaacara']);
+            $this->Data_ami->tambah_tindaklanjut($data['user']['id'], $data['nama_file_pengesahan'], $data['nama_file_dokumentasi'], $data['nama_file_daftarhadir'], $data['nama_file_beritaacara'],  $data['nama_file_cover']);
 
             redirect('prodi/datatindaklanjut');
             // var_dump( $data['tindaklanjut']);
@@ -579,13 +596,13 @@ class prodi extends CI_Controller
     }
 
 
-    public function edit_data2_post($id)
+    public function edit_data2_post($id) 
     {
         // $a = $this->uri->segment(3);
-        $this->Data_ami->update_data2_hasil_audit($id);
+        $this->Data_ami->update_data2_tindak_lanjut($id);
         $this->session->set_flashdata('flash', 'diubah');
 
-        redirect('prodi/datahasilaudit');
+        redirect('prodi/datatindaklanjut');
     }
 
 

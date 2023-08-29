@@ -3,9 +3,15 @@
 
     <div class="card mt-2">
         <div class="card-body">
-            <center class="text-dark mt-8">
+            <!-- <center class="text-dark mt-8">
                 <h5><b>LAPORAN TINDAK LANJUT AUDIT MUTU INTERNAL <?= $tindaklanjut[0]->periode ?> <br>Program Studi <?= $tindaklanjut[0]->lembaga ?> <br></b></h5>
+            </center> -->
+
+            <center class="text-dark mt-8">
+                <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->foto_pengesahan ?></h5> -->
+                <img style="width: 1080px;" src="<?= base_url("/assets/dokumen/" . $tindaklanjut[0]->cover) ?>" alt="Gambar">
             </center>
+            <div class="page-break"></div>
 
             <center class="text-dark mt-8">
                 <!-- <h5><b>Foto Pengesahan <?= $tindaklanjut[0]->foto_pengesahan ?></h5> -->
@@ -51,8 +57,7 @@
 
                         <br></br>
                         <br></br>
-
-
+                        <p><?= $tindaklanjut[0]->ketua ?></p>
                         <p>NIP / NRK. <?= $tindaklanjut[0]->nrk ?> </p>
 
                     </div>

@@ -299,23 +299,20 @@ class Data_ami extends CI_Model
         return $query->result();
     }
 
-    public function tambah_tindaklanjut($id, $foto1, $foto2, $foto3, $foto4)
+    public function tambah_tindaklanjut($id, $foto1, $foto2, $foto3, $foto4, $foto5)
     {
         $data = [
             'id_user' => $id,
-            // 'nama_penyusunan' => $this->input->post('nama_penyusunan', true),
-            // 'pemeriksa1' => $this->input->post('pemeriksa1', true),
-            // 'pemeriksa2' => $this->input->post('pemeriksa2', true),
-            // 'penetapan1' => $this->input->post('penetapan1', true),
-            // 'penetapan2' => $this->input->post('penetapan2', true),
             'foto_pengesahan' => $foto1,
             'dokumentasi' => $foto2,
             'daftarhadir' => $foto3,
             'beritaacara' => $foto4,
+            'cover' => $foto5,
             'periode' => $this->input->post('periode', true),
             'tahun' => $this->input->post('tahun', true),
             'lembaga' => $this->input->post('lembaga', true),
             'tanggal' => $this->input->post('tanggal', true),
+            'ketua' => $this->input->post('ketua', true),
             'nrk' => $this->input->post('nrk', true),
             'hari_tgl' => $this->input->post('hari_tgl', true),
             'waktu' => $this->input->post('waktu', true),
@@ -406,16 +403,43 @@ class Data_ami extends CI_Model
     }
 
 
-    public function get_data2_by_id($id)
+    // public function get_data2_by_id($id)
+    // {
+
+
+
+    //     $this->db->select('*');
+    //     $this->db->from('bab2');
+    //     $this->db->where('id_tindaklanjut', $id);
+    //     $query = $this->db->get();
+
+    //     return $query->result();
+    // }
+
+    public function get_data2_by_id($id_bab2)
     {
+
+          $id_tindaklanjut = $this ->db->select('id_tindaklanjut')
+        ->from ('bab2')
+        ->where('id_bab2' , $id_bab2)
+        ->get()
+        ->row()
+        ->id_tindaklanjut;
+        
         $this->db->select('*');
         $this->db->from('bab2');
-        $this->db->where('id_tindaklanjut', $id);
+        $this->db->where('id_bab2' , $id_bab2);
+        $this->db->where('id_tindaklanjut', $id_tindaklanjut);
         $query = $this->db->get();
 
-        return $query->result();
-    }
+        $result = $query->result();
 
+        if (!empty($result)) {
+            return $result;
+        } else {
+            return null; // mengembalikan array kosong jika tidak ada data
+        }
+    }
 
     public function update_data($id)
     {
@@ -3893,7 +3917,7 @@ class Data_ami extends CI_Model
         $updated_data = [];
 
         // List of fields that involve file uploads
-        $fields = ['foto_pengesahan', 'dokumentasi', 'daftarhadir', 'beritaacara'];
+        $fields = ['foto_pengesahan', 'dokumentasi', 'daftarhadir', 'beritaacara', 'cover'];
 
         foreach ($fields as $field) {
             if ($this->upload->do_upload($field)) {
@@ -3910,7 +3934,7 @@ class Data_ami extends CI_Model
 
         // Get other form input values
         $other_data = [
-            'periode', 'tahun', 'lembaga', 'tanggal', 'nrk',
+            'periode', 'tahun', 'lembaga', 'tanggal', 'ketua', 'nrk',
             'hari_tgl', 'waktu', 'tempat', 'auditor', 'auditor2', 'auditee',
             'prodi', 'tanggalDE', 'kesimpulan'
         ];
