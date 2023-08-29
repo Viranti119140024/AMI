@@ -466,7 +466,8 @@ class auditorunit extends CI_Controller
         $data['params'] = $this->uri->segment(3);
 
         $data['hasilaudit'] = $this->Data_ami->get_data_hasil_audit($data['params']);
-        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
+        // $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['params']);
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
         $this->load->view('partials/auditorunit/header', $data);
         $this->load->view('templates/auditorunit/laporantindaklanjut/generate', $data);
         $this->load->view('partials/auditorunit/footer', $data);

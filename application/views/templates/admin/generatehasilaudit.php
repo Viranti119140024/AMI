@@ -170,7 +170,7 @@
 
                     <center class="text-dark mt-8" style="color:black;">
                         <div class="page-break"></div>
-\
+                        \
                         <h4><b>BAB II <br> DAFTAR TEMUAN AMI </br></b></h4>
                     </center>
 
@@ -211,49 +211,57 @@
                         <table class="table table-bordered">
                             <thead class="text-center">
                                 <tr>
-                                    <th rowspan="2" style="background-color: #FFD700; color:black;">No</th>
+                                    <th rowspan="2" style="background-color: #FFD700; color:black;">Kode PTK</th>
                                     <th rowspan="2" style="background-color: #FFD700; color:black;">Dokumen Acuan</th>
                                     <th rowspan="2" style="background-color: #FFD700; color:black;">Deskripsi Temuan</th>
+                                    <th colspan="2" style="background-color: #FFD700; color:black;">Status Temuan</th>
                                     <th rowspan="2" style="background-color: #FF0000; color:black;">Permintaan Tindakan Koreksi</th>
+                                    <!--<th rowspan="2" style="background-color: #FFD700; color:black;">Aksi</th>-->
+                                </tr>
+
+                                <tr>
+                                    <th style="background-color: #FFD700; color:black;">Open</th>
+                                    <th style="background-color: #FFD700; color:black;">Close</th>
+                                </tr>
                             </thead>
 
                             <tbody style="background-color: white; color:black;">
-                                <?php
-                                foreach ($bab2_hasil_audit as $key => $value) :
-                                    $number = $key + 1;
-                                ?>
-                                    <tr>
-                                        <th scope style="color: black;"="row"><?= $number; ?></th>
-                                        <th scope style="color: black;"="row"><?= $value->dokumen_acuan; ?></th>
-                                        <th scope style="color: black;"="row"><?= $value->deskripsi_temuan; ?></th>
-                                        <th scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></th>
-                                        <!-- <th> <a href="<?= base_url('auditor/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></th> -->
-
-                                    </tr>
-                                <?php endforeach; ?>
+                                <?php if ($bab2_hasil_audit != null) : ?>
+                                    <?php
+                                    $number = 1;
+                                    foreach ($bab2_hasil_audit as $value) :
+                                    ?>
+                                        <tr>
+                                            <td scope style="color: black;"="row"><?= $number++; ?></td>
+                                            <td scope style="color: black;"="row"><?= $value->dokumen_acuan; ?></td>
+                                            <td scope style="color: black;"="row"><?= $value->deskripsi_temuan; ?></td>
+                                            <td class="text-center"><input type="checkbox" name="open[<?= $value->id_bab2 ?>]" <?= ($value->open == 1) ? 'checked' : '' ?>></td>
+                                            <td class="text-center"><input type="checkbox" name="close[<?= $value->id_bab2 ?>]" <?= ($value->close == 1) ? 'checked' : '' ?>></td>
+                                            <td scope style="color: black;"="row"><?= $value->permintaan_tindakan; ?></td>
+                                            <!--<td> <a href="<?= base_url('auditorunit/edit_data2/') . $value->id_bab2; ?>"><button type="edit" class="sbtn btn" style="background-color: #DCDCDC;"><i class="fa fa-edit" style="color: #4169E1;"></i></button></a></td>-->
+                                        </tr>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
                             </tbody>
                         </table>
                     </div>
-                    <!-- </div>
-                <form method="post" class="form-horizontal form-label-left" novalidate action="<?= base_url('auditor/generate_pdf/' . $params) ?>">
-                    <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-success" name="submit" id="submit">Generate PDF</button>
-                    </div>
-                </form>
-            </div> -->
-
                 </div>
 
 
             </div>
 
-            <script>
-                // Automatically trigger print when the page loads
-                window.onload = function() {
-                    window.print(
-                        options = [{
-                            'background-graphics': false,
-                        }]
-                    );
-                };
-            </script>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Automatically trigger print when the page loads
+    window.onload = function() {
+        window.print(
+            options = [{
+                'background-graphics': false,
+            }]
+        );
+    };
+</script>

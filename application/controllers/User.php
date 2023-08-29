@@ -153,6 +153,8 @@ class User extends CI_Controller
         // $data['hasil_tindak_lanjut'] = $this->Data_ami->get_id_hasil_tindak_lanjut();
 
         $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit_baru($id);
+        // $data['hasilaudit'] = $this->Data_ami->get_id_hasil_audit();
+        $data['bab2_hasil_audit'] = $this->Data_ami->get_data2_hasil_audit($data['hasilaudit']->id_hasilaudit);
 
         // var_dump( $data['hasilaudit']);
 
