@@ -4,52 +4,6 @@
             <div class="card-body">
                 <h4 class="d-flex justify-content-center align-items-center mt-3 font-weight-bold text-dark"><?= $title1 ?></h4>
 
-                <!-- <div class="table-responsive mt-2">
-                    <table class="table table-borderless" style="color:black;">
-                        <tr>
-                            <td width="200px">Jurusan</td>
-                            <td width="10px">:</td>
-                            <td>JTPI</td>
-                        </tr>
-
-                        <tr>
-                            <td>Strata</td>
-                            <td>:</td>
-                            <td>S1</td>
-                        </tr>
-
-                        <tr>
-                            <td>Universitas</td>
-                            <td>:</td>
-                            <td>INSTITUT TEKNOLOGI SUMATERA</td>
-                        </tr>
-
-                        <tr>
-                            <td>Ruang Lingkup DE</td>
-                            <td>:</td>
-                            <td>Kompetensi Lulusan</td>
-                        </tr>
-
-                        <tr>
-                            <td>Auditor</td>
-                            <td>:</td>
-                            <td>Tim Auditor Mutu Internal ITERA</td>
-                        </tr>
-
-                        <tr>
-                            <td>Tanggal DE</td>
-                            <td>:</td>
-                            <td></td>
-                        </tr>
-
-                        <tr>
-                            <td>Dokumen Acuan</td>
-                            <td>:</td>
-                            <td>Standar Kompetensi Lulusan</td>
-                        </tr>
-                    </table>
-                </div> -->
-
                 <div class=" d-flex justify-content-start my-3">
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#hasil_desk">
                         Tambah Pertanyaan
